@@ -1471,36 +1471,34 @@ export const ProductDetail = () => {
                         )}
                       </div>
 
-                      <div className="row">
-                        <div className="fvgndfjgf">
-                          <label htmlFor="" className="form-label me-1 mb-2">
-                            Qty:
-                          </label>
+                      <div className="fvgndfjgf">
+                        <label htmlFor="" className="form-label me-1 mb-2">
+                          Qty:
+                        </label>
 
-                          <select
-                            name="product_quantity"
-                            id="product_quantity"
-                            value={selectedQuantity}
-                            onChange={(e) =>
-                              handleQuantitySelect(Number(e.target.value))
-                            }
-                            disabled={!availableQty}
-                            className="form-select weqwthyuytredfgw select-form-drpdwn"
-                          > 
-                            {availableQty > 0 ? (
-                                Array.from(
-                                  { length: Math.min(availableQty, 5) },
-                                  (_, i) => i + 1
-                                ).map((qty) => (
-                                  <option key={qty} value={qty}>
-                                    {qty}
-                                  </option>
-                                ))
-                              ) : (
-                                <option value="">Out of Stock</option>
-                              )}
-                          </select>
-                        </div>
+                        <select
+                          name="product_quantity"
+                          id="product_quantity"
+                          value={selectedQuantity}
+                          onChange={(e) =>
+                            handleQuantitySelect(Number(e.target.value))
+                          }
+                          disabled={!availableQty}
+                          className="form-select weqwthyuytredfgw select-form-drpdwn"
+                        > 
+                          {availableQty > 0 ? (
+                              Array.from(
+                                { length: Math.min(availableQty, 5) },
+                                (_, i) => i + 1
+                              ).map((qty) => (
+                                <option key={qty} value={qty}>
+                                  {qty}
+                                </option>
+                              ))
+                            ) : (
+                              <option value="">Out of Stock</option>
+                            )}
+                        </select>
                       </div>
 
                       {(productDetails?.data?.matching_turban === "1" ||
@@ -1508,7 +1506,7 @@ export const ProductDetail = () => {
                         <div className="sadfvfghbrsd mt-4">
                           <div className="col-lg-12">
                             <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 col-lg-9 row align-items-center justify-content-between">
+                              <div className="opjdjwerwer mb-3 col-lg-8 row align-items-center justify-content-between">
                                 <div className="doweriwejrwer col-lg-6 col-md-8 col-sm-8 col-8">
                                   <div class="checkbox-wrapper-33">
                                     <label class="checkbox">
@@ -1925,7 +1923,7 @@ export const ProductDetail = () => {
                           Apply"
                         </p>
 
-                        <hr className="mt-0" style={{ width: "90%" }} />
+                        <hr className="mt-0" style={{ width: "86%" }} />
 
                         <div className="injdewrwer">
                           {/* <h4 className="mb-0 me-2">Coupon Code -</h4> */}
@@ -2366,7 +2364,7 @@ export const ProductDetail = () => {
                             {productDetails?.data?.matching_product.map(
                               (matchingProduct) => (
                                 <SwiperSlide key={matchingProduct.id}>
-                                  <div className="dfgjhbdfg matching-products sdfvdscsddfgdfg p-2 mb-3">
+                                  <div className="dfgjhbdfg matching-products adsfsfcsfasdfaef sdfvdscsddfgdfg p-2 mb-3">
                                     <Link
                                       to={`/products/${matchingProduct.slug}`}
                                     >
@@ -2388,15 +2386,27 @@ export const ProductDetail = () => {
                                           </div>
 
                                           <div className="fdbdfgdfgdf col-lg-8">
-                                            <h4>
+                                            <h4 className="doiwejrojweorj mb-2">
                                               {matchingProduct.product_name}
                                             </h4>
 
                                             <h5>
-                                              {formatPrice(
+                                              {/* {formatPrice(
                                                 matchingProduct.selling_price
-                                              )}
-                                            </h5>
+                                              )} */}
+                                            </h5>                                            
+
+                                            <div className="macthng-prdcts d-flex align-items-center">
+                                              <h5 className="mb-0">{formatPrice(matchingProduct.selling_price)}</h5>
+
+                                              <span class="gdfg55 ms-2">
+                                                {formatPrice(matchingProduct.mrp_price)}
+                                              </span>
+
+                                              <span class="fghfgg114 ms-2">{matchingProduct?.discount}%OFF</span>
+                                            </div>
+
+                                            
                                           </div>
                                         </div>
                                       </div>
@@ -2422,7 +2432,7 @@ export const ProductDetail = () => {
                                       to={`/products/${matchingProduct.slug}`}
                                     >
                                       <div className="images">
-                                        <div className="image d-flex position-relative">
+                                        <div className="image dpmeljkemkewr d-flex position-relative">
                                           <div className="doiewjkrniuwewer position-relative col-lg-4 overflow-hidden">
                                             <img
                                               src={
@@ -2445,11 +2455,16 @@ export const ProductDetail = () => {
                                               {matchingProduct.product_name}
                                             </h4>
 
-                                            <h5>
-                                              {formatPrice(
-                                                matchingProduct.selling_price
-                                              )}
+                                            <h5 className="dweojfwejfhu">
+                                              {formatPrice(matchingProduct.selling_price)}
+                                              <span class="gdfg55 d-flex align-items-center ms-2">
+                                                {formatPrice(matchingProduct.mrp_price)}
+                                              </span>
+
+                                              <span class="fghfgg114 d-flex align-items-center ms-2">{matchingProduct?.discount}%OFF</span>
                                             </h5>
+
+                                            
                                           </div>
                                         </div>
                                       </div>
@@ -2782,7 +2797,7 @@ export const ProductDetail = () => {
         } position-fixed bg-white`}
       >
         <div className="s-s-m-header d-flex align-items-center justify-content-between p-3 border-bottom">
-          <h4 className="mb-0">Turbon Chart Size & Mojri Size Chart </h4>
+          <h4 className="mb-0">Turban Size Chart </h4>
 
           <i class="bi bi-x-lg" onClick={() => setTurbanModal(false)}></i>
         </div>
@@ -2810,7 +2825,7 @@ export const ProductDetail = () => {
         } position-fixed bg-white`}
       >
         <div className="s-s-m-header d-flex align-items-center justify-content-between p-3 border-bottom">
-          <h4 className="mb-0">Mojri Chart Size</h4>
+          <h4 className="mb-0">Mojri Size Chart</h4>
 
           <i class="bi bi-x-lg" onClick={() => setMojriModal(false)}></i>
         </div>

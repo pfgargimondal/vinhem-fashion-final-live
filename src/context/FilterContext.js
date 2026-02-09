@@ -967,7 +967,8 @@ export const FilterProvider = ({ children }) => {
     function resetFilter() {
         dispatch({
             type: "REST_FILTER"
-        })
+        });
+        navigate(location.pathname, { replace: true });
     }
 
     function removeMainCategory(value) {
