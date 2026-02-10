@@ -113,6 +113,10 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
   // Handle max input change (allow typing freely)
   const handleMaxInput = (e) => {
     const value = e.target.value;
+    if (value === "") {
+      setPrice(minPrice, "");
+      return;
+    }
     setPrice(minPrice, Number(value));
   };
 
@@ -142,12 +146,14 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
   };
 
   const handleMaxBlur = () => {
-    let value = maxPrice;
+    let value = Number(maxPrice);
+    if (isNaN(value)) value = minPrice + priceGap;
     if (value > maxRange) value = maxRange;
     if (value < minPrice + priceGap) value = minPrice + priceGap;
     // setPrice(minPrice, value);
     applyPriceFilter(minPrice, value);
   };
+
 
   const handleMinEnter = (e) => {
     if (e.key === "Enter") handleMinBlur();
@@ -208,12 +214,24 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                     <div className="dioeuhiewrwer">
                       <span>Maximum</span>
 
-                      <input
+                      {/* <input
                         type="number"
                         value={maxPrice}
+                        min={minPrice + priceGap}
+                        max={maxRange}
                         onChange={handleMaxInput}
                         onBlur={handleMaxBlur}
                         onKeyDown={handleMaxEnter}
+                      /> */}
+                      <input
+                        type="number"
+                        value={maxPrice}
+                        min={minPrice + priceGap}
+                        max={maxRange}
+                        onChange={handleMaxInput}
+                        onBlur={handleMaxBlur}
+                        onKeyDown={handleMaxEnter}
+                        onWheel={(e) => e.target.blur()}
                       />
                     </div>
                   </div>
