@@ -433,10 +433,14 @@ p.sidifsdiyhr{
 }
 
 .cffdrtrvwet.nw-arrvl{
-  left: -1%;
+  left: 0;
   background-size: 95px;
   width: 95px !important;
   line-height: 2.9 !important;
+}
+
+.cffdrtrvwet.nw-arrvl > .nw-arrvl{
+  left: 5%;
 }
 
 .gbsdeeer.dscnt-prce{
