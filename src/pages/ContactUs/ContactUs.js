@@ -164,13 +164,11 @@ export const ContactUs = () => {
   return (
     <>
       <div className="container-fluid">
-        <div className={styles.aboutusbannr} style={{
-            backgroundImage:
-              ContactUsImage && ContactUsDetails.contact_details?.banner_image
-                ? `url(${ContactUsImage}/${ContactUsDetails.contact_details.banner_image})`
-                : "none", borderRadius: "27px", height: "553px", objectFit: "cover", marginTop: "1rem"
-          }}
-        ></div>
+        <div className={styles.aboutusbannr}>
+          <img src={ContactUsImage && ContactUsDetails.contact_details?.banner_image
+                ? `${ContactUsImage}/${ContactUsDetails.contact_details.banner_image}`
+                : "none"} className="w-100" style={{borderRadius: "27px", marginTop: "1rem", overflow: "hidden"}} alt="" />
+        </div>
       </div>
 
       <div className={` ${styles.jvjhubjkjoij} mt-5`}>

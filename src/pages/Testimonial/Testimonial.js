@@ -51,11 +51,11 @@ export const Testimonial = () => {
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
     const handlePrev = () => {
-     setCurrentPage((prev) => Math.max(prev - 1, 1));
+        setCurrentPage((prev) => Math.max(prev - 1, 1));
     };
 
     const handleNext = () => {
-     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
     };
 
     const [expandedIndex, setExpandedIndex] = useState(null);
@@ -63,7 +63,7 @@ export const Testimonial = () => {
     const toggleExpand = (index) => {
         setExpandedIndex(expandedIndex === index ? null : index);
     };
-    
+
 
     if (loading) {
         return <Loader />;
@@ -75,20 +75,20 @@ export const Testimonial = () => {
                 <div className="container-fluid">
                     <div className="breadcrumb">
                         <ul className="ps-0 mb-1">
-                        <li>
-                            Vinhem Fashion
-                        </li>
-                        <li className="mx-2">/</li>
-                        <li>
-                            Testimonial
-                        </li>
+                            <li>
+                                Vinhem Fashion
+                            </li>
+                            <li className="mx-2">/</li>
+                            <li>
+                                Testimonial
+                            </li>
                         </ul>
                     </div>
                     {TestimonialDetails?.banner?.banner_image && (
                         <img
-                        src={`${TestimonialDetails?.banner_url}/${TestimonialDetails?.banner.banner_image}`}
-                        className="img-fluid"
-                        alt=""
+                            src={`${TestimonialDetails?.banner_url}/${TestimonialDetails?.banner.banner_image}`}
+                            className="img-fluid"
+                            alt=""
                         />
                     )}
                 </div>
@@ -630,13 +630,13 @@ export const Testimonial = () => {
                     <div className="doewjorjwoejrwer mt-3">
                         <div className="row">
                             {currentTestimonial?.map((contentVal, index) => (
-                                
-                                    <div className="col-lg-4 mb-3">
-                                        <Link to={contentVal.link_url}>
+
+                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <Link to={contentVal.link_url}>
                                         <div className="oeijmewrwer d-flex p-2">
                                             <div className="col-lg-3">
                                                 <div className="djewojewr_left">
-                                                    <img src={`${TestimonialDetails?.testimonial_url}/${contentVal?.image}`} alt="" />                                    
+                                                    <img src={`${TestimonialDetails?.testimonial_url}/${contentVal?.image}`} alt="" />
                                                 </div>
                                             </div>
 
@@ -657,21 +657,19 @@ export const Testimonial = () => {
                                                             <p className="sadfdtwrwrwr mb-0">
                                                                 {[...Array(5)].map((_, index) => (
                                                                     <i
-                                                                    key={index}
-                                                                    className={`fa-solid fa-star me-1 ${
-                                                                        index < contentVal.testimonial_rating ? "text-warning" : "text-secondary"
-                                                                    }`}
+                                                                        key={index}
+                                                                        className={`fa-solid fa-star me-1 ${index < contentVal.testimonial_rating ? "text-warning" : "text-secondary"
+                                                                            }`}
                                                                     ></i>
                                                                 ))}
                                                             </p>
-                                                        </div>  
+                                                        </div>
 
-                                                        <h5 className="duiwehrwerwer my-2">{contentVal.head_title}</h5>                              
+                                                        <h5 className="duiwehrwerwer my-2">{contentVal.head_title}</h5>
 
                                                         <p
-                                                            className={`sftgrewrrr mb-0 ${
-                                                                expandedIndex === index ? "expanded" : ""
-                                                            }`}
+                                                            className={`sftgrewrrr mb-0 ${expandedIndex === index ? "expanded" : ""
+                                                                }`}
                                                         >
                                                             {contentVal.description}
                                                         </p>
@@ -692,18 +690,18 @@ export const Testimonial = () => {
 
                                                     <h6 className="dwerfqwer mb-0">
                                                         {new Date(contentVal.testimonial_date)
-                                                        .toLocaleDateString("en-US", {
-                                                            month: "long",
-                                                            day: "2-digit",
-                                                            year: "numeric",
-                                                        })
-                                                        .replace(",", "")}
+                                                            .toLocaleDateString("en-US", {
+                                                                month: "long",
+                                                                day: "2-digit",
+                                                                year: "numeric",
+                                                            })
+                                                            .replace(",", "")}
                                                     </h6>
                                                 </div>
                                             </div>
                                         </div>
-                                        </Link>
-                                    </div>
+                                    </Link>
+                                </div>
                             ))}
 
                             {/* <div className="col-lg-4 mb-3">
@@ -758,9 +756,9 @@ export const Testimonial = () => {
                             <button className="btn btn-main" onClick={handlePrev}>Prev</button>
 
                             <div className="pagination_ff d-flex align-items-center">
-                            {pages.map(page => (
-                                <button key={page} className={(currentPage === page) ? "btn btn-main active" : "btn btn-main"} onClick={() => setCurrentPage(page)}>{page}</button>
-                            ))}
+                                {pages.map(page => (
+                                    <button key={page} className={(currentPage === page) ? "btn btn-main active" : "btn btn-main"} onClick={() => setCurrentPage(page)}>{page}</button>
+                                ))}
                             </div>
 
                             <button className="btn btn-main" onClick={handleNext}>Next</button>

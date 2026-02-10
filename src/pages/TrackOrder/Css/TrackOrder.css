@@ -196,3 +196,12 @@
 }
 
 /*track order end*/
+
+
+
+@media only screen and (max-width: 991px){
+	.lksnkjererr.px-5{
+		padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+    	padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+	}
+}

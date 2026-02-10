@@ -1,6 +1,7 @@
-.aboutusbannr {
+.aboutusbannr img {
   width: 100%;
-  height: 500px;
+  height: 553px;
+  object-fit: cover;
 }
 
 .jvjhubjkjoij .address-section {
@@ -206,4 +207,40 @@
 } */
 
 
- 
+
+
+
+@media only screen and (min-width: 2551px){
+  .aboutusbannr img{
+    height: auto;
+  }
+}
+
+
+
+@media only screen and (max-width: 2550px){
+  .aboutusbannr img{
+    height: auto;
+  }
+}
+
+
+
+@media only screen and (max-width: 1366px){
+  .aboutusbannr img{
+    height: 553px;
+  }
+}
+
+
+
+@media only screen and (max-width: 991px){
+  .aboutusbannr img,
+  .dfgjhfg2{
+    height: auto;
+  }
+
+  .dfdfg5www5 select{
+    width: 100%;
+  }
+}

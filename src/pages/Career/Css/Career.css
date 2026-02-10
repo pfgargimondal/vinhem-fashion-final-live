@@ -52,22 +52,6 @@
 }
 
 
-
-
-
-
-@media screen and (max-width: 790px){
-  html {
-    font-size: 14px;
-  }
-  .fjgnfg55d .wrapper {
-  width: 80%;
-}
-}
-
-
-
-
 .fbhjjdfjk554
 {
   padding: 40px 0;
@@ -156,6 +140,42 @@
   border-color: var(--pink-main-color) !important;
 }
 
+.dfbhdf h2{
+  padding-top: 0;
+  position: absolute;
+  top: 38%;
+  right: 25%;
+  transform: translateY(-50%);
+}
+
 /* end  career2  page css */
 /* end  career2  page css */
 /* end  career2  page css */
+
+
+
+
+
+
+@media only screen and (max-width: 991px){
+  .fnb788f{
+    width: 100%;
+  }
+
+  .dfbhdf h2{
+    font-size: 1.4rem;
+  }
+}
+
+
+
+
+@media screen and (max-width: 790px){
+  html {
+    font-size: 14px;
+  }
+  
+  .fjgnfg55d .wrapper {
+    width: 80%;
+  }
+}

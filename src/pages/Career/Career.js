@@ -21,7 +21,7 @@ export const Career = () => {
         setCareerDetails(getresponse.data);
       } catch (error) {
         console.error("Error fetching career content:", error);
-      } finally{
+      } finally {
         setLoading(false);
       }
     };
@@ -37,7 +37,7 @@ export const Career = () => {
         setJobOpenings(getresponse.data.data);
       } catch (error) {
         console.error("Error fetching career content:", error);
-      } finally{
+      } finally {
         setLoading(false);
       }
     };
@@ -50,41 +50,35 @@ export const Career = () => {
   }
 
   if (loading) {
-      return <Loader />;
+    return <Loader />;
   }
 
 
   return (
     <div>
       <div className="container-fluid">
-        <div className="aboutusbannr"
-        style={{
-          backgroundImage:
-            CareerDetails?.image_url && CareerDetails?.data?.banner_image
-              ? `url(${CareerDetails.image_url}/${CareerDetails.data.banner_image})`
-              : "url(./image/fashion-caeer.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center", borderRadius: "27px", height: "553px", objectFit: "cover", marginTop: "1rem"
-        }}
-      >
-        <div className="container-fluid">
-          <div className="dfgnhdfjhgdf">
-            <div className="row">
-              <div className="col-lg-7"></div>
-              <div className="col-lg-5">
-                <div className="dfbhdf">
-                  <h2>{CareerDetails.data?.banner_title || "Career"}</h2>
-                  {/* <p>
+        <div className="aboutusbannr position-relative">
+          <img src={CareerDetails?.image_url && CareerDetails?.data?.banner_image
+            ? `${CareerDetails.image_url}/${CareerDetails.data.banner_image}`
+            : "./image/fashion-caeer.png"} className="w-100" style={{ borderRadius: "27px", marginTop: "1rem", overflow: "hidden" }} alt="" />
+          <div className="container-fluid">
+            <div className="dfgnhdfjhgdf">
+              <div className="row">
+                <div className="col-lg-7"></div>
+                <div className="col-lg-5">
+                  <div className="dfbhdf">
+                    <h2>{CareerDetails.data?.banner_title || "Career"}</h2>
+                    {/* <p>
                     {CareerDetails.data?.banner_description ||
                       "Celebrating style with every stitch – where trends meet timeless elegance."}
                   </p> */}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        </div>  
-      </div>      
+      </div>
 
       <div className="fbhjjdfjk554">
         <div className="wrapper">
@@ -93,7 +87,7 @@ export const Career = () => {
               <h4>
                 {CareerDetails.data?.second_section_title}
               </h4>
-              <div className="bgdf55ff" 
+              <div className="bgdf55ff"
                 dangerouslySetInnerHTML={{
                   __html:
                     CareerDetails.data?.second_section_description ||
@@ -118,8 +112,8 @@ export const Career = () => {
 
                 <div className={`answercont ${jobAccordion === jobOpening.id ? "open" : ""}`}>
                   <div className="answer">
-                    <div className="bgdf55ff" 
-                    dangerouslySetInnerHTML={{
+                    <div className="bgdf55ff"
+                      dangerouslySetInnerHTML={{
                         __html:
                           jobOpening?.description ||
                           "Be a part of Vinham Fashion’s inspiring creative journey and help us shape the future of global style. Explore exciting career opportunities and grow with our passionate team.",
@@ -129,7 +123,7 @@ export const Career = () => {
                 </div>
               </div>
             ))}
-          </div>      
+          </div>
         </div>
       </div>
 

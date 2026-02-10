@@ -78,13 +78,10 @@ export const TrackOrder = () => {
       
       <div>
         <div className="container-fluid">
-          <div className="aboutusbannr" 
-            style={{backgroundSize: "cover",
-              backgroundImage: TrackingOrderDetails?.image_url && TrackingOrderDetails?.data?.banner_image
-                ? `url(${TrackingOrderDetails.image_url}/${TrackingOrderDetails.data.banner_image})`
-                : "none", borderRadius: "27px", height: "553px", objectFit: "cover", marginTop: "1rem"
-            }}
-          >
+          <div className="aboutusbannr">
+            <img src={TrackingOrderDetails?.image_url && TrackingOrderDetails?.data?.banner_image
+                ? `${TrackingOrderDetails.image_url}/${TrackingOrderDetails.data.banner_image}`
+                : "none"} className="w-100" style={{borderRadius: "27px", marginTop: "1rem", overflow: "hidden"}} alt="" />
             <div className="sdfgdfgdfg">
                 <div className="dfgnhdfjhgdf">
                     <div className="row">

@@ -327,3 +327,53 @@ p.sadfdtwrwrwr{
 /*end  testimonial  css   */
 /*end  testimonial  css   */
 /*end  testimonial  css   *//*# sourceMappingURL=style.css.map */
+
+
+
+
+@media only screen and (min-width: 2551px){
+  .banner img{
+    height: auto;
+  }
+}
+
+
+
+@media only screen and (max-width: 2550px){
+  .banner img{
+    height: auto;
+  }
+}
+
+
+
+@media only screen and (max-width: 1366px){
+  .banner img{
+    height: 553px;
+  }
+}
+
+
+
+@media only screen and (max-width: 991px){
+  .banner img{
+    height: auto;
+  }
+
+  .djewojewr_left img{
+    width: auto;
+    height: 5rem;
+  }
+
+  .djewojewr_right.ps-5{
+    padding-left: 0.8rem !important;
+  }
+}
+
+
+
+@media only screen and (max-width: 341px){
+  .doiwejrwer.d-flex{
+    display: block !important;
+  }
+}

@@ -38,16 +38,10 @@ export const FAQ = () => {
       {/* Banner Section */}
       <div className="fgyfgfd5215g">
         <div className="container-fluid">
-          <div
-            className="aboutusbannr55"
-            style={{
-              backgroundImage: FAQDetails.data?.banner_image
-                ? `url(${FAQDetails.image_url}/${FAQDetails.data.banner_image})`
-                : "none",
-              backgroundSize: "cover",
-              backgroundPosition: "center", borderRadius: "27px", height: "553px", objectFit: "cover", marginTop: "1rem"
-            }}
-          >
+          <div className="aboutusbannr55">
+            <img src={FAQDetails.data?.banner_image
+                ? `${FAQDetails.image_url}/${FAQDetails.data.banner_image}`
+                : "none"} className="w-100" style={{borderRadius: "27px", marginTop: "1rem", overflow: "hidden"}} alt="" />
             <div className="dfgnhdfjhgdf">
               <div className="row">
                 <div className="col-lg-7"></div>

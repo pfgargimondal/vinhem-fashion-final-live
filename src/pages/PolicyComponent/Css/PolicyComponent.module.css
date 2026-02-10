@@ -179,3 +179,38 @@
 
 /*end  trams & condition  css   */
 /*end  trams & condition  css   */
+
+
+
+
+
+@media only screen and (min-width: 2551px){
+  .banner img{
+    height: auto;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 2550px){
+  .banner img{
+    height: auto;
+  }
+}
+
+
+
+@media only screen and (max-width: 1366px){
+  .banner img{
+    height: 553px;
+  }
+}
+
+
+
+@media only screen and (max-width: 991px){
+  .banner img{
+    height: auto;
+  }
+}
