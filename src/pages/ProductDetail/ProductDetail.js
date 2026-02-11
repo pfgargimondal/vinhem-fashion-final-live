@@ -1335,7 +1335,7 @@ export const ProductDetail = () => {
                                 <h4>Select Your Size</h4>
                               </label>
 
-                              <div className="dfhdfhd pe-5">
+                              <div className="dfhdfhd pe-0">
                                 <p className="d-flex align-items-center mb-0">
                                   <span className="me-2">SHARE:</span>
 
@@ -1366,7 +1366,7 @@ export const ProductDetail = () => {
                               </div>
                             </div>
 
-                            <hr class="mt-0" style={{ width: "91%" }} />
+                            <hr class="mt-0" style={{ width: "86%" }} />
 
                             <div className="d-flex align-items-center justify-content-between sdfasdctgerrrrwe mb-3">
                               <div className="select-form-drpdwn weqwthyuytredfgw me-3">

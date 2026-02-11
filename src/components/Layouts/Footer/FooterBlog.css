@@ -1,5 +1,6 @@
 .dweoriwenirjweoijrwer{
-    background: var(--black-background-color);
+    background: #fff;
+    border-top: 1px solid var(--pink-main-color);
 }
 
 .doiwqjejir_inner{
@@ -8,24 +9,19 @@
 
 .doiwqjejir_inner img{
     width: 14rem;
-    filter: brightness(0) invert(1);
-}
-
-.doiwqjejir_inner h5{
-    font-weight: 400;
 }
 
 .doiwqjejir_inner p,
 .doiwqjejir_inner a{
-    color: var(--text-lighter-gray-color);
+    color: #000;
+    font-weight: 500;
 }
 
 .doiwqjejir_inner a{
     text-transform: uppercase;
     font-size: 0.9rem;
-    font-weight: 400;
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     user-select: none;
 }
 
@@ -35,6 +31,7 @@
 
 .sadfdfgeadetr p{
     text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 .okasdnfknwer h4{

@@ -29,7 +29,6 @@
     font-weight: 600;
     padding: 0.6rem 0.6rem;
     border: 1px solid var(--black-hover-background-color) !important;
-    border-radius: 0;
     transition: 0.2s ease-in-out;
 }
 

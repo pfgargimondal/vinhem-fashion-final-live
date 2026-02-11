@@ -279,9 +279,9 @@ export const Blog = () => {
                             </div>
 
                             <div className="mb-5">
-                                <h5 className="olkdflmroij py-3 px-4 mb-0 text-light section-title">Follow Us On</h5>
+                                <h5 className="olkdflmroij py-3 px-4 text-light section-title">Follow Us On</h5>
 
-                                <ul className="opsdjfopsdjkfopsdkof d-flex align-items-center justify-content-around follow-card list-inline py-3 mx-4">
+                                {/* <ul className="opsdjfopsdjkfopsdkof d-flex align-items-center justify-content-around follow-card list-inline py-3 mx-4">
                                     <li className="list-inline-item">
                                         <a href="/">
                                             <i class="fa-brands p-2 text-light fa-facebook-f"></i>
@@ -311,12 +311,46 @@ export const Blog = () => {
                                             <i class="fa-brands p-2 text-light fa-youtube"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
+
+                                <div className="social-icons-container">
+                                    <ul className="mb-0 ps-0">
+                                        <li>
+                                            <a href="/">
+                                                <i className="fa-brands fa-facebook-f" />
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/">
+                                                <i className="fa-brands fa-x" />
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/">
+                                                <i className="fa-brands fa-instagram" />
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/">
+                                                <i className="fa-brands fa-linkedin-in" />
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/">
+                                                <i className="fa-brands fa-youtube" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>  
 
                             <section className="video-sidebar-section">
                                 <div className="video-wrapper">
-                                    {blogvedio?.vedio_url && (
+                                    {/* {blogvedio?.vedio_url && (
                                         <iframe
                                             width="100%"
                                             height="400"
@@ -326,7 +360,9 @@ export const Blog = () => {
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen
                                         ></iframe>
-                                    )}
+                                    )} */}
+
+                                    <img width="100%" className="dckisehiwehrr" style={{height: "100%"}} src="./images/fashion40.png" alt="" />
                                 </div>
                             </section>                       
                         </div>
@@ -334,7 +370,7 @@ export const Blog = () => {
                 </div>
             </div>
 
-            <FooterBlog />
+            <FooterBlog blogCategories={blogCategories} />
         </>
     )
 }

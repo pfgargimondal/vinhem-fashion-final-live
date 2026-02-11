@@ -394,15 +394,15 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
 
                       <li><img src="/images/2.png" className="img-fluid" alt="" /></li>
 
-                      <li className="me-0"><img src="/images/3.jpg" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/3.jpg" className="img-fluid" alt="" /></li>
+
+                      <li className="me-0"><img src="/images/4.png" className="img-fluid" alt="" /></li>
                     </ul>
                   </div>
 
                   <div className="col-lg-7">
                     <ul className="fb-payment-options kajhdijojeijrrr d-flex justify-content-end align-items-center ps-0 mb-0">
-                      <li><p className="asfrweewee mb-0">SAFE & SECURE PAYMENTS :</p></li>
-
-                      <li><img src="/images/4.png" className="img-fluid" alt="" /></li>
+                      <li><p className="asfrweewee mb-0">SAFE & SECURE PAYMENTS :</p></li>                      
 
                       <li><img src="/images/5.png" className="img-fluid" alt="" /></li>
 

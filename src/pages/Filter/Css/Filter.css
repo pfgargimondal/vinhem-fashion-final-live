@@ -17,6 +17,9 @@
 .filter-wrapper .breadcrumb ul li:last-child a{
   color: var(--light-black-text-color);
 }
+.diwehiruhwerwer h6.last-child{
+  margin-right: 0;
+}
 .oidenjwihrwer h6{
   font-weight: 500;
   transition: 0.2s ease-in-out;

@@ -744,18 +744,20 @@ export const Filter = () => {
                               </div>
 
                               <div className={`fdbdfgdfgdf ${!viewType ? "col-lg-12 px-1" : "col-lg-9"}`}>
-                                <h6><i class="bi me-1 bi-truck"></i> Ships in {product.shipping_time}</h6>
+                                <div className={`d-flex align-items-center ${(product.rts_quantity > '0' && (product?.best_seller === '1' || product?.best_seller === true) ? "justify-content-between" : "")}`}>
+                                  <h6><i class="bi me-1 bi-truck"></i> Ships in {product.shipping_time}</h6>
 
-                                {/* {product.product_category === "READY TO SHIP" && (
-                                  <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
-                                )} */}
-                                {product.rts_quantity > '0' && (
-                                  <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
-                                )}
+                                  {/* {product.product_category === "READY TO SHIP" && (
+                                    <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
+                                  )} */}
+                                  {product.rts_quantity > '0' && (
+                                    <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
+                                  )}
 
-                                {(product.best_seller === '1' || product.best_seller === true) && (
-                                  <h6><i class="bi bi-lightning-charge"></i> Best Seller</h6>
-                                )}
+                                  {(product.best_seller === '1' || product.best_seller === true) && (
+                                    <h6><i class="bi bi-lightning-charge"></i> Best Seller</h6>
+                                  )}
+                                </div>
 
                                 <h4>{product.product_name}</h4>
 
