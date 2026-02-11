@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 export const FooterBlog = ({ blogCategories }) => {
     const [loading, setLoading] = useState(false);
+     // eslint-disable-next-line
     const [blogsHeader, setBlogsHeader] = useState([]);
     const [popularblogs, setPopularBlogs] = useState([]);
     const [recentblogs, setRecentBlogs] = useState([]);

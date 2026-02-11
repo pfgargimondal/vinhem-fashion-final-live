@@ -25,6 +25,7 @@ export const Blog = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [blogCategories, setBlogCategories] = useState([]);
     const [blogTags, setBlogTags] = useState([]);
+     // eslint-disable-next-line
     const [blogvedio, setBlogVedio] = useState("");
 
     const [blogBanner, setBlogBanner] = useState([]);
