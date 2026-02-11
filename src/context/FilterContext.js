@@ -15,8 +15,8 @@ const filterInitialState = {
     filterCategory: null,
     filterCategoryName: [],
     color: [],
-    material: [],
-    designer: [],
+    material: null,
+    designer: null,
     plusSize: [],
     occasion: [],
     size: [],
@@ -66,11 +66,17 @@ export const FilterProvider = ({ children }) => {
         if (newState.color.length)
             searchParams.set("color", newState.color.join(","));
 
-        if (newState.material.length)
-            searchParams.set("material", newState.material.join(","));
+        if (newState.material) {
+            searchParams.set("material", newState.material);
+        } else {
+            searchParams.delete("material");
+        }
 
-        if (newState.designer.length)
-            searchParams.set("designer", newState.designer.join(","));
+        if (newState.designer) {
+            searchParams.set("designer", newState.designer);
+        } else {
+            searchParams.delete("designer");
+        }
 
         // ✅🔥 ADD THIS (MOST IMPORTANT)
         if (newState.plusSize.length)
@@ -167,8 +173,8 @@ export const FilterProvider = ({ children }) => {
                 filterCategoryName: getArray("filter"),
 
                 color: getArray("color"),
-                material: getArray("material"),
-                designer: getArray("designer"),
+                material: params.get("material") || "",
+                designer: params.get("designer") || "",
                 plusSize: plusSizeFromUrl,   // ✅ FIXED
                 occasion: getArray("occasion"),
                 size: getArray("size"),
@@ -545,14 +551,20 @@ export const FilterProvider = ({ children }) => {
     function setMaterial(material) {
         if (!material) return;
 
+        // const newState = {
+        //     ...state,
+        //     material: state.material.includes(material)
+        //         ? state.material.filter(v => v !== material)
+        //         : [...state.material, material],
+
+        //     page: 1 
+        // };
         const newState = {
             ...state,
-            material: state.material.includes(material)
-                ? state.material.filter(v => v !== material)
-                : [...state.material, material],
-
-            page: 1 
+            material: state.material === material ? "" : material,
+            page: 1
         };
+
 
         dispatch({ type: "MATERIAL", payload: { material } });
         dispatch({ type: "PAGE", payload: { page: 1 } });
@@ -561,8 +573,8 @@ export const FilterProvider = ({ children }) => {
     }
 
     function filterMaterial(products) {
-        const selectedMaterials = state.material || [];
-        if (!selectedMaterials.length) return products;
+        const selectedMaterial = state.material;
+        if (!selectedMaterial) return products;
 
         return products.filter(product => {
             const productMaterials = product.filter_material
@@ -572,10 +584,8 @@ export const FilterProvider = ({ children }) => {
 
             if (!productMaterials?.length) return false;
 
-            return selectedMaterials.some(selected =>
-                productMaterials.some(material =>
-                    material.includes(selected)
-                )
+            return productMaterials.some(material =>
+                material.includes(selectedMaterial.toLowerCase())
             );
         });
     }
@@ -589,22 +599,29 @@ export const FilterProvider = ({ children }) => {
 
         const newState = {
             ...state,
-            designer: state.designer.includes(designer)
-                ? state.designer.filter(v => v !== designer)
-                : [...state.designer, designer],
-
-            page: 1 
+            designer: state.designer === designer ? "" : designer, // toggle single select
+            page: 1
         };
-
-        dispatch({ type: "DESIGNER", payload: { designer } });
-        dispatch({ type: "PAGE", payload: { page: 1 } });
+        dispatch({
+            type: "DESIGNER",
+            payload: { designer: newState.designer }
+        });
+        dispatch({
+            type: "PAGE",
+            payload: { page: 1 }
+        });
 
         updateURLWithFilters(newState);
     }
 
+
     function filterDesigner(products) {
-        const selectedDesigners = state.designer || [];
-        return selectedDesigners.length ? products.filter(product => selectedDesigners.includes(product.designer?.toLowerCase())) : products;
+        if (!state.designer) return products;
+
+        return products.filter(
+            product =>
+                product.designer?.toLowerCase() === state.designer.toLowerCase()
+        );
     }
 
 

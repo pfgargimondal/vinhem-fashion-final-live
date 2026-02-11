@@ -117,11 +117,21 @@ export const filterReducer = (state, action) => {
                 page: action.payload.page
             };
 
+        case "MATERIAL":
+            return {
+                ...state,
+                material: action.payload.material
+            };
+
+        case "DESIGNER":
+            return {
+                ...state,
+                designer: action.payload.designer
+            };
+
         /* ---------------- OTHER FILTERS (unchanged) ---------------- */
         case "FILTER_CATEGORY_NAME":
         case "COLOR":
-        case "MATERIAL":
-        case "DESIGNER":
         case "PLUS_SIZE":
         case "OCCASION":
         case "SIZE":
@@ -131,8 +141,6 @@ export const filterReducer = (state, action) => {
         const keyMap = {
             FILTER_CATEGORY_NAME: "filterCategoryName",
             COLOR: "color",
-            MATERIAL: "material",
-            DESIGNER: "designer",
             PLUS_SIZE: "plusSize",
             OCCASION: "occasion",
             SIZE: "size",
@@ -210,8 +218,8 @@ export const filterReducer = (state, action) => {
                 filterCategory: null,
                 filterCategoryName: [],
                 color: [],
-                material: [],
-                designer: [],
+                material: "",
+                designer: "",
                 plusSize: [],
                 occasion: [],
                 size: [],

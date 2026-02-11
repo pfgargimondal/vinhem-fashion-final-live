@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Loader from "../../components/Loader/Loader";
+import { useCurrency } from "../../context/CurrencyContext";
 
 
 export default function FilterSection({ setResFltrMenu, allFilterMappingdata, filterCategories, category, subcategory }) {
@@ -15,6 +16,15 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
   const [insdSbctgry, setInsdSbctgry] = useState(null);
   const [expandedFilters, setExpandedFilters] = useState({});
   const [loading, setLoading] = useState(false);
+  const { formatPrice, selectedCurrency } = useCurrency();
+
+  const rate = selectedCurrency?.exchange_rate_to_inr || 1;
+  const currencyData = formatPrice(0, { returnParts: true });
+  const currencySymbol = currencyData.symbol;
+
+  // Converted display values
+  const minDisplay = Math.floor(minPrice / rate);
+  const maxDisplay = Math.floor(maxPrice / rate);
 
   // console.log(filterCategories, 'filterCategories');
 
@@ -111,13 +121,25 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
   };
 
   // Handle max input change (allow typing freely)
+  // const handleMaxInput = (e) => {
+  //   const value = e.target.value;
+  //   if (value === "") {
+  //     setPrice(minPrice, "");
+  //     return;
+  //   }
+  //   setPrice(minPrice, Number(value));
+  // };
   const handleMaxInput = (e) => {
-    const value = e.target.value;
-    if (value === "") {
-      setPrice(minPrice, "");
-      return;
+    let value = Number(e.target.value);
+
+    if (isNaN(value)) return;
+    if (value > maxRange) value = maxRange;
+
+    // Maintain price gap
+    if (value < minPrice + priceGap) {
+      value = minPrice + priceGap;
     }
-    setPrice(minPrice, Number(value));
+    setPrice(minPrice, value);
   };
 
   // Handle min slider range change
@@ -193,14 +215,14 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
               <div className="wrapper">
                 <div className="price-input justify-content-between">
                   <div className="field">
-                    <span><i className="fa-solid fa-indian-rupee-sign"></i></span>
+                    <span>{currencySymbol}</span>
 
                     <div className="dioeuhiewrwer">
                       <span>Minimum</span>
 
                       <input
                         type="number"
-                        value={minPrice}
+                        value={minDisplay}
                         onChange={handleMinInput}
                         onBlur={handleMinBlur}
                         onKeyDown={handleMinEnter}
@@ -209,7 +231,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                   </div>
 
                   <div className="field">
-                    <span><i className="fa-solid fa-indian-rupee-sign"></i></span>
+                    <span>{currencySymbol}</span>
 
                     <div className="dioeuhiewrwer">
                       <span>Maximum</span>
@@ -225,14 +247,13 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                       /> */}
                       <input
                         type="number"
-                        value={maxPrice}
+                        value={maxDisplay}
                         min={minPrice + priceGap}
                         max={maxRange}
                         onChange={handleMaxInput}
                         onBlur={handleMaxBlur}
                         onKeyDown={handleMaxEnter}
-                        onWheel={(e) => e.target.blur()}
-                      />
+                        onWheel={(e) => e.target.blur()}/>
                     </div>
                   </div>
                 </div>
@@ -263,9 +284,9 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                 </div>
 
                 <div className="diwenjriwejrjhwer d-flex align-items-center justify-content-between mt-3">
-                  <span><i className="fa-solid fa-indian-rupee-sign"></i> {minPrice}</span>
+                  <span>{currencySymbol}{minDisplay}</span>
 
-                  <span><i className="fa-solid fa-indian-rupee-sign"></i> {maxPrice}</span>
+                  <span>{currencySymbol}{maxDisplay}</span>
                 </div>
               </div>
             </div>
@@ -566,9 +587,11 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                         const filterKey = FilterMappingdata.filter_option.toLowerCase();
 
                         if (filterKey === "material") {
-                          isChecked = material.includes(trimmedValue);
+                          // isChecked = material.includes(trimmedValue);
+                          isChecked = material === trimmedValue;
                         } else if (filterKey === "designers") {
-                          isChecked = designer.includes(trimmedValue);
+                          // isChecked = designer.includes(trimmedValue);
+                          isChecked = designer === trimmedValue;
                         } else if (filterKey === "plus_sizes") {
                           // isChecked = plusSize.includes(trimmedValue);
                           isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);

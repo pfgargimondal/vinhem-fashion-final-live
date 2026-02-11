@@ -148,8 +148,8 @@ export const Filter = () => {
 
     // OTHER FILTERS (multi)
     if (color?.length) searchParams.set("color", color.join(","));
-    if (material?.length) searchParams.set("material", material.join(","));
-    if (designer?.length) searchParams.set("designer", designer.join(","));
+    if (material?.length) searchParams.set("material", material);
+    if (designer?.length) searchParams.set("designer", designer);
     if (plusSize?.length) searchParams.set("plusSize", plusSize.join(","));
     if (occasion?.length) searchParams.set("occasion", occasion.join(","));
     if (size?.length) searchParams.set("size", size.join(","));

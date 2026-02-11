@@ -24,8 +24,7 @@ export const CurrencyProvider = ({ children }) => {
   }, [selectedCurrency]);
 
   const formatPrice = (priceInInr = 0, options = {}) => {
-
-    const { showDecimals = false } = options;
+    const { showDecimals = false, returnParts = false } = options;
 
     const currency = selectedCurrency || {
       currency_code: "INR",
@@ -33,19 +32,39 @@ export const CurrencyProvider = ({ children }) => {
       locale: "en-IN",
     };
 
-
     const convertedPrice =
       priceInInr /
       (currency.exchange_rate_to_inr === 0
         ? 1
         : currency.exchange_rate_to_inr || 1);
 
-    return new Intl.NumberFormat(currency.locale || "en-IN", {
+    const formatter = new Intl.NumberFormat(currency.locale || "en-IN", {
       style: "currency",
       currency: currency.currency_code || "INR",
       minimumFractionDigits: showDecimals ? 2 : 0,
       maximumFractionDigits: showDecimals ? 2 : 0,
-    }).format(convertedPrice).replace("₹", "₹ ");;
+    });
+
+    // 🔹 Normal usage (existing behavior)
+    if (!returnParts) {
+      return formatter.format(convertedPrice);
+    }
+
+    // 🔹 Extract symbol + number separately
+    const parts = formatter.formatToParts(convertedPrice);
+
+    const symbol = parts.find(p => p.type === "currency")?.value || "";
+    const number = parts
+      .filter(p => p.type !== "currency")
+      .map(p => p.value)
+      .join("")
+      .trim();
+
+    return {
+      symbol,
+      number,           // formatted number with comma
+      raw: convertedPrice // numeric value
+    };
   };
 
 

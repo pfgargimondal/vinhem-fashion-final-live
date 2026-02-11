@@ -1698,7 +1698,7 @@ export const Cart = () => {
                           {appliedDiscount > 0 && !freeShipping ? (
                               <tr>
                                 {/* <td>Total Payable :</td> */}
-                                <td>After Discount </td>
+                                <td>After Discount :</td>
                                   <td style={{display: "flex", alignItems: "center", justifyContent: "end"}}>
                                       {/* <span style={{ textDecoration: "line-through", color: "#999" }}>
                                         {formatPrice(totalPrice.total_mrp_price, { showDecimals: true })}
@@ -1726,7 +1726,7 @@ export const Cart = () => {
                           ) : appliedDiscount > 0 && freeShipping ? (
                             <tr>
                               {/* <td>Total Payable :</td> */}
-                              <td>After Discount </td>
+                              <td>After Discount :</td>
                                 <td style={{display: "flex", alignItems: "center", justifyContent: "end"}}>
                                     {/* <span style={{ textDecoration: "line-through", color: "#999" }}>
                                       {formatPrice(totalPrice.total_mrp_price, { showDecimals: true })}
@@ -2026,7 +2026,7 @@ export const Cart = () => {
                       </div>
 
                       <div className="doriwer d-flex align-items-center">
-                        <img src="./images/safgder.png" className="me-2" alt="" />
+                        <img src="./images/safgder.jpg" className="me-2" alt="" />
 
                         <p className="mb-0">Safe and Secure Payments. Easy returns. 100% Authentic products.</p>
                       </div>
@@ -2337,7 +2337,7 @@ export const Cart = () => {
                           ):null}
 
                           <tr>
-                            <td>After Discount </td>
+                            <td>After Discount :</td>
                               <td style={{display: "flex", alignItems: "center", justifyContent: "end"}}>
                                   {/* <span style={{ textDecoration: "line-through", color: "#999" }}>
                                     {formatPrice(totalPrice.total_mrp_price, { showDecimals: true })}
@@ -2469,7 +2469,7 @@ export const Cart = () => {
 
                       </div>
 
-                      <div className="doiewnirhwerwer diwebjrwert_left">
+                      {/* <div className="doiewnirhwerwer diwebjrwert_left">
                         <div className="d-flex align-items-center justify-content-between">
                           <p className="mb-0">Order Details - <span>{cartItems?.length} Item(s)</span></p>
 
@@ -2542,7 +2542,6 @@ export const Cart = () => {
 
                                         <p className="mb-1">Price: 
                                           <span>
-                                            {/* <i class="bi bi-currency-rupee"></i> */}
                                             {formatPrice(cartItemsVal.actual_price, { showDecimals: true })}
                                           </span>
                                         </p>
@@ -2556,7 +2555,7 @@ export const Cart = () => {
                             ))}
                           </div>
                         )}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
