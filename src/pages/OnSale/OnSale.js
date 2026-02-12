@@ -263,12 +263,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image1}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text1} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -277,12 +277,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image2}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text2} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
                 </Link>
               </div>
@@ -292,12 +292,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image3}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text3} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
                 </Link>
               </div>
@@ -307,12 +307,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image4}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text4} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
                 </Link>
               </div>
@@ -322,12 +322,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image5}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text5} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
                 </Link>
               </div>
@@ -337,12 +337,12 @@ export const OnSale = () => {
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image6}`} alt="" />
 
-                  <div className="hdfbjh554 position-absolute w-100">
+                  {/* <div className="hdfbjh554 position-absolute w-100">
                     <h5>STYLIES UNDER</h5>
                     <h5>
                       <i className="fa-solid fa-indian-rupee-sign"></i>{OnSaleDetails?.data?.section3_text6} 
                     </h5>
-                  </div>
+                  </div> */}
                 </div>
                 </Link>
               </div>
@@ -544,7 +544,7 @@ export const OnSale = () => {
 
           <div className="dfngjhfdgdf sdcvewfaasd overflow-hidden">
             <div className="row">
-              <div className="col-lg-4 pe-0">
+              <div className="col-lg-4">
                 <Link to={OnSaleDetails?.data?.section6_url1}>
                 <div className="donhweirwer_inner">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section6_image1}`} className="img-fluid" alt="onsale" />
@@ -552,7 +552,7 @@ export const OnSale = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 px-0">
+              <div className="col-lg-4">
                 <Link to={OnSaleDetails?.data?.section6_url2}>
                 <div className="donhweirwer_inner">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section6_image2}`} className="img-fluid" alt="onsale" />
@@ -560,7 +560,7 @@ export const OnSale = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 ps-0">
+              <div className="col-lg-4">
                 <Link to={OnSaleDetails?.data?.section6_url3}>
                 <div className="donhweirwer_inner">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section6_image3}`} className="img-fluid" alt="onsale" />
@@ -589,12 +589,12 @@ export const OnSale = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>{OnSaleDetails?.data?.section7_number1}</h4>
+                    <h4>{OnSaleDetails?.data?.section7_number1} {OnSaleDetails?.data?.section7_text1}</h4>
                   </div>
 
-                  <div className="cfgncfgb">
-                    <h4>{OnSaleDetails?.data?.section7_text1}</h4>
-                  </div>
+                  {/* <div className="cfgncfgb">
+                    <h4></h4>
+                  </div> */}
                 </div>
               </div>
 
@@ -605,12 +605,12 @@ export const OnSale = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>{OnSaleDetails?.data?.section7_number2}</h4>
+                    <h4>{OnSaleDetails?.data?.section7_number2} {OnSaleDetails?.data?.section7_text2}</h4>
                   </div>
 
-                  <div className="cfgncfgb fsrweerrr">
-                    <h4>{OnSaleDetails?.data?.section7_text2}</h4>
-                  </div>                  
+                  {/* <div className="cfgncfgb fsrweerrr">
+                    <h4></h4>
+                  </div>                   */}
                 </div>
               </div>
 
@@ -621,12 +621,12 @@ export const OnSale = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>{OnSaleDetails?.data?.section7_number3}</h4>
+                    <h4>{OnSaleDetails?.data?.section7_number3} {OnSaleDetails?.data?.section7_text3}</h4>
                   </div>
 
-                  <div className="cfgncfgb">
-                    <h4>{OnSaleDetails?.data?.section7_text3}</h4>
-                  </div>
+                  {/* <div className="cfgncfgb">
+                    <h4></h4>
+                  </div> */}
                 </div>
               </div>
 
@@ -637,12 +637,12 @@ export const OnSale = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer">
-                    <h4>{OnSaleDetails?.data?.section7_number4}</h4>
+                    <h4>{OnSaleDetails?.data?.section7_number4} {OnSaleDetails?.data?.section7_text4}</h4>
                   </div>
 
-                  <div className="cfgncfgb">
-                    <h4>{OnSaleDetails?.data?.section7_text4}</h4>
-                  </div>                  
+                  {/* <div className="cfgncfgb">
+                    <h4></h4>
+                  </div>                   */}
                 </div>
               </div>
             </div>
