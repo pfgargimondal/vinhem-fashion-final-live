@@ -179,11 +179,11 @@ export const CancelOrder = () => {
                   <Table striped bordered hover responsive>
                     <thead>
                       <tr>
-                        <th>Order Id</th>
-                        <th>Order Information</th>
-                        <th>Order Date</th>
-                        <th>Cancel Date</th>
-                        <th>Total Amount</th>
+                        <th className="text-center">Order Id</th>
+                        <th className="text-center">Order Information</th>
+                        <th className="text-center">Order Date</th>
+                        <th className="text-center">Cancel Date</th>
+                        <th className="text-center">Total Amount</th>
                       </tr>
                     </thead>
 
@@ -191,9 +191,9 @@ export const CancelOrder = () => {
                       {filteredOrders.length > 0 ? (
                         filteredOrders.map(CanceledOrderVal => (
                           <tr key={CanceledOrderVal.order_id}>
-                            <td>{CanceledOrderVal.order_id}</td>
+                            <td className="text-center">{CanceledOrderVal.order_id}</td>
 
-                            <td>
+                            <td className="text-center">
                                 <div className={`${styles.sdfsdf} justify-content-between mb-3`}>
                                 <p className="mb-0">
                                     No. of items: {CanceledOrderVal.total_orderProduct}
@@ -213,20 +213,20 @@ export const CancelOrder = () => {
                                 </div>
                             </td>
 
-                            <td>
+                            <td className="text-center">
                                 {CanceledOrderVal.order_date
                                 ? CanceledOrderVal.order_date.split("-").reverse().join("-")
                                 : ""}
                             </td>
 
-                            <td>
+                            <td className="text-center">
                                 {CanceledOrderVal.cancel_date
                                 ? CanceledOrderVal.cancel_date.split("-").reverse().join("-")
                                 : ""}
                             </td>
 
-                            <td>₹{CanceledOrderVal.total_order_amount}</td>
-                            </tr>
+                            <td className="text-center">₹{CanceledOrderVal.total_order_amount}</td>
+                          </tr>
                         ))
                       ) : (
                         <tr>

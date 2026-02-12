@@ -70,7 +70,10 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
 
       <div className="coisdejnkfrhewir">
         <div className="dcsdfnhrtdfsv p-3">
-          <img src="/images/logo.png" className="bg-white p-2 rounded-2 mb-2" alt="" />
+          <div className="text-center">
+            <img src="/images/logo.png" className="bg-white p-2 rounded-2 mb-3" alt="" />
+          </div>
+          
           <h6 className="mb-1 text-white">VinHem Fashion CRM Support</h6>
           <p className="mb-0 text-white">Typically replies within 7 minutes</p>
         </div>
@@ -105,6 +108,15 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
               </div>
             ))}
 
+            <div className="diekjroijwerwe rounded-end-1 rounded-bottom-4 rounded-start-4 p-3">
+              <label htmlFor="" className="form-label">Email <span style={{ color: "var(--pink-main-color)" }}>*</span></label>
+
+              <div className="dsfewfrettee position-relative">
+                <input type="email" className="form-control" placeholder="your@email.com" />
+
+                <button className="btn position-absolute px-3 btn-main"><i class="fa-solid fa-angle-right"></i></button>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -129,11 +129,16 @@ export const filterReducer = (state, action) => {
                 designer: action.payload.designer
             };
 
+        case "OCCASION":
+            return {
+                ...state,
+                occasion: action.payload.occasion
+            };
+
         /* ---------------- OTHER FILTERS (unchanged) ---------------- */
         case "FILTER_CATEGORY_NAME":
         case "COLOR":
         case "PLUS_SIZE":
-        case "OCCASION":
         case "SIZE":
         case "CELEBRITY":
         case "DISCOUNT":
@@ -142,7 +147,6 @@ export const filterReducer = (state, action) => {
             FILTER_CATEGORY_NAME: "filterCategoryName",
             COLOR: "color",
             PLUS_SIZE: "plusSize",
-            OCCASION: "occasion",
             SIZE: "size",
             CELEBRITY: "celebrity",
             DISCOUNT: "discount",
@@ -221,7 +225,7 @@ export const filterReducer = (state, action) => {
                 material: "",
                 designer: "",
                 plusSize: [],
-                occasion: [],
+                occasion: "",
                 size: [],
                 celebrity: [],
                 discount: [],

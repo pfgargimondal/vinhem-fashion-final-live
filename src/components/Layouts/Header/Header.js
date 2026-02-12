@@ -645,13 +645,13 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                           <li className="infrm-menu-divider">|</li>
                           {user ? (
                             <>
-                             <li><Link to={`/wishlist`}><i class="bi bi-heart"></i> &nbsp;Wishlist <span>{wishlistCount}</span></Link></li>
+                             <li><Link to={`/wishlist`}><i class="bi bi-heart"></i> Wishlist <span>{wishlistCount}</span></Link></li>
                               <li className="infrm-menu-divider">|</li>
                               <li><Link to={`/cart`}><i class="bi bi-handbag"></i> Cart <span>{cartCount}</span></Link></li>
                             </>
                           ):(
                             <>
-                              <li onClick={() => handleLoginModal()} className="DRhgbsxfnhbf"><i class="bi bi-heart"></i> &nbsp;Wishlist <span>0</span></li>
+                              <li onClick={() => handleLoginModal()} className="DRhgbsxfnhbf"><i class="bi bi-heart"></i> Wishlist <span>0</span></li>
                               <li className="infrm-menu-divider">|</li>
                               <li onClick={() => handleLoginModal()}><i class="bi bi-handbag"></i> Cart <span>0</span></li>
                             </>
@@ -683,12 +683,18 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                             <div className="safrfwrytuerr position-relative">
                                 {user ? (
                                   <>
-                                    <div className="gbdfgtrfyhrytgrr d-flex align-items-center" onClick={(e) => {e.stopPropagation(); setUserDropdown(!userDropdown)}}>
-                                      <i className="bi bi-person"></i>
-                                      
-                                      <div className="mjeimojwjikrrr">{user.name}</div>
+                                    <div className="diewhdfiwehknweihwerwer position-relative d-flex align-items-center">
+                                      <div className="gbdfgtrfyhrytgrr d-flex align-items-center" onClick={(e) => {e.stopPropagation(); setUserDropdown(!userDropdown)}}>
+                                        <i className="bi bi-person"></i>
+                                        
+                                        <div className="mjeimojwjikrrr">{user.name}</div>
 
-                                      <i class={`fa-solid sdfrrweewr_icon ${userDropdown ? "fa-caret-up" : "fa-caret-down"}`}></i>
+                                        <i class={`fa-solid sdfrrweewr_icon ${userDropdown ? "fa-caret-up" : "fa-caret-down"}`}></i>
+                                      </div>
+
+                                      <div className="diewirjwejrwer rounded-pill d-flex align-items-center px-3 position-absolute bg-white py-1">
+                                        <img src="./images/prfledropdwnlvl.png" className="me-2" alt="" /> <span>Silver</span>
+                                      </div>
                                     </div>
 
                                     {userDropdown && <DropdownLoggedIn />}
@@ -1124,7 +1130,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
               <button className="btn btn-main bg-white text-dark w-100"><img src="./images/search.png" className="me-2" alt="" /> Sign in with Google</button>
             </div>
 
-            <h6 className="dfweoijtweer mt-3">By continuing, I agree to <Link>VinHem Fashion policies</Link> and <Link>T&Cs</Link></h6>
+            <h6 className="dfweoijtweer mt-3">By continuing, I agree to <Link>Vinhem Fashion policies</Link> and <Link>T&Cs</Link></h6>
 
             <div className="coiasehrewr text-center">Use <span onClick={() => setEmailToggle(!emailToggle)}>{emailToggle ? "Mobile Number" : "Email id"}</span></div>
           </div>

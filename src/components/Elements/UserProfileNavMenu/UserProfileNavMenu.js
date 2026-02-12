@@ -67,7 +67,7 @@ export const UserProfileNavMenu = () => {
 
                 <div className="p-4">
                     <Link to="/profile">
-                        <button className="btn akdhjkashriwerwer">
+                        <button className="btn akdhjkashriwerwer pt-0">
                             <i className="fa-solid fa-user"></i> My Profile
                         </button>
                     </Link>
@@ -92,7 +92,7 @@ export const UserProfileNavMenu = () => {
 
                     <Link to="/change-password">
                         <button className="btn akdhjkashriwerwer">
-                            <i className="fa-solid fa-eye-low-vision"></i> Password Change
+                            <i class="fa-solid fa-ticket"></i> My Vouchers & Credits
                         </button>
                     </Link>
 

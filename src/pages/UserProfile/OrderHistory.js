@@ -256,15 +256,15 @@ export const OrderHistory = () => {
                                     <Table striped responsive bordered hover>
                                         <thead>
                                             <tr>
-                                                <th>Order Id</th>
+                                                <th className="text-center">Order Id</th>
 
-                                                <th>Order Information</th>
+                                                <th className="text-center">Order Information</th>
 
-                                                <th>Date</th>
+                                                <th className="text-center">Date</th>
 
-                                                <th>Total Amount</th>
+                                                <th className="text-center">Total Amount</th>
 
-                                                <th>Status</th>
+                                                <th className="text-center">Status</th>
                                             </tr>
                                         </thead>
                                         
@@ -272,9 +272,9 @@ export const OrderHistory = () => {
                                             {filteredOrders.length > 0 ? (
                                                 filteredOrders.map((orderHistoryVal) => (
                                                 <tr>
-                                                    <td>{orderHistoryVal.order_id}</td>
+                                                    <td className="text-center">{orderHistoryVal.order_id}</td>
 
-                                                    <td>
+                                                    <td className="text-center">
                                                         <div className={`${styles.sdfsdf} justify-content-between mb-3`}>
     
                                                             <p className="mb-0">No. of items: {orderHistoryVal.total_orderProduct}</p> 
@@ -336,13 +336,13 @@ export const OrderHistory = () => {
                                                         </div>
                                                     </td>
 
-                                                    <td> {orderHistoryVal.order_date
+                                                    <td className="text-center"> {orderHistoryVal.order_date
                                                         ? orderHistoryVal.order_date.split("-").reverse().join("-")
                                                         : ""}</td>
 
-                                                    <td>₹{orderHistoryVal.total_order_amount}</td>
+                                                    <td className="text-center">₹{orderHistoryVal.total_order_amount}</td>
 
-                                                    <td>
+                                                    <td className="text-center">
                                                         {orderHistoryVal.order_status === "Placed" ? (
                                                             <button className={styles.dfgfd5544}>{orderHistoryVal.order_status}</button>
                                                         ) : orderHistoryVal.order_status === "Pending" ? (

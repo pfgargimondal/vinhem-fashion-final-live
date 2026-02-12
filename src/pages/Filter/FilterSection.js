@@ -596,7 +596,8 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                           // isChecked = plusSize.includes(trimmedValue);
                           isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);
                         } else if (filterKey === "occasion") {
-                          isChecked = occasion.includes(trimmedValue);
+                          // isChecked = occasion.includes(trimmedValue);
+                          isChecked = occasion === trimmedValue;
                         } else if (filterKey === "size" || filterKey === "sizes") {
                           isChecked = size.includes(trimmedValue);
                         } else if (filterKey === "celebrity") {

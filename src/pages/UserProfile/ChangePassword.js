@@ -16,8 +16,9 @@ export const ChangePassword = () => {
     new_password: "",
     confirm_password: "",
   });
+  // eslint-disable-next-line
   const [errors, setErrors] = useState({});
-
+  // eslint-disable-next-line
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
@@ -39,7 +40,7 @@ export const ChangePassword = () => {
 
     return newErrors;
   };
-
+  // eslint-disable-next-line
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateInputs();
@@ -81,23 +82,60 @@ export const ChangePassword = () => {
 
             <div className="col-lg-9">
               <div className={`${styles.fgcbdfgdf} pt-3 pb-5`}>
-                <div className={`${styles.dfjhdsbfsdf} mb-4`}>
-                  <h4 className="mb-0">Change Password</h4>
+                <div className="row col-lg-10 mb-5 justify-content-between align-items-center">
+                  <div className="col-7">
+                    <div className={styles.diewhkewrwer}>
+                      <div className={`${styles.dfjhdsbfsdf} mb-3`}>
+                        <h4 className="mb-0">My Credit</h4>
 
-                  <p className="ndiwhermweoewrr mb-0 d-none">
-                    <Link to="/">
-                      <i className="fa-solid me-1 fa-arrow-left"></i> Back To Home{" "}
-                      <i className="fa-solid ms-1 fa-house"></i>
-                    </Link>
-                  </p>
+                        <p className="ndiwhermweoewrr mb-0 d-none">
+                          <Link to="/">
+                            <i className="fa-solid me-1 fa-arrow-left"></i> Back To Home{" "}
+                            <i className="fa-solid ms-1 fa-house"></i>
+                          </Link>
+                        </p>
+                      </div>
+
+                      <h5>Balance</h5>
+
+                      <p className="mb-0">Your current balance is: <span><i class="fa-solid fa-indian-rupee-sign"></i> <b>0.00</b></span></p>
+                    </div>
+                  </div>
+
+                  <div className="col-5">
+                    <div className={`${styles.doiwehijrwerwer} text-center`}>
+                      <img src="./images/swrwww.jpg" className="w-100" alt="" />
+
+                      <p className="mb-0">You have no credits</p>
+                    </div>
+                  </div>
                 </div>
 
-                <p className="mb-5">
-                  Update your password regularly to keep your account safe. Enter
-                  your new password below and confirm it to make the change.
-                </p>
+                <div className="row col-lg-10 justify-content-between align-items-center">
+                  <div className="col-7">
+                    <div className={styles.diewhkewrwer}>
+                      <div className={`${styles.dfjhdsbfsdf} d-block ${styles.oidjiejkoiijrr} mb-3`}>
+                        <h4>My Vouchers</h4>
 
-                <form onSubmit={handleSubmit}>
+                        <p className="mb-0">No. of Active Vouchers: <span>1</span></p>
+                      </div>
+
+                      <ol className={styles.doejwijwe_list}>
+                        <li><h5 className={`${styles.deikwnhwenriwejr} text-center py-2 px-3 mb-2 rounded-2`}>Coupon Code: VFXFT2508 - [Valid Till 28/02/2026]</h5></li>
+                      </ol>
+                    </div>
+                  </div>
+
+                  <div className="col-5">
+                    <div className={`${styles.doiwehijrwerwer} text-center`}>
+                      <img src="./images/zadawda.jpg" className="w-100" alt="" />
+
+                      <p className="mb-0">You have no vouchers</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <form onSubmit={handleSubmit}>
                   <div className={styles.fxnjhdfsdfds}>
                     <div className="row">
                       <div className="col-lg-6">
@@ -137,7 +175,7 @@ export const ChangePassword = () => {
                       </div>
                     </div>
                   </div>
-                </form>
+                </form> */}
 
                 <ToastContainer
                   position="top-right"

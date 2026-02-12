@@ -13,7 +13,7 @@
 }
 
 .dcsdfnhrtdfsv img{
-    width: 6rem;
+    width: 10rem;
 }
 
 .dcsdfnhrtdfsv p{
@@ -115,4 +115,26 @@
 .chat-profile-details-wrapper i:last-child:hover{
     color: goldenrod;
     transition: 0.2s ease-in-out;
+}
+
+.diekjroijwerwe{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+}
+
+.diekjroijwerwe label.form-label{
+    font-weight: 600;
+}
+
+.dsfewfrettee input.form-control{
+    border-radius: 0.375rem;
+    border-color: var(--text-lighter-gray-color);
+}
+
+.dsfewfrettee button{
+    right: 0;
+    top: 0;
+    background: var(--pink-main-color) !important;
+    border-color: var(--pink-main-color) !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }

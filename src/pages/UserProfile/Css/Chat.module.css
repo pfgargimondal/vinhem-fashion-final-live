@@ -9,6 +9,9 @@
 .fbghdfg{
   width: 87%;
   margin-inline: auto;
+  border: 1px solid var(--light-background-color);
+  border-top: 0;
+  border-right: 0;
 }
 
 .dfbdf h4{

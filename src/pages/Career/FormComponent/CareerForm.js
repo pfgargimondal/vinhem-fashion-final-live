@@ -178,7 +178,24 @@ export const CareerForm = () => {
                 <p style={{ color: "red" }}>{errors.job_position}</p>
               </div>
             </div>
-          </div>          
+          </div>  
+
+          <div className="col-lg-6">
+            <div className="gjsdfgs">
+              <div className="xfxf888">
+                <label>Upload CV</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  name="upload_cv"
+                  ref={fileInputRef}
+                  accept=".pdf,image/*"
+                  onChange={handleChange}
+                />
+                <p style={{ color: "red" }}>{errors.upload_cv}</p>
+              </div>
+            </div>
+          </div>       
 
           <div className="col-lg-6">
             <div className="gjsdfgs">
@@ -198,27 +215,10 @@ export const CareerForm = () => {
             </div>
           </div>
 
-          <div className="col-lg-6">
-            <div className="gjsdfgs">
-              <div className="xfxf888">
-                <label>Upload CV</label>
-                <input
-                  type="file"
-                  className="form-control"
-                  name="upload_cv"
-                  ref={fileInputRef}
-                  accept=".pdf,image/*"
-                  onChange={handleChange}
-                />
-                <p style={{ color: "red" }}>{errors.upload_cv}</p>
-              </div>
-            </div>
-          </div>
-
           <div className="col-lg-12">
             <div className="gjsdfgs">
               <div className="dfbgjhdf5">
-                <button type="submit" className="btn btn-main px-5 py-3">
+                <button type="submit" className="btn btn-main px-4 py-3">
                   Submit
                 </button>
               </div>

@@ -18,7 +18,7 @@ const filterInitialState = {
     material: null,
     designer: null,
     plusSize: [],
-    occasion: [],
+    occasion: null,
     size: [],
     celebrity: [],
     discount: [],
@@ -82,8 +82,11 @@ export const FilterProvider = ({ children }) => {
         if (newState.plusSize.length)
             searchParams.set("plusSize", newState.plusSize.join(","));
 
-        if (newState.occasion.length)
-            searchParams.set("occasion", newState.occasion.join(","));
+        if (newState.occasion) {
+            searchParams.set("occasion", newState.occasion);
+        } else {
+            searchParams.delete("occasion");
+        }
 
         if (newState.size.length)
             searchParams.set("size", newState.size.join(","));
@@ -175,8 +178,8 @@ export const FilterProvider = ({ children }) => {
                 color: getArray("color"),
                 material: params.get("material") || "",
                 designer: params.get("designer") || "",
-                plusSize: plusSizeFromUrl,   // ✅ FIXED
-                occasion: getArray("occasion"),
+                plusSize: plusSizeFromUrl, 
+                occasion: params.get("occasion") || "",
                 size: getArray("size"),
                 celebrity: getArray("celebrity"),
                 discount: getArray("discount"),
@@ -745,10 +748,8 @@ export const FilterProvider = ({ children }) => {
 
         const newState = {
             ...state,
-            occasion: state.occasion.includes(occasion)
-                ? state.occasion.filter(v => v !== occasion)
-                : [...state.occasion, occasion],
-            page: 1 
+            occasion: state.occasion === occasion ? "" : occasion, // toggle single select
+            page: 1
         };
 
         dispatch({ type: "OCCASION", payload: { occasion } });
@@ -759,22 +760,23 @@ export const FilterProvider = ({ children }) => {
 
 
     function filterOccasion(products) {
-        const selectedOccasions = state.occasion || [];
-        if (!selectedOccasions.length) return products;
+        const selectedOccasion =
+            typeof state.occasion === "string"
+                ? state.occasion.toLowerCase()
+                : "";
+
+        if (!selectedOccasion) return products;
 
         return products.filter(product => {
-            const productOccasions = product.filter_occasion
-                ?.toLowerCase()
-                .split(",")
-                .map(o => o.trim());
+            const productOccasions =
+                typeof product?.filter_occasion === "string"
+                    ? product.filter_occasion
+                        .toLowerCase()
+                        .split(",")
+                        .map(o => o.trim())
+                    : [];
 
-            if (!productOccasions?.length) return false;
-
-            return selectedOccasions.some(selected =>
-                productOccasions.some(productOccasion =>
-                    productOccasion.includes(selected)
-                )
-            );
+            return productOccasions.includes(selectedOccasion);
         });
     }
 

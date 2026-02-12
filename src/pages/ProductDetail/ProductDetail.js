@@ -1219,7 +1219,7 @@ export const ProductDetail = () => {
                             <div className="d-flex align-items-center justify-content-between">
                               <h4 class="pb-2">Stitching Options</h4>
 
-                              <div className="dfhdfhd">
+                              <div className="dfhdfhd pe-0">
                                   <p className="d-flex align-items-center mb-0">
                                     <span className="me-2">SHARE:</span>
 
@@ -1250,7 +1250,7 @@ export const ProductDetail = () => {
                                 </div>
                             </div>
 
-                            <hr class="mt-0" style={{ width: "91%" }} />                              
+                            <hr class="mt-0" style={{ width: "86%" }} />                              
                           </div>
                         )}
 
@@ -1518,7 +1518,7 @@ export const ProductDetail = () => {
                             handleQuantitySelect(Number(e.target.value))
                           }
                           disabled={!availableQty}
-                          className="form-select weqwthyuytredfgw select-form-drpdwn"
+                          className="form-select weqwthyuytredfgw cbgdrfsfewerrr select-form-drpdwn"
                         > 
                           {availableQty > 0 ? (
                               Array.from(
