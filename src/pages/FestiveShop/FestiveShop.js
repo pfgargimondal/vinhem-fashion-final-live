@@ -507,19 +507,19 @@ export const FestiveShop = () => {
 
           <div class="dfngjhfdgdf sdcvewfaasd overflow-hidden">
             <div className="row">
-              <div className="col-lg-4 pe-0">
+              <div className="col-lg-4">
                 <div className="donhweirwer_inner">
                   <img src="images/Sdsad.png" className="img-fluid" alt="" />
                 </div>
               </div>
 
-              <div className="col-lg-4 px-0">
+              <div className="col-lg-4">
                 <div className="donhweirwer_inner">
                   <img src="images/sad.png" className="img-fluid" alt="" />
                 </div>
               </div>
 
-              <div className="col-lg-4 ps-0">
+              <div className="col-lg-4">
                 <div className="donhweirwer_inner">
                   <img src="images/sadw2.png" className="img-fluid" alt="" />
                 </div>

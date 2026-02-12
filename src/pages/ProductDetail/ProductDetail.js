@@ -389,8 +389,27 @@ export const ProductDetail = () => {
 
   const updateQtyAndPriceBySize = useCallback(
     (normalizedSize) => {
-      const allSizes = productDetails?.data?.product_allSize || [];
       const base = productDetails?.data || {};
+      const stitchingType = base?.stitching_option?.toLowerCase();
+
+      // ✅ If product is Unstitched or Semi-Stitched
+      if (
+        stitchingType === "unstitched-fabric" ||
+        stitchingType === "semi-stitched"
+      ) {
+        const qty = Number(base?.mto_quantity || 0);
+        setAvailableQty(qty);
+        setSelectedQuantity(1);
+
+        const sellingPrice = parseFloat(base?.selling_price || 0);
+        setSelectedPrice(sellingPrice);
+        setSizeAccordingPrice(sellingPrice);
+
+        return;
+      }
+
+      // ✅ Ready To Wear logic (your existing code)
+      const allSizes = base?.product_allSize || [];
 
       const inventory = allSizes.find(
         (item) =>
@@ -431,6 +450,7 @@ export const ProductDetail = () => {
     [productDetails]
   );
 
+
   useEffect(() => {
     if (
       productDetails?.data?.stitching_option === "Ready To Wear" &&
@@ -444,6 +464,20 @@ export const ProductDetail = () => {
       updateQtyAndPriceBySize(normalized);
     }
   }, [productDetails, selectedSize, updateQtyAndPriceBySize]);
+
+  useEffect(() => {
+    const stitchingType =
+      productDetails?.data?.stitching_option?.toLowerCase();
+
+    if (
+      stitchingType === "unstitched-fabric" ||
+      stitchingType === "semi-stitched"
+    ) {
+      const qty = Number(productDetails?.data?.mto_quantity || 0);
+      setAvailableQty(qty);
+      setSelectedQuantity(1);
+    }
+  }, [productDetails]);
 
   // ------------------------------
   // Calculate total price dynamically
@@ -1235,7 +1269,7 @@ export const ProductDetail = () => {
                                 }
                               />
                               <label htmlFor="unstdf" className="p-3">
-                                {productDetails?.data?.stitching_option}
+                                {productDetails?.data?.stitching_option?.replace(/-/g, " ")}
                                 <br />
                                 <span>
                                   +{/* <i class="bi bi-currency-rupee"></i>  */}
@@ -1268,7 +1302,7 @@ export const ProductDetail = () => {
                                   className="p-3"
                                   id="cstm-fit-btn"
                                 >
-                                  Custom-Fit <br />
+                                  Custom Fit <br />
                                   <span>
                                     +
                                     {/* <i class="bi bi-currency-rupee"></i> */}
@@ -2221,7 +2255,6 @@ export const ProductDetail = () => {
                                           <p>
                                             Fit <br />{" "}
                                             <span>
-                                              Fit:{" "}
                                               {productDetails?.data?.fit_type}
                                             </span>
                                           </p>

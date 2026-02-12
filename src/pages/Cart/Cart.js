@@ -52,6 +52,8 @@ export const Cart = () => {
   const { resetCart } = useCart();
   const { formatPrice } = useCurrency();
   const [hideDBAddress, setHideDBAddress] = useState(false);
+  // eslint-disable-next-line
+  const [hideDBBillingAddress, setHideDBBillingAddress] = useState(false);
   const [shippingCharge, setShippingCharge] = useState(0);
   const [isGift, setIsGift] = useState(false);
   const [pymntSmmryDrpdwn, setPymntSmmryDrpdwn] = useState(true);
@@ -307,7 +309,7 @@ export const Cart = () => {
   const [previousAddress, setPreviousAddress] = useState(null);
   const [shippingAddress, setShippingAddress] = useState(null);
   const [billingAddress, setBillingAddress] = useState(null);
-  const [sameAsShipping, setSameAsShipping] = useState(false);
+  const [sameAsShipping, setSameAsShipping] = useState(true);
   const [isMobileInvalid, setIsMobileInvalid] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -418,6 +420,17 @@ export const Cart = () => {
       shipping.shippingEmail === billing.shippingEmail
     );
   };
+
+  useEffect(() => {
+    if (sameAsShipping && shippingAddress) {
+      console.log(sameAsShipping, 'sameAsShipping');
+      setBillingAddress(shippingAddress);
+      localStorage.setItem(
+        "billing_address",
+        JSON.stringify(shippingAddress)
+      );
+    }
+  }, [shippingAddress, sameAsShipping]);
 
 
   const handleInputChange = (e) => {
@@ -702,7 +715,8 @@ export const Cart = () => {
 
   const handleRemoveBillingAddress = () => {
     localStorage.removeItem("billing_address");
-    setBillingAddress(null);
+    setBillingAddress(null); 
+    setHideDBBillingAddress(true);
   };
 
   const validateGST = (gst) => {
@@ -1517,15 +1531,31 @@ export const Cart = () => {
                               </div> */}
 
                               {/* 1️⃣ If SAME AS SHIPPING → show shipping details */}
-                              {sameAsShipping && shippingAddress && (
+                              {/* {sameAsShipping && shippingAddress && (
                                 <BillingAddress data={shippingAddress} onEdit={handleEditBillingAddress}
                                     onRemove={handleRemoveBillingAddress}/>
-                              )}
+                              )} */}
 
                               {/* 2️⃣ If NOT same-as-shipping AND billing address exists in DB */}
-                              {!sameAsShipping && billingAddress && (
+                              {/* {!sameAsShipping && billingAddress && (
                                 <BillingAddress data={billingAddress} onEdit={handleEditBillingAddress}
                                      onRemove={handleRemoveBillingAddress}/>
+                              )} */}
+
+                              {/* {!sameAsShipping && !hideDBBillingAddress && billingAddress && (
+                                <BillingAddress
+                                  data={billingAddress}
+                                  onEdit={handleEditBillingAddress}
+                                  onRemove={handleRemoveBillingAddress}
+                                />
+                              )} */}
+
+                              {sameAsShipping && billingAddress && (
+                                <BillingAddress
+                                  data={billingAddress}
+                                  onEdit={handleEditBillingAddress}
+                                  onRemove={handleRemoveBillingAddress}
+                                />
                               )}
 
                             </div>

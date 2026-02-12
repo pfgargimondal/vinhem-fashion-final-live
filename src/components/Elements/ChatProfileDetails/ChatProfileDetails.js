@@ -7,7 +7,8 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      name: "VF",
+      // name: "VF",
+      avatar: "/Fevicon.png",
       text: "Welcome to VinHem Fashion! How can I help you?",
     },
   ]);
@@ -20,7 +21,7 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
 
     const newUserMsg = {
       sender: "user",
-      name: "Me",
+      avatar: "/Fevicon.png",
       text: input,
     };
 
@@ -40,7 +41,7 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
 
       const botReply = {
         sender: "bot",
-        name: "VF",
+        avatar: "/Fevicon.png",
         text: data.reply,
       };
 
@@ -53,7 +54,7 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
         ...prev,
         {
           sender: "bot",
-          name: "VF",
+          avatar: "/Fevicon.png",
           text: "Sorry, something went wrong!",
         },
       ]);
@@ -84,8 +85,10 @@ export const ChatProfileDetails = ({ setChatProfileDetailsShow }) => {
                   msg.sender === "user" ? "flex-row-reverse user-msge" : "admn-msge"
                 }`}
               >
-                <div className="imjdeqr text-center text-white rounded-pill mx-1">
-                  <p className="mb-0">{msg.name}</p>
+                {/* <div className="imjdeqr text-center text-white rounded-pill mx-1"> */}
+                <div className="text-center text-white rounded-pill mx-1">
+                  {/* <p className="mb-0">{msg.avatar}</p> */}
+                  <img className="mb-0" src={msg.avatar} alt="Bot" />
                 </div>
 
                 <div className="doejwrkmwer">

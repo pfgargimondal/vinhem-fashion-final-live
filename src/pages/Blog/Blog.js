@@ -261,7 +261,7 @@ export const Blog = () => {
                                 <ul className="efwcegqwedae d-flex flex-wrap list-unstyled py-3">
                                     {blogCategories.map(blogCategory => (
                                         <li className="px-4 mb-2">
-                                            <Link to={`/blog/category/${blogCategory?.category.toLowerCase()}`}>{blogCategory?.category.toLowerCase()} ({blogCategory.count})</Link>
+                                            <Link to={`/blog/category/${blogCategory?.category?.toLowerCase().replace(/\s+/g, "-")}`}>{blogCategory?.category.toLowerCase()} ({blogCategory.count})</Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -362,8 +362,11 @@ export const Blog = () => {
                                             allowFullScreen
                                         ></iframe>
                                     )} */}
-
-                                    <img width="100%" className="dckisehiwehrr" style={{height: "100%"}} src="./images/fashion40.png" alt="" />
+                                    {blogvedio?.vedio_url ? (
+                                        <img width="100%" className="dckisehiwehrr" style={{height: "100%"}} src={blogvedio.vedio_url} alt="" />
+                                    ) : (
+                                        <img width="100%" className="dckisehiwehrr" style={{height: "100%"}} src="./images/fashion40.png" alt="" />
+                                    )}
                                 </div>
                             </section>                       
                         </div>
