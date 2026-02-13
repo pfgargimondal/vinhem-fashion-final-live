@@ -44,18 +44,31 @@ export const Filter = () => {
 
 
   const filterOptionsItems = [
-    ...(Array.isArray(mainCategory) ? mainCategory.map(v => ({ type: "main", value: v })) : []),
-    ...(Array.isArray(subCategory) ? subCategory.map(v => ({ type: "sub", value: v })) : []),
-    ...(Array.isArray(filterCategoryCntxt) ? filterCategoryCntxt.map(v => ({ type: "filter", value: v })) : []),
-    ...(Array.isArray(color) ? color.map(v => ({ type: "color", value: v })) : []),
-    ...(Array.isArray(material) ? material.map(v => ({ type: "material", value: v })) : []),
-    ...(Array.isArray(designer) ? designer.map(v => ({ type: "designer", value: v })) : []),
-    ...(Array.isArray(plusSize) ? plusSize.map(v => ({ type: "plusSize", value: v })) : []),
-    ...(Array.isArray(occasion) ? occasion.map(v => ({ type: "occasion", value: v })) : []),
-    ...(Array.isArray(size) ? size.map(v => ({ type: "size", value: v })) : []),
-    ...(Array.isArray(celebrity) ? celebrity.map(v => ({ type: "celebrity", value: v })) : []),
-    ...(Array.isArray(discount) ? discount.map(v => ({ type: "discount", value: v })) : []),
-    ...(Array.isArray(shippingTime) ? shippingTime.map(v => ({ type: "shippingTime", value: v })) : []),
+    // ...(Array.isArray(mainCategory) ? mainCategory.map(v => ({ type: "main", value: v })) : []),
+    // ...(Array.isArray(subCategory) ? subCategory.map(v => ({ type: "sub", value: v })) : []),
+    // ...(Array.isArray(filterCategoryCntxt) ? filterCategoryCntxt.map(v => ({ type: "filter", value: v })) : []),
+    // ...(Array.isArray(color) ? color.map(v => ({ type: "color", value: v })) : []),
+    // ...(Array.isArray(material) ? material.map(v => ({ type: "material", value: v })) : []),
+    // ...(Array.isArray(designer) ? designer.map(v => ({ type: "designer", value: v })) : []),
+    // ...(Array.isArray(plusSize) ? plusSize.map(v => ({ type: "plusSize", value: v })) : []),
+    // ...(Array.isArray(occasion) ? occasion.map(v => ({ type: "occasion", value: v })) : []),
+    // ...(Array.isArray(size) ? size.map(v => ({ type: "size", value: v })) : []),
+    // ...(Array.isArray(celebrity) ? celebrity.map(v => ({ type: "celebrity", value: v })) : []),
+    // ...(Array.isArray(discount) ? discount.map(v => ({ type: "discount", value: v })) : []),
+    // ...(Array.isArray(shippingTime) ? shippingTime.map(v => ({ type: "shippingTime", value: v })) : []),
+
+     ...(mainCategory ? [{ type: "mainCategory", value: mainCategory }] : []),
+     ...(subCategory ? [{ type: "subCategory", value: subCategory }] : []),
+     ...(filterCategoryCntxt ? [{ type: "filterCategoryCntxt", value: filterCategoryCntxt }] : []),
+     ...(color ? [{ type: "color", value: color }] : []),
+     ...(material ? [{ type: "material", value: material }] : []),
+     ...(designer ? [{ type: "designer", value: designer }] : []),
+     ...(plusSize ? [{ type: "plusSize", value: plusSize }] : []),
+     ...(occasion ? [{ type: "occasion", value: occasion }] : []),
+     ...(size ? [{ type: "size", value: size }] : []),
+     ...(celebrity ? [{ type: "celebrity", value: celebrity }] : []),
+     ...(discount ? [{ type: "discount", value: discount }] : []),
+     ...(shippingTime ? [{ type: "shippingTime", value: shippingTime }] : []),
   ];
 
   const DEFAULT_VISIBLE = 6;
@@ -147,15 +160,15 @@ export const Filter = () => {
     // }
 
     // OTHER FILTERS (multi)
-    if (color?.length) searchParams.set("color", color.join(","));
+    if (color?.length) searchParams.set("color", color);
     if (material?.length) searchParams.set("material", material);
     if (designer?.length) searchParams.set("designer", designer);
-    if (plusSize?.length) searchParams.set("plusSize", plusSize.join(","));
-    if (occasion?.length) searchParams.set("occasion", occasion.join(","));
-    if (size?.length) searchParams.set("size", size.join(","));
-    if (celebrity?.length) searchParams.set("celebrity", celebrity.join(","));
-    if (discount?.length) searchParams.set("discount", discount.join(","));
-    if (shippingTime?.length) searchParams.set("shippingTime", shippingTime.join(","));
+    if (plusSize?.length) searchParams.set("plusSize", plusSize);
+    if (occasion?.length) searchParams.set("occasion", occasion);
+    if (size?.length) searchParams.set("size", size);
+    if (celebrity?.length) searchParams.set("celebrity", celebrity);
+    if (discount?.length) searchParams.set("discount", discount);
+    if (shippingTime?.length) searchParams.set("shippingTime", shippingTime);
     if (minPrice > 0 || maxPrice < 1000000) {
       searchParams.set("price", `${minPrice}-${maxPrice}`);
     } else {

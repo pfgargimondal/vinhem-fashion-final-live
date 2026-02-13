@@ -135,22 +135,46 @@ export const filterReducer = (state, action) => {
                 occasion: action.payload.occasion
             };
 
-        /* ---------------- OTHER FILTERS (unchanged) ---------------- */
-        case "FILTER_CATEGORY_NAME":
-        case "COLOR":
-        case "PLUS_SIZE":
-        case "SIZE":
         case "CELEBRITY":
+            return {
+                ...state,
+                celebrity: action.payload.celebrity
+            };
+
+        case "SHIPPING_TIME":
+            return {
+                ...state,
+                shippingTime: action.payload.shippingTime
+            };
+
         case "DISCOUNT":
-        case "SHIPPING_TIME": {
+            return {
+                ...state,
+                discount: action.payload.discount
+            };
+
+        case "PLUS_SIZE":
+            return {
+                ...state,
+                plusSize: action.payload.plusSize
+            };
+
+        case "SIZE":
+            return {
+                ...state,
+                size: action.payload.size
+            };
+
+        case "COLOR":
+            return {
+                ...state,
+                color: action.payload.color
+            };
+
+        /* ---------------- OTHER FILTERS (unchanged) ---------------- */
+        case "FILTER_CATEGORY_NAME": {
         const keyMap = {
             FILTER_CATEGORY_NAME: "filterCategoryName",
-            COLOR: "color",
-            PLUS_SIZE: "plusSize",
-            SIZE: "size",
-            CELEBRITY: "celebrity",
-            DISCOUNT: "discount",
-            SHIPPING_TIME: "shippingTime",
         };
 
         const field = keyMap[action.type];
@@ -221,15 +245,15 @@ export const filterReducer = (state, action) => {
                 subCategory: null,
                 filterCategory: null,
                 filterCategoryName: [],
-                color: [],
+                color: "",
                 material: "",
                 designer: "",
-                plusSize: [],
+                plusSize: "",
                 occasion: "",
-                size: [],
-                celebrity: [],
-                discount: [],
-                shippingTime: [],
+                size: "",
+                celebrity: "",
+                discount: "",
+                shippingTime: "",
                 sortBy: null,
                 newIn: false,
                 readyToShip: null,

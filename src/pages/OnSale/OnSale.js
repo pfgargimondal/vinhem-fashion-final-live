@@ -377,10 +377,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text1}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text1}</h5> */}
                   <Link to={OnSaleDetails?.data?.section5_url1}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -393,10 +393,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text2}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text2}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url2}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -409,10 +409,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text3}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text3}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url3}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -425,10 +425,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text4}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text4}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url4}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -441,10 +441,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text5}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text5}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url5}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -457,10 +457,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text6}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text6}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url6}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -473,10 +473,10 @@ export const OnSale = () => {
               
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text7}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text7}</h5> */}
                   <Link to={OnSaleDetails?.data?.section5_url7}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -489,10 +489,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text8}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text8}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url8}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -505,10 +505,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text9}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text9}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url9}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -521,10 +521,10 @@ export const OnSale = () => {
 
               <div className="overlay-sale position-absolute w-100 h-100">
                 <div className="fdbdfgdf">
-                  <h6>Up to 50% off</h6>
+                  {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text10}</h5>
+                  {/* <h5>{OnSaleDetails?.data?.section5_text10}</h5> */}
                    <Link to={OnSaleDetails?.data?.section5_url10}>
                   <button>SHOP NOW</button>
                   </Link>

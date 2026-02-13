@@ -551,7 +551,8 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                   onChange={() => { setSelectedTheme(colorCode); handleSelect("color", colorValue.toLowerCase()) }}
                                   data-color={colorValue}
                                   id={colorValue}
-                                  checked={color?.includes(colorValue.toLowerCase()) || false}
+                                  // checked={color?.includes(colorValue.toLowerCase()) || false}
+                                  checked={color === colorValue.toLowerCase()}
                                   name={FilterMappingdata.filter_option}
                                   className="checkbox__trigger visuallyhidden"
                                   type="checkbox"
@@ -593,19 +594,23 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                           // isChecked = designer.includes(trimmedValue);
                           isChecked = designer === trimmedValue;
                         } else if (filterKey === "plus_sizes") {
-                          // isChecked = plusSize.includes(trimmedValue);
-                          isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);
+                          isChecked = plusSize === trimmedValue;
+                          // isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);
                         } else if (filterKey === "occasion") {
                           // isChecked = occasion.includes(trimmedValue);
                           isChecked = occasion === trimmedValue;
                         } else if (filterKey === "size" || filterKey === "sizes") {
-                          isChecked = size.includes(trimmedValue);
+                          // isChecked = size.includes(trimmedValue);
+                          isChecked = size === trimmedValue;
                         } else if (filterKey === "celebrity") {
-                          isChecked = celebrity.includes(trimmedValue);
+                          // isChecked = celebrity.includes(trimmedValue);
+                          isChecked = celebrity === trimmedValue;
                         } else if(filterKey === "discount") {
-                          isChecked = discount.includes(trimmedValue);
+                          // isChecked = discount.includes(trimmedValue);
+                          isChecked = discount === trimmedValue;
                         } else if (filterKey === "shipping_time") {
-                          isChecked = shippingTime.includes(trimmedValue);
+                          // isChecked = shippingTime.includes(trimmedValue);
+                          isChecked = shippingTime === trimmedValue;
                         }
 
                         return (
