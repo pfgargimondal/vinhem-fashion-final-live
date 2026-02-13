@@ -249,22 +249,42 @@
 }
 
 .fvgsdsedwewew .btn.btn-main{
+    background: var(--black-background-color);
+    border: 1px solid var(--black-background-color) !important;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-    background: var(--pink-main-color);
-    border-color: var(--pink-main-color) !important;
 }
 
 .fvgsdsedwewew .btn.btn-main:hover{    
     border-color: var(--black-background-color) !important;
 }
 
-
 .fvgsdsedwewew .btn.btn-outline-main {
     border: 1px solid var(--grey-border-color);
     transition: all 0.3s ease;
 }
 
-.fvgsdsedwewew .btn.btn-outline-main:hover {
+.fvgsdsedwewew button.active{
+    background: var(--black-background-color);
+    border-color: var(--black-background-color) !important;
+    color: #fff;
+}
+
+.fvgsdsedwewew button.active:hover{
+    background: var(--black-background-color);
+    color: #fff;
+}
+
+button.btn.btn-main.asfedeer{
+    background: var(--pink-main-color) !important;
+    border-color: var(--pink-main-color) !important;
+}
+
+button.btn.btn-main.asfedeer:hover{
+    border-color: var(--grey-border-color) !important;
+    background: var(--grey-border-color) !important;
+}
+
+.fvgsdsedwewew .btn:hover {
     background-color: var(--grey-border-color);
     color: #fff;
 }

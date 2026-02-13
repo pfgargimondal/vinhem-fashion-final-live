@@ -552,6 +552,9 @@ export const Filter = () => {
 
                         // displayValue = `${mainCategory} - ${lastPart}`;
                         displayValue = `${lastPart}`;
+                      } else if (item.type === "plusSize" || item.type === "size") {
+                          // Convert all letters to uppercase
+                          displayValue = item.value.toUpperCase();
                       } else {
                         displayValue = item.value
                           .split(" ")
@@ -859,7 +862,7 @@ export const Filter = () => {
                   <div className="dfgsfsfsfsdf d-flex justify-content-center align-items-center">
 
                     <button
-                      className="btn btn-main"
+                      className="btn btn-main odjaejiuiewr-nav"
                       onClick={handlePrev}
                       disabled={currentPage === 1}
                     >
@@ -879,7 +882,7 @@ export const Filter = () => {
                     </div>
 
                     <button
-                      className="btn btn-main"
+                      className="btn btn-main odjaejiuiewr-nav"
                       onClick={handleNext}
                       disabled={currentPage === totalPages}
                     >

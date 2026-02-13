@@ -260,7 +260,7 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
                       <ul className="f-link mb-0 ps-0">
                         <li><Link to="/become-vendor"><i class="bi me-2 bi-caret-right-fill"></i> Supplier Registration</Link></li>
 
-                        <li onClick={handleLoginModal}><Link><i class="bi me-2 bi-caret-right-fill"></i> Sign in / Sign up</Link></li>
+                        <li onClick={handleLoginModal}><Link><i class="bi me-2 bi-caret-right-fill"></i> Sign In / Sign Up</Link></li>
 
                         {/* <li onClick={handleLoginModal}><Link><i class="bi me-2 bi-caret-right-fill"></i> Sign up</Link></li> */}
 

@@ -146,7 +146,7 @@ export const BecomeVendor = () => {
       <div className="container">
         <div className={styles.xfhgjhusfgsd}>
             <div className="container">
-              <h3 className="mb-4"><strong>VENDOR REGISTRATION</strong></h3>
+              <h3 className="mb-4"><strong> SUPPLIER REGISTRATION</strong></h3>
                 <div className={styles.bfghfds}>
                   <form noValidate onSubmit={submitForm} encType="multipart/form-data">
                     <div className="row">

@@ -591,29 +591,38 @@
 }
 
 .pagination_ff button{
-  width: 3rem;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   height: 100%;
   background: var(--pink-main-color);
   border-color: var(--pink-main-color) !important;
 }
 
+button.odjaejiuiewr-nav{
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+}
+
 .pagination_ff button.active{
-  /* background: var(--pink-main-color); */
-  background: #bf71a1;
-  border-color: var(--pink-main-color) !important;
+  background: var(--black-background-color);
+  border-color: var(--black-background-color) !important;
   color: #fff;
   border-style: dotted;
 }
 
 .pagination_ff button:hover{
-  background: var(--pink-main-color) !important;
-  border-color: var(--pink-main-color) !important;
+  background: var(--black-hover-background-color) !important;
+  border-color: var(--black-hover-background-color) !important;
   border-radius: 5px !important;
   color: #fff;
 }
 
+.pagination_ff button.active:hover{
+  background: var(--black-background-color) !important;
+  border-color: var(--black-background-color) !important;
+}
+
 .dfgsfsfsfsdf button.btn-main:hover{
   border-radius: 5px;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
 }
 
 .dweihrihwerwerwer p{

@@ -23,7 +23,19 @@ export const DropdownLoggedIn = () => {
   return (
     <div className="dropdown-loggedin bg-white position-absolute p-2 mt-1">
         <ul className="ps-0 mb-0">
-            <li><Link to="/profile"><i class="fa-solid fa-user"></i> My Profile</Link></li>
+            <li>
+              <Link to="/profile" className="d-flex bfhtyrae align-items-center justify-content-between">
+                <div className="deoiwjrwer">
+                  <i class="fa-solid fa-user"></i> My Profile
+                </div>
+
+                <span className="prfl-optns-divider d-flex align-items-center">|</span>
+
+                <div className="diewirjwejrwer">
+                  <img src="./images/prfledropdwnlvl.png" alt="" />
+                </div>
+              </Link>
+            </li>
             
             <li><Link to={'/wishlist'}><i class="fa-regular fa-heart"></i> Wishlist</Link></li>
 

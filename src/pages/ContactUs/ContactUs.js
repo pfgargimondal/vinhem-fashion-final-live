@@ -399,7 +399,7 @@ export const ContactUs = () => {
                                   </p>
                                 )}
 
-                                <div className={styles.dfbdfhsd}>
+                                <div className={`${styles.dfbdfhsd} text-center`}>
                                   <button
                                     type="submit"
                                     className={styles.btn55}

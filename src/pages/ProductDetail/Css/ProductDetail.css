@@ -436,7 +436,7 @@ p.sidifsdiyhr{
 }
 
 .cffdrtrvwet.nw-arrvl{
-  left: 0;
+  left: -1%;
   background-size: 95px;
   width: 95px !important;
   line-height: 2.9 !important;
@@ -445,6 +445,7 @@ p.sidifsdiyhr{
 .cffdrtrvwet.nw-arrvl > .nw-arrvl{
   left: 5%;
   background-image: none;
+  line-height: 2.8;
 }
 
 .gbsdeeer.dscnt-prce{
@@ -1228,7 +1229,7 @@ h4.oijiwuihfih-eiuheir{
 	 font-weight: 500;
 	 margin-top: 1px;
 	 user-select: none;
-   font-size: 0.9rem;
+   font-size: 1rem;
 }
 
 .injdewrwer > h4 {
@@ -1247,7 +1248,7 @@ h4.oijiwuihfih-eiuheir{
 }
 
 .doiwejrwer p{
-  font-size: 0.75rem !important;
+  font-size: 0.9rem !important;
   line-height: 1.4 !important;
 }
 

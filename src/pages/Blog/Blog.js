@@ -212,13 +212,13 @@ export const Blog = () => {
 
                         {blogs.length > blogsPerPage && (
                             <div className="fvgsdsedwewew d-flex justify-content-center align-items-center my-4 flex-wrap">
-                                <button className="btn btn-outline-dark mx-1" onClick={handlePrevPage} disabled={currentPage === 1}>Prev</button>
+                                <button className={`${(currentPage === 1) ? "" : "btn-main"} btn mx-1`} onClick={handlePrevPage} disabled={currentPage === 1}>Prev</button>
 
                                 {pageNumbers.map((number) => (
-                                    <button key={number} className={`btn mx-1 ${currentPage === number ? "btn-main" : "btn-outline-main"}`} onClick={() => handlePageChange(number)}>{number}</button>
+                                    <button key={number} className={`btn mx-1 ${currentPage === number ? "active" : "btn-main asfedeer"}`} onClick={() => handlePageChange(number)}>{number}</button>
                                 ))}
                                 
-                                <button className="btn btn-outline-dark mx-1" onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
+                                <button className={`${(currentPage === totalPages) ? "" : "btn-main"} btn mx-1`} onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
                             </div>
                         )}
                     </main>

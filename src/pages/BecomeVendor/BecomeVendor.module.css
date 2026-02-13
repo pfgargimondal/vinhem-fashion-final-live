@@ -117,7 +117,7 @@
 {
   padding: 6px 22px;
   border: none;
-  background-color: #e38800;
+  background-color: var(--pink-main-color);
   color: white;
   font-weight: 500;
   border-radius: 4px;
@@ -129,7 +129,7 @@
 {
   padding: 6px 22px;
   border: none;
-  background-color: #93370b;
+  background-color: var(--black-background-color);
   color: white;
   font-weight: 500;
   border-radius: 4px;

@@ -224,12 +224,27 @@ export const ProductDetail = () => {
 
   const [productDetails, SetproductDetails] = useState({});
 
+  // shipping time = 48 Hrs
   const getEstimatedShippingDate = (shipping_time) => {
-    const days = parseInt(shipping_time);
-    if (isNaN(days)) return "";
+    if (!shipping_time) return "";
+
+    // Extract numeric value and unit (Hrs or Days)
+    const match = shipping_time.match(/(\d+)\s*(Hrs?|Days?)/i);
+    if (!match) return "";
+
+    const value = parseInt(match[1], 10);
+    const unit = match[2].toLowerCase();
 
     const date = new Date();
-    date.setDate(date.getDate() + days);
+
+    if (unit.startsWith("hr")) {
+      // Convert hours to days (round up to nearest day)
+      const daysToAdd = Math.ceil(value / 24);
+      date.setDate(date.getDate() + daysToAdd);
+    } else {
+      // Unit is days
+      date.setDate(date.getDate() + value);
+    }
 
     const day = date.getDate();
     const month = date.toLocaleString("en-US", { month: "long" });
@@ -238,19 +253,17 @@ export const ProductDetail = () => {
     return `${day}${getDaySuffix(day)} ${month} ${year}`;
   };
 
+  // Helper function for day suffix (1st, 2nd, 3rd, etc.)
   const getDaySuffix = (day) => {
-    if (day >= 11 && day <= 13) return "th";
+    if (day > 3 && day < 21) return "th";
     switch (day % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
     }
   };
+
 
   useEffect(() => {
     const fetchProductDetailsPage = async () => {

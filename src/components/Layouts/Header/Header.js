@@ -691,10 +691,6 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
                                         <i class={`fa-solid sdfrrweewr_icon ${userDropdown ? "fa-caret-up" : "fa-caret-down"}`}></i>
                                       </div>
-
-                                      <div className="diewirjwejrwer rounded-pill d-flex align-items-center px-3 position-absolute bg-white py-1">
-                                        <img src="./images/prfledropdwnlvl.png" className="me-2" alt="" /> <span>Silver</span>
-                                      </div>
                                     </div>
 
                                     {userDropdown && <DropdownLoggedIn />}

@@ -511,7 +511,7 @@ export const MeasurementForm = ({
                       />
                     </div>
 
-                    <p className="text-align-center">
+                    <p className="text-center">
                       {productDetails?.data?.product_name} -{" "}
                       {productDetails?.data?.PID}
                     </p>

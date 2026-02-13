@@ -588,7 +588,7 @@ export const OnSale = () => {
                     <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section7_image1}`} alt="" />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{OnSaleDetails?.data?.section7_number1} {OnSaleDetails?.data?.section7_text1}</h4>
                   </div>
 
@@ -604,7 +604,7 @@ export const OnSale = () => {
                     <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section7_image2}`} alt="" />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{OnSaleDetails?.data?.section7_number2} {OnSaleDetails?.data?.section7_text2}</h4>
                   </div>
 
@@ -620,7 +620,7 @@ export const OnSale = () => {
                     <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section7_image3}`} alt="" />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{OnSaleDetails?.data?.section7_number3} {OnSaleDetails?.data?.section7_text3}</h4>
                   </div>
 
@@ -636,7 +636,7 @@ export const OnSale = () => {
                     <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section7_image4}`} alt="" />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{OnSaleDetails?.data?.section7_number4} {OnSaleDetails?.data?.section7_text4}</h4>
                   </div>
 
