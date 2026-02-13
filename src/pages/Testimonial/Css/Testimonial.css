@@ -250,6 +250,7 @@
 .djewojewr_left img{
   width: 130%;
   height: 11vw;
+  border-radius: 10px;
   object-fit: cover;
 }
 
@@ -260,7 +261,6 @@
 .djewojewr_right h6.dwerfqwer{
   color: var(--pink-main-color);
   font-size: 0.8rem;
-  margin-top: 2rem;
   font-weight: 400;
 }
 
@@ -330,20 +330,42 @@ p.sadfdtwrwrwr{
 
 
 
+.doewjorjwoejrwer .col-lg-4:nth-child(odd) .oeijmewrwer{
+  background: #fff8f8;
+}
 
-@media only screen and (min-width: 2551px){
-  .banner img{
-    height: auto;
-  }
+.doewjorjwoejrwer .col-lg-4:nth-child(even) .oeijmewrwer{
+  background: #edf6ef;
+}
+
+.ascokpscdjoi{
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
+}
+
+.djewojewr_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 
 
-@media only screen and (max-width: 2550px){
+
+
+/* @media only screen and (min-width: 2551px){
   .banner img{
     height: auto;
   }
-}
+} */
+
+
+
+/* @media only screen and (max-width: 2550px){
+  .banner img{
+    height: auto;
+  }
+} */
 
 
 

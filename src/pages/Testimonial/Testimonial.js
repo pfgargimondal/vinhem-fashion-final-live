@@ -643,7 +643,7 @@ export const Testimonial = () => {
                                             <div className="col-lg-9">
                                                 <div className="djewojewr_right ps-5">
                                                     <div className="deiwuiwehrjwer">
-                                                        <div className="doiwejrwer d-flex justify-content-between">
+                                                        <div className="doiwejrwer d-flex justify-content-between pt-2">
                                                             <div className="doiwejjrwerwer d-flex align-items-center">
                                                                 <div className="dinewjhwer me-1 text-center text-white">{contentVal?.name?.charAt(0).toUpperCase()}</div>
 
@@ -753,7 +753,7 @@ export const Testimonial = () => {
                     </div>
                     {TestimonialDetails?.testimonial_content?.length > 0 && (
                         <div className="dfgsfsfsfsdf d-flex justify-content-center align-items-center">
-                            <button className="btn btn-main" onClick={handlePrev}>Prev</button>
+                            <button className="btn btn-main ascokpscdjoi" onClick={handlePrev} disabled={currentPage === 1}>Prev</button>
 
                             <div className="pagination_ff d-flex align-items-center">
                                 {pages.map(page => (
@@ -761,7 +761,7 @@ export const Testimonial = () => {
                                 ))}
                             </div>
 
-                            <button className="btn btn-main" onClick={handleNext}>Next</button>
+                            <button className="btn btn-main ascokpscdjoi" onClick={handleNext} disabled={currentPage === totalPages}>Next</button>
                         </div>
                     )}
                 </div>

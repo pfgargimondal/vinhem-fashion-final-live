@@ -65,7 +65,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="fgsdfsdf656565d">
+        <div className="fgsdfsdf656565d px-5">
           <div className="adfsdfwreerer">
             <div className="djhfvdffdf">
               <div
@@ -79,7 +79,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="dfgjhdfbgdfgd">
+        <div className="dfgjhdfbgdfgd px-5">
           <div className="adfsdfwreerer">
             <div className="dfdfhsdff">
               <div className="row">
@@ -114,7 +114,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="dfnhdfhsd55">
+        <div className="dfnhdfhsd55 px-5">
           <div className="adfsdfwreerer">
             <div className="sdfsd55">
               <div className="row">
@@ -153,7 +153,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="xfnhvjhdfbvgdfg">
+        <div className="xfnhvjhdfbvgdfg px-5">
           <div className="adfsdfwreerer">
             <div className="lksdvzdxmjcb py-3" style={{ textAlign: "center" }}>
               <h2>
@@ -247,7 +247,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="sdfgbdfghgdfgd">
+        <div className="sdfgbdfghgdfgd px-5">
           <div className="adfsdfwreerer">
             <div className="gdfbgjhdfgd">
               <h2>
@@ -311,7 +311,7 @@ export const AboutUs = () => {
           </div>
         </div>
 
-        <div className="ieufhvksdhjk">
+        <div className="ieufhvksdhjk px-5">
           <div className="adfsdfwreerer">
             <div className="vgjlksdfj">
               <h2>

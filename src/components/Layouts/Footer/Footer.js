@@ -428,7 +428,7 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
 
       <div onClick={handleLoginClose} className={`${loginModalBackdrop ? "login-modal-backdrop" : "login-modal-backdrop login-modal-backdrop-hide"} position-fixed w-100 h-100`}></div>
 
-      <div className={`${loginModal ? "login-modal" : "login-modal login-modal-hide"} bg-white px-4 py-2 position-fixed`}>
+      <div className={`${loginModal ? "login-modal" : "login-modal login-modal-hide"} overflow-hidden bg-white position-fixed`}>
         <div className="weohfjkwenuirhwer position-absolute" onClick={() => { setLoginModal(false); setLoginModalBackdrop(false); }}>
           <i class="fa-solid fa-xmark"></i>
         </div>
@@ -436,7 +436,7 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
         <div className="difwehwerwer">
           {emailToggle ? (<img src="./images/dw.jpg" alt="" />) : (<img src="./images/dw.jpg" alt="" />)}
 
-          <div className="diwekmrwerwe pt-4">
+          <div className="diwekmrwerwe px-4 pb-2 pt-4">
             <h5 className="text-center mb-1">Log in or Sign up</h5>
 
             <p className="text-center">to personalize your experience</p>

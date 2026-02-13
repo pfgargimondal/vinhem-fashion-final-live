@@ -53,7 +53,7 @@ export const FAQ = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="fjgnfg55d">
+      <div className="fjgnfg55d px-5">
         <div className="wrapper">
           <div className="container-fluid">
             <h1 className="mb-4">

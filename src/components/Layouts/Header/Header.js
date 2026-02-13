@@ -700,7 +700,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                     <i className="bi bi-person"></i> Account
                                     <div className="accnt-drpdwn bg-white p-4 position-absolute mt-2 d-none">
                                       <div className="text-center">
-                                        <h4>Log in or Sign up</h4>
+                                        <h4>Log In or Sign Up</h4>
 
                                         <p>to personalize your experience</p>
                                       </div>
@@ -708,7 +708,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                       <div className="diwejikrwer">
                                         <button className="btn mb-3 btn-main w-100" onClick={handleLoginModal}>Sign in with Mobile/Email</button>
 
-                                        <button className="btn btn-main bg-white text-dark w-100"><img src="../images/search.png" className="me-2" alt="" /> Sign in with Google</button>
+                                        <button className="btn btn-main bg-white text-dark w-100"><img src="./images/search.png" className="me-2" alt="" /> Sign in with Google</button>
                                       </div>
                                     </div>
                                   </>
@@ -1060,7 +1060,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
       <div onClick={handleLoginClose} className={`${loginModalBackdrop ? "login-modal-backdrop" : "login-modal-backdrop login-modal-backdrop-hide"} position-fixed w-100 h-100`}></div>
 
-      <div className={`${loginModal ? "login-modal" : "login-modal login-modal-hide"} bg-white px-4 py-2 position-fixed`}>
+      <div className={`${loginModal ? "login-modal" : "login-modal login-modal-hide"} overflow-hidden bg-white position-fixed`}>
         <div className="weohfjkwenuirhwer position-absolute" onClick={() => {handleLoginClose(); handleLoginClose();}}>
           <i class="fa-solid fa-xmark"></i>
         </div>
@@ -1068,7 +1068,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
         <div className="difwehwerwer">
           {emailToggle ? (<img src="./images/dw.jpg" alt="" />) : (<img src="./images/dw.jpg" alt="" />)}
 
-          <div className="diwekmrwerwe pt-4">
+          <div className="diwekmrwerwe px-4 pb-2 pt-4">
             <h5 className="text-center mb-1">Log in or Sign up</h5>
 
             <p className="text-center">to personalize your experience</p>

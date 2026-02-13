@@ -491,6 +491,7 @@ export const ProductDetail = () => {
       setSelectedQuantity(1);
     }
   }, [productDetails]);
+  
 
   // ------------------------------
   // Calculate total price dynamically
