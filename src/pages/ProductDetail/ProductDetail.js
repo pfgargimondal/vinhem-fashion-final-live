@@ -781,18 +781,48 @@ export const ProductDetail = () => {
       return;
     }
 
+    const shipping_time = productDetails?.data?.shipping_time || "0 Days";
+
+    // Extract numeric value and unit (Hrs or Days)
+    const match = shipping_time.match(/(\d+)\s*(Hrs?|Days?)/i);
+    let shippingDays = 0;
+
+    if (match) {
+      const value = parseInt(match[1], 10);
+      const unit = match[2].toLowerCase();
+
+      if (unit.startsWith("hr")) {
+        shippingDays = Math.ceil(value / 24); // Convert hours to days
+      } else {
+        shippingDays = value; // Already in days
+      }
+    }
+
+    // Add 4 days buffer + shipping time
+    const totalDays = 4 + shippingDays;
+
     const deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + 4);
+    deliveryDate.setDate(deliveryDate.getDate() + totalDays);
 
-    const formattedDate = deliveryDate.toLocaleDateString("en-IN", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
+    // Format date as e.g., 2nd April 2026
+    const day = deliveryDate.getDate();
+    const month = deliveryDate.toLocaleString("en-IN", { month: "long" });
+    const year = deliveryDate.getFullYear();
 
+    const getDaySuffix = (d) => {
+      if (d > 3 && d < 21) return "th";
+      switch (d % 10) {
+        case 1: return "st";
+        case 2: return "nd";
+        case 3: return "rd";
+        default: return "th";
+      }
+    };
+
+    const formattedDate = `${day}${getDaySuffix(day)} ${month} ${year}`;
     setDeliveryMsg(`Delivering to this location by ${formattedDate}`);
   };
+
 
   if (loading) {
     return <Loader />;
