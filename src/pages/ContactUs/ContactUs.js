@@ -171,7 +171,7 @@ export const ContactUs = () => {
         </div>
       </div>
 
-      <div className={` ${styles.jvjhubjkjoij} mt-5`}>
+      <div className={`${styles.jvjhubjkjoij} mt-5 px-5`}>
         <div className="container-fluid">
           <h1>
             {" "}

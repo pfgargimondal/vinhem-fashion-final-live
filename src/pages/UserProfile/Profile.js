@@ -166,8 +166,8 @@ export const Profile = () => {
                   </p> */}
                 </div>
 
-                <div className={`${styles.fbhdfs} mb-4`}>
-                  <div className={`${styles.dfghdfgdf} mb-4`}>
+                <div className={`${styles.fbhdfs} row justify-content-between align-items-center mb-4`}>
+                  <div className={`${styles.dfghdfgdf} col-lg-4 mb-4`}>
                     <div className={`${styles.sdfjhsdfs} position-relative`}>
                       <img
                         src={previewImage || "./images/pfle.jpg"}
@@ -193,6 +193,34 @@ export const Profile = () => {
                     <div className={styles.dfbghdfg}>
                       <h5 className="mb-0">{formData.name}</h5>
                     </div>
+                  </div>
+                  
+                  <div className={`${styles.dwoejoidwemjr} col-lg-4`}>
+                    <ol className={styles.steps}>
+                      <li className={`${styles.step} ${styles.is_active}`} data-step={1}>
+                        <span className={styles.doejojewr}>Current</span>
+
+                        <img src="./images/sadw.png" alt="" />
+
+                        <span className={styles.oajeorjer}>Silver</span>
+                      </li>
+
+                      <li className={`${styles.step}`} data-step={2}>
+                        <span className={`${styles.doejojewr} ${styles.opacity_hidden}`}>Current</span>
+
+                        <img src="./images/sae.png" alt="" />
+
+                        <span className={styles.oajeorjer}>Gold <br /> <span>Shop 25,000 To upgrade</span></span>
+                      </li>
+
+                      <li className={`${styles.step}`} data-step={3}>
+                        <span className={`${styles.doejojewr} ${styles.opacity_hidden}`}>Current</span>
+
+                        <img src="./images/sadew.png" alt="" />
+
+                        <span className={styles.oajeorjer}>Platinum <br /> <span>Shop 50,000 To upgrade</span></span>
+                      </li>
+                    </ol>
                   </div>
                 </div>
 
