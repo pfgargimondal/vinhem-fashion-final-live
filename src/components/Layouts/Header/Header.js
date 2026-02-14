@@ -451,11 +451,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                     <div className="col-lg-4">
                       <div className="soifjoejopeor d-flex align-items-center">
                         <div className="doeiwhrkwdeor">
-                          <i className="fa-solid fa-bars d-none" id="res-toggle-btn" onClick={() => setResMenu(!resMenu)}></i>
-
-                          <Link to="/" className="duiewhewijrrqq"><img src={Logo} className="img-fluid" alt="" /></Link>
-
-                          <div className="custom-currency-dropdown wlojdfiwejrower d-none position-relative">
+                          <div className="custom-currency-dropdown wlojdfiwejrower col-4 d-none position-relative">
                             <button
                                 className="currency-toggle-btn d-flex align-items-center"
 
@@ -526,6 +522,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                               </div>
                             )}
                           </div>
+
+                          <Link to="/" className="duiewhewijrrqq"><img src={Logo} className="img-fluid" alt="" /></Link>
                         </div>
 
                         <div className="qweqweqewqw">
@@ -730,6 +728,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                             <i className="bi position-absolute bi-search"></i>
                           </div>
                         </form>
+
+                        <i className="fa-solid fa-bars d-none" id="res-toggle-btn" onClick={() => setResMenu(!resMenu)}></i>
                       </div>
 
                       <div className="col-4">

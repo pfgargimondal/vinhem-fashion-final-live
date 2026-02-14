@@ -1264,7 +1264,7 @@ export const Cart = () => {
                 </div>
 
                 <div className="col-lg-4">
-                  <div className="diwebjrwert_right sticky-top">
+                  <div className="diwebjrwert_right">
                     <div className="srghbsdtnhfnjgh">
                       <h4 className="mb-4" style={{textAlign:"center"}}>CART SUMMARY</h4>
                     </div>
@@ -1596,7 +1596,7 @@ export const Cart = () => {
                   </div>
 
                   <div className="col-lg-4">
-                    <div className="diwebjrwert_right sfvswfrwerwr sticky-top">
+                    <div className="diwebjrwert_right sfvswfrwerwr">
                       <div className="uiwdhiwerwerwer">
                           <button
                             className="btn btn-main w-100 mb-3"
@@ -2243,7 +2243,7 @@ export const Cart = () => {
                   </div>
 
                   <div className="col-lg-4">
-                    <div className="diwebjrwert_right sfvswfrwerwr sticky-top">
+                    <div className="diwebjrwert_right sfvswfrwerwr">
                       {/* <h4 className="opsjdfohsij mb-0 pb-2">PRICE DETAILS</h4> */}
                       <div className="sdegdsbhsdfgbnh mb-4">
                         <h4 className="opsjdfohsij mb-0 pb-2">PRICE DETAILS</h4>

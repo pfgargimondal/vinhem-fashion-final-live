@@ -287,12 +287,6 @@
     header .header-main .doiewhirw_right{
         float: initial;
     }
-
-    .doeiwhrkwdeor{
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-    }  
     
     header .header-top .doeiwhrkwdeor{
         width: auto;
@@ -332,7 +326,6 @@
     }
 
     #res-toggle-btn.d-none,
-    .dwejoijrwer.d-none,
     .dowejojiweujrwer.d-none{
         display: block !important;
     }
@@ -604,6 +597,11 @@
         text-align: center;
     }
 
+    .doeiwhrkwdeor{
+        display: flex;
+        align-items: center;
+    }
+
     .doeiwhrkwdeor img{
         width: 10rem;
     }
@@ -632,6 +630,18 @@
     .res-ctgy-menu-backdrop.d-none{
         display: block !important;
     }
+    
+    #res-toggle-btn{
+        font-size: 1.8rem;
+    }
+
+    header .header-top .doewhruiwerwer_right ul li:first-child{
+        display: none;
+    }
+
+    .duiewhewijrrqq{
+        width: 33.33%;
+    }    
 }
 
 
