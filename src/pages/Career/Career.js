@@ -83,7 +83,7 @@ export const Career = () => {
       <div className="fbhjjdfjk554">
         <div className="wrapper">
           <div className="dfghdfgd">
-            <div className="container">
+            <div className="container-fluid px-5">
               <h4>
                 {CareerDetails.data?.second_section_title}
               </h4>
@@ -98,14 +98,14 @@ export const Career = () => {
           </div>
 
           <div className="dfghdfgd">
-            <div className="container" style={{ marginBottom: "1rem" }}>
+            <div className="container-fluid px-5" style={{ marginBottom: "1rem" }}>
               <h3>
                 {CareerDetails.data?.third_section_heading}
               </h3>
             </div>
           </div>
 
-          <div className="container">
+          <div className="container-fluid px-5">
             {jobOpenings.map(jobOpening => (
               <div className="saoidjieor" key={jobOpening?.id}>
                 <div className="question" onClick={() => toggleAccordion(jobOpening.id)}>{jobOpening?.title} <i className={`fa-solid ${jobAccordion === jobOpening.id ? "open fa-minus" : "fa-plus"}`}></i></div>
@@ -128,7 +128,7 @@ export const Career = () => {
       </div>
 
       <div className="sdfbjhfsdf">
-        <div className="container">
+        <div className="container-fluid px-5">
           <div className="fnb788f">
             <h2>{CareerDetails.data?.form_title || "Join Our Team"}</h2>
 
