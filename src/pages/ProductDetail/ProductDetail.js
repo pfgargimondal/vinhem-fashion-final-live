@@ -407,7 +407,7 @@ export const ProductDetail = () => {
 
       // ✅ If product is Unstitched or Semi-Stitched
       if (
-        stitchingType === "unstitched-fabric" ||
+        stitchingType === "unstiched-fabric" ||
         stitchingType === "semi-stitched"
       ) {
         const qty = Number(base?.mto_quantity || 0);
@@ -483,7 +483,7 @@ export const ProductDetail = () => {
       productDetails?.data?.stitching_option?.toLowerCase();
 
     if (
-      stitchingType === "unstitched-fabric" ||
+      stitchingType === "unstiched-fabric" ||
       stitchingType === "semi-stitched"
     ) {
       const qty = Number(productDetails?.data?.mto_quantity || 0);
