@@ -2643,7 +2643,7 @@ export const Cart = () => {
 
                   const coupon = couponItems.find(c => c.code === value);
 
-                  if (!coupon || !coupon.is_applicable) {
+                  if (!coupon || !coupon.is_applicable || !coupon.is_matched) {
                     setSelectedDiscount(0);
                     setAppliedDiscount(0);
                     setFreeShipping(false);
@@ -2676,7 +2676,7 @@ export const Cart = () => {
                   className="btn position-absolute btn-main"
                   onClick={() => {
                     const coupon = couponItems.find(c => c.code === selectedCoupon);
-                    if (!coupon || !coupon.is_applicable) return;
+                    if (!coupon || !coupon.is_applicable || !coupon.is_matched) return;
                     setCouponApplied(true);
                   }}
                 >
@@ -2713,9 +2713,9 @@ export const Cart = () => {
                     type="radio"
                     className="d-none position-absolute"
                     checked={selectedCoupon === couponItemsVal.code}
-                    disabled={couponApplied || !couponItemsVal.is_applicable}
+                    disabled={couponApplied || !couponItemsVal.is_applicable || !couponItemsVal.is_matched}
                     onChange={() => {
-                      if (!couponItemsVal.is_applicable) return;
+                      if (!couponItemsVal.is_applicable || !couponItemsVal.is_matched) return;
 
                       setSelectedCoupon(couponItemsVal.code);
 
@@ -2730,7 +2730,11 @@ export const Cart = () => {
 
                   <label
                     htmlFor={couponItemsVal.code}
-                    className={`w-100 position-relative ${!couponItemsVal.is_applicable ? "coupon-disabled" : ""}`}
+                    className={`w-100 position-relative ${
+                    (!couponItemsVal.is_applicable || !couponItemsVal.is_matched)
+                        ? "coupon-disabled"
+                        : ""
+                    }`}
                   >
                     <div class="coupon">
                       <div class="center">
@@ -2750,10 +2754,14 @@ export const Cart = () => {
                           <div className="fsdrwedewee mt-2 text-center">
                             <Link
                               to=""
-                              className={!couponItemsVal.is_applicable ? "disabled" : ""}
+                              className={
+                                (!couponItemsVal.is_applicable || !couponItemsVal.is_matched)
+                                  ? "disabled"
+                                  : ""
+                              }
                               onClick={(e) => {
                                 e.preventDefault();
-                                if (!couponItemsVal.is_applicable) return;
+                                if (!couponItemsVal.is_applicable || !couponItemsVal.is_matched) return;
 
                                 setSelectedCoupon(couponItemsVal.code);
                                 setCouponApplied(true);
@@ -2798,11 +2806,15 @@ export const Cart = () => {
                     <i class="bi copn-checked-icon position-absolute bi-check-circle-fill"></i>
                   </label>
 
-                  {!couponItemsVal.is_applicable && (
+                  {!couponItemsVal.is_applicable ? (
                     <h4 className="oijiwuihfih-eiuheir mt-3 text-center">
                       {couponItemsVal.disable_reason}
                     </h4>
-                  )}                  
+                  ) : !couponItemsVal.is_matched ? (
+                    <h4 className="oijiwuihfih-eiuheir mt-3 text-center">
+                      This coupon is not valid for products in your cart
+                    </h4>
+                  ) : null}       
                 </div>
               ))}
             </div>

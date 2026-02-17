@@ -386,7 +386,8 @@ export const FilterProvider = ({ children }) => {
             if (!mainCat || !subCat) return false;
 
             // return `${mainCat}/${subCat}` === state.subCategory;
-            return `${subCat}` === state.subCategory;
+            // return `${subCat}` === state.subCategory;
+            return slugify(subCat) === state.subCategory;
         });
     }
 
@@ -432,7 +433,8 @@ export const FilterProvider = ({ children }) => {
             if (!mainCat || !subCat || !filterCat) return false;
             
             // const productFilterPath = `${mainCat}/${subCat}/${filterCat}`;
-            const productFilterPath = `${filterCat}`;
+            // const productFilterPath = `${filterCat}`;
+            const productFilterPath = slugify(filterCat);
             return selectedFilters.includes(productFilterPath);
         });
     }
@@ -952,6 +954,14 @@ export const FilterProvider = ({ children }) => {
         });
 
         updateURLWithFilters(newState);
+    }
+
+
+    function slugify(text) {
+        return text
+            ?.toLowerCase()
+            .replace(/ /g, "-")
+            .trim();
     }
 
 
