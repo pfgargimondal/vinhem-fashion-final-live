@@ -202,7 +202,7 @@ export const BecomeVendor = () => {
 
         <div className={styles.xfhgjhusfgsd}>
           <div className="container-fluid px-5">
-            <h3 className="mb-4">
+            <h3 className="mb-4 text-center">
               <strong> SUPPLIER REGISTRATION</strong>
             </h3>
             <div className={styles.bfghfds}>

@@ -38,7 +38,11 @@
 }
 .cart-wrapper .diwebjrwert_left .dfgjhbdfg .dknwekhwe h5 span.old-price {
   text-decoration: line-through;
-  color: var(--text-lighter-gray-color);
+  color: #616161;
+}
+.cart-wrapper .diwebjrwert_left .dfgjhbdfg .dknwekhwe h5 span:last-child{
+  color: var(--pink-main-color);
+  font-weight: 600;
 }
 .cart-wrapper .diwebjrwert_left .dfgjhbdfg .dnweghbjewrwer p {
   font-size: 0.9rem;

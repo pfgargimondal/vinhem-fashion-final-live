@@ -2048,7 +2048,7 @@ export const Cart = () => {
                                           </span>
                                         </p>
 
-                                        <h6 className="sadcadaededee mb-0"><i class="bi me-1 bi-truck"></i> {cartItemsVal.non_returnable}</h6>
+                                        {/* <h6 className="sadcadaededee mb-0"><i class="bi me-1 bi-truck"></i> {cartItemsVal.non_returnable}</h6> */}
                                       </div>
                                     </div>
                                   </div>
@@ -2734,7 +2734,7 @@ export const Cart = () => {
           </div>
 
           <div className={`doeiwjorjweorwer mt-4 ${(couponItems.length < 3) ? "px-4" : "ps-4"}`}>
-            <h5 className="mb-4">Offers Available To Apply</h5>
+            <h5 className="mb-4 text-center">Offers Available To Apply</h5>
 
             <div className="deoiwjrewrwer">
               {couponItems?.map((couponItemsVal) => (
@@ -2814,7 +2814,7 @@ export const Cart = () => {
                                 }
                               }}
                             >
-                              TAP TO APPLY
+                              Tap To Apply
                             </Link>
                           </div>
                         </div>

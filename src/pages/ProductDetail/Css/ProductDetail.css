@@ -999,7 +999,7 @@ p.sidifsdiyhr{
 
 h4.oijiwuihfih-eiuheir{
   color: var(--grey-border-color);
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .skdncfjsdbcfksdnf .btn-main{
@@ -1049,7 +1049,7 @@ h4.oijiwuihfih-eiuheir{
    border-radius: 5px;
 }
  .jidnwenjrwerwer .center h3 {
-	 font-size: 3rem;
+	 font-size: 1.5rem;
    font-family: "Merriweather", serif;
 }
 

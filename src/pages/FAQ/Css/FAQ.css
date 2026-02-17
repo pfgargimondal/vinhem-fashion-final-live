@@ -63,6 +63,11 @@
 .fjgnfg55d .answercont.active {
   max-height: 500px; /* adjust depending on content length */
 }
+
+.fjgnfg55d h1{
+  font-size: 2rem;
+}
+
 /* end faq page css */
 /* end faq page css */
 /* end faq page css */

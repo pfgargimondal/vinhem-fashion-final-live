@@ -38,7 +38,11 @@
 }
 .cart-wrapper .diwebjrwert_left .dfgjhbdfg .dknwekhwe h5 span.old-price {
   text-decoration: line-through;
-  color: var(--text-lighter-gray-color);
+  color: #616161;
+}
+.cart-wrapper .diwebjrwert_left .dfgjhbdfg .dknwekhwe h5 span:last-child{
+  color: var(--pink-main-color);
+  font-weight: 600;
 }
 .cart-wrapper .diwebjrwert_left .dfgjhbdfg .dnweghbjewrwer p {
   font-size: 0.9rem;
@@ -320,7 +324,7 @@
 .fsdrwedewee a{
   user-select: none;
   color: #000;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
@@ -713,6 +717,10 @@ h6.sadcadaededee,
   font-size: 0.9rem;
 }
 
+.fsdrwedewee a{
+  text-transform: capitalize !important;
+}
+
 .doriwer img{
   max-width: 100%;
   width: 10% !important;
@@ -720,5 +728,9 @@ h6.sadcadaededee,
 
 .doriwer p{
   color: var(--grey-border-color);
-  font-size: 0.8rem;
+  font-size: 1rem;
+}
+
+.doriwer img.me-2{
+  margin-right: 0.4rem !important;
 }
