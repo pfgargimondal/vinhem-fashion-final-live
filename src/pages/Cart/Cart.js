@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import "./Css/Cart.css";
 import "swiper/css";
@@ -17,6 +17,7 @@ import { useCart } from "../../context/CartContext";
 import { BillingAddress } from "./Components/BillingAddress";
 import { placeOrderAPI } from "../../api/order";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
 
 
 export const Cart = () => {
@@ -57,6 +58,9 @@ export const Cart = () => {
   const [shippingCharge, setShippingCharge] = useState(0);
   const [isGift, setIsGift] = useState(false);
   const [pymntSmmryDrpdwn, setPymntSmmryDrpdwn] = useState(true);
+  const [pageMetaData, setPageMetaData] = useState([]);
+                        
+  const pathName = useLocation().pathname;
 
   // console.log(localStorage.getItem("selectedCurrency"), 'selectedCurrency');
 
@@ -119,7 +123,9 @@ export const Cart = () => {
         const res = await http.get("/user/get-all-coupon", {
           headers: { Authorization: `Bearer ${token}` },
         });
+        const getMetaDataResponse = await http.get("/get-all-page-meta-title");
         setcouponItems(res.data.data || []);
+        setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
       } catch (error) {
         console.error("Failed to fetch cart list", error);
       }
@@ -127,6 +133,21 @@ export const Cart = () => {
 
     fetchCoupon();
   }, [token]);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
   const getEstimatedShippingDate = (shipping_time) => {
     if (!shipping_time) return "";

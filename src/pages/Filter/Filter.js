@@ -12,6 +12,7 @@ import { useFilter } from "../../context/FilterContext";
 import { useCurrency } from "../../context/CurrencyContext";
 import { PageNotFound } from "../PageNotFound/PageNotFound";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const Filter = () => {
 
@@ -41,6 +42,7 @@ export const Filter = () => {
 
   // const [currentPage, setCurrentPage] = useState(1);
   const [pageWindowStart, setPageWindowStart] = useState(1);
+  const [pageMetaData, setPageMetaData] = useState([]);
 
 
   const filterOptionsItems = [
@@ -325,6 +327,7 @@ export const Filter = () => {
     const fetchAllProduct = async () => {
       try {
         const response = await http.post("/fetch-product", { category, subcategory });
+        const getPageMetaData = await http.get("/get-all-page-meta-title");
 
         const allData = response.data?.data;
         const allProducts = response.data?.data?.all_product ?? [];
@@ -332,6 +335,7 @@ export const Filter = () => {
 
         SetallFilterData(allData);
         Setfilterdetails(allfilterDetails);
+        setPageMetaData(getPageMetaData.data.data.get_category_meta_title);
 
         const normalizedSearch = searchTerm.toLowerCase();
 
@@ -353,6 +357,18 @@ export const Filter = () => {
     fetchAllProduct();
     // eslint-disable-next-line
   }, [location.pathname, category, subcategory, searchTerm]);
+
+  const matchedMeta = pageMetaData.find(
+    (item) =>
+      item.category_name?.toLowerCase() === category?.toLowerCase() &&
+      item.sub_category_name?.toLowerCase() === subcategory?.toLowerCase()
+  );
+
+  useMetaData({
+    meta_title: matchedMeta?.meta_title || `${category} - Vinhem Fashion`,
+    meta_description: matchedMeta?.meta_description || "",
+    meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
 
   const { wishlistIds, addToWishlist, removeFromWishlist } = useWishlist(); // ✅ from context

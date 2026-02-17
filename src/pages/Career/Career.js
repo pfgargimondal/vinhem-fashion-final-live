@@ -4,6 +4,8 @@ import http from "../../http";
 import { useEffect, useState } from "react";
 import { CareerForm } from "./FormComponent/CareerForm";
 import Loader from "../../components/Loader/Loader";
+import { useLocation } from "react-router-dom";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const Career = () => {
 
@@ -11,6 +13,9 @@ export const Career = () => {
   const [CareerDetails, setCareerDetails] = useState({});
   const [jobOpenings, setJobOpenings] = useState([]);
   const [jobAccordion, setJobAccordion] = useState("");
+  const [pageMetaData, setPageMetaData] = useState([]);
+                      
+  const pathName = useLocation().pathname;
 
 
   useEffect(() => {
@@ -18,7 +23,9 @@ export const Career = () => {
       setLoading(true);
       try {
         const getresponse = await http.get("/get-career-content");
+        const getMetaDataResponse = await http.get("/get-all-page-meta-title");
         setCareerDetails(getresponse.data);
+        setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
       } catch (error) {
         console.error("Error fetching career content:", error);
       } finally {
@@ -43,6 +50,21 @@ export const Career = () => {
     };
     fetchJobs();
   }, []);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
 
   const toggleAccordion = (id) => {

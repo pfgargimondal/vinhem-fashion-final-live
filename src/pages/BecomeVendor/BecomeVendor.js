@@ -3,9 +3,14 @@ import styles from "./BecomeVendor.module.css";
 import http from "../../http";
 import { toast, ToastContainer } from "react-toastify";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
+import { useLocation } from "react-router-dom";
 
 export const BecomeVendor = () => {
   const [loading, setLoading] = useState(false);
+  const [pageMetaData, setPageMetaData] = useState([]);
+                      
+  const pathName = useLocation().pathname;
 
   const [inputs, setInputs] = useState({
     company_name: "",
@@ -29,8 +34,10 @@ export const BecomeVendor = () => {
       setLoading(true);
       try {
         const getresponse = await http.get("/get-vendor-banner");
+        const getMetaDataResponse = await http.get("/get-all-page-meta-title");
         setSupplierRegistrationImageUrl(getresponse.data.image_url);
         setSupplierRegistrationBanner(getresponse.data.data.banner_image);
+        setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
       } catch (error) {
         console.error("Error fetching users:", error);
       } finally {
@@ -40,6 +47,21 @@ export const BecomeVendor = () => {
 
     fetchSupplierRegistrationBannerData();
   }, []);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;

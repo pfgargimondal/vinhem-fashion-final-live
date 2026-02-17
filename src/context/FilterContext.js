@@ -47,9 +47,13 @@ export const FilterProvider = ({ children }) => {
 
         if (newState.mainCategory)
             searchParams.set("main", newState.mainCategory);
+        else
+            searchParams.delete("main");
 
         if (newState.subCategory)
             searchParams.set("subpaths", newState.subCategory);
+        else
+            searchParams.delete("subpaths");
 
         if (newState.filterCategory) {
             searchParams.set("filterpaths", newState.filterCategory);

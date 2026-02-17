@@ -12,19 +12,25 @@ import "swiper/css/pagination"; // if using pagination
 import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 // import { Link } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const Testimonial = () => {
     const [loading, setLoading] = useState(false);
     const [TestimonialDetails, setTestimonialDetails] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
+    const [pageMetaData, setPageMetaData] = useState([]);
+        
+    const pathName = useLocation().pathname;
 
     useEffect(() => {
         const fetchTestimonial = async () => {
             setLoading(true);
             try {
                 const getresponse = await http.get("/fetch-testimonial-all-content");
+                const getMetaDataResponse = await http.get("/get-all-page-meta-title");
                 setTestimonialDetails(getresponse.data.data);
+                setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
             } catch (error) {
                 console.error("Error fetching users:", error);
             } finally {
@@ -33,6 +39,21 @@ export const Testimonial = () => {
         };
         fetchTestimonial();
     }, []);
+
+    const matchedMeta = pageMetaData.find((item) => {
+        const slug = item.page_name
+            ?.toLowerCase()
+            .trim()
+            .replace(/\s+/g, "-");
+
+        return `/${slug}` === pathName;
+    });
+
+    useMetaData({
+        meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+        meta_description: matchedMeta?.meta_description || "",
+        meta_keyword: matchedMeta?.meta_keyword || ""
+    });
 
     // ✅ SAFE DEFAULT (prevents undefined crash)
     const testimonials = TestimonialDetails?.testimonial_content || [];

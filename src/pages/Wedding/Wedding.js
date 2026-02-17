@@ -1,5 +1,5 @@
 import http from "../../http";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Css/Wedding.css";
@@ -11,17 +11,23 @@ import "swiper/css/pagination"; // if using pagination
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const Wedding = () => {
   const [WeddingDetails, setWeddingDetails] = useState({});
   const [loading, setLoading] = useState(true);
+  const [pageMetaData, setPageMetaData] = useState([]);
+                    
+  const pathName = useLocation().pathname;
 
   useEffect(() => {
     const fetchWedding = async () => {
       setLoading(true);
       try {
         const getresponse = await http.get("/fetch-wedding-page");
+        const getMetaDataResponse = await http.get("/get-all-page-meta-title");
         setWeddingDetails(getresponse.data);
+        setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
       } catch (error) {
         console.error("Error fetching users:", error);
       } finally {
@@ -31,6 +37,21 @@ export const Wedding = () => {
 
     fetchWedding();
   }, []);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
   if (loading) {
     return <Loader />;
@@ -894,7 +915,7 @@ export const Wedding = () => {
                     <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image1}`} alt={WeddingDetails?.data?.section5to9?.section10_text1} />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{WeddingDetails?.data?.section5to9?.section10_number1}</h4>
                   </div>
 
@@ -910,7 +931,7 @@ export const Wedding = () => {
                     <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image2}`} alt={WeddingDetails?.data?.section5to9?.section10_text2} />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{WeddingDetails?.data?.section5to9?.section10_number2}</h4>
                   </div>
 
@@ -926,7 +947,7 @@ export const Wedding = () => {
                     <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image3}`} alt={WeddingDetails?.data?.section5to9?.section10_text3} />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{WeddingDetails?.data?.section5to9?.section10_number3}</h4>
                   </div>
 
@@ -942,7 +963,7 @@ export const Wedding = () => {
                     <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section10_image4}`} alt={WeddingDetails?.data?.section5to9?.section10_text4} />
                   </div>
 
-                  <div className="cfgncfgb dfgsfeeer">
+                  <div className="cfgncfgb dfgsfeeer mt-3">
                     <h4>{WeddingDetails?.data?.section5to9?.section10_number4}</h4>
                   </div>
 

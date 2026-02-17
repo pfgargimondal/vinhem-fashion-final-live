@@ -4,20 +4,28 @@ import http from "../../http";
 import { ToastContainer, toast } from "react-toastify";
 import ReCAPTCHA from "react-google-recaptcha";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
+import { useLocation } from "react-router-dom";
 
 export const ContactUs = () => {
   const [ContactUsDetails, setContactUsDetails] = useState({});
   const [ContactUsImage, setContactUsImage] = useState({});
   const [captchaToken, setCaptchaToken] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pageMetaData, setPageMetaData] = useState([]);
+                            
+  const pathName = useLocation().pathname;
+  
 
   useEffect(() => {
     const fetchContactUsData = async () => {
       setLoading(true);
       try {
         const getresponse = await http.get("/get-contact-us-details");
+        const getMetaDataResponse = await http.get("/get-all-page-meta-title");
         setContactUsImage(getresponse.data.image_url);
         setContactUsDetails(getresponse.data.data);
+        setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
       } catch (error) {
         console.error("Error fetching users:", error);
       } finally {
@@ -27,6 +35,21 @@ export const ContactUs = () => {
 
     fetchContactUsData();
   }, []);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
   const fileInputRef = useRef(null);
 

@@ -540,10 +540,6 @@
         padding-bottom: 0;
     }
 
-    footer .footer-bottom ul li span{
-        font-size: 0.9rem;
-    }
-
     .fb-payment-options.d-flex{
         justify-content: center !important;
         margin-top: 0.5rem;
@@ -607,6 +603,15 @@
     .duiwehihiwejiurwer.py-3{
         padding-bottom: 6rem !important;
     }
+
+    .footer-bottom > div.container-fluid{
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer .footer-bottom ul.d-flex{
+        flex-wrap: wrap;
+    }
 }
 
 
@@ -615,10 +620,6 @@
     footer .footer-bottom ul li{
         display: flex;
         align-items: center;
-    }
-
-    footer .footer-bottom ul li span {
-        font-size: 0.7rem;
     }
 }
 
@@ -645,12 +646,11 @@
 
 
 
-@media only screen and (max-width: 519px){
-    footer .footer-bottom ul li span {
-        font-size: 0.6rem;
+@media only screen and (max-width: 502px){
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(4){
+        color: #fff;
     }
 }
-
 
 
 
@@ -668,10 +668,6 @@
 
 
 @media only screen and (max-width: 474px){
-    footer .footer-bottom ul li span {
-        font-size: 0.5rem;
-    }
-
     .doejwojrowejower{
         font-size: 0.8rem;
     }
@@ -681,28 +677,9 @@
 
 
 
-
-@media only screen and (max-width: 428px){
-    footer .footer-bottom ul li span {
-        font-size: 0.49rem;
-    }
-}
-
-
-
-
-
 @media only screen and (max-width: 424px){
-    footer .footer-bottom ul li {
-        margin-right: 0.3rem;
-    }
-
     footer .footer-bottom ul li i {
         font-size: 0.6rem;
-    }
-
-    footer .footer-bottom ul li span {
-        font-size: 0.55rem;
     }
 }
 
@@ -720,9 +697,14 @@
 
 
 
-@media only screen and (max-width: 363px){
-    footer .footer-bottom ul li span {
-        font-size: 0.5rem;
+@media only screen and (max-width: 337px){
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(4){
+        color: var(--bs-body-color);
+    }
+
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(2),
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(6){
+        color: #fff;
     }
 }
 
@@ -730,9 +712,10 @@
 
 
 
-@media only screen and (max-width: 340px){
-    footer .footer-bottom ul li span {
-        font-size: 0.49rem;
+@media only screen and (max-width: 319px){
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(2),
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(6){
+        color: var(--bs-body-color);
     }
 }
 
@@ -740,28 +723,10 @@
 
 
 
-@media only screen and (max-width: 335px){
-    footer .footer-bottom ul li span {
-        font-size: 0.45rem;
-    }
-}
-
-
-
-
-
-
-@media only screen and (max-width: 317px){
-    footer .footer-bottom ul li span {
-        font-size: 0.4rem;
-    }
-}
-
-
-
-
-@media only screen and (max-width: 294px){
-    footer .footer-bottom ul li span {
-        font-size: 0.35rem;
+@media only screen and (max-width: 300px){
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(2),
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(4),
+    footer .footer-bottom > div.container-fluid > ul li:nth-child(6){
+        display: none;
     }
 }

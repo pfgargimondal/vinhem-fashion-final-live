@@ -34,6 +34,7 @@ import { useCart } from "../../context/CartContext";
 import { useCurrency } from "../../context/CurrencyContext";
 import Loader from "../../components/Loader/Loader";
 import { useAuthModal } from "../../context/AuthModalContext";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const ProductDetail = () => {
   const { token, user } = useAuth();
@@ -283,6 +284,12 @@ export const ProductDetail = () => {
       fetchProductDetailsPage();
     }
   }, [slug]);
+
+  useMetaData({
+    meta_title: productDetails?.data?.product_name,
+    meta_description: productDetails?.data?.product_description,
+    meta_keyword: ""
+  });
 
   // const productLink = `${window.location.origin}/products/${productDetails?.data?.slug}`;
   const productLink = `${window.location.origin}/products/${productDetails?.data?.PID}`;

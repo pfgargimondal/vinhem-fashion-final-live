@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper/modules";
 import http from "../../http";
@@ -10,17 +10,23 @@ import "./Css/Home.css";
 import "./Css/HomeResponsive.css";
 import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
+import { useMetaData } from "../../hooks/useMetaData";
 
 export const Home = () => {
   const [homepage, Sethomepage] = useState({});
   const [loading, setLoading] = useState(true);
+  const [pageMetaData, setPageMetaData] = useState([]);
+  
+  const pathName = useLocation().pathname;
 
   useEffect(() => {
       const fetchOnSale = async () => {
         setLoading(true);
           try {
               const getresponse = await http.get("/fetch-home-page");
+              const getMetaDataResponse = await http.get("/get-all-page-meta-title");
               Sethomepage(getresponse.data); 
+              setPageMetaData(getMetaDataResponse.data.data.get_all_meta_title);
           } catch (error) {
               console.error("Error fetching homepage data:", error);
           } finally {
@@ -30,6 +36,21 @@ export const Home = () => {
 
       fetchOnSale();
   }, []);
+
+  const matchedMeta = pageMetaData.find((item) => {
+      const slug = item.page_name
+          ?.toLowerCase()
+          .trim()
+          .replace(/\s+/g, "-");
+
+      return `/${slug}` === pathName;
+  });
+
+  useMetaData({
+      meta_title: matchedMeta?.meta_title || "Vinhem Fashion",
+      meta_description: matchedMeta?.meta_description || "",
+      meta_keyword: matchedMeta?.meta_keyword || ""
+  });
 
 
   const swiperConfig = {
