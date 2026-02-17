@@ -1029,7 +1029,8 @@ export const Cart = () => {
                           <div className="row">
                             <div className="col-lg-2">
                               <div className="donweihrwewer">
-                                <Link to={`/products/${cartItemsVal.slug}`}>
+                                {/* <Link to={`/products/${cartItemsVal.slug}`}> */}
+                                <Link to={`/products/${cartItemsVal.PID}`}>
                                   <img
                                     src={cartItemsVal.encoded_image_url_1}
                                     alt={cartItemsVal.product_name}
@@ -1950,7 +1951,8 @@ export const Cart = () => {
                                 <div className="d-flex gap-2">
                                   <div className="dasferqrrqqq">
                                     <div className="donweihrwewer">
-                                      <Link to={`/products/${cartItemsVal.slug}`}>
+                                      {/* <Link to={`/products/${cartItemsVal.slug}`}> */}
+                                      <Link to={`/products/${cartItemsVal.PID}`}>
                                         <img
                                           src={cartItemsVal.encoded_image_url_1}
                                           alt={cartItemsVal.product_name}

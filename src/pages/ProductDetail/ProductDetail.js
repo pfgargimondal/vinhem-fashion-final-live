@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, Mousewheel } from "swiper/modules";
+// eslint-disable-next-line
 import { toast, ToastContainer } from "react-toastify";
 
 import Col from "react-bootstrap/Col";
@@ -36,8 +37,8 @@ import { useAuthModal } from "../../context/AuthModalContext";
 
 export const ProductDetail = () => {
   const { token, user } = useAuth();
+  const [loading, setLoading] = useState(true);
   const { loading: cartLoading, addToCart } = useCart();
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   // eslint-disable-next-line
   const [show, setShow] = useState(false);
@@ -283,7 +284,8 @@ export const ProductDetail = () => {
     }
   }, [slug]);
 
-  const productLink = `${window.location.origin}/products/${productDetails?.data?.slug}`;
+  // const productLink = `${window.location.origin}/products/${productDetails?.data?.slug}`;
+  const productLink = `${window.location.origin}/products/${productDetails?.data?.PID}`;
   const handleWhatsAppShare = () => {
     const message = `Check out this beautiful product: ${productLink}`;
     const encodedMessage = encodeURIComponent(message);
@@ -407,7 +409,7 @@ export const ProductDetail = () => {
 
       // ✅ If product is Unstitched or Semi-Stitched
       if (
-        stitchingType === "unstiched-fabric" ||
+        stitchingType === "unstiched-fabric" || stitchingType === "unstitched-fabric" ||
         stitchingType === "semi-stitched"
       ) {
         const qty = Number(base?.mto_quantity || 0);
@@ -482,8 +484,8 @@ export const ProductDetail = () => {
     const stitchingType =
       productDetails?.data?.stitching_option?.toLowerCase();
 
-    if (
-      stitchingType === "unstiched-fabric" ||
+    if ( 
+      stitchingType === "unstiched-fabric" || stitchingType === "unstitched-fabric" ||
       stitchingType === "semi-stitched"
     ) {
       const qty = Number(productDetails?.data?.mto_quantity || 0);
@@ -551,107 +553,114 @@ export const ProductDetail = () => {
   }, [productDetails]);
 
   const handleAddToCart = async () => {
-    if (productDetails?.data?.stitching_option === "Ready To Wear") {
-      const hasSizes = productDetails?.data?.product_allSize?.length > 0;
-      // ✅ 1. Validate main size
-      if (hasSizes && !selectedSize) {
-        alert("Please select a size before adding to cart.");
+
+    try{
+
+      if (productDetails?.data?.stitching_option === "Ready To Wear") {
+        const hasSizes = productDetails?.data?.product_allSize?.length > 0;
+        // ✅ 1. Validate main size
+        if (hasSizes && !selectedSize) {
+          alert("Please select a size before adding to cart.");
+          return;
+        }
+      }
+
+      if (selectedQuantity < 1) {
+        toast.error("Product is out of stock.");
         return;
       }
-    }
 
-    if (selectedQuantity < 1) {
-      toast.error("Product is out of stock.");
-      return;
-    }
+      // ✅ 2. Validate accessory sizes (if selected)
+      const turbanSize =
+        document.getElementById("product_turbanSize")?.value || "";
+      const mojriSize = document.getElementById("product_mojriSize")?.value || "";
 
-    // ✅ 2. Validate accessory sizes (if selected)
-    const turbanSize =
-      document.getElementById("product_turbanSize")?.value || "";
-    const mojriSize = document.getElementById("product_mojriSize")?.value || "";
+      if (isTurbanChecked && !turbanSize) {
+        alert("Please select a turban size.");
+        return;
+      }
 
-    if (isTurbanChecked && !turbanSize) {
-      alert("Please select a turban size.");
-      return;
-    }
+      if (isMojriChecked && !mojriSize) {
+        alert("Please select a mojri size.");
+        return;
+      }
 
-    if (isMojriChecked && !mojriSize) {
-      alert("Please select a mojri size.");
-      return;
-    }
+      if (selectedStitchOption === "") {
+        alert("Please Choose Stiching Option.");
+        return;
+      }
 
-    if (selectedStitchOption === "") {
-      alert("Please Choose Stiching Option.");
-      return;
-    }
+      // ✅ 3. Determine correct price logic
+      const baseSellingPrice = parseFloat(
+        productDetails?.data?.selling_price || 0
+      );
+      const priceToUse = selectedPrice > 0 ? selectedPrice : baseSellingPrice;
 
-    // ✅ 3. Determine correct price logic
-    const baseSellingPrice = parseFloat(
-      productDetails?.data?.selling_price || 0
-    );
-    const priceToUse = selectedPrice > 0 ? selectedPrice : baseSellingPrice;
+      // ✅ 4. Calculate total based on selection
+      const stitchingCharge =
+        selectedStitchOption === "stitch"
+          ? parseFloat(productDetails?.data?.stiching_charges?.price || 0)
+          : 0;
 
-    // ✅ 4. Calculate total based on selection
-    const stitchingCharge =
-      selectedStitchOption === "stitch"
-        ? parseFloat(productDetails?.data?.stiching_charges?.price || 0)
+      const customFitCharge =
+        selectedStitchOption === "customFit"
+          ? parseFloat(productDetails?.data?.extra_charges?.price || 0)
+          : 0;
+
+      const turbanCharge = isTurbanChecked
+        ? parseFloat(productDetails?.data?.turban_charges?.price || 0)
         : 0;
 
-    const customFitCharge =
-      selectedStitchOption === "customFit"
-        ? parseFloat(productDetails?.data?.extra_charges?.price || 0)
+      const mojriCharge = isMojriChecked
+        ? parseFloat(productDetails?.data?.mojri_charges?.price || 0)
         : 0;
 
-    const turbanCharge = isTurbanChecked
-      ? parseFloat(productDetails?.data?.turban_charges?.price || 0)
-      : 0;
+      const stoleCharge = isStoleChecked
+        ? parseFloat(productDetails?.data?.stole_charges?.price || 0)
+        : 0;
 
-    const mojriCharge = isMojriChecked
-      ? parseFloat(productDetails?.data?.mojri_charges?.price || 0)
-      : 0;
+      // const totalPrice =
+      //   (priceToUse +
+      //     stitchingCharge +
+      //     customFitCharge +
+      //     turbanCharge +
+      //     mojriCharge +
+      //     stoleCharge) *
+      //   selectedQuantity;
 
-    const stoleCharge = isStoleChecked
-      ? parseFloat(productDetails?.data?.stole_charges?.price || 0)
-      : 0;
+      // ✅ 5. Prepare cart data
+      const productData = {
+        product_id: productDetails?.data?.id,
+        size: selectedSize || "Default Size",
+        quantity: selectedQuantity,
+        price_per_unit: priceToUse,
+        // total_price: totalPrice.toFixed(2),
 
-    // const totalPrice =
-    //   (priceToUse +
-    //     stitchingCharge +
-    //     customFitCharge +
-    //     turbanCharge +
-    //     mojriCharge +
-    //     stoleCharge) *
-    //   selectedQuantity;
+        // Stitching & custom fit
+        stitch_option: selectedStitchOption,
+        stitching_charge: stitchingCharge,
+        custom_fit_charge: customFitCharge,
 
-    // ✅ 5. Prepare cart data
-    const productData = {
-      product_id: productDetails?.data?.id,
-      size: selectedSize || "Default Size",
-      quantity: selectedQuantity,
-      price_per_unit: priceToUse,
-      // total_price: totalPrice.toFixed(2),
+        // Accessories
+        turban_selected: isTurbanChecked,
+        turban_charge: turbanCharge,
+        turban_size: isTurbanChecked ? turbanSize : "",
 
-      // Stitching & custom fit
-      stitch_option: selectedStitchOption,
-      stitching_charge: stitchingCharge,
-      custom_fit_charge: customFitCharge,
+        mojri_selected: isMojriChecked,
+        mojri_charge: mojriCharge,
+        mojri_size: isMojriChecked ? mojriSize : "",
 
-      // Accessories
-      turban_selected: isTurbanChecked,
-      turban_charge: turbanCharge,
-      turban_size: isTurbanChecked ? turbanSize : "",
+        stole_selected: isStoleChecked,
+        stole_charge: stoleCharge,
+      };
 
-      mojri_selected: isMojriChecked,
-      mojri_charge: mojriCharge,
-      mojri_size: isMojriChecked ? mojriSize : "",
+      // console.log("🛒 Adding to Cart:", productData);
 
-      stole_selected: isStoleChecked,
-      stole_charge: stoleCharge,
-    };
+      addToCart(productData);
 
-    // console.log("🛒 Adding to Cart:", productData);
-
-    addToCart(productData);
+    } catch (error) {
+      console.error("Add to cart error:", error);
+    }
   };
 
   const handleBuyNow = async () => {
@@ -824,11 +833,6 @@ export const ProductDetail = () => {
     setDeliveryMsg(`Delivering to this location by ${formattedDate}`);
   };
 
-
-  if (loading) {
-    return <Loader />;
-  }
-
   const scrollUp = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -865,8 +869,11 @@ export const ProductDetail = () => {
     }
   };
 
+
+
   return (
     <>
+    {(loading || cartLoading) && <Loader />}
       <div className="fvjhfbdf">
         <div className="derthnjmfghu">
           <div className="fgnbdfgdf">
@@ -2442,8 +2449,11 @@ export const ProductDetail = () => {
                               (matchingProduct) => (
                                 <SwiperSlide key={matchingProduct.id}>
                                   <div className="dfgjhbdfg matching-products adsfsfcsfasdfaef sdfvdscsddfgdfg p-2 mb-3">
-                                    <Link
+                                    {/* <Link
                                       to={`/products/${matchingProduct.slug}`}
+                                    > */}
+                                    <Link
+                                      to={`/products/${matchingProduct.PID}`}
                                     >
                                       <div className="images">
                                         <div className="image d-flex position-relative">
@@ -2505,9 +2515,8 @@ export const ProductDetail = () => {
                               (matchingProduct) => (
                                 <SwiperSlide key={matchingProduct.id}>
                                   <div className="dfgjhbdfg sdfvdscsddfgdfg p-2 mb-3">
-                                    <Link
-                                      to={`/products/${matchingProduct.slug}`}
-                                    >
+                                    {/* <Link to={`/products/${matchingProduct.slug}`}> */}
+                                    <Link to={`/products/${matchingProduct.PID}`}>
                                       <div className="images">
                                         <div className="image dpmeljkemkewr d-flex position-relative">
                                           <div className="doiewjkrniuwewer position-relative col-lg-4 overflow-hidden">
@@ -3017,11 +3026,11 @@ export const ProductDetail = () => {
         </button>
       </Modal>
 
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={3000}
         style={{ zIndex: 9999999999 }}
-      />
+      /> */}
     </>
   );
 };

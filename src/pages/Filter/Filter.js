@@ -700,7 +700,8 @@ export const Filter = () => {
                               )}
 
                               <div className={`doiewjkrniuwewer position-relative overflow-hidden ${!viewType ? "col-lg-12" : "col-lg-3"}`}>
-                                <Link to={`/products/${product.slug}`}>
+                                {/* <Link to={`/products/${product.slug}`}> */}
+                                <Link to={`/products/${product.PID}`}>
                                   <img
                                     src={product?.encoded_image_url_1 || "/images/no-preview.jpg"}
                                     alt={product?.product_name || "Product image"}
