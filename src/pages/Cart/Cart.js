@@ -1803,7 +1803,18 @@ export const Cart = () => {
                                   )}
                                 </td>
                             </tr>
-                          ):null}
+                          ): 
+
+                          <tr>
+                            <td>Total Payable :</td>
+                            <td>{formatPrice(Number(totalPrice.total_selling_price) + 
+                                  Number(totalPrice.total_add_on_charges) + 
+                                  Number(totalPrice.custom_fit_charges) + 
+                                  Number(totalPrice.stiching_charges) + 
+                                  Number(shippingCharge))}
+                            </td>
+                          </tr>
+                          }
                           
                         </tbody>
                       </Table>                      

@@ -131,10 +131,14 @@ export const FilterProvider = ({ children }) => {
             queryString += (queryString ? "&" : "") + `discount=${newState.discount}`;
         }
 
-        navigate(`${location.pathname}?${queryString}`, { replace: true });
+        // navigate(`${location.pathname}?${queryString}`, { replace: true });
+        navigate(
+            queryString
+                ? `${location.pathname}?${queryString}`
+                : location.pathname,
+            { replace: true }
+        );
     }
-
-
 
 
     // function restoreFiltersFromURL() {
@@ -300,6 +304,7 @@ export const FilterProvider = ({ children }) => {
 
         updateURLWithFilters(newState);
     }
+    
 
     function filterMainCategory(products) {
         // if (!state.mainCategory || state.mainCategory.length === 0) {
@@ -964,8 +969,10 @@ export const FilterProvider = ({ children }) => {
     function slugify(text) {
         return text
             ?.toLowerCase()
-            .replace(/ /g, "-")
-            .trim();
+            .trim()
+            .replace(/&/g, "and")
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]+/g, "");
     }
 
 
