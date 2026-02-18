@@ -2027,7 +2027,7 @@ export const ProductDetail = () => {
                                   return (
                                     <div
                                       key={index}
-                                      className="copn-cde text-center py-2 px-3 mb-2 me-5 rounded-2"
+                                      className="copn-cde text-center p-2 mb-2 me-5 rounded-2"
                                     >
                                       <h5 className="mb-0">{coupon.trim()}</h5>
                                     </div>

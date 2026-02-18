@@ -14,6 +14,7 @@ import { useCart } from "../../../context/CartContext";
 import { useWishlist } from "../../../context/WishlistContext";
 import { useCurrency } from "../../../context/CurrencyContext";
 import { useAuthModal } from "../../../context/AuthModalContext";
+import { ResponsiveNavbarBottom } from "../../../components";
 
 export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, shouldHideHeaderCategoryRoutes }) => {
   const [resMenu, setResMenu] = useState(false);
@@ -31,10 +32,16 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   const searchRef = useRef(null);
   const searchRefRes = useRef(null);
   const [resCtgyDrpdwn, setResCtgyDrpdwn] = useState(false);
+  const [resSearchToggle, setResSearchToggle] = useState(false);
   // const [loginModal, setLoginModal] = useState(false);
   // const [loginModalBackdrop, setLoginModalBackdrop] = useState(false);
   // const [otpModal, setOtpModal] = useState(false);
   // const [completeLoginModal, setCompleteLoginModal] = useState(false);
+
+  useEffect(() => {
+    setResSearchToggle(false);
+  }, [pathName]);
+  
   const {
     loginModal,
     loginModalBackdrop,
@@ -505,6 +512,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                                         setShowCurrencyDropdown(false);
                                       }}
                                     >
+                                      <span className={`res-currncy-radio ${(selectedCurrency.id === cur.id) ? "res-currncy-radio-checked" : ""}`}></span>
+
                                       <span className="me-2">
                                         <img
                                           src={cur.flag_icon}
@@ -721,9 +730,11 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                   <div className="doiwejirhwer">
                     <div className="row align-items-center">
                       <div className="col-8">
-                        <form className="dwejoijrwer d-none" onSubmit={handleResSearch}>
+                        <div onClick={() => setResSearchToggle(false)} className={`doiejrowr-backdrop ${resSearchToggle ? "" : "d-none"} position-fixed w-100 h-100`}></div>
+
+                        <form className={`dwejoijrwer ${resSearchToggle ? "dfghedfaewrwer" : "d-none"}`} onSubmit={handleResSearch}>
                           <div className="search-field position-relative">
-                            <input ref={searchRefRes} type="text" className="form-control rounded-pill ps-3" placeholder="Search for Pre-stitched saree" />
+                            <input ref={searchRefRes} type="text" className="form-control rounded-pill ps-3" placeholder="Search for products, categories, designers" />
 
                             <i className="bi position-absolute bi-search"></i>
                           </div>
@@ -920,10 +931,40 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
       <div className={`${resMenu ? "res-ctgy-menu-backdrop d-none" : "res-ctgy-menu-backdrop d-none res-ctgy-menu-backdrop-hide"} position-fixed w-100 h-100`} onClick={() => setResMenu(false)}></div>
 
       <div className={`${resMenu ? "res-ctgy-menu-modal d-none" : "res-ctgy-menu-modal d-none res-ctgy-menu-modal-hide"} bg-white position-fixed h-100 p-3`}>
-        <div className="d-flex align-items-center justify-content-between">
+        <div className={`${!user ? "d-flex" : "d-block"} align-items-center justify-content-between`}>
             {user ? (
               <>
-                <Link to="/profile"><i class="bi me-1 bi-person"></i> {user.name}</Link>
+                {/* <Link to="/profile"><i class="bi me-1 bi-person"></i> {user.name}</Link> */}
+
+                <h4 className="mb-4">Hi, User</h4>
+
+                <div className="dwoejoidwemjr col-lg-4">
+                  <ol className="steps">
+                    <li className="step is_active" data-step={1}>
+                      <span className="doejojewr">Current</span>
+
+                      <img src="./images/sadw.png" alt="" />
+
+                      <span className="oajeorjer">Silver</span>
+                    </li>
+
+                    <li className="step" data-step={2}>
+                      <span className="doejojewr opacity_hidden">Current</span>
+
+                      <img src="./images/sae.png" alt="" />
+
+                      <span className="oajeorjer">Gold <br /> <span>Shop 25,000 To upgrade</span></span>
+                    </li>
+
+                    <li className="step" data-step={3}>
+                      <span className="doejojewr opacity_hidden">Current</span>
+
+                      <img src="./images/sadew.png" alt="" />
+
+                      <span className="oajeorjer">Platinum <br /> <span>Shop 50,000 To upgrade</span></span>
+                    </li>
+                  </ol>
+                </div>
               </>
             ) : (
               <>
@@ -935,7 +976,6 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                 <Link to="/login"><i class="bi me-1 bi-person"></i> My Account</Link>
               </>
             )}
-
         </div>
 
         <div className="cojeojewrer h-100 mt-4">
@@ -1271,6 +1311,10 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
           </div>
         </div>
       </div>
+
+      {/*res navbar bottom footer*/}
+      
+      <ResponsiveNavbarBottom resSearchToggle={resSearchToggle} setResSearchToggle={setResSearchToggle} />
     </>
   )
 }

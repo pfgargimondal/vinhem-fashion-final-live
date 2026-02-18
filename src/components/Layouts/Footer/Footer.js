@@ -6,7 +6,6 @@ import http from "../../../http";
 import { useAuth } from "../../../context/AuthContext";
 
 import "./Footer.css";
-import { ResponsiveNavbarBottom } from "../../../components";
 
 
 export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
@@ -639,12 +638,7 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
             </div>
           </div>
         </div>
-      </div>
-
-      
-      {/*res navbar bottom footer*/}
-
-      <ResponsiveNavbarBottom />
+      </div>      
 
 
       <ToastContainer

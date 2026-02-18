@@ -1,5 +1,5 @@
 .res-navbar-bttm{
-    z-index: 999999 !important;
+    z-index: 9999999 !important;
     border-top: 1px solid var(--text-lighter-gray-color);
 }
 
@@ -39,7 +39,7 @@
 @media only screen and (max-width: 991px){
     .res-navbar-bttm.d-none{
         display: flex !important;
-    }
+    }    
 }
 
 

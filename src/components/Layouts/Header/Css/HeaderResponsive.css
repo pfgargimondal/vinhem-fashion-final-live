@@ -325,7 +325,10 @@
         display: none;
     }
 
-    #res-toggle-btn.d-none,
+    #res-toggle-btn.d-none{
+        display: inline-block !important;
+    }
+
     .dowejojiweujrwer.d-none{
         display: block !important;
     }
@@ -611,7 +614,7 @@
     }
 
     .osjoidhwjiwer.dwelorjwemr-res{
-        right: 0;
+        left: 0;
         z-index: 9;
     }
 
@@ -641,7 +644,189 @@
 
     .duiewhewijrrqq{
         width: 33.33%;
-    }    
+    }  
+    
+    span.res-currncy-radio{
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid var(--black-background-color);
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        padding: 5px;
+        position: relative;
+    }
+
+    span.res-currncy-radio-checked:before{
+        position: absolute;
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: var(--pink-main-color);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    span.res-currncy-radio-checked{
+        border: 1px solid var(--pink-main-color);
+    }
+
+    .steps {
+	 list-style: none;
+	 margin: 0;
+	 padding: 0;
+	 display: table;
+	 table-layout: fixed;
+	 width: 100%;
+	 color: #929292;
+	 height: 4rem;
+}
+.steps .step img{
+  width: 3rem;
+  position: relative;
+  z-index: 99999;
+}
+ .steps > .step {
+	 position: relative;
+	 display: table-cell;
+	 text-align: center;
+	 font-size: 0.9rem;
+	 color: #000;
+}
+
+ .steps .step span{
+  display: block;
+ }
+
+ /* .steps > .step:before {
+	 content: attr(data-step);
+	 display: block;
+	 margin: 0 auto;
+	 background: #fff;
+	 border: 2px solid #e6e6e6;
+	 color: #e6e6e6;
+	 width: 2rem;
+	 height: 2rem;
+	 text-align: center;
+	 margin-bottom: -4.2rem;
+	 line-height: 1.9rem;
+	 border-radius: 100%;
+	 position: relative;
+	 z-index: 1;
+	 font-weight: 700;
+	 font-size: 1rem;
+} */
+    .steps > .step:after {
+	 content: '';
+	 position: absolute;
+	 display: block;
+	 background: #EDDBE6;
+	 width: 100%;
+	 height: 0.2rem;
+	 top: 3.2rem;
+	 left: 50%;
+    }
+    .steps > .step:last-child:after {
+        display: none;
+    }
+    .steps > .step:last-child img{
+    width: 3.3rem;
+    }
+    /* .steps > .step.is_complete {
+        color: #6d6875;
+    } */
+
+    .steps > .step{
+    font-weight: 600;
+    }
+
+    .opacity_hidden{
+    opacity: 0;
+    position: relative;
+    z-index: -9999;
+    }
+
+    /* .steps > .step:first-child{
+    top: -2.5rem;
+    }
+
+    .steps > .step:first-child:after{
+    top: 4.5rem;
+    } */
+    /* .steps > .step.is_complete:before {
+        content: '\2713';
+        color: #f68e20;
+        background: #fef0e2;
+        border: 2px solid #f68e20;
+    } */
+    .steps > .step.is_complete:after {
+        background: #f68e20;
+    }
+    .steps > .step.is-active {
+        font-size: 1.5rem;
+    }
+    .steps > .step.is_active:before {
+        color: #fff;
+        border: 2px solid #f68e20;
+        background: #f68e20;
+    }
+
+    .steps {
+        margin-bottom: 3em;
+    }
+
+    .steps > .step.is_active .oajeorjer{
+    color: var(--pink-main-color) !important;
+    font-size: 1rem;
+    }
+
+    .steps > .step:first-child .oajeorjer{
+    color: #5E6369;
+    font-size: 1rem;
+    }
+
+    .steps > .step:nth-child(2) .oajeorjer{
+    color: #86480F;
+    }
+
+    .steps > .step:nth-child(2) .oajeorjer span{
+    color: #000;
+    font-size: 0.9rem;
+    }
+
+    .steps > .step:nth-child(2) .oajeorjer{
+        color: #86480F;
+        font-size: 1rem;
+    }
+
+    .steps > .step:last-child .oajeorjer{
+        color: #5c85bf;
+        font-size: 1rem;
+    }
+
+    .steps > .step:last-child .oajeorjer span{
+        color: #000;
+        font-size: 0.9rem;
+    }
+
+    .dwejoijrwer.dfghedfaewrwer{
+        position: absolute;
+        width: 95%;
+        z-index: 999999;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .doiejrowr-backdrop{
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(15px);
+        z-index: 99999;
+        top: 0;
+        left: 0;
+    }
 }
 
 

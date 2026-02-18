@@ -85,11 +85,12 @@
     }
 
     .filter-bottom-fixed{
-        bottom: 0;
+        bottom: 8.4%;
         left: 0;
         position: fixed;
         z-index: 99999999;
         border-top: 2px solid var(--light-background-color);
+        border-bottom: 2px solid var(--light-background-color);
     }
 
     .oidenjwihrwer.d-flex,
@@ -167,10 +168,11 @@
     }
 
     .srt-by{
-        width: 50%;
+        width: 100%;
         left: 0;
-        bottom: 10.5%;
+        bottom: 16%;
         height: auto;
+        text-align: center;
         z-index: 999999;
         visibility: visible;
         transform: initial;
