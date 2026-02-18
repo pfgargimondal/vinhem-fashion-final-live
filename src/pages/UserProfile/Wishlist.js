@@ -77,8 +77,7 @@ export const Wishlist = () => {
                                                         </div>
                                                     )}
                                                     <div className={`${styles.image} position-relative`}>
-                                                        {/* <Link to={`/products/${wishlistProduct.slug}`}> */}
-                                                        <Link to={`/products/${wishlistProduct.PID}`}>
+                                                        <Link to={`/products/${wishlistProduct.slug}-${wishlistProduct.PID}`}>
                                                             <img src={wishlistProduct.encoded_image_url_1} alt="not found" />
                                                         </Link>
 

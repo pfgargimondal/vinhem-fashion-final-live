@@ -291,8 +291,7 @@ export const ProductDetail = () => {
     meta_keyword: ""
   });
 
-  // const productLink = `${window.location.origin}/products/${productDetails?.data?.slug}`;
-  const productLink = `${window.location.origin}/products/${productDetails?.data?.PID}`;
+  const productLink = `${window.location.origin}/products/${productDetails?.data?.slug}-${productDetails?.data?.PID}`;
   const handleWhatsAppShare = () => {
     const message = `Check out this beautiful product: ${productLink}`;
     const encodedMessage = encodeURIComponent(message);
@@ -2456,11 +2455,8 @@ export const ProductDetail = () => {
                               (matchingProduct) => (
                                 <SwiperSlide key={matchingProduct.id}>
                                   <div className="dfgjhbdfg matching-products adsfsfcsfasdfaef sdfvdscsddfgdfg p-2 mb-3">
-                                    {/* <Link
-                                      to={`/products/${matchingProduct.slug}`}
-                                    > */}
                                     <Link
-                                      to={`/products/${matchingProduct.PID}`}
+                                      to={`/products/${matchingProduct.slug}-${matchingProduct.PID}`}
                                     >
                                       <div className="images">
                                         <div className="image d-flex position-relative">
@@ -2522,8 +2518,7 @@ export const ProductDetail = () => {
                               (matchingProduct) => (
                                 <SwiperSlide key={matchingProduct.id}>
                                   <div className="dfgjhbdfg sdfvdscsddfgdfg p-2 mb-3">
-                                    {/* <Link to={`/products/${matchingProduct.slug}`}> */}
-                                    <Link to={`/products/${matchingProduct.PID}`}>
+                                    <Link to={`/products/${matchingProduct.slug}-${matchingProduct.PID}`}>
                                       <div className="images">
                                         <div className="image dpmeljkemkewr d-flex position-relative">
                                           <div className="doiewjkrniuwewer position-relative col-lg-4 overflow-hidden">

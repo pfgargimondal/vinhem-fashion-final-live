@@ -873,8 +873,7 @@ export const Checkout = () => {
 
               {cartItems?.map((cartItemsVal) => (
                 <div className="doiwehirhweker p-2" key={cartItemsVal.id}>
-                  {/* <Link to={`/products/${cartItemsVal.slug}`}> */}
-                  <Link to={`/products/${cartItemsVal.PID}`}>
+                  <Link to={`/products/${cartItemsVal.slug}-${cartItemsVal.PID}`}>
                     <div className="row">
                       <div className="col-lg-3">
                         <div className="idjkewerr_left">

@@ -1050,8 +1050,7 @@ export const Cart = () => {
                           <div className="row">
                             <div className="col-lg-2">
                               <div className="donweihrwewer">
-                                {/* <Link to={`/products/${cartItemsVal.slug}`}> */}
-                                <Link to={`/products/${cartItemsVal.PID}`}>
+                                <Link to={`/products/${cartItemsVal.slug}-${cartItemsVal.PID}`}>
                                   <img
                                     src={cartItemsVal.encoded_image_url_1}
                                     alt={cartItemsVal.product_name}
@@ -1284,175 +1283,176 @@ export const Cart = () => {
                     </div>                
                   </div>
                 </div>
+                {cartItems?.length > 0 && (
+                  <div className="col-lg-4">
+                    <div className="diwebjrwert_right">
+                      <div className="srghbsdtnhfnjgh">
+                        <h4 className="mb-4" style={{textAlign:"center"}}>CART SUMMARY</h4>
+                      </div>
+                      
 
-                <div className="col-lg-4">
-                  <div className="diwebjrwert_right">
-                    <div className="srghbsdtnhfnjgh">
-                      <h4 className="mb-4" style={{textAlign:"center"}}>CART SUMMARY</h4>
-                    </div>
-                    
-
-                    <div className="dweoihrwerwer p-2 mb-3">
-                      <Table responsive>
-                        <tbody>
-                          <tr>
-                            <td>Total MRP :</td>
-
-                            <td>
-                              {/* <i class="bi bi-currency-rupee"></i> */}
-                              <span style={{ textDecoration: "line-through", color: "var(--text-lighter-gray-color)"}}>
-                                {formatPrice(totalPrice.total_mrp_price, { showDecimals: true })}
-                              </span>&nbsp;&nbsp;
-                              {formatPrice(totalPrice.total_selling_price, { showDecimals: true })}
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>VinHem Discount :</td>
-
-                            <td style={{color:"green"}}>
-                              (-) &nbsp;
-                              {/* <i class="bi bi-currency-rupee"></i> */}
-                              {formatPrice(totalPrice.total_discount_price, { showDecimals: true })}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Customization Charges :</td>
-                            <td>
-                              {/* <i class="bi bi-currency-rupee"></i> */}
-                              {formatPrice(totalPrice.custom_fit_charges, { showDecimals: true })}
-                            </td>
-                          </tr>
-                          {totalPrice.stiching_charges !== 0 && (
+                      <div className="dweoihrwerwer p-2 mb-3">
+                        <Table responsive>
+                          <tbody>
                             <tr>
-                              <td>Stiching Charges :</td>
+                              <td>Total MRP :</td>
 
                               <td>
                                 {/* <i class="bi bi-currency-rupee"></i> */}
-                                {formatPrice(totalPrice.stiching_charges, { showDecimals: true })}
+                                <span style={{ textDecoration: "line-through", color: "var(--text-lighter-gray-color)"}}>
+                                  {formatPrice(totalPrice.total_mrp_price, { showDecimals: true })}
+                                </span>&nbsp;&nbsp;
+                                {formatPrice(totalPrice.total_selling_price, { showDecimals: true })}
                               </td>
                             </tr>
-                          )}
 
-                          {totalPrice.mojri_charge !== '0' && (
                             <tr>
-                              <td>Matching Mojri :</td>
+                              <td>VinHem Discount :</td>
+
+                              <td style={{color:"green"}}>
+                                (-) &nbsp;
+                                {/* <i class="bi bi-currency-rupee"></i> */}
+                                {formatPrice(totalPrice.total_discount_price, { showDecimals: true })}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Customization Charges :</td>
                               <td>
-                                {formatPrice(totalPrice.mojri_charge, { showDecimals: true })}
+                                {/* <i class="bi bi-currency-rupee"></i> */}
+                                {formatPrice(totalPrice.custom_fit_charges, { showDecimals: true })}
                               </td>
                             </tr>
-                          )}
+                            {totalPrice.stiching_charges !== 0 && (
+                              <tr>
+                                <td>Stiching Charges :</td>
 
-                          {totalPrice.turban_charge !== '0' && (
+                                <td>
+                                  {/* <i class="bi bi-currency-rupee"></i> */}
+                                  {formatPrice(totalPrice.stiching_charges, { showDecimals: true })}
+                                </td>
+                              </tr>
+                            )}
+
+                            {totalPrice.mojri_charge !== '0' && (
+                              <tr>
+                                <td>Matching Mojri :</td>
+                                <td>
+                                  {formatPrice(totalPrice.mojri_charge, { showDecimals: true })}
+                                </td>
+                              </tr>
+                            )}
+
+                            {totalPrice.turban_charge !== '0' && (
+                              <tr>
+                                <td>Matching Turban :</td>
+                                <td>
+                                  {formatPrice(totalPrice.turban_charge, { showDecimals: true })}
+                                </td>
+                              </tr>
+                            )}
+
+                            {totalPrice.stole_charge !== '0' && (
+                              <tr>
+                                <td>Matching Stole :</td>
+                                <td>
+                                  {formatPrice(totalPrice.stole_charge, { showDecimals: true })}
+                                </td>
+                              </tr>
+                            )}
+                            
+                            {/* {totalPrice.total_add_on_charges !== '0' && (
+                              <tr>
+                                <td>Add On Charges :</td>
+                                <td>
+                                  {formatPrice(totalPrice.total_add_on_charges, { showDecimals: true })}
+                                </td>
+                              </tr>
+                            )} */}
+                        
                             <tr>
-                              <td>Matching Turban :</td>
+                              <td>Shipping & Duties :</td>
+
                               <td>
-                                {formatPrice(totalPrice.turban_charge, { showDecimals: true })}
+                                {/* <i class="bi bi-currency-rupee"></i> */}
+                                {/* {totalPrice.shipping_charges} */}
+
+                                Calculated at Checkout
                               </td>
                             </tr>
-                          )}
+                            {/* {appliedDiscount > 0 && (
+                              <tr>
+                                <td className="sergvasdrg">Coupon Discount :</td>
 
-                          {totalPrice.stole_charge !== '0' && (
+                                <td className="sergvasdrg">
+                                  (-)
+                                  {formatPrice(appliedDiscount)}
+                                </td>
+                              </tr>
+                            )} */}
                             <tr>
-                              <td>Matching Stole :</td>
+                              <td>Total Payable :</td>
+
                               <td>
-                                {formatPrice(totalPrice.stole_charge, { showDecimals: true })}
+                                {/* <i class="bi bi-currency-rupee"></i> */}
+                                {/* {formatPrice(Number(totalPrice.cart_totalPrice) - appliedDiscount, { showDecimals: true })} */}
+                                {/* {formatPrice(Number(totalPrice.cart_totalPrice), { showDecimals: true })} */}
+                                {formatPrice(Number(totalPrice.total_selling_price) +
+                                  Number(totalPrice.total_add_on_charges) +
+                                  Number(totalPrice.custom_fit_charges) +
+                                  Number(totalPrice.stiching_charges))}
                               </td>
                             </tr>
-                          )}
-                          
-                          {/* {totalPrice.total_add_on_charges !== '0' && (
-                            <tr>
-                              <td>Add On Charges :</td>
-                              <td>
-                                {formatPrice(totalPrice.total_add_on_charges, { showDecimals: true })}
-                              </td>
-                            </tr>
-                          )} */}
-                       
-                          <tr>
-                            <td>Shipping & Duties :</td>
-
-                            <td>
-                              {/* <i class="bi bi-currency-rupee"></i> */}
-                              {/* {totalPrice.shipping_charges} */}
-
-                              Calculated at Checkout
-                            </td>
-                          </tr>
-                          {/* {appliedDiscount > 0 && (
-                            <tr>
-                              <td className="sergvasdrg">Coupon Discount :</td>
-
-                              <td className="sergvasdrg">
-                                (-)
-                                {formatPrice(appliedDiscount)}
-                              </td>
-                            </tr>
-                          )} */}
-                          <tr>
-                            <td>Total Payable :</td>
-
-                            <td>
-                              {/* <i class="bi bi-currency-rupee"></i> */}
-                              {/* {formatPrice(Number(totalPrice.cart_totalPrice) - appliedDiscount, { showDecimals: true })} */}
-                              {/* {formatPrice(Number(totalPrice.cart_totalPrice), { showDecimals: true })} */}
-                              {formatPrice(Number(totalPrice.total_selling_price) +
-                                Number(totalPrice.total_add_on_charges) +
-                                Number(totalPrice.custom_fit_charges) +
-                                Number(totalPrice.stiching_charges))}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </Table>                      
-                    </div>
-
-                    
-
-                    <div className="dweoihrwerwer sfvawxdsddqwdawd aiksndjhugwerwerw d-flex align-items-center justify-content-between p-2 mb-3">
-                      <div className="doewjirwerwer dcvsdfggewe">
-                        <label>YOUR TOTAL SAVINGS</label>
+                          </tbody>
+                        </Table>                      
                       </div>
 
-                      <span>
-                        {/* <i class="bi bi-currency-rupee"></i>  */}
-                        {/* - {formatPrice(Number(totalPrice.total_discount_price) + appliedDiscount, { showDecimals: true })} */}
-                        - {formatPrice(Number(totalPrice.total_discount_price), { showDecimals: true })}
-                      </span>
-                    </div>
+                      
 
-                    {/* <div className="dweoihrwerwer aiksndjhugwerwerw d-flex align-items-center justify-content-between p-2">
-                      <div className="doewjirwerwer">
-                        <input type="checkbox" id="gft" className="m-1" checked={isGift}
-                            onChange={(e) => setIsGift(e.target.checked)}/>
+                      <div className="dweoihrwerwer sfvawxdsddqwdawd aiksndjhugwerwerw d-flex align-items-center justify-content-between p-2 mb-3">
+                        <div className="doewjirwerwer dcvsdfggewe">
+                          <label>YOUR TOTAL SAVINGS</label>
+                        </div>
 
-                        <label htmlFor="gft">This is a gift item</label>
+                        <span>
+                          {/* <i class="bi bi-currency-rupee"></i>  */}
+                          {/* - {formatPrice(Number(totalPrice.total_discount_price) + appliedDiscount, { showDecimals: true })} */}
+                          - {formatPrice(Number(totalPrice.total_discount_price), { showDecimals: true })}
+                        </span>
                       </div>
 
-                      <span>Free Gift Wrap</span>
-                    </div> */}
+                      {/* <div className="dweoihrwerwer aiksndjhugwerwerw d-flex align-items-center justify-content-between p-2">
+                        <div className="doewjirwerwer">
+                          <input type="checkbox" id="gft" className="m-1" checked={isGift}
+                              onChange={(e) => setIsGift(e.target.checked)}/>
 
-                    <div className="oiasmdjweijrwerwer py-2 mb-4 d-flex align-items-center justify-content-between zsdvfdesdeadfrer mt-3">
-                      <label className="mb-0">Total Payable</label>
-                      <span className="mb-0">
-                        {/* <i class="bi bi-currency-rupee"></i> */}
-                        {/* {formatPrice((Number(totalPrice.total_selling_price) - appliedDiscount) + Number(totalPrice.total_add_on_charges) + Number(totalPrice.custom_fit_charges) + Number(totalPrice.stiching_charges), { showDecimals: true })} */}
-                        {formatPrice((Number(totalPrice.total_selling_price)) + Number(totalPrice.total_add_on_charges) + Number(totalPrice.custom_fit_charges) + Number(totalPrice.stiching_charges), { showDecimals: true })}
-                      </span>
-                      
-                    </div>
+                          <label htmlFor="gft">This is a gift item</label>
+                        </div>
 
-                    <div className="uiwdhiwerwerwer">
-                        <button
-                          className="btn btn-main w-100 mb-2"
-                          onClick={handleProceed}
-                        >
-                          PROCEED TO CHECKOUT
-                        </button>
-                      
+                        <span>Free Gift Wrap</span>
+                      </div> */}
+
+                      <div className="oiasmdjweijrwerwer py-2 mb-4 d-flex align-items-center justify-content-between zsdvfdesdeadfrer mt-3">
+                        <label className="mb-0">Total Payable</label>
+                        <span className="mb-0">
+                          {/* <i class="bi bi-currency-rupee"></i> */}
+                          {/* {formatPrice((Number(totalPrice.total_selling_price) - appliedDiscount) + Number(totalPrice.total_add_on_charges) + Number(totalPrice.custom_fit_charges) + Number(totalPrice.stiching_charges), { showDecimals: true })} */}
+                          {formatPrice((Number(totalPrice.total_selling_price)) + Number(totalPrice.total_add_on_charges) + Number(totalPrice.custom_fit_charges) + Number(totalPrice.stiching_charges), { showDecimals: true })}
+                        </span>
+                        
+                      </div>
+
+                      <div className="uiwdhiwerwerwer">
+                          <button
+                            className="btn btn-main w-100 mb-2"
+                            onClick={handleProceed}
+                          >
+                            PROCEED TO CHECKOUT
+                          </button>
+                        
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </Tab>
             
@@ -1983,8 +1983,7 @@ export const Cart = () => {
                                 <div className="d-flex gap-2">
                                   <div className="dasferqrrqqq">
                                     <div className="donweihrwewer">
-                                      {/* <Link to={`/products/${cartItemsVal.slug}`}> */}
-                                      <Link to={`/products/${cartItemsVal.PID}`}>
+                                      <Link to={`/products/${cartItemsVal.slug}-${cartItemsVal.PID}`}>
                                         <img
                                           src={cartItemsVal.encoded_image_url_1}
                                           alt={cartItemsVal.product_name}

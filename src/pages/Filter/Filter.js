@@ -89,52 +89,54 @@ export const Filter = () => {
 
 
   const handleFilterOptionRemove = ({ type, value }) => {
+
+    console.log(type,'typekjkjk');
     // 1. Remove from state
     switch (type) {
-      case "main": removeMainCategory(value); break;
-      case "sub": removeSubCategory(value); break;
-      case "filter": removeFilterCategory(value); break;
-      case "color": removeColor(value); break;
-      case "material": removeMaterial(value); break;
-      case "designer": removeDesigner(value); break;
-      case "plusSize": removePlusSize(value); break;
-      case "occasion": removeOccasion(value); break;
-      case "size": removeSize(value); break;
-      case "celebrity": removeCelebrity(value); break;
-      case "discount": removeDiscount(value); break;
-      case "shippingTime": removeShippingTime(value); break;
+      case "mainCategory": removeMainCategory(); break;
+      case "subCategory": removeSubCategory(); break;
+      case "filterCategoryCntxt": removeFilterCategory(); break;
+      case "color": removeColor(); break;
+      case "material": removeMaterial(); break;
+      case "designer": removeDesigner(); break;
+      case "plusSize": removePlusSize(); break;
+      case "occasion": removeOccasion(); break;
+      case "size": removeSize(); break;
+      case "celebrity": removeCelebrity(); break;
+      case "discount": removeDiscount(); break;
+      case "shippingTime": removeShippingTime(); break;
       default: break;
     }
 
     // 2. Update the URL after a tiny delay (to make sure state is updated)
-    setTimeout(() => {
-      const searchParams = new URLSearchParams();
+    // setTimeout(() => {
+    //   const searchParams = new URLSearchParams();
 
-      // main
-      if (mainCategory.length > 0) searchParams.set("main", mainCategory.join(","));
-      else searchParams.delete("main");
+    //   // main
+    //   if (mainCategory) searchParams.set("main", mainCategory);
+    //   else searchParams.delete("main");
 
-      // sub
-      if (subCategory.length > 0) searchParams.set("subpaths", subCategory.join(","));
-      else searchParams.delete("subpaths");  // ✅ Also delete subpaths
+    //   // sub
+    //   if (subCategory) searchParams.set("subpaths", subCategory);
+    //   else searchParams.delete("subpaths");  // ✅ Also delete subpaths
 
-      // filter
-      if (filterCategoryCntxt.length > 0) searchParams.set("filterpaths", filterCategoryCntxt.join(","));
-      else searchParams.delete("filterpaths");
+    //   // filter
+    //   if (filterCategoryCntxt) searchParams.set("filterpaths", filterCategoryCntxt);
+    //   else searchParams.delete("filterpaths");
 
-      // color, material, designer etc (if you want)
-      if (color.length > 0) searchParams.set("color", color.join(","));
-      else searchParams.delete("color");
+    //   // color, material, designer etc (if you want)
+    //   if (color) searchParams.set("color", color);
+    //   else searchParams.delete("color");
 
-      if (material.length > 0) searchParams.set("material", material.join(","));
-      else searchParams.delete("material");
+    //   if (material) searchParams.set("material", material);
+    //   else searchParams.delete("material");
 
-      if (designer.length > 0) searchParams.set("designer", designer.join(","));
-      else searchParams.delete("designer");
+    //   if (designer) searchParams.set("designer", designer);
+    //   else searchParams.delete("designer");
 
-      // Push updated URL
-      navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
-    }, 50);
+    //   // Push updated URL
+    //   navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
+    // }, 50);
   };
 
   useEffect(() => {
@@ -438,6 +440,12 @@ export const Filter = () => {
 
   const filterTopBannerHide = mainCatgry.map(mnctgySlug => mnctgySlug.mainCategory_slug);
 
+  const slugToTitle = (text = "") => {
+    return text
+      .toLowerCase()
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  };
 
   return (
     <div className="filter-wrapper pt-2">
@@ -567,15 +575,21 @@ export const Filter = () => {
                           ?.join(" ");
 
                         // displayValue = `${mainCategory} - ${lastPart}`;
-                        displayValue = `${lastPart}`;
+                        // displayValue = `${lastPart}`;
+                        displayValue = slugToTitle(lastPart);
+
                       } else if (item.type === "plusSize" || item.type === "size") {
                           // Convert all letters to uppercase
                           displayValue = item.value.toUpperCase();
+                      } else if (item.type === "discount") {
+                          displayValue = item.value;
                       } else {
-                        displayValue = item.value
-                          .split(" ")
-                          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                          .join(" ");
+                        // displayValue = item.value
+                        //   .split(" ")
+                        //   .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        //   .join(" ");
+
+                        displayValue = slugToTitle(item.value);
                       }
 
                       return (

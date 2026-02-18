@@ -32,11 +32,14 @@ export const CurrencyProvider = ({ children }) => {
       locale: "en-IN",
     };
 
+    // ✅ Keep exact decimal for calculation
     const convertedPrice =
-      priceInInr /
-      (currency.exchange_rate_to_inr === 0
-        ? 1
-        : currency.exchange_rate_to_inr || 1);
+      priceInInr / (currency.exchange_rate_to_inr || 1);
+
+    // ✅ Round ONLY for display
+    const displayPrice = showDecimals
+      ? convertedPrice
+      : Math.round(convertedPrice);
 
     const formatter = new Intl.NumberFormat(currency.locale || "en-IN", {
       style: "currency",
@@ -45,13 +48,11 @@ export const CurrencyProvider = ({ children }) => {
       maximumFractionDigits: showDecimals ? 2 : 0,
     });
 
-    // 🔹 Normal usage (existing behavior)
     if (!returnParts) {
-      return formatter.format(convertedPrice);
+      return formatter.format(displayPrice);
     }
 
-    // 🔹 Extract symbol + number separately
-    const parts = formatter.formatToParts(convertedPrice);
+    const parts = formatter.formatToParts(displayPrice);
 
     const symbol = parts.find(p => p.type === "currency")?.value || "";
     const number = parts
@@ -62,10 +63,11 @@ export const CurrencyProvider = ({ children }) => {
 
     return {
       symbol,
-      number,           // formatted number with comma
-      raw: convertedPrice // numeric value
+      number,
+      raw: convertedPrice, // 🔥 still original decimal for backend usage
     };
   };
+
 
 
   return (

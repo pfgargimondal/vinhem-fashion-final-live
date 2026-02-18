@@ -108,7 +108,7 @@ export const filterReducer = (state, action) => {
         case "REMOVE_FILTER_CATEGORY":
             return {
                 ...state,
-                filterCategory: state.filterCategory.filter(v => v !== action.payload.filterPath)
+                filterCategory: null
             };
 
         case "PAGE":
@@ -191,6 +191,32 @@ export const filterReducer = (state, action) => {
         }
 
         /* ---------------- REMOVE OTHER FILTERS ---------------- */
+        // case "REMOVE_COLOR":
+        // case "REMOVE_MATERIAL":
+        // case "REMOVE_DESIGNER":
+        // case "REMOVE_PLUS_SIZE":
+        // case "REMOVE_OCCASION":
+        // case "REMOVE_SIZE":
+        // case "REMOVE_CELEBRITY":
+        // case "REMOVE_DISCOUNT":
+        // case "REMOVE_SHIPPING_TIME":
+        //     const removeKeyMap = {
+        //         "REMOVE_COLOR": "color",
+        //         "REMOVE_MATERIAL": "material",
+        //         "REMOVE_DESIGNER": "designer",
+        //         "REMOVE_PLUS_SIZE": "plusSize",
+        //         "REMOVE_OCCASION": "occasion",
+        //         "REMOVE_SIZE": "size",
+        //         "REMOVE_CELEBRITY": "celebrity",
+        //         "REMOVE_DISCOUNT": "discount",
+        //         "REMOVE_SHIPPING_TIME": "shippingTime"
+        //     };
+        //     const removeField = removeKeyMap[action.type];
+        //     return {
+        //         ...state,
+        //         [removeField]: state[removeField].filter(v => v !== action.payload)
+        //     };
+
         case "REMOVE_COLOR":
         case "REMOVE_MATERIAL":
         case "REMOVE_DESIGNER":
@@ -211,11 +237,16 @@ export const filterReducer = (state, action) => {
                 "REMOVE_DISCOUNT": "discount",
                 "REMOVE_SHIPPING_TIME": "shippingTime"
             };
+
             const removeField = removeKeyMap[action.type];
+
             return {
                 ...state,
-                [removeField]: state[removeField].filter(v => v !== action.payload)
+                [removeField]: null
             };
+
+
+        
 
         /* ---------------- SORT & FLAGS (unchanged) ---------------- */
         case "SORT_BY":

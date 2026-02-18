@@ -42,8 +42,7 @@ export const FeaturedProducts = ({ featuredProduct }) => {
                 )}
 
                 <div className={`doiewjkrniuwewer position-relative overflow-hidden`}>
-                  {/* <Link to={`/products/${featuredProduct.slug}/${featuredProduct.PID}`}> */}
-                  <Link to={`/products/${featuredProduct.PID}`}>
+                  <Link to={`/products/${featuredProduct.slug}-${featuredProduct.PID}`}>
                     <img
                       src={featuredProduct?.encoded_image_url_1 || "/images/no-preview.jpg"}
                       alt={featuredProduct?.product_name || "Product image"}
