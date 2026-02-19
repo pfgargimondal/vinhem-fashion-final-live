@@ -597,17 +597,19 @@ export const Wedding = () => {
 
       <div className="fgndfjhgfgds pt-5">
         <div className="container-fluid">
-          <div
-            className="dfgdfgfd"
-            style={{
-              backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section6_image})`,
-            }}
-          >
-            <div className="sdjhds">
-              <h4>{WeddingDetails?.data?.section5to9?.section6_text}</h4>
-              {/* <h3>Perfect Present for any occasion</h3> */}
+          <Link to={WeddingDetails?.data?.section5to9?.section6_url}>
+            <div
+              className="dfgdfgfd"
+              style={{
+                backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section6_image})`,
+              }}
+            >
+              <div className="sdjhds">
+                <h4>{WeddingDetails?.data?.section5to9?.section6_text}</h4>
+                {/* <h3>Perfect Present for any occasion</h3> */}
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -646,7 +648,12 @@ export const Wedding = () => {
               </div>
 
               <div className="col-lg-4 col-12">
-                <div className="fghbjkfgfg145">
+                <div className="fghbjkfgfg145 h-100" style={{
+                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section7_background_image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}>
                   <h2>
                     {WeddingDetails?.data?.section5to9?.section7_main_title}
                   </h2>
@@ -867,7 +874,12 @@ export const Wedding = () => {
               </div>
 
               <div className="col-lg-4">
-                <div className="fghbjkfgfg145">
+                <div className="fghbjkfgfg145 h-100" style={{
+                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section9_background_image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}>
                   <h2>
                     {WeddingDetails?.data?.section5to9?.section9_main_title}
                   </h2>
