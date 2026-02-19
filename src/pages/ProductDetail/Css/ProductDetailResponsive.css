@@ -572,13 +572,13 @@
     }
 
     .zoom-gallery-modal .modal-dialog {
-        max-width: 90%;
+        max-width: 75%;
         margin-inline: auto;
     }
 
     .zoom-gallery-modal .large-image-tab .tab-content > .active{
-        min-height: 108vw;
-        max-height: 108vw;
+        min-height: 112vw;
+        max-height: 112vw;
     }
 
     .small-image-tabs .nav-item {
@@ -589,10 +589,6 @@
     .small-image-tabs .nav-item img,
     .small-image-tabs .nav-item video {
         max-height: 150px;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 80vh;
     }
 
     .doijijewjuewr {
@@ -727,6 +723,121 @@
     .dweojfwejfhu span{
         font-size: 1rem !important;
     }
+
+    .zoom-gallery-modal .sdgdffwesfdf.row{
+        flex-direction: column-reverse !important;
+    }
+
+    .zoom-gallery-modal .small-image-tabs > div.position-relative{
+        display: flex;
+    }
+
+    .zoom-gallery-modal .small-image-tabs.col-2,
+    .small-image-tabs.col-2{
+        width: 100%;
+    }
+
+    .large-image-tab.col-9{
+        width: 100%;
+    }
+
+    .doijijewjuewr .flex-column {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+    }
+
+    .doijijewjuewr {
+        max-height: initial;
+        display: flex;
+    }
+    
+    .zoom-gallery-modal .small-image-tabs .nav-item {
+        margin: 0.5rem 0.55rem !important;
+    }
+    
+    .zoom-gallery-modal .large-image-tab.col-10{
+        width: 100%;
+    }
+    
+    .zoom-gallery-modal .small-image-arrow,
+    .small-image-arrow{
+        display: none;
+    }
+
+    .close-btn {
+        top: 1rem;
+        right: -5rem;
+        font-size: 1rem;
+    }
+
+    .large-image-tab .tab-content > .active{
+        max-height: initial;
+    }
+
+    .deiwhirhwejpekr.sticky-top > div.row{
+        flex-direction: column-reverse;
+    }
+
+    .deiwhirhwejpekr.sticky-top .small-image-tabs{
+        height: auto;
+    }
+
+    .small-image-tabs-res.position-relative{
+        position: absolute !important;
+    }
+
+    .small-image-tabs-res{
+        bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+    }
+
+    .small-image-tabs-res.pe-0{
+        padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+    }
+
+    .small-image-tabs-res .nav-item{
+        min-height: initial;
+        max-height: initial;
+    }
+
+    .small-image-tabs-res .nav-item img,
+    .small-image-tabs-res .nav-item video {
+        max-height: 35px;
+        background: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(1rem);
+    }
+    
+    .small-image-tabs-res .doijijewjuewr{
+        justify-content: center;
+    }
+
+    .small-image-tabs-res .nav-item .nav-link{
+        padding: 0 !important;
+    }
+
+    .small-image-tabs-res .nav-item{
+        margin: 10px 0.2rem auto !important;
+    }
+
+    .small-image-tabs-res .nav-item .nav-link.active{
+        background: none;
+        border-color: #fff !important;
+    }
+
+    .small-image-tabs-res .nav-item .nav-link.active:before{
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
 }
 
 
@@ -734,20 +845,6 @@
 
 
 @media only screen and (max-width: 800px){
-    .small-image-tabs .nav-item {
-        min-height: 150px;
-        max-height: 150px;
-    }
-
-    .small-image-tabs .nav-item img,
-    .small-image-tabs .nav-item video {
-        max-height: 125px;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 69vh;
-    }
-
     .doijijewjuewr {
         max-height: 69vh;
     }
@@ -774,19 +871,6 @@
 @media only screen and (max-width: 680px){
     .dowejkrnwerwer{
         justify-content: space-between;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 61vh;
-    }
-
-    .small-image-tabs .nav-item {
-        min-height: 132px;
-        max-height: 132px;
-    }
-
-    .small-image-tabs .nav-item img, .small-image-tabs .nav-item video {
-        max-height: 110px;
     }
 
     .doijijewjuewr {
@@ -823,21 +907,13 @@
         margin-top: 2rem;
     }
 
-    .small-image-tabs .nav-item {
-        min-height: 115px;
-        max-height: 115px;
-    }
-
-    .small-image-tabs .nav-item img, .small-image-tabs .nav-item video {
-        max-height: 100px;
+    .zoom-gallery-modal .large-image-tab .tab-content > .active{
+        min-height: max-content;
+        max-height: max-content;
     }
 
     .doijijewjuewr {
         max-height: 53vh;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 53vh;
     }
 
     /* .small-image-tabs .nav-item {
@@ -860,6 +936,15 @@
 
     .oijdmkmeiwrew .copn-cde:last-child.me-5{
         margin-right: 0 !important;
+    }
+
+    .close-btn {
+        top: -3rem;
+        right: 0;
+    }
+
+    .zoom-gallery-modal .modal-dialog {
+        max-width: 90%;
     }
 }
 
@@ -892,21 +977,6 @@
 
 
 @media only screen and (max-width: 540px){
-    .small-image-tabs .nav-item {
-        min-height: 102px;
-        max-height: 102px;
-    }
-
-    .small-image-tabs .nav-item img,
-    .small-image-tabs .nav-item video {
-        max-height: 80px;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 47vh;
-        padding-left: 0;
-    }
-
     .doijijewjuewr {
         max-height: 47vh;
     }
@@ -977,10 +1047,6 @@
     .small-image-tabs .nav-item img,
     .small-image-tabs .nav-item video {
         max-height: 65px;
-    }
-
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 37vh;
     }
 
     .doijijewjuewr {
@@ -1078,8 +1144,14 @@
         max-height: 32vh;
     }
 
-    .deiwhirhwejpekr.sticky-top .small-image-tabs {
-        height: 32vh;
+    .zoom-gallery-modal .small-image-tabs .nav-item {
+        min-height: 75px;
+        max-height: 75px;
+    }
+
+    .zoom-gallery-modal .small-image-tabs .nav-item img,
+    .zoom-gallery-modal .small-image-tabs .nav-item video {
+        max-height: 65px;
     }
 }
 

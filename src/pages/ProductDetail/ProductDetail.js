@@ -929,7 +929,7 @@ export const ProductDetail = () => {
                         <Row>
                           <Col
                             xs={2}
-                            className="small-image-tabs pe-0 position-relative"
+                            className="small-image-tabs small-image-tabs-res pe-0 position-relative"
                           >
                             {productDetails?.data?.product_image
                               ?.encoded_image_url_5 && (
@@ -3024,7 +3024,7 @@ export const ProductDetail = () => {
         </Modal.Body>
 
         <button className="close-btn" onClick={handlePGClose}>
-          ✕
+          Close
         </button>
       </Modal>
 

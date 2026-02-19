@@ -522,15 +522,16 @@ p.sidifsdiyhr{
 .close-btn {
   position: absolute;
   top: 1rem;
-  right: 1.5rem;
-  font-size: 1.8rem;
-  width: 32px;
-  height: 39px;
+  right: -8rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
-  color: #000;
+  color: #fff;
+  background: var(--pink-main-color);
   z-index: 1000;
   cursor: pointer;
+  padding: 5px 1rem;
+  border-radius: 50px;
 }
 
 .zoom-gallery-modal .nav-item .nav-link.active {
@@ -559,11 +560,16 @@ p.sidifsdiyhr{
 }
 
 .modal-backdrop{
-  z-index: 999999 !important;
+  z-index: 99999999 !important;
+  backdrop-filter: blur(15px);
+  --bs-backdrop-opacity: 1 !important;
+  --bs-backdrop-bg: none !important;
+  background: rgba(255, 255, 255, 1);
+  background-color: #fff !important;
 }
 
 .zoom-gallery-modal{
-  z-index: 9999999 !important;
+  z-index: 99999999 !important;
 }
 
 .zoom-gallery-modal .large-image-tab .tab-content > .active{
