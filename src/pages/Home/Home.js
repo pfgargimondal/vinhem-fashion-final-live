@@ -8,7 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "./Css/Home.css";
 import "./Css/HomeResponsive.css";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
 
@@ -380,7 +380,7 @@ export const Home = () => {
       <div className="kdnfghdfsdf pb-5">
         <div className="container-fluid">
           <div className="sdf58sdfs">
-            <h4 className="mb-3">{homepage?.data?.section5_title1}</h4>
+            <h4 className="mb-3">{homepage?.data?.section5_title}</h4>
           </div>
           <div className="dfdfhgdf65">
             <div className="row">
@@ -537,8 +537,17 @@ export const Home = () => {
       />
 
       <hr className="doewjirhweiewrer" />
-
-      <FooterTopComponent />
+      <div class="yudfdfgdfbgdfgdffgfg">
+        <div class="container-fluid">
+          <div
+            className="pt-4"
+            dangerouslySetInnerHTML={{
+              __html: homepage?.data?.description
+            }}
+          />
+        </div>
+      </div>
+      {/* <FooterTopComponent /> */}
     </div>
   )
 }

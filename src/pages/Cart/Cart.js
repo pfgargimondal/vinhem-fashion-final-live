@@ -851,6 +851,7 @@ export const Cart = () => {
   const createPayPalOrder = async () => {
 
     try {
+      setLoading(true); 
       const rawAmount = Number(finalTotal) || 0;
       const amountForPayPal = rawAmount.toFixed(2);
 
@@ -873,12 +874,15 @@ export const Cart = () => {
     } catch (err) {
       console.error(err);
       toast.error("Failed to start PayPal payment");
+    } finally {
+      setLoading(false); // ✅ stop loader
     }
   };
 
 
   const createRazorpayOrder = async () => {
     try {
+      setLoading(true); 
       const res = await http.post("/razorpay/create-order", {
         amount: finalTotal,        // amount in rupees
         currency: currency_code,   // e.g. INR, USD
@@ -894,6 +898,8 @@ export const Cart = () => {
     } catch (error) {
       console.error(error);
       toast.error("Unable to start Razorpay payment");
+    } finally {
+      setLoading(false); // ✅ stop loader
     }
   };
 

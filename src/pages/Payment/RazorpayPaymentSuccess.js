@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "./PaypalPaymentSuccess.css";
 import http from "../../http";
 import { useNavigate } from "react-router-dom";
@@ -11,8 +11,12 @@ export const RazorpayPaymentSuccess = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { resetCart } = useCart();
+  const hasRun = useRef(false);   // 🔥 Guard
 
   useEffect(() => {
+    if (hasRun.current) return;   // Prevent multiple calls
+    hasRun.current = true;
+
     const query = new URLSearchParams(window.location.search);
 
     const razorpay_payment_id = query.get("razorpay_payment_id");
@@ -37,34 +41,21 @@ export const RazorpayPaymentSuccess = () => {
           return;
         }
 
-        const shippingFinalAddress = JSON.parse(localStorage.getItem("shipping_address"));
-        const billingFinalAddress = JSON.parse(localStorage.getItem("billing_address"));
-        const amount = localStorage.getItem("final_total");
-        const shipping_charge = localStorage.getItem("shipping_charge");
-
-        const countryData = JSON.parse(localStorage.getItem("selectedCurrency"));
-        const country = countryData?.country_name ?? "";
-
-        const coupon_code = localStorage.getItem("coupon_code");
-        const coupon_discount = localStorage.getItem("coupon_discount");
-        const is_gift = localStorage.getItem("is_gift");
-        const gstNumber = localStorage.getItem("gst_number");
-
         const resp = await placeOrderAPI({
           token,
           payment_method: "razorpay",
-          shipping_address: shippingFinalAddress,
-          billing_address: billingFinalAddress,
-          country: country,
-          coupon_code: coupon_code,
-          coupon_discount: coupon_discount,
-          razorpay_payment_id: razorpay_payment_id,
-          razorpay_signature: razorpay_signature,
-          razorpay_order_id: razorpay_order_id,
-          amount_payable: amount,
-          shipping_charge: shipping_charge,
-          is_gift: is_gift ? 1 : 0,
-          gst_number: gstNumber,
+          shipping_address: JSON.parse(localStorage.getItem("shipping_address")),
+          billing_address: JSON.parse(localStorage.getItem("billing_address")),
+          country: JSON.parse(localStorage.getItem("selectedCurrency"))?.country_name ?? "",
+          coupon_code: localStorage.getItem("coupon_code"),
+          coupon_discount: localStorage.getItem("coupon_discount"),
+          razorpay_payment_id,
+          razorpay_signature,
+          razorpay_order_id,
+          amount_payable: localStorage.getItem("final_total"),
+          shipping_charge: localStorage.getItem("shipping_charge"),
+          is_gift: localStorage.getItem("is_gift") ? 1 : 0,
+          gst_number: localStorage.getItem("gst_number"),
         });
 
         if (resp?.success) {
@@ -73,14 +64,12 @@ export const RazorpayPaymentSuccess = () => {
         }
 
       } catch (error) {
-        console.error(error);
         toast.error("Razorpay payment verification failed");
       }
     };
 
     verifyPayment();
-  }, [token, resetCart, navigate]);
-
+  }, [token, navigate, resetCart]);   // ✅ Empty dependency
 
   return (
     <div className="payment-success-wrapper">

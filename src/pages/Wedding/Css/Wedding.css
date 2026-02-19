@@ -135,14 +135,11 @@
 }
 
 .dfbghf2 {
-  text-align: center;
-}
-
-.dfbghf2 button{
   position: absolute;
   bottom: 6%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
 }
 
 .dfbghf2 h4 {

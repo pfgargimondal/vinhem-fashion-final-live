@@ -347,7 +347,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title1}
+                        {WeddingDetails?.data?.section1to4?.section4_text1}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url1}>
                       <button>SHOP NOW</button>
@@ -364,7 +364,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title2}
+                        {WeddingDetails?.data?.section1to4?.section4_text2}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url2}>
                       <button>SHOP NOW</button>
@@ -381,7 +381,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title3}
+                        {WeddingDetails?.data?.section1to4?.section4_text3}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url3}>
                       <button>SHOP NOW</button>
@@ -398,7 +398,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title4}
+                        {WeddingDetails?.data?.section1to4?.section4_text4}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url4}>
                       <button>SHOP NOW</button>
@@ -415,7 +415,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title5}
+                        {WeddingDetails?.data?.section1to4?.section4_text5}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url5}>
                       <button>SHOP NOW</button>
@@ -432,7 +432,7 @@ export const Wedding = () => {
                   <div className="overlay-black2 position-absolute w-100 h-100">
                     <div className="dfbghf2">
                       <h4>
-                        {WeddingDetails?.data?.section1to4?.section4_title6}
+                        {WeddingDetails?.data?.section1to4?.section4_text6}
                       </h4>
                       <Link to={WeddingDetails?.data?.section1to4?.section4_url6}>
                       <button>SHOP NOW</button>
