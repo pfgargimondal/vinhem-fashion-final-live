@@ -619,7 +619,7 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                               <div className="checkbox-wrapper-33">
                                 <label htmlFor={safeId} className="checkbox">
                                   <input
-                                    id={safeId}
+                                    id={safeId} 
                                     name={FilterMappingdata.filter_option}
                                     value={trimmedValue}
                                     type="checkbox"

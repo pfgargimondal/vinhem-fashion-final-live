@@ -574,11 +574,18 @@ export const FilterProvider = ({ children }) => {
 
         if (!material) return;
 
-        const isSame = state.material === material;
+        const materialPath = `${material}`
+            .toLowerCase()
+            .replace(/ /g, "-");
+
+        const value =
+            state.material === materialPath
+                ? null              // 🔥 UNCHECK
+                : materialPath;
 
         const newState = {
             ...state,
-            material: isSame ? null : material,
+            material: value,
             page: 1
         };
 
@@ -586,6 +593,7 @@ export const FilterProvider = ({ children }) => {
         dispatch({ type: "PAGE", payload: { page: 1 } });
 
         updateURLWithFilters(newState);
+
     }
 
     function filterMaterial(products) {
@@ -745,11 +753,18 @@ export const FilterProvider = ({ children }) => {
 
         if (!occasion) return;
 
-        const isSame = state.occasion === occasion;
+        const occasionPath = `${occasion}`
+            .toLowerCase()
+            .replace(/ /g, "-");
+
+        const value =
+            state.occasion === occasionPath
+                ? null              // 🔥 UNCHECK
+                : occasionPath;
 
         const newState = {
             ...state,
-            occasion: isSame ? null : occasion,
+            occasion: value,
             page: 1
         };
 

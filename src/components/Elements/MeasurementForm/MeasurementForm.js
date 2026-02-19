@@ -639,65 +639,69 @@ export const MeasurementForm = ({
                   </div>
                 </div>
 
-                <p className="mb-3">Choose a size to be customized:</p>
+                {productDetails?.data?.stitching_option === 'Ready To Wear' && (
+                  <>
+                    <p className="mb-3">Choose a size to be customized:</p>
 
-                <div className="okemlkwnjrirwer mb-3 d-flex align-items-center">
-                  {productDetails?.data?.product_allSize?.flatMap(
-                    (item, index) => {
-                      // Collect normal + plus sizes (if any)
-                      const sizes = [
-                        {
-                          label: item.filter_size,
-                          value: item.filter_size,
-                          price: item.selling_price,
-                        },
-                      ];
+                    <div className="okemlkwnjrirwer mb-3 d-flex align-items-center">
+                      {productDetails?.data?.product_allSize?.flatMap(
+                        (item, index) => {
+                          // Collect normal + plus sizes (if any)
+                          const sizes = [
+                            {
+                              label: item.filter_size,
+                              value: item.filter_size,
+                              price: item.selling_price,
+                            },
+                          ];
 
-                      if (item.plus_sizes && item.plus_sizes !== "0") {
-                        sizes.push({
-                          label: item.plus_sizes,
-                          value: item.plus_sizes,
-                          price: item.plus_sizes_charges,
-                        });
-                      }
+                          if (item.plus_sizes && item.plus_sizes !== "0") {
+                            sizes.push({
+                              label: item.plus_sizes,
+                              value: item.plus_sizes,
+                              price: item.plus_sizes_charges,
+                            });
+                          }
 
-                      const uniqueSizes = sizes.filter(
-                        (size, idx, arr) => idx === arr.findIndex((s) => s.value === size.value)
-                      );
+                          const uniqueSizes = sizes.filter(
+                            (size, idx, arr) => idx === arr.findIndex((s) => s.value === size.value)
+                          );
 
-                      return uniqueSizes.map((sizeObj, subIndex) => (
-                        <div
-                          className="doeiwjrkweirwe me-2 mb-2"
-                          key={`${index}-${subIndex}`}
-                        >
-                          <input
-                            id={`size-${index}-${subIndex}`}
-                            name="selected_size"
-                            type="radio"
-                            value={sizeObj.value}
-                            checked={selectedSize === sizeObj.value}
-                            onChange={handleSizeChange}
-                            className="d-none position-absolute"
-                          />
-                          <label
-                            htmlFor={`size-${index}-${subIndex}`}
-                            className={`text-center p-2 border rounded ${
-                              selectedSize === sizeObj.value
-                                ? "bg-dark text-white"
-                                : ""
-                            }`}
-                            style={{ minWidth: "70px", cursor: "pointer" }}
-                          >
-                            <span className="d-block mb-1">
-                              ₹{parseFloat(sizeObj.price || 0).toFixed(2)}
-                            </span>
-                            <small>{sizeObj.label}</small>
-                          </label>
-                        </div>
-                      ));
-                    }
-                  )}
-                </div>
+                          return uniqueSizes.map((sizeObj, subIndex) => (
+                            <div
+                              className="doeiwjrkweirwe me-2 mb-2"
+                              key={`${index}-${subIndex}`}
+                            >
+                              <input
+                                id={`size-${index}-${subIndex}`}
+                                name="selected_size"
+                                type="radio"
+                                value={sizeObj.value}
+                                checked={selectedSize === sizeObj.value}
+                                onChange={handleSizeChange}
+                                className="d-none position-absolute"
+                              />
+                              <label
+                                htmlFor={`size-${index}-${subIndex}`}
+                                className={`text-center p-2 border rounded ${
+                                  selectedSize === sizeObj.value
+                                    ? "bg-dark text-white"
+                                    : ""
+                                }`}
+                                style={{ minWidth: "70px", cursor: "pointer" }}
+                              >
+                                <span className="d-block mb-1">
+                                  ₹{parseFloat(sizeObj.price || 0).toFixed(2)}
+                                </span>
+                                <small>{sizeObj.label}</small>
+                              </label>
+                            </div>
+                          ));
+                        }
+                      )}
+                    </div>
+                  </>
+                )}
 
                 <p>Customized orders can take minimum 7 extra working days</p>
 

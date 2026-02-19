@@ -788,11 +788,12 @@ export const Cart = () => {
     Number(totalPrice.custom_fit_charges) +
     Number(totalPrice.stiching_charges);
 
+    console.log(baseTotal, 'baseTotal');
+
     
     const finalTotal = freeShipping
-      ? baseTotal - appliedDiscount
-      : baseTotal + shippingCharge - appliedDiscount;
-
+    ? Number(baseTotal || 0) - Number(appliedDiscount || 0)
+    : Number(baseTotal || 0) + Number(shippingCharge || 0) - Number(appliedDiscount || 0);
 
     localStorage.setItem("final_total", finalTotal);
     localStorage.setItem("coupon_code", couponApplied ? selectedCoupon : null);
@@ -848,10 +849,14 @@ export const Cart = () => {
   };
 
   const createPayPalOrder = async () => {
+
     try {
+      const rawAmount = Number(finalTotal) || 0;
+      const amountForPayPal = rawAmount.toFixed(2);
+
       const res = await http.post("/paypal/create-order", {
-        currency_code: currency_code,
-        amount: finalTotal,
+        currency_code: currency_code,      // dynamic
+        amount: amountForPayPal,           // numeric string, no commas
       });
 
       if (!res.data || !res.data.links) {
@@ -870,6 +875,7 @@ export const Cart = () => {
       toast.error("Failed to start PayPal payment");
     }
   };
+
 
   const createRazorpayOrder = async () => {
     try {
@@ -1399,7 +1405,7 @@ export const Cart = () => {
                                 {formatPrice(Number(totalPrice.total_selling_price) +
                                   Number(totalPrice.total_add_on_charges) +
                                   Number(totalPrice.custom_fit_charges) +
-                                  Number(totalPrice.stiching_charges))}
+                                  Number(totalPrice.stiching_charges), { showDecimals: true })}
                               </td>
                             </tr>
                           </tbody>
@@ -1811,7 +1817,7 @@ export const Cart = () => {
                                   Number(totalPrice.total_add_on_charges) + 
                                   Number(totalPrice.custom_fit_charges) + 
                                   Number(totalPrice.stiching_charges) + 
-                                  Number(shippingCharge))}
+                                  Number(shippingCharge), { showDecimals: true })}
                             </td>
                           </tr>
                           }
