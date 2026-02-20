@@ -620,7 +620,12 @@ export const Wedding = () => {
           <div className="dfgbdfjhgdf">
             <h2>{WeddingDetails?.data?.section5to9?.section7_title}</h2>
           </div>
-          <div className="dbgjkdffd52">
+          <div className="dbgjkdffd52" style={{
+                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section7_background_image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}>
             <div className="row">
               <div className="col-lg-4">
                 <div className="fbghjdfgfd">
@@ -650,12 +655,7 @@ export const Wedding = () => {
               </div>
 
               <div className="col-lg-4 col-12">
-                <div className="fghbjkfgfg145 h-100" style={{
-                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section7_background_image})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat"
-                }}>
+                <div className="fghbjkfgfg145 h-100">
                   <h2>
                     {WeddingDetails?.data?.section5to9?.section7_main_title}
                   </h2>
@@ -846,7 +846,12 @@ export const Wedding = () => {
           <div className="dfgbdfjhgdf">
             <h2>{WeddingDetails?.data?.section5to9?.section9_title}</h2>
           </div>
-          <div className="dbgjkdffd52">
+          <div className="dbgjkdffd52" style={{
+                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section9_background_image})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}>
             <div className="row">
               <div className="col-lg-4">
                 <div className="fbghjdfgfd">
@@ -876,12 +881,7 @@ export const Wedding = () => {
               </div>
 
               <div className="col-lg-4">
-                <div className="fghbjkfgfg145 h-100" style={{
-                  backgroundImage: `url(${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section9_background_image})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat"
-                }}>
+                <div className="fghbjkfgfg145 h-100">
                   <h2>
                     {WeddingDetails?.data?.section5to9?.section9_main_title}
                   </h2>
