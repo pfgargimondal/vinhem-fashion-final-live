@@ -1,6 +1,6 @@
 import http from "../../http";
 import { Link, useLocation } from "react-router-dom";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Css/Wedding.css";
 import "./Css/WeddingResponsive.css";
@@ -52,6 +52,8 @@ export const Wedding = () => {
       meta_description: matchedMeta?.meta_description || "",
       meta_keyword: matchedMeta?.meta_keyword || ""
   });
+
+  console.log(WeddingDetails, 'WeddingDetails');
 
   if (loading) {
     return <Loader />;
@@ -989,7 +991,17 @@ export const Wedding = () => {
         </div>
       </div>
       <hr />
-      <FooterTopComponent />
+      {/* <FooterTopComponent /> */}
+      <div class="yudfdfgdfbgdfgdffgfg">
+        <div class="container-fluid">
+          <div
+            className="pt-4"
+            dangerouslySetInnerHTML={{
+              __html: WeddingDetails?.data?.category_content?.description
+            }}
+          />
+        </div>
+      </div>
     </>
   );
 };

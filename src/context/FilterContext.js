@@ -209,7 +209,7 @@ export const FilterProvider = ({ children }) => {
                 occasion: params.get("occasion") || "",
                 size: params.get("size") || "",
                 celebrity: params.get("celebrity") || "",
-                discount: params.get("discount") | "",
+                discount: params.get("discount") || "",
                 shippingTime: params.get("shippingTime") || "",
                 page: pageFromUrl,
             }
@@ -492,16 +492,25 @@ export const FilterProvider = ({ children }) => {
     function setDiscount(discount) {
         if (!discount) return;
 
-        const isSame = state.discount === discount;
+        // Convert "10% - 20%" → "10-20"
+        const cleanRange = discount
+            .replace(/%/g, "")
+            .replace(/\s+/g, "");
+
+        const value =
+            state.discount === cleanRange
+                ? null
+                : cleanRange;
+
         const newState = {
             ...state,
-            discount: isSame ? null : discount,
+            discount: value,
             page: 1
         };
 
         dispatch({
             type: "DISCOUNT",
-            payload: { discount: newState.discount }
+            payload: { discount: value }
         });
 
         dispatch({ type: "PAGE", payload: { page: 1 } });
@@ -614,11 +623,16 @@ export const FilterProvider = ({ children }) => {
         // });
 
         const selectedMaterial = state.material;
+
         if (!selectedMaterial) return products;
 
-        return products.filter(product =>
-            product.filter_material?.toLowerCase() === selectedMaterial.toLowerCase()
-        );
+        return products.filter(product => {
+            const productMaterial = product.filter_material
+                ?.toLowerCase()
+                .replace(/ /g, "-");
+
+            return productMaterial === selectedMaterial;
+        });
     }
 
 
@@ -747,8 +761,6 @@ export const FilterProvider = ({ children }) => {
 
     }
 
-
-
     function setOccasion(occasion) {
 
         if (!occasion) return;
@@ -795,15 +807,25 @@ export const FilterProvider = ({ children }) => {
         //     return productOccasions.includes(selectedOccasion);
         // });
 
+        // const selectedOccasion = state.occasion;
+        // if (!selectedOccasion) return products;
+
+        // return products.filter(product =>
+        //     product.filter_occasion?.toLowerCase() === selectedOccasion.toLowerCase()
+        // );
+
         const selectedOccasion = state.occasion;
+
         if (!selectedOccasion) return products;
 
-        return products.filter(product =>
-            product.filter_occasion?.toLowerCase() === selectedOccasion.toLowerCase()
-        );
+        return products.filter(product => {
+            const productOccasion = product.filter_occasion
+                ?.toLowerCase()
+                .replace(/ /g, "-");
+
+            return productOccasion === selectedOccasion;
+        });
     }
-
-
 
     //size
 
@@ -882,11 +904,18 @@ export const FilterProvider = ({ children }) => {
     function setCelebrity(celebrity) {
         if (!celebrity) return;
 
-        const isSame = state.celebrity === celebrity;
+        const celebrityPath = `${celebrity}`
+            .toLowerCase()
+            .replace(/ /g, "-");
+
+        const value =
+            state.celebrity === celebrityPath
+                ? null             
+                : celebrityPath;
 
         const newState = {
             ...state,
-            celebrity: isSame ? null : celebrity,
+            celebrity: value,
             page: 1
         };
 
@@ -904,12 +933,24 @@ export const FilterProvider = ({ children }) => {
         //     const productCelebrity = product.celebrity?.toLowerCase();
         //     return selectedCelebrities.includes(productCelebrity);
         // });
+        // const selectedCelebrity = state.celebrity;
+        // if (!selectedCelebrity) return products;
+
+        // return products.filter(product =>
+        //     product.celebrity?.toLowerCase() === selectedCelebrity.toLowerCase()
+        // );
+
         const selectedCelebrity = state.celebrity;
+
         if (!selectedCelebrity) return products;
 
-        return products.filter(product =>
-            product.celebrity?.toLowerCase() === selectedCelebrity.toLowerCase()
-        );
+        return products.filter(product => {
+            const productCelebrity = product.celebrity
+                ?.toLowerCase()
+                .replace(/ /g, "-");
+
+            return productCelebrity === selectedCelebrity;
+        });
     }
 
 
@@ -936,11 +977,18 @@ export const FilterProvider = ({ children }) => {
     function setShippingTime(shippingTime) {
         if (!shippingTime) return;
 
-        const isSame = state.shippingTime === shippingTime;
+        const shippingTimePath = `${shippingTime}`
+            .toLowerCase()
+            .replace(/ /g, "-");
+
+        const value =
+            state.shippingTime === shippingTimePath
+                ? null             
+                : shippingTimePath;
 
         const newState = {
             ...state,
-            shippingTime: isSame ? null : shippingTime,
+            shippingTime: value,
             page: 1
         };
 
@@ -960,12 +1008,24 @@ export const FilterProvider = ({ children }) => {
         //     const productShippingTime = product.shipping_time?.toLowerCase();
         //     return selectedShippingTimes.includes(productShippingTime);
         // });
+        // const selectedShippingTime = state.shippingTime;
+        // if (!selectedShippingTime) return products;
+
+        // return products.filter(product =>
+        //     product.shipping_time?.toLowerCase() === selectedShippingTime.toLowerCase()
+        // );
+
         const selectedShippingTime = state.shippingTime;
+
         if (!selectedShippingTime) return products;
 
-        return products.filter(product =>
-            product.shipping_time?.toLowerCase() === selectedShippingTime.toLowerCase()
-        );
+        return products.filter(product => {
+            const productShippingTime = product.shipping_time
+                ?.toLowerCase()
+                .replace(/ /g, "-");
+
+            return productShippingTime === selectedShippingTime;
+        });
     }
 
 

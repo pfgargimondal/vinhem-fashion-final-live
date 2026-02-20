@@ -1,6 +1,6 @@
 import http from "../../http";
 import { Link, useLocation } from "react-router-dom";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
 import "swiper/css"; // core styles
@@ -73,20 +73,20 @@ const pathName = useLocation().pathname;
           loop={true}
         >
           <SwiperSlide>
-            <Link to={OnSaleDetails?.data?.url}>
-            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image}`} className="img-fluid" alt="Slide 1" />
+            <Link to={OnSaleDetails?.data?.banner_url1}>
+            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image1}`} className="img-fluid" alt="Slide 1" />
             </Link>
           </SwiperSlide>
 
           <SwiperSlide>
-            <Link to={OnSaleDetails?.data?.url}>
-            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image}`} className="img-fluid" alt="Slide 2" />
+            <Link to={OnSaleDetails?.data?.banner_url2}>
+            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image2}`} className="img-fluid" alt="Slide 2" />
             </Link>
           </SwiperSlide>
 
           <SwiperSlide>
-            <Link to={OnSaleDetails?.data?.url}>
-            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image}`} className="img-fluid" alt="Slide 2" />
+            <Link to={OnSaleDetails?.data?.banner_url3}>
+            <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.banner_image3}`} className="img-fluid" alt="Slide 2" />
             </Link>
           </SwiperSlide>
 
@@ -673,7 +673,17 @@ const pathName = useLocation().pathname;
       </div>
 
       <hr />
-      <FooterTopComponent />
+      {/* <FooterTopComponent /> */}
+      <div class="yudfdfgdfbgdfgdffgfg">
+        <div class="container-fluid">
+          <div
+            className="pt-4"
+            dangerouslySetInnerHTML={{
+              __html: OnSaleDetails?.data?.category_content?.description
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

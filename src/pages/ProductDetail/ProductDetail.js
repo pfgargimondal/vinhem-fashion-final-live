@@ -170,11 +170,12 @@ export const ProductDetail = () => {
     navigation: true,
     pagination: { clickable: true },
     breakpoints: {
-      0: { slidesPerView: 1 },
-      420: { slidesPerView: 2 },
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 4 },
-      1200: { slidesPerView: 5 },
+      0: { slidesPerView: 1.2 },
+      320: { slidesPerView: 2.2 },
+      576: { slidesPerView: 2.2 },
+      768: { slidesPerView: 3.2 },
+      992: { slidesPerView: 4.2 },
+      1200: { slidesPerView: 4 },
     },
   };
 
@@ -1192,7 +1193,22 @@ export const ProductDetail = () => {
                     </div>
 
                     <div className="col-lg-6">
-                    <div className="dfghjdfgdfgf ps-2 pt-2">
+                    <div className="dfghjdfgdfgf sgbffwerrewrwr ps-2 pt-2">
+                      <div className={`d-none align-items-center ${(productDetails?.data?.rts_quantity > '0' && (productDetails?.data?.best_seller === '1' || productDetails?.data?.best_seller === true) ? "justify-content-between" : "")}`}>
+                        <h6><i class="bi me-1 bi-truck"></i> Ships in {productDetails?.data?.shipping_time}</h6>
+
+                        {/* {product.product_category === "READY TO SHIP" && (
+                          <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
+                        )} */}
+                        {productDetails?.data?.rts_quantity > '0' && (
+                          <h6><i class="bi me-1 bi-rocket-takeoff"></i> Ready to ship</h6>
+                        )}
+
+                        {(productDetails?.data?.best_seller === '1' || productDetails?.data?.best_seller === true) && (
+                          <h6><i class="bi bi-lightning-charge"></i> Best Seller</h6>
+                        )}
+                      </div>
+
                       <div className="dsfbsdghfjs mb-1">
                         <div className="fgnjdfgfd">
                           <h2>
@@ -2109,7 +2125,7 @@ export const ProductDetail = () => {
                           >
                             <Tab eventKey="specification" title="Specification">
                               <div className="row">
-                                <div className="col-lg-6 mb-4">
+                                <div className="col-lg-6 col-md-6 col-sm-6 col-6 mb-4">
                                   <div className="idnewihrwer_inner">
                                     {productDetails?.data?.no_of_component !==
                                       null &&
@@ -2239,7 +2255,7 @@ export const ProductDetail = () => {
                                   </div>
                                 </div>
 
-                                <div className="col-lg-6 mb-4">
+                                <div className="col-lg-6 col-md-6 col-sm-6 col-6 mb-4">
                                   <div className="idnewihrwer_inner">
                                     {productDetails?.data?.component !== null &&
                                       productDetails?.data?.component !==

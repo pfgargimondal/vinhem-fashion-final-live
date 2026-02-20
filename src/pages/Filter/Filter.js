@@ -108,34 +108,34 @@ export const Filter = () => {
     }
 
     // 2. Update the URL after a tiny delay (to make sure state is updated)
-    // setTimeout(() => {
-    //   const searchParams = new URLSearchParams();
+    setTimeout(() => {
+      const searchParams = new URLSearchParams();
 
-    //   // main
-    //   if (mainCategory) searchParams.set("main", mainCategory);
-    //   else searchParams.delete("main");
+      // main
+      if (mainCategory) searchParams.set("main", mainCategory);
+      else searchParams.delete("main");
 
-    //   // sub
-    //   if (subCategory) searchParams.set("subpaths", subCategory);
-    //   else searchParams.delete("subpaths");  // ✅ Also delete subpaths
+      // sub
+      if (subCategory) searchParams.set("subpaths", subCategory);
+      else searchParams.delete("subpaths");  // ✅ Also delete subpaths
 
-    //   // filter
-    //   if (filterCategoryCntxt) searchParams.set("filterpaths", filterCategoryCntxt);
-    //   else searchParams.delete("filterpaths");
+      // filter
+      if (filterCategoryCntxt) searchParams.set("filterpaths", filterCategoryCntxt);
+      else searchParams.delete("filterpaths");
 
-    //   // color, material, designer etc (if you want)
-    //   if (color) searchParams.set("color", color);
-    //   else searchParams.delete("color");
+      // color, material, designer etc (if you want)
+      if (color) searchParams.set("color", color);
+      else searchParams.delete("color");
 
-    //   if (material) searchParams.set("material", material);
-    //   else searchParams.delete("material");
+      if (material) searchParams.set("material", material);
+      else searchParams.delete("material");
 
-    //   if (designer) searchParams.set("designer", designer);
-    //   else searchParams.delete("designer");
+      if (designer) searchParams.set("designer", designer);
+      else searchParams.delete("designer");
 
-    //   // Push updated URL
-    //   navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
-    // }, 50);
+      // Push updated URL
+      navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
+    }, 50);
   };
 
   useEffect(() => {
@@ -581,7 +581,9 @@ export const Filter = () => {
                           // Convert all letters to uppercase
                           displayValue = item.value.toUpperCase();
                       } else if (item.type === "discount") {
-                          displayValue = item.value;
+                          // displayValue = item.value;
+                          const [min, max] = item.value.split("-");
+                          displayValue = `${min}%-${max}%`;
                       } else {
                         // displayValue = item.value
                         //   .split(" ")

@@ -390,13 +390,13 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
                     <ul className="fb-payment-options sfefaeewrweqqq d-flex justify-content-start align-items-center ps-0 mb-0">
                       <li><p className="asfrweewee mb-0">OUR COURIER PARTNERS :</p></li>
 
-                      <li><img src="/images/1.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/FedExnew.png" className="img-fluid" alt="" /></li>
 
-                      <li><img src="/images/2.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/DHLnew.png" className="img-fluid" alt="" /></li>
 
-                      <li><img src="/images/3.jpg" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/BlueDartnew.png" className="img-fluid" alt="" /></li>
 
-                      <li className="me-0"><img src="/images/4.png" className="img-fluid" alt="" /></li>
+                      <li className="me-0"><img src="/images/Delhiverynew.png" className="img-fluid" alt="" /></li>
                     </ul>
                   </div>
 
@@ -404,15 +404,17 @@ export const Footer = ({ shouldHideFullHeaderFooterRoutes }) => {
                     <ul className="fb-payment-options kajhdijojeijrrr d-flex justify-content-end align-items-center ps-0 mb-0">
                       <li><p className="asfrweewee mb-0">SAFE & SECURE PAYMENTS :</p></li>                      
 
-                      <li><img src="/images/5.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/Razorpaynew.png" className="img-fluid" alt="" /></li>
 
-                      <li><img src="/images/6.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/Visanew.png" className="img-fluid" alt="" /></li>
 
-                      <li><img src="/images/7.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/MasterCardnew.png" className="img-fluid" alt="" /></li>
+
+                      <li><img src="/images/AmericanExpressnew.jpg" className="img-fluid" alt="" /></li>
 
                       {/* <li><img src="/images/Diners-Club-In.png" className="img-fluid" alt="" /></li> */}
 
-                      <li><img src="/images/8.png" className="img-fluid" alt="" /></li>
+                      <li><img src="/images/PayPalnew.png" className="img-fluid" alt="" /></li>
 
                       {/* <li className="me-0"><img src="/images/amazonpay.png" className="img-fluid" alt="" /></li>                       */}
                     </ul>

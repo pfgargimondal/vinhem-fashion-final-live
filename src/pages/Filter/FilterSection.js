@@ -589,7 +589,9 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
                         if (filterKey === "material") {
                           // isChecked = material.includes(trimmedValue);
-                          isChecked = material === trimmedValue;
+                          isChecked = material === trimmedValue.trim()
+                                      .toLowerCase()
+                                      .replace(/ /g, "-");
                         } else if (filterKey === "designers") {
                           // isChecked = designer.includes(trimmedValue);
                           isChecked = designer === trimmedValue;
@@ -598,19 +600,32 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                           // isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);
                         } else if (filterKey === "occasion") {
                           // isChecked = occasion.includes(trimmedValue);
-                          isChecked = occasion === trimmedValue;
+                          isChecked = occasion === trimmedValue.trim()
+                                      .toLowerCase()
+                                      .replace(/ /g, "-");
                         } else if (filterKey === "size" || filterKey === "sizes") {
                           // isChecked = size.includes(trimmedValue);
                           isChecked = size === trimmedValue;
                         } else if (filterKey === "celebrity") {
                           // isChecked = celebrity.includes(trimmedValue);
-                          isChecked = celebrity === trimmedValue;
+                          isChecked = celebrity === trimmedValue.trim()
+                                      .toLowerCase()
+                                      .replace(/ /g, "-");
                         } else if(filterKey === "discount") {
                           // isChecked = discount.includes(trimmedValue);
-                          isChecked = discount === trimmedValue;
+                          // isChecked = discount === trimmedValue;
+
+                          const cleanValue = item
+                            .replace(/%/g, "")
+                            .replace(/\s+/g, "");
+
+                          isChecked = discount === cleanValue;
+
                         } else if (filterKey === "shipping_time") {
                           // isChecked = shippingTime.includes(trimmedValue);
-                          isChecked = shippingTime === trimmedValue;
+                          isChecked = shippingTime === trimmedValue.trim()
+                                      .toLowerCase()
+                                      .replace(/ /g, "-");
                         }
 
                         return (

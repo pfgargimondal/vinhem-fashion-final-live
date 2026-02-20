@@ -11,7 +11,11 @@
   margin-inline: auto;
   border: 1px solid var(--light-background-color);
   border-top: 0;
-  border-right: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: rgba(14, 30, 37, 0.1) 0px 2px 40px 0px, rgba(14, 30, 37, 0.2) 0px 2px 50px 0px;
 }
 
 .dfbdf h4{
