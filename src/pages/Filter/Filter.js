@@ -92,91 +92,161 @@ export const Filter = () => {
 
     // 1. Remove from state
     switch (type) {
-      case "mainCategory": removeMainCategory(); break;
-      case "subCategory": removeSubCategory(); break;
-      case "filterCategoryCntxt": removeFilterCategory(); break;
-      case "color": removeColor(); break;
-      case "material": removeMaterial(); break;
-      case "designer": removeDesigner(); break;
-      case "plusSize": removePlusSize(); break;
-      case "occasion": removeOccasion(); break;
-      case "size": removeSize(); break;
-      case "celebrity": removeCelebrity(); break;
-      case "discount": removeDiscount(); break;
-      case "shippingTime": removeShippingTime(); break;
+      case "mainCategory": removeMainCategory(value); break;
+      case "subCategory": removeSubCategory(value); break;
+      case "filterCategoryCntxt": removeFilterCategory(value); break;
+      case "color": removeColor(value); break;
+      case "material": removeMaterial(value); break;
+      case "designer": removeDesigner(value); break;
+      case "plusSize": removePlusSize(value); break;
+      case "occasion": removeOccasion(value); break;
+      case "size": removeSize(value); break;
+      case "celebrity": removeCelebrity(value); break;
+      case "discount": removeDiscount(value); break;
+      case "shippingTime": removeShippingTime(value); break;
       default: break;
     }
 
     // 2. Update the URL after a tiny delay (to make sure state is updated)
-    setTimeout(() => {
-      const searchParams = new URLSearchParams();
+    // setTimeout(() => {
+    //   const searchParams = new URLSearchParams();
 
-      // main
-      if (mainCategory) searchParams.set("main", mainCategory);
-      else searchParams.delete("main");
+    //   // main
+    //   if (mainCategory) searchParams.set("main", mainCategory);
+    //   else searchParams.delete("main");
 
-      // sub
-      if (subCategory) searchParams.set("subpaths", subCategory);
-      else searchParams.delete("subpaths");  // ✅ Also delete subpaths
+    //   // sub
+    //   if (subCategory) searchParams.set("subpaths", subCategory);
+    //   else searchParams.delete("subpaths");  // ✅ Also delete subpaths
 
-      // filter
-      if (filterCategoryCntxt) searchParams.set("filterpaths", filterCategoryCntxt);
-      else searchParams.delete("filterpaths");
+    //   // filter
+    //   if (filterCategoryCntxt) searchParams.set("filterpaths", filterCategoryCntxt);
+    //   else searchParams.delete("filterpaths");
 
-      // color, material, designer etc (if you want)
-      if (color) searchParams.set("color", color);
-      else searchParams.delete("color");
+    //   // color, material, designer etc (if you want)
+    //   if (color) searchParams.set("color", color);
+    //   else searchParams.delete("color");
 
-      if (material) searchParams.set("material", material);
-      else searchParams.delete("material");
+    //   if (material) searchParams.set("material", material);
+    //   else searchParams.delete("material");
 
-      if (designer) searchParams.set("designer", designer);
-      else searchParams.delete("designer");
+    //   if (designer) searchParams.set("designer", designer);
+    //   else searchParams.delete("designer");
 
-      // Push updated URL
-      navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
-    }, 50);
+    //   // Push updated URL
+    //   navigate({ pathname: location.pathname, search: searchParams.toString() }, { replace: true });
+    // }, 50);
   };
 
+  // useEffect(() => {
+  //   const searchParams = new URLSearchParams(location.search);
+
+  //   // MAIN CATEGORY (single)
+  //   if (mainCategory) {
+  //     searchParams.set("main", mainCategory);
+  //   }
+
+  //   // SUB CATEGORY (single)
+  //   if (subCategory) {
+  //     searchParams.set("subpaths", subCategory);
+  //   }
+
+  //   // FILTER CATEGORY (single)
+
+  //   if (filterCategoryCntxt) {
+  //     searchParams.set("filterpaths", filterCategoryCntxt);
+  //   }
+
+  //   // // FILTER CATEGORY (multi)
+  //   // if (filterCategoryCntxt?.length) {
+  //   //   searchParams.set("filterpaths", filterCategoryCntxt.join(","));
+  //   // }
+
+  //   // OTHER FILTERS (multi)
+  //   if (color?.length) searchParams.set("color", color);
+  //   if (material?.length) searchParams.set("material", material);
+  //   if (designer?.length) searchParams.set("designer", designer);
+  //   if (plusSize?.length) searchParams.set("plusSize", plusSize);
+  //   if (occasion?.length) searchParams.set("occasion", occasion);
+  //   if (size?.length) searchParams.set("size", size);
+  //   if (celebrity?.length) searchParams.set("celebrity", celebrity);
+  //   if (discount?.length) searchParams.set("discount", discount);
+  //   if (shippingTime?.length) searchParams.set("shippingTime", shippingTime);
+  //   if (minPrice > 0 || maxPrice < 1000000) {
+  //     searchParams.set("price", `${minPrice}-${maxPrice}`);
+  //   } else {
+  //     searchParams.delete("price");
+  //   }
+
+  //   navigate(
+  //     {
+  //       pathname: location.pathname,
+  //       search: searchParams.toString()
+  //     },
+  //     { replace: true }
+  //   );
+  // }, [
+  //   mainCategory,
+  //   subCategory,
+  //   filterCategoryCntxt,
+  //   color,
+  //   material,
+  //   designer,
+  //   plusSize,
+  //   occasion,
+  //   size,
+  //   celebrity,
+  //   discount,
+  //   shippingTime,
+  //   minPrice,
+  //   maxPrice,
+  //   location.pathname,
+  //   location.search,
+  //   navigate
+  // ]);
+
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
 
-    // MAIN CATEGORY (single)
-    if (mainCategory) {
+    const searchParams = new URLSearchParams();   // 🔥 DO NOT use location.search
+
+    if (mainCategory)
       searchParams.set("main", mainCategory);
-    }
 
-    // SUB CATEGORY (single)
-    if (subCategory) {
+    if (subCategory)
       searchParams.set("subpaths", subCategory);
-    }
 
-    // FILTER CATEGORY (single)
-
-    if (filterCategoryCntxt) {
+    if (filterCategoryCntxt)
       searchParams.set("filterpaths", filterCategoryCntxt);
-    }
 
-    // // FILTER CATEGORY (multi)
-    // if (filterCategoryCntxt?.length) {
-    //   searchParams.set("filterpaths", filterCategoryCntxt.join(","));
-    // }
+    if (color)
+      searchParams.set("color", color);
 
-    // OTHER FILTERS (multi)
-    if (color?.length) searchParams.set("color", color);
-    if (material?.length) searchParams.set("material", material);
-    if (designer?.length) searchParams.set("designer", designer);
-    if (plusSize?.length) searchParams.set("plusSize", plusSize);
-    if (occasion?.length) searchParams.set("occasion", occasion);
-    if (size?.length) searchParams.set("size", size);
-    if (celebrity?.length) searchParams.set("celebrity", celebrity);
-    if (discount?.length) searchParams.set("discount", discount);
-    if (shippingTime?.length) searchParams.set("shippingTime", shippingTime);
-    if (minPrice > 0 || maxPrice < 1000000) {
+    if (material)
+      searchParams.set("material", material);
+
+    if (designer)
+      searchParams.set("designer", designer);
+
+    if (plusSize)
+      searchParams.set("plusSize", plusSize);
+
+    if (occasion)
+      searchParams.set("occasion", occasion);
+
+    if (size)
+      searchParams.set("size", size);
+
+    if (celebrity)
+      searchParams.set("celebrity", celebrity);
+
+    if (discount)
+      searchParams.set("discount", discount);
+
+    if (shippingTime)
+      searchParams.set("shippingTime", shippingTime);
+
+    if (minPrice > 0 || maxPrice < 1000000)
       searchParams.set("price", `${minPrice}-${maxPrice}`);
-    } else {
-      searchParams.delete("price");
-    }
 
     navigate(
       {
@@ -185,6 +255,7 @@ export const Filter = () => {
       },
       { replace: true }
     );
+
   }, [
     mainCategory,
     subCategory,
@@ -201,7 +272,6 @@ export const Filter = () => {
     minPrice,
     maxPrice,
     location.pathname,
-    location.search,
     navigate
   ]);
 
