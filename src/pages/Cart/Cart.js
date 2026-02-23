@@ -1039,10 +1039,14 @@ export const Cart = () => {
               <div className="row justify-content-between">
                 <div className="col-lg-8">
                   <div className="diwebjrwert_left">
+                    <p className="mt-1 sdfwsdqfgtttt d-none mb-3 text-center" style={{fontSize: "1.2rem"}}>
+                        To get additional offers on your order or to know more</p>
+
                     <div className="odnwejirhwerwer py-0 px-3 d-flex" style={{marginTop: "0.1rem"}}>
                       <h4 className="mb-1 mt-2" style={{paddingTop: "2px"}}>YOUR SHOPPING CART &nbsp;|&nbsp;</h4>
                       <p className="mb-1 mt-1 d-flex align-items-center" style={{paddingLeft: "11px"}}>
-                        To get additional offers on your order or to know more
+                        <span className="asoijdwjoiejrr">To get additional offers on your order or to know more</span>
+
                         <a
                             href="https://wa.me/917003672926"
                             target="_blank"
@@ -1059,8 +1063,8 @@ export const Cart = () => {
                       {cartItems?.length === 0 && <p>No items in cart</p>}
                       {cartItems?.map((cartItemsVal) => (
                         <div className="dfgjhbdfg position-relative p-3 mb-4">
-                          <div className="row">
-                            <div className="col-lg-2">
+                          <div className="row freweerqeweqwe">
+                            <div className="col-2">
                               <div className="donweihrwewer">
                                 <Link to={`/products/${cartItemsVal.slug}-${cartItemsVal.PID}`}>
                                   <img
@@ -1071,8 +1075,68 @@ export const Cart = () => {
                               </div>
                             </div>
 
+                            <div className="col-8 svgdgwefrewrwrr d-block d-lg-none d-md-none">
+                              <div className="dlejworjwejriwr d-flex text-end h-100">
+                                <h5 className="mb-0">
+                                  {cartItemsVal.belongsTo === 'filter_size' ? (
+                                    <>
+                                      <span className="old-price">
+                                        {formatPrice(cartItemsVal.mrp_price, { showDecimals: true })}
+                                      </span>&nbsp;
+                                      <span>
+                                        {formatPrice(cartItemsVal.selling_price, { showDecimals: true })}
+                                      </span>
+                                    </>
+                                  ) : cartItemsVal.belongsTo === 'plus_sizes' ? (
+                                    <>
+                                      <span>
+                                        {formatPrice(cartItemsVal.plus_sizes_charges, { showDecimals: true })}
+                                      </span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <span className="old-price">
+                                        {formatPrice(cartItemsVal.mrp_price, { showDecimals: true })}
+                                      </span>&nbsp;
+                                      <span>
+                                        {formatPrice(cartItemsVal.selling_price, { showDecimals: true })}
+                                      </span>
+                                    </>
+                                  )}
+                                  
+                                </h5>
+
+                                <div className="dewhrowerwer d-flex align-items-center">
+                                  <div className="doijerewr d-flex align-items-center pe-2" style={{borderRight:"1px solid #616161"}}>
+                                    <i
+                                      onClick={() =>
+                                        toggleWishlist(
+                                          cartItemsVal.products_table_id
+                                        )
+                                      }
+                                      className={
+                                        wishlistIds.includes(
+                                          cartItemsVal.products_table_id
+                                        )
+                                          ? "fa-solid me-1 fa-heart"
+                                          : "fa-regular me-1 fa-heart"
+                                      }
+                                      style={{ cursor: "pointer" }}
+                                    ></i>
+
+                                    <p className="mb-0">Move to Wishlist</p>
+                                  </div>
+
+                                  <div className="doijerewr d-flex align-items-center ps-2" onClick={() => handleRemoveItem(cartItemsVal.id)}>
+                                    <i className="bi me-1 bi-trash3"></i>
+                                    <p className="mb-0">Remove</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                             <div className="col-lg-10">
-                              <div className="dowehriwerwer">
+                              <div className="dowehriwerwer sdfefrqqqee">
                                 <div className="dknwekhwe py-2">
                                   <div className="d-flex flex-wrap align-items-center justify-content-between">
                                     <h4 className="mb-0">
@@ -1215,7 +1279,7 @@ export const Cart = () => {
                                         )}.
                                     </h6>
 
-                                    <div className="dewhrowerwer d-flex align-items-center">
+                                    <div className="dewhrowerwer ghtrerwrghergedefrf d-flex align-items-center">
                                       <div className="doijerewr d-flex align-items-center pe-2" style={{borderRight:"1px solid #616161"}}>
                                         <i
                                           onClick={() =>

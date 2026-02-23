@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useMemo, useRef } from "react";
 // eslint-disable-next-line
 import { downloadInvoicePDF } from "../../utils/downloadInvoice";
+// eslint-disable-next-line
 import Invoice from "../Invoice/Invoice";
 import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line
@@ -111,45 +112,49 @@ export const OrderHistory = () => {
 
 
 
-    const handleDownload = async (order) => {
-        try {
-            const res = await http.get("/user/get-invoice-details", {
-            headers: { Authorization: `Bearer ${token}` },
-            params: { id: order.order_id }, // 👈 send order_id as 'id'
-            });
+    // const handleDownload = async (order) => {
+    //     try {
+    //         const res = await http.get("/user/get-invoice-details", {
+    //         headers: { Authorization: `Bearer ${token}` },
+    //         params: { id: order.order_id }, // 👈 send order_id as 'id'
+    //         });
 
-            const data = res.data.data || {};
-            const userInfo = data.user || null;
-            const orderProductDetails = data.user_order_product_details || null;
-            const getProductDetails = data.get_product_details || null;
-            const getGSTDetails = data.get_gst_value || null;
+    //         const data = res.data.data || {};
+    //         const userInfo = data.user || null;
+    //         const orderProductDetails = data.user_order_product_details || null;
+    //         const getProductDetails = data.get_product_details || null;
+    //         const getGSTDetails = data.get_gst_value || null;
 
             
 
-            localStorage.setItem(
-            "invoiceData",
-            JSON.stringify({
-                order,
-                user: userInfo,
-                userOrderProduct: orderProductDetails,
-                getProductDetails: getProductDetails,
-                getGSTDetails: getGSTDetails,
-            })
-            );
+    //         localStorage.setItem(
+    //         "invoiceData",
+    //         JSON.stringify({
+    //             order,
+    //             user: userInfo,
+    //             userOrderProduct: orderProductDetails,
+    //             getProductDetails: getProductDetails,
+    //             getGSTDetails: getGSTDetails,
+    //         })
+    //         );
 
-        navigate("/invoice", {
-        state: {
-            order,
-            user: userInfo,
-            userOrderProduct: orderProductDetails,
-            getProductDetails: getProductDetails,
-            getGSTDetails: getGSTDetails,
-            pdfView: true, // signal PDF preview
-        },
-        });
-        } catch (error) {
-            console.error("❌ Failed to fetch invoice details:", error);
-        }
+    //     navigate("/invoice", {
+    //         state: {
+    //             order,
+    //             user: userInfo,
+    //             userOrderProduct: orderProductDetails,
+    //             getProductDetails: getProductDetails,
+    //             getGSTDetails: getGSTDetails,
+    //             pdfView: true, // signal PDF preview
+    //         },
+    //     });
+    //     } catch (error) {
+    //         console.error("❌ Failed to fetch invoice details:", error);
+    //     }
+    // };
+
+    const handleDownload = (orderHistoryVal) => {
+        navigate(`/invoice/${orderHistoryVal.order_id}`);
     };
 
     const handleCancelOrder = async (order) => {
@@ -331,9 +336,9 @@ export const OrderHistory = () => {
                                                                 )}
                                                             
                                                         </div>
-                                                        <div style={{ display: "none" }}>
+                                                        {/* <div style={{ display: "none" }}>
                                                             <Invoice />
-                                                        </div>
+                                                        </div> */}
                                                     </td>
 
                                                     <td className="text-center"> {orderHistoryVal.order_date

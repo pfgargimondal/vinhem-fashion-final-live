@@ -56,7 +56,8 @@ export const AllRoutes = () => {
           <Route path="razorpay-payment-success" element={<RazorpayPaymentSuccess />} />
           <Route path="chat" element={ <Chat/> } />
 
-          <Route path="invoice" element={ <Invoice /> } />
+          {/* <Route path="invoice" element={ <Invoice /> } /> */}
+          <Route path="/invoice/:orderId" element={<Invoice />} />
           
       </Route>
       

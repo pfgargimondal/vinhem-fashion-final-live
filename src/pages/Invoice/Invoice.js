@@ -1,91 +1,109 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import jsPDF from "jspdf";
-import { useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import "./Css/Invoice-new.css";
 import "./Css/InvoiceResponsive.css";
+import http from "../../http";
+import { useAuth } from "../../context/AuthContext";
 
 const Invoice = () => {
-  const location = useLocation();
-  const invoiceRef = useRef();
-  const [ready, setReady] = useState(false);
-  const navigate = useNavigate();
+    const { orderId } = useParams();
+    const { token } = useAuth();
+    const invoiceRef = useRef(null);
+    const navigate = useNavigate();
 
-  // ✅ Load data from location or localStorage
-  const storedData = JSON.parse(localStorage.getItem("invoiceData")) || {};
-  const {
-    order = storedData.order,
+    const [order, setOrder] = useState(null);
     // eslint-disable-next-line
-    user = storedData.user,
-    userOrderProduct = storedData.userOrderProduct,
-    getProductDetails = storedData.getProductDetails,
-    getGSTDetails = storedData.getGSTDetails,
-    pdfView = storedData.pdfView,
-  } = location.state || {};
-
-  // ✅ Function to generate + preview PDF automatically
-  const previewPDF = useCallback(async () => {
-    if (!invoiceRef.current) return;
-
-    // Show temporarily to capture
-    invoiceRef.current.style.display = "block";
-
-    const canvas = await html2canvas(invoiceRef.current, { scale: 2 });
+    const [user, setUser] = useState(null);
     // eslint-disable-next-line
-    const imgData = canvas.toDataURL("image/png");
-
-    // Hide again
-    invoiceRef.current.style.display = "none";
-
-    const pdf = new jsPDF("p", "mm", "a4");
-
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
-
-    // Margins
-    const marginTop = 15;
-    const marginRight = 10;
-    const marginBottom = 15;
-    const marginLeft = 10;
-
-    const usableWidth = pdfWidth - marginLeft - marginRight;
+    const [userOrderProduct, setUserOrderProduct] = useState([]);
     // eslint-disable-next-line
-    const usableHeight = pdfHeight - marginTop - marginBottom;
+    const [getProductDetails, setGetProductDetails] = useState([]);
+    // eslint-disable-next-line
+    const [getGSTDetails, setGetGSTDetails] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const imageHeight = (canvas.height * usableWidth) / canvas.width;
-    let y = marginTop;
+    const fetchInvoiceData = useCallback(async () => {
+      try {
+        const res = await http.get("/user/get-invoice-details", {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { id: orderId },
+        });
 
-    pdf.addImage(canvas, "PNG", marginLeft, y, usableWidth, imageHeight);
+        const data = res.data.data;
 
-   // ✅ Auto preview
-    const blob = pdf.output("blob");
-    const url = URL.createObjectURL(blob);
-    window.open(url, "_blank"); // Opens in new tab
-    pdf.save(`invoice-${order?.order_id || "Invoice"}.pdf`);
+        console.log(data, 'datainvoice')
 
-    // ✅ Redirect to previous page after 1s
-    setTimeout(() => {
-      navigate(-1); // 🔙 goes back to previous route
-    }, 100);
-  }, [navigate, order]);
+        setOrder(data.orders);
+        setUser(data.user);
+        setUserOrderProduct(data.user_order_product_details);
+        setGetProductDetails(data.get_product_details);
+        setGetGSTDetails(data.get_gst_value);
+        setLoading(false);
 
-  // ✅ Trigger auto-preview only once when pdfView is true
-  // useEffect(() => {
-  //   if (pdfView) {
-  //     // delay a bit to ensure content fully rendered
-  //     const timer = setTimeout(() => {
-  //       setReady(true);
-  //     }, 500);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [pdfView]);
+        // setTimeout(() => {
+        //   previewPDF();
+        // }, 800);
 
-  useEffect(() => {
-    if (pdfView && ready) {
-      previewPDF();
-    }
-  }, [pdfView, ready, previewPDF]);
+      } catch (error) {
+        console.error("Invoice fetch failed:", error);
+      }
+    }, [orderId, token]); // ✅ dependencies added here
+
+    useEffect(() => {
+      if (!token) return;
+      fetchInvoiceData();
+    }, [fetchInvoiceData, token]); // ✅ no warning now
+
+
+    const previewPDF = useCallback(async () => {
+      if (!invoiceRef.current) return;
+
+      // Show temporarily to capture
+      invoiceRef.current.style.display = "block";
+
+      const canvas = await html2canvas(invoiceRef.current, { scale: 2 });
+      // eslint-disable-next-line
+      const imgData = canvas.toDataURL("image/png");
+
+      // Hide again
+      invoiceRef.current.style.display = "none";
+
+      const pdf = new jsPDF("p", "mm", "a4");
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+      // Margins
+      const marginTop = 15;
+      const marginRight = 10;
+      const marginBottom = 15;
+      const marginLeft = 10;
+
+      const usableWidth = pdfWidth - marginLeft - marginRight;
+      // eslint-disable-next-line
+      const usableHeight = pdfHeight - marginTop - marginBottom;
+
+      const imageHeight = (canvas.height * usableWidth) / canvas.width;
+      let y = marginTop;
+
+      pdf.addImage(canvas, "PNG", marginLeft, y, usableWidth, imageHeight);
+
+    // ✅ Auto preview
+      const blob = pdf.output("blob");
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank"); // Opens in new tab
+      pdf.save(`invoice-${order?.order_id || "Invoice"}.pdf`);
+
+      // ✅ Redirect to previous page after 1s
+      setTimeout(() => {
+        navigate(-1); // 🔙 goes back to previous route
+      }, 100);
+    }, [navigate, order]);
+
+    if (loading) return <div>Loading invoice...</div>;
+
 
   return (
     <>
@@ -97,7 +115,7 @@ const Invoice = () => {
           <tbody>
             <tr>
               <td className="logo-cell">
-                <img src="./images/logo.png" alt="VinHem Fashion" />
+                <img src="../images/logo.png" alt="VinHem Fashion" />
               </td>
               <td className="title-cell">
                 <div className="invoice-title">RETAIL / TAX INVOICE</div>
@@ -118,7 +136,7 @@ const Invoice = () => {
                 <b>CIN Number : N/A</b>
               </td>
               <td style={{ borderBottom: 0, borderTop: 0, borderRight: 0, paddingBottom: 0 }}>
-                <b>Transaction ID : 895520568974</b>
+                <b>Transaction ID : {order?.transaction_id}</b>
               </td>
             </tr>
 
@@ -144,12 +162,12 @@ const Invoice = () => {
               </td>
 
               <td className="col-right" style={{ width: "25%",borderRight: 0, borderTop: 0, paddingTop: 0, transform: "translateY(-5px)" }}>
-                <strong>Customer Code :</strong> VF-588969<br />
-                <strong>Order No :</strong> VF-2526-590031<br />
+                <strong>Customer Code :</strong> {user?.customer_code}<br />
+                <strong>Order No :</strong> {order?.order_id}<br />
                 <strong style={{ textDecoration: "underline" }}>Shipment Details :</strong><br />
-                <strong>Country :</strong> United States<br />
-                <strong>Shipped By :</strong> FEDEX<br />
-                <strong>AWB Number :</strong> 1980075826589
+                <strong>Country :</strong> {order?.shippingCountry}<br />
+                <strong>Shipped By :</strong> {order?.shipping_method}<br />
+                <strong>AWB Number :</strong> {order?.awb_no}
               </td>
             </tr>
           </tbody>
@@ -169,17 +187,15 @@ const Invoice = () => {
 
             <tr>
               <td style={{ borderLeft: 0 }}>
-                <strong>Name :</strong> Hemant Bhatter<br /><br />
-                <strong>Address :</strong> 39 RAJGIR CHAMBERS 4TH FLOOR OPP OLD<br />
-                CUSTOMS HOUSE S.B.S. ROAD FORT MUMBAI 23<br /><br />
-                <strong>GSTIN :</strong> 27AAACO7149M1ZZ
+                <strong>Name :</strong> {order?.billingName}<br />
+                <strong>Address :</strong> {order?.billingFullAddress}<br />
+                <strong>GSTIN :</strong> {order?.gst_number ? order.gst_number : "N/A"}
               </td>
 
               <td style={{ borderRight: 0 }}>
-                <strong>Name :</strong> Hemant Bhatter<br /><br />
-                <strong>Address :</strong> 39 RAJGIR CHAMBERS 4TH FLOOR OPP OLD<br />
-                CUSTOMS HOUSE S.B.S. ROAD FORT MUMBAI 23<br /><br />
-                <strong>GSTIN :</strong> 27AAACO7149M1ZZ
+                <strong>Name :</strong> {order?.shippingName}<br />
+                <strong>Address :</strong> {order?.shippingFullAddress}<br />
+                <strong>GSTIN :</strong> {order?.gst_number ? order.gst_number : "N/A"}
               </td>
             </tr>
           </tbody>

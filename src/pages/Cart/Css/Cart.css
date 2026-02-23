@@ -664,6 +664,74 @@ h6.sadcadaededee,
     display: block !important;
   }
 
+  .sdfwsdqfgtttt.d-none{
+    display: block !important;
+  }
+
+  p span.asoijdwjoiejrr{
+    display: none;
+  }
+
+  .odnwejirhwerwer{
+    justify-content: space-between;
+  }
+
+  .svgdgwefrewrwrr .dewhrowerwer{
+    justify-content: end;
+  }
+
+  .dfgjhbdfg .col-2{
+    width: 33.33%;
+  }
+
+  .cart-wrapper .diwebjrwert_left .dfgjhbdfg .donweihrwewer{
+    text-align: left !important;
+    min-height: initial !important;
+    max-height: initial !important;
+  }
+
+  .svgdgwefrewrwrr .dlejworjwejriwr.d-flex{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sdfefrqqqee{
+    margin-top: 1rem;
+  }
+
+  .svgdgwefrewrwrr .dlejworjwejriwr h5 span.old-price{
+    text-decoration: line-through;
+    color: #616161;
+  }
+
+  .svgdgwefrewrwrr .dlejworjwejriwr h5 span:last-child{
+    color: var(--pink-main-color);
+    font-weight: 600;
+  }
+
+  .ghtrerwrghergedefrf.d-flex{
+    display: none !important;
+  }
+
+  .col-8.svgdgwefrewrwrr{
+    padding-left: 0;
+  }
+
+  .dewtgtregtehfggefg .uiwdhiwerwerwer{
+    display: none;
+  }
+
+  .cart-wrapper .diwebjrwert_right h4{
+    margin-top: 2rem;
+  }
+
+  .dweoihrwerwer .table-responsive{
+    min-width: initial !important;
+  }
+
+  .sdfefrqqqee h5{
+    display: none;
+  }
 }
 
 
@@ -682,6 +750,19 @@ h6.sadcadaededee,
   .billing-address-modal {
     width: 85%;
     min-width: initial;
+  }
+}
+
+
+
+@media only screen and (max-width: 371px){
+  .cart-wrapper .diwebjrwert_left .odnwejirhwerwer p .btn-main {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.3rem !important;
+  }
+
+  .cart-wrapper .diwebjrwert_left h4 {
+    font-size: 1rem !important;
   }
 }
 
