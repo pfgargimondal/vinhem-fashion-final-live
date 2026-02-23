@@ -153,11 +153,18 @@ const Invoice = () => {
               </td>
 
               <td style={{ width: "25%", borderTop: 0, paddingTop: 0, transform: "translateY(-5px)" }} className="col-middle">
-                <strong>Invoice No :</strong> VF-2526-001<br />
-                <strong>Dated :</strong> Monday, Mar 18, 2025<br />
-                <strong>Payment Terms :</strong> Prepaid / COD<br />
+                <strong>Invoice No :</strong> {order?.invoice_no}<br />
+                <strong>Dated :</strong> {order?.order_date &&
+                  new Date(order.order_date).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })
+                }<br />
+                <strong>Payment Terms :</strong> {order?.payment_method === 'cash_on_delivery' ? 'COD' : 'Prepaid'}<br />
                 <strong>Currency :</strong> USD / INR<br />
-                <strong>Place of Supply :</strong> Australia<br />
+                <strong>Place of Supply :</strong> {order?.shippingCountry ? order.shippingCountry : "-"}<br />
                 <strong>Country Code :</strong> 29
               </td>
 
