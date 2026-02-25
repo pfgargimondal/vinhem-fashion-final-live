@@ -74,13 +74,13 @@ export const UserProfileNavMenu = () => {
 
                     <Link to="/wishlist">
                         <button className="btn akdhjkashriwerwer">
-                            <i className="fa-regular fa-heart"></i> Wishlist
+                            <i className="fa-regular fa-heart"></i> Your Wishlist
                         </button>
                     </Link>                
 
-                    <Link to="/order-history">
+                    <Link to="/your-orders">
                         <button className="btn akdhjkashriwerwer">
-                            <i className="fa-solid fa-clock-rotate-left"></i> Order History
+                            <i className="fa-solid fa-clock-rotate-left"></i> Your Orders
                         </button>
                     </Link>                
 
@@ -90,7 +90,7 @@ export const UserProfileNavMenu = () => {
                         </button>
                     </Link>
 
-                    <Link to="/change-password">
+                    <Link to="/my-credits">
                         <button className="btn akdhjkashriwerwer">
                             <i class="fa-solid fa-ticket"></i> My Vouchers & Credits
                         </button>

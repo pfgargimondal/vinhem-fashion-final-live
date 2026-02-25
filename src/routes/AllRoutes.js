@@ -44,9 +44,9 @@ export const AllRoutes = () => {
 
       <Route element={<ProtectedRoute />}>
           <Route path="profile" element={ <Profile /> } />
-          <Route path="change-password" element={ <ChangePassword /> } />
+          <Route path="my-credits" element={ <ChangePassword /> } />
           <Route path="cancelled-order" element={ <CancelOrder/> } />
-          <Route path="order-history" element={ <OrderHistory/> } />
+          <Route path="your-orders" element={ <OrderHistory/> } />
           <Route path="order-details/:id" element={ <OrderDetails /> } />
           <Route path="wishlist" element={ <Wishlist/> } />
           <Route path="cart" element={ <Cart/> } />

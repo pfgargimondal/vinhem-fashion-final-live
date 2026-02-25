@@ -32,14 +32,18 @@ export const DropdownLoggedIn = () => {
                 <span className="prfl-optns-divider d-flex align-items-center">|</span>
 
                 <div className="diewirjwejrwer">
-                  <img src="./images/prfledropdwnlvl.png" alt="" />
+                  <img src="./images/sadw.png" alt="" />
                 </div>
               </Link>
             </li>
-            
-            <li><Link to={'/wishlist'}><i class="fa-regular fa-heart"></i> Wishlist</Link></li>
 
-            <li><Link to={'/order-history'}><i class="fa-solid fa-clock-rotate-left"></i> Order History</Link></li>
+            <li><Link to={'/my-credits'}><i class="fa-solid fa-ticket"></i> My Credits</Link></li>
+            
+            <li><Link to={'/wishlist'}><i class="fa-regular fa-heart"></i> Your Wishlist</Link></li>
+
+            <li><Link to={'/your-orders'}><i class="fa-solid fa-clock-rotate-left"></i> Your Orders</Link></li>
+
+            <li><Link to={'/track-order'}><i class="fa-solid fa-shuffle"></i> Track Order</Link></li>
 
             <li onClick={handleLogout}><i class="fa-solid fa-right-from-bracket"></i> Logout</li>            
         </ul>
