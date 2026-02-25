@@ -319,8 +319,25 @@
 
   .dfbdff,
   .dfgfdg7853,
-  .fhgdfg {
-    height: auto;
+  .fhgdfg,
+  .donhweirwer_inner img {
+    height: auto !important;
+  }
+  
+  .dfjvdgd h2{
+    text-align: center;
+  }
+
+  .donhweirwer_inner{
+    margin-bottom: 1rem;
+  }
+
+  .sgbdfedrqwr .sdhgdfg img {
+    width: 3rem;
+  }
+
+  .sgbdfedrqwr .cfgncfgb.dfgsfeeer.mt-3{
+    margin-top: 0.2rem !important;
   }
 }
 
@@ -336,9 +353,24 @@
 
 
 
+@media only screen and (max-width: 456px){
+  .cvbjhdfdf h4,
+  .bsdfhsdfsdf h5{
+    font-size: 16px;
+  }
+
+  .cvbjhdfdf button,
+  .bsdfhsdfsdf button{
+    font-size: 12px;
+  }
+}
+
+
+
+
 @media only screen and (max-width: 393px){
-  .dfgjhdfgdfgf{
-    grid-template-columns: auto;
+  .dfgjhdfgdfgf.dfgswfdge{
+    grid-template-columns: auto auto;
   }
 }
 

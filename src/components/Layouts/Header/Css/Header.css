@@ -128,6 +128,19 @@ header .header-top .doewhruiwerwer_right ul li.infrm-menu-divider {
   color: var(--text-lighter-gray-color);
   cursor: default;
 }
+header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li{
+  border-radius: 8px;
+}
+header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover,
+header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover a{
+  color: #fff !important;
+  background: var(--pink-main-color);
+  transition: all 0.3s ease;
+}
+header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover span.prfl-optns-divider{
+  background: transparent !important;
+  color: #fff !important;
+}
 .mjeimojwjikrrr{
   width: 3.9rem;
   overflow: hidden;
@@ -341,7 +354,7 @@ header .header-main .swiper-slide:hover .header-mega-menu{
 
 .pkopkerrwer a{
   font-weight: 500 !important;
-  color: var(--pink-main-color);  
+  color: var(--pink-main-color) !important;  
   transition: 0.2s ease-in-out;
 }
 

@@ -101,7 +101,7 @@ const pathName = useLocation().pathname;
           <div className="dffgydfdf mt-4">
             <div className="row">
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image1}`} alt="" />
@@ -118,7 +118,7 @@ const pathName = useLocation().pathname;
                 
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url2}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image2}`} alt="" />
@@ -135,7 +135,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url3}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image3}`} alt="" />
@@ -152,7 +152,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url4}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image4}`} alt="" />
@@ -169,7 +169,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url5}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image5}`} alt="" />
@@ -186,7 +186,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url6}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image6}`} alt="" />
@@ -203,7 +203,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url7}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image7}`} alt="" />
@@ -220,7 +220,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url8}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image8}`} alt="" />
@@ -237,7 +237,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url9}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image9}`} alt="" />
@@ -254,7 +254,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url10}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image10}`} alt="" />
@@ -271,7 +271,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url11}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image11}`} alt="" />
@@ -288,7 +288,7 @@ const pathName = useLocation().pathname;
                 {/* </Link> */}
               </div>
 
-              <div className="col-lg-3 col-md-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                  {/* <Link to={OnSaleDetails?.data?.section2_url12}> */}
                 <div className="fhgdfg position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section2_image12}`} alt="" />
@@ -316,7 +316,7 @@ const pathName = useLocation().pathname;
           </div>
           <div className="fghdfg mt-4">
             <div className="row">
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url1}></Link>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image1}`} alt="" />
@@ -330,7 +330,7 @@ const pathName = useLocation().pathname;
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url2}>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image2}`} alt="" />
@@ -345,7 +345,7 @@ const pathName = useLocation().pathname;
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url3}>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image3}`} alt="" />
@@ -360,7 +360,7 @@ const pathName = useLocation().pathname;
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url4}>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image4}`} alt="" />
@@ -375,7 +375,7 @@ const pathName = useLocation().pathname;
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url5}>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image5}`} alt="" />
@@ -390,7 +390,7 @@ const pathName = useLocation().pathname;
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-12 mb-4">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
                 <Link to={OnSaleDetails?.data?.section3_url6}>
                 <div className="dfgfdg7853 position-relative overflow-hidden">
                   <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section3_image6}`} alt="" />
@@ -428,7 +428,7 @@ const pathName = useLocation().pathname;
             <h2>{OnSaleDetails?.data?.section5_title}</h2>
           </div>
 
-          <div className="dfgjhdfgdfgf mt-4">
+          <div className="dfgjhdfgdfgf dfgswfdge mt-4">
 
             <div className="dfbdff position-relative overflow-hidden">
               <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section5_image1}`} alt="" />
@@ -438,7 +438,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text1}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title1}</h5>
                   <Link to={OnSaleDetails?.data?.section5_url1}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -454,7 +454,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text2}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title2}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url2}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -470,7 +470,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text3}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title3}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url3}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -486,7 +486,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text4}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title4}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url4}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -502,7 +502,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text5}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title5}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url5}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -518,7 +518,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text6}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title6}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url6}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -534,7 +534,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text7}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title7}</h5>
                   <Link to={OnSaleDetails?.data?.section5_url7}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -550,7 +550,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text8}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title8}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url8}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -566,7 +566,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text9}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title9}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url9}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -582,7 +582,7 @@ const pathName = useLocation().pathname;
                   {/* <h6>Up to 50% off</h6> */}
                 </div>
                 <div className="bsdfhsdfsdf">
-                  <h5>{OnSaleDetails?.data?.section5_text10}</h5>
+                  <h5>{OnSaleDetails?.data?.section5_discount_title10}</h5>
                    <Link to={OnSaleDetails?.data?.section5_url10}>
                   <button>SHOP NOW</button>
                   </Link>
@@ -636,7 +636,7 @@ const pathName = useLocation().pathname;
         </div>
       </div>  */}
 
-      <div className="fbgvdsdfd6568 py-5">
+      <div className="fbgvdsdfd6568 sgbdfedrqwr py-5">
         <div className="container-fluid">
           <div className="ghbgfgdf sdfwedweeerr">
             <div className="row align-items-center">

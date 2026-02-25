@@ -2138,7 +2138,7 @@ export const Cart = () => {
                         <p>Save up to 18% with business pricing and GST input tax credit.</p>
 
                         <div className="adosejoifrjewrwer row">
-                          <div className="col-lg-9">
+                          <div className="col-9">
                             <input type="text" className="form-control" 
                               placeholder="Enter Your GST Number*"
                               value={gstNumber}
@@ -2156,7 +2156,7 @@ export const Cart = () => {
                           </div>
 
 
-                          <div className="col-lg-3 ps-0">
+                          <div className="col-3 ps-0">
                             {!gstSaved && (
                               <button className="btn w-100 scfsefweqwe btn-main" onClick={saveGstNumber}>Submit</button>
                             )}

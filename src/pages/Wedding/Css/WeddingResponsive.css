@@ -55,7 +55,12 @@
 
 @media only screen and (max-width: 991px){
     .fvgndfjhgdfg,
-    .ffdgf548{
+    .ffdgf548,
+    .dfgdfg255,
+    .dfgjhdfgdf img,
+    .jdfkdf,
+    .dfbhhfgdf,
+    .dfbhhfgdf55{
         height: auto;
     }
 
@@ -69,6 +74,39 @@
     .dfbhhfgdf55 {
         background-size: cover;
         background-position: center;
+    }
+
+    .dfgdfgfd {
+      height: 78px;
+    }
+
+    .dfgdfgfd {
+        height: 59px;
+        background-position: center;
+    }
+
+    .fghbjkfgfg145 h2 {
+      padding-top: 55px;
+    }
+
+    .fghbjkfgfg145 p{
+      margin-bottom: 55px;
+    }
+
+    .dfgbdfjhgdf h2{
+      text-align: center;
+    }
+
+    .ghbgfgdf.sdfwedweeerr .col-lg-3{
+      margin-bottom: 1.4rem;
+    }
+
+    .fsdweftherwrer .sdhgdfg img {
+      width: 3rem;
+    }
+
+    .fsdweftherwrer .cfgncfgb.dfgsfeeer.mt-3{
+      margin-top: 0.2rem !important;
     }
 }
 
@@ -88,5 +126,19 @@
 @media only screen and (max-width: 456px){
     .fgjhdfgf{
         grid-template-columns: 100%;
+    }
+
+    .dfbghf h4,
+    .dfbghf1 h4,
+    .dfbghf2 h4,
+    .dfbghf3 h4 {
+      font-size: 16px;
+    }
+
+    .dfbghf button,
+    .dfbghf1 button,
+    .dfbghf2 button,
+    .dfbghf3 button {
+      font-size: 12px;
     }
 }

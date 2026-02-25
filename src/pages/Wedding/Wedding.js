@@ -99,7 +99,7 @@ export const Wedding = () => {
             <h2>{WeddingDetails?.data?.section1to4?.section2_title}</h2>
           </div>
           <div className="fgjhdfgf row">
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image1}`} alt="" />
                 
@@ -114,7 +114,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image2}`} alt="" />
                 
@@ -129,7 +129,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image3}`} alt="" />
 
@@ -144,7 +144,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image4}`} alt="" />
 
@@ -159,7 +159,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image5}`} alt="" />
 
@@ -174,7 +174,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image6}`} alt="" />
 
@@ -189,7 +189,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image7}`} alt="" />
 
@@ -204,7 +204,7 @@ export const Wedding = () => {
               </div>
             </div>
 
-            <div className="col-lg-3 mb-4">
+            <div className="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
               <div className="dfgdfg255 overflow-hidden position-relative">
                 <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section2_image8}`} alt="" />
 
@@ -228,7 +228,7 @@ export const Wedding = () => {
           </div>
           <div className="fbghdfgdfgf">
             <div className="row">
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url1}>
                   <div className="jdfkdf position-relative overflow-hidden">
                     <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image1}`} alt="" />
@@ -245,7 +245,7 @@ export const Wedding = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url2}>
                 <div className="jdfkdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image2}`} alt="" />
@@ -262,7 +262,7 @@ export const Wedding = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url3}>
                 <div className="jdfkdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image3}`} alt="" />
@@ -279,7 +279,7 @@ export const Wedding = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url4}>
                 <div className="jdfkdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image4}`} alt="" />
@@ -296,7 +296,7 @@ export const Wedding = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url5}>
                 <div className="jdfkdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image5}`} alt="" />
@@ -313,7 +313,7 @@ export const Wedding = () => {
                 </Link>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <Link to={WeddingDetails?.data?.section1to4?.section3_url6}>
                 <div className="jdfkdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section3_image6}`} alt="" />
@@ -342,7 +342,7 @@ export const Wedding = () => {
           <div className="dfbgjhdfbgdfg">
             <div className="row">
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image1}`} alt="" />
                   
@@ -359,7 +359,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image2}`} alt="" />
                   
@@ -376,7 +376,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image3}`} alt="" />
                   
@@ -393,7 +393,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image4}`} alt="" />
                   
@@ -410,7 +410,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image5}`} alt="" />
                   
@@ -427,7 +427,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-4 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section1to4?.section4_image6}`} alt="" />
                   
@@ -457,7 +457,7 @@ export const Wedding = () => {
           <div className="fhfgdfgfdg">
             <div className="row">
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image1}`} alt="" />
 
@@ -474,7 +474,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image2}`} alt="" />
 
@@ -491,7 +491,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image3}`} alt="" />
 
@@ -508,7 +508,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image4}`} alt="" />
 
@@ -525,7 +525,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image5}`} alt="" />
 
@@ -542,7 +542,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image6}`} alt="" />
 
@@ -559,7 +559,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image7}`} alt="" />
 
@@ -576,7 +576,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section5_image8}`} alt="" />
 
@@ -627,10 +627,10 @@ export const Wedding = () => {
                   backgroundRepeat: "no-repeat"
                 }}>
             <div className="row">
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-12">
                 <div className="fbghjdfgfd">
                   <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section7_url1}>
                       <div className="ffdgf548">
                         <img
@@ -640,7 +640,7 @@ export const Wedding = () => {
                       </div>
                       </Link>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section7_url2}>
                       <div className="ffdgf548">
                         <img
@@ -663,10 +663,10 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-12">
                 <div className="fbghjdfgfd">
                   <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section7_url3}>
                       <div className="ffdgf548">
                         <img
@@ -676,7 +676,7 @@ export const Wedding = () => {
                       </div>
                       </Link>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section7_url4}>
                       <div className="ffdgf548">
                         <img
@@ -702,7 +702,7 @@ export const Wedding = () => {
           <div className="fhfgdfgfdg">
             <div className="row">
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image1}`} alt="" />
 
@@ -719,7 +719,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image2}`} alt="" />
 
@@ -736,7 +736,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image3}`} alt="" />
 
@@ -753,7 +753,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image4}`} alt="" />
 
@@ -770,7 +770,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image5}`} alt="" />
 
@@ -787,7 +787,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image6}`} alt="" />
 
@@ -804,7 +804,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image7}`} alt="" />
 
@@ -821,7 +821,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
                 <div className="dfbhhfgdf55 position-relative overflow-hidden">
                   <img src={`${WeddingDetails?.image_url}/${WeddingDetails?.data?.section5to9?.section8_image8}`} alt="" />
 
@@ -853,10 +853,10 @@ export const Wedding = () => {
                   backgroundRepeat: "no-repeat"
                 }}>
             <div className="row">
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-12">
                 <div className="fbghjdfgfd">
                   <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section9_url1}>
                       <div className="ffdgf548">
                         <img
@@ -866,7 +866,7 @@ export const Wedding = () => {
                       </div>
                       </Link>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section9_url2}>
                       <div className="ffdgf548">
                         <img
@@ -880,7 +880,7 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-12">
                 <div className="fghbjkfgfg145 h-100">
                   <h2>
                     {WeddingDetails?.data?.section5to9?.section9_main_title}
@@ -889,10 +889,10 @@ export const Wedding = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-md-12 col-sm-12 col-12">
                 <div className="fbghjdfgfd">
                   <div className="row">
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section9_url3}>
                       <div className="ffdgf548">
                         <img
@@ -902,7 +902,7 @@ export const Wedding = () => {
                       </div>
                       </Link>
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                       <Link to={WeddingDetails?.data?.section5to9?.section9_url4}>
                       <div className="ffdgf548">
                         <img
@@ -921,7 +921,7 @@ export const Wedding = () => {
       </div>
       <div className="fbgvdsdfd6568 py-5">
         <div className="container-fluid">
-          <div className="ghbgfgdf sdfwedweeerr">
+          <div className="ghbgfgdf sdfwedweeerr fsdweftherwrer">
             <div className="row align-items-center">
               <div className="col-lg-3 col-6">
                 <div className="dfnghfd text-center">

@@ -167,7 +167,7 @@ export const Profile = () => {
                 </div>
 
                 <div className={`${styles.fbhdfs} row justify-content-between align-items-center mb-4`}>
-                  <div className={`${styles.dfghdfgdf} col-lg-4 mb-4`}>
+                  <div className={`${styles.dfghdfgdf} col-4 mb-4`}>
                     <div className={`${styles.sdfjhsdfs} position-relative`}>
                       <img
                         src={previewImage || "./images/pfle.jpg"}
@@ -193,6 +193,12 @@ export const Profile = () => {
                     <div className={styles.dfbghdfg}>
                       <h5 className="mb-0">{formData.name}</h5>
                     </div>
+                  </div>
+
+                  <div className={`mb-3 ${styles.fbhdfs} ${styles.fdndfjh} ${styles.iehirjwoerwer} d-none col-4 align-items-center justify-content-end`}>
+                    <button className="btn" onClick={handleEdit}>
+                      <i className="fa-solid fa-pen"></i> Edit
+                    </button>
                   </div>
                   
                   <div className={`${styles.dwoejoidwemjr} col-lg-4`}>
@@ -226,12 +232,12 @@ export const Profile = () => {
 
                 <div className={styles.sdfnsdjkfsdf}>
                   <div
-                    className={`mb-3 ${styles.fbhdfs} ${styles.fdndfjh} d-flex align-items-center justify-content-between`}
+                    className={`mb-3 ${styles.fbhdfs} ${styles.fdndfjh} ${styles.oidheuiwhroijwer} d-flex align-items-center justify-content-between`}
                   >
                     <h5 className={`${styles.acdfvdscvdrtefr}`}>
                       Personal Details
                     </h5>
-                    <button className="btn" onClick={handleEdit}>
+                    <button className={`btn ${styles.fodnikfmskmjfreee}`} onClick={handleEdit}>
                       <i className="fa-solid fa-pen"></i> Edit
                     </button>
                   </div>
