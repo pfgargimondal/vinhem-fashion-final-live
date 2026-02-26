@@ -1,8 +1,8 @@
 import http from "../../http";
 import { useEffect, useState } from "react";
 import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
+import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
 
 export const PaymentOptions = () => {
 
@@ -33,8 +33,7 @@ export const PaymentOptions = () => {
     <div>
         <PolicyComponent PolicyDetails={paymentOptionDetails}/>
         <hr />
-
-      <FooterTopComponent />
+       <FooterTopComponentPolicy PolicyDetails={paymentOptionDetails}/>
     </div>
   );
 };

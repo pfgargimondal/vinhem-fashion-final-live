@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Css/AboutUs.css";
 import http from "../../http";
 import { useLocation, useNavigate } from "react-router-dom";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useAuthModal } from "../../context/AuthModalContext";
 import { useMetaData } from "../../hooks/useMetaData";
@@ -355,7 +355,17 @@ export const AboutUs = () => {
         <hr />
       </div>
 
-      <FooterTopComponent />
+      {/* <FooterTopComponent /> */}
+      <div class="yudfdfgdfbgdfgdffgfg">
+        <div class="container-fluid">
+          <div
+            className="pt-4"
+            dangerouslySetInnerHTML={{
+              __html: AboutUsDetails.data.last_description
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,11 @@
 import http from "../../http";
 import { useEffect, useState } from "react";
 import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
 import { useLocation } from "react-router-dom";
+import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
 
 
 
@@ -59,7 +60,8 @@ export const TermsCondition = () => {
 
       <hr />
 
-      <FooterTopComponent />
+      {/* <FooterTopComponent /> */}
+      <FooterTopComponentPolicy PolicyDetails={TermsConditionDetails}/>
     </div>
   );
 };

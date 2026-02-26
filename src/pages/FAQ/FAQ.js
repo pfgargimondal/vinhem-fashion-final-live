@@ -1,10 +1,11 @@
 import "./Css/FAQ.css";
 import http from "../../http";
 import { useEffect, useState } from "react";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
+// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
 import { useLocation } from "react-router-dom";
+import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
 
 export const FAQ = () => {
 
@@ -95,7 +96,8 @@ export const FAQ = () => {
       </div>
 
       <hr />
-      <FooterTopComponent />
+      {/* <FooterTopComponent /> */}
+      <FooterTopComponentPolicy PolicyDetails={FAQDetails}/>
     </div>
   );
 };

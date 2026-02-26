@@ -196,7 +196,7 @@ export const DesignerSizeChart = ({ productDetails }) => {
                       <thead>
                         <tr>
                           <th>Size</th>
-                          <th>UK</th>
+                          <th style={{ width: "80px" }}>UK</th>
                           <th>US</th>
                           <th>Chest ({isCms ? "Cm" : "In"})</th>
                           <th>Shoulder ({isCms ? "Cm" : "In"})</th>
@@ -226,21 +226,22 @@ export const DesignerSizeChart = ({ productDetails }) => {
                         {sizeChart.map((item) => (
                           <tr key={item.id}>
                             <td>{item.size_name || "-"}</td>
-                            <td>{item.uk || "-"}</td>
+                            <td style={{ width: "80px" }}>{item.uk || "-"}</td>
                             <td>{item.us || "-"}</td>
                             <td>
                               {isCms ? item.chest_cm || "-" : item.chest_in || "-"}
                             </td>
                             <td>
+                              {isCms
+                                ? item.shoulder_cm || "-"
+                                : item.shoulder_in || "-"}
+                            </td>
+                            <td>
                               {isCms ? item.waist_cm || "-" : item.waist_in || "-"}
                             </td>
+                            
                             <td>
-                              {isCms
-                                ? item.neck_cm || "-"
-                                : item.neck_in || "-"}
-                            </td>
-                            <td>
-                              {isCms ? item.hip_cm || "-" : item.hip_in || "-"}
+                              {isCms ? item.length_cm || "-" : item.length_in || "-"}
                             </td>
                             {/* Dynamic extra fields */}
                             {firstSizeChart?.extra1 && (

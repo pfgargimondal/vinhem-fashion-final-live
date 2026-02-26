@@ -1478,7 +1478,7 @@ export const ProductDetail = () => {
 
                             <hr class="mt-0" style={{ width: "86%" }} />
 
-                            <div className="d-flex align-items-center justify-content-between sdfasdctgerrrrwe mb-3">
+                            <div className="d-flex align-items-center justify-content-between sdfasdctgerrrrwe mb-2">
                               <div className="select-form-drpdwn weqwthyuytredfgw me-3">
                                 <div className="dgndfjgdf">
                                   <select
@@ -1539,7 +1539,27 @@ export const ProductDetail = () => {
                                       })()}
                                     </select>
 
-                                    {(() => {
+                                    
+                                </div>
+                              </div>
+
+                              <div className="select-form-side">
+                                <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
+                                  <button
+                                    className="btn btn-main px-0"
+                                    onClick={() =>
+                                      setShowSizeGuide(!showSizeGuide)
+                                    }
+                                  >
+                                    <img src="/images/ruler.png" alt="" /> Size
+                                    Guide
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="vfsdvg">
+                              {(() => {
                                       const data = productDetails?.data || {};
 
                                       const plusQty = Number(data.plus_size_quantity || 0);
@@ -1557,25 +1577,9 @@ export const ProductDetail = () => {
                                       }
 
                                       return availablesdgsfdQty > 0 && availablesdgsfdQty <= 5 ? (
-                                        <p className="mt-0">Only few left</p>
+                                        <p style={{color: "var(--pink-main-color)"}} className="mt-0" >Only few left</p>
                                       ) : null;
                                     })()}
-                                </div>
-                              </div>
-
-                              <div className="select-form-side">
-                                <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
-                                  <button
-                                    className="btn btn-main px-0"
-                                    onClick={() =>
-                                      setShowSizeGuide(!showSizeGuide)
-                                    }
-                                  >
-                                    <img src="/images/ruler.png" alt="" /> Size
-                                    Guide
-                                  </button>
-                                </div>
-                              </div>
                             </div>
                           </div>
                         )}

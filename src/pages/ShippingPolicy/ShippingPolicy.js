@@ -1,10 +1,10 @@
 import http from "../../http";
 import { useEffect, useState } from "react";
 import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
 import { useLocation } from "react-router-dom";
+import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
 
 export const ShippingPolicy = () =>{
     const [loading, setLoading] = useState(false);
@@ -52,10 +52,11 @@ export const ShippingPolicy = () =>{
 
   return (
     <div>
-      <PolicyComponent PolicyDetails={ShippingPolicyDetails}/>
+        <PolicyComponent PolicyDetails={ShippingPolicyDetails}/>
             <hr />
       
-           <FooterTopComponent />
+        {/* <FooterTopComponent /> */}
+        <FooterTopComponentPolicy PolicyDetails={ShippingPolicyDetails}/>
     </div>
   )
 }
