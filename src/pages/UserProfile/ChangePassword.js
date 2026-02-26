@@ -82,6 +82,12 @@ export const ChangePassword = () => {
 
             <div className="col-lg-9">
               <div className={`${styles.fgcbdfgdf} pt-3 pb-5`}>
+                <div className={`${styles.doiewhrwerr} d-flex align-items-center`}>
+                  <p className="mb-0 d-flex align-items-center"><i class="bi me-1 bi-chevron-left"></i> Profile <span className="mx-2">/</span> </p>
+
+                  <h4 className="mb-0">My Vouchers & Credits</h4>
+                </div> 
+                
                 <div className="row col-lg-10 mb-5 justify-content-between align-items-center">
                   <div className="col-7">
                     <div className={styles.diewhkewrwer}>

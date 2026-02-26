@@ -151,6 +151,10 @@ form input:global(.form-control){
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+.dfgndfjhbgdfgdf{
+  overflow-x: auto;
+}
+
 .dfgndfjhbgdfgdf table th {
   font-size: 0.85em;
   font-weight: 600;
@@ -347,11 +351,25 @@ form input:global(.form-control){
   text-align: center;
 }
 
+.doiewhrwerr > p{
+  font-size: 1.2rem !important;
+}
+
 
 
 @media only screen and (max-width: 991px){
   .fbghdfg{
     width: 100%;
+  }
+
+  .doiewhrwerr{
+    position: absolute;
+    top: -3rem;
+  }
+
+  .dfjhdsbfsdf{
+    position: relative;
+    margin-top: 3rem;
   }
 }
 

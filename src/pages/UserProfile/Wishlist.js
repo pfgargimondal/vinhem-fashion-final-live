@@ -54,7 +54,11 @@ export const Wishlist = () => {
                         <div className="col-lg-9">
                             <div className={`${styles.fgcbdfgdf} pt-3 pb-5`}>
                                 <div className={`${styles.dfjhdsbfsdf} mb-4`}>
-                                    <h4 className="mb-0">Your Wishlist({wishlistItems?.data?.length ?? 0})</h4>
+                                    <div className={`${styles.doiewhrwerr} d-flex align-items-center`}>
+                                        <p className="mb-0 d-flex align-items-center"><i class="bi me-1 bi-chevron-left"></i> Profile <span className="mx-2">/</span> </p>
+    
+                                        <h4 className="mb-0">Your Wishlist({wishlistItems?.data?.length ?? 0})</h4>
+                                    </div>                                    
 
                                     <div className="dowehrkjwerwer d-flex align-items-center">
                                         <p className="ndiwhermweoewrr mb-0 me-3 d-none">

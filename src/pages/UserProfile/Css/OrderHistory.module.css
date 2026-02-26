@@ -407,10 +407,24 @@ form input:global(.form-control){
   text-align: center;
 }
 
+.doiewhrwerr > p{
+  font-size: 1.2rem !important;
+}
+
 
 @media only screen and (max-width: 991px){
   .fbghdfg{
     width: 100%;
+  }
+
+  .doiewhrwerr{
+    position: absolute;
+    top: -3rem;
+  }
+
+  .dfjhdsbfsdf{
+    position: relative;
+    margin-top: 3rem;
   }
 }
 

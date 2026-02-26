@@ -1613,8 +1613,8 @@ export const ProductDetail = () => {
                         <div className="sadfvfghbrsd mt-4">
                           <div className="col-lg-12">
                             <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 col-lg-8 row align-items-center justify-content-between">
-                                <div className="doweriwejrwer col-lg-6 col-md-8 col-sm-8 col-8">
+                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                <div className="doweriwejrwer">
                                   <div class="checkbox-wrapper-33">
                                     <label class="checkbox">
                                       <input
@@ -1647,7 +1647,7 @@ export const ProductDetail = () => {
                                   </div>
                                 </div>
 
-                                <p className="chngd-price mb-0 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <p className="chngd-price mb-0">
                                   {/* <i class="bi bi-currency-rupee"></i> */}
                                   {formatPrice(
                                     productDetails?.data?.turban_charges
@@ -1705,8 +1705,8 @@ export const ProductDetail = () => {
                         <div className="sadfvfghbrsd mt-4">
                           <div className="col-lg-12">
                             <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 row col-9 align-items-center justify-content-between">
-                                <div className="doweriwejrwer col-lg-6 col-md-8 col-sm-8 col-8">
+                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                <div className="doweriwejrwer">
                                   <div class="checkbox-wrapper-33">
                                     <label class="checkbox">
                                       <input
@@ -1739,7 +1739,7 @@ export const ProductDetail = () => {
                                   </div>
                                 </div>
 
-                                <p className="chngd-price mb-0 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <p className="chngd-price mb-0">
                                   {/* <i class="bi bi-currency-rupee"></i> */}
                                   {formatPrice(
                                     productDetails?.data?.stole_charges
@@ -1759,8 +1759,8 @@ export const ProductDetail = () => {
                         <div className="sadfvfghbrsd mt-4">
                           <div className="col-lg-12">
                             <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 row col-9 align-items-center justify-content-between">
-                                <div className="doweriwejrwer col-lg-8 col-md-9 col-sm-9 col-9">
+                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                <div className="doweriwejrwer">
                                   <div class="checkbox-wrapper-33">
                                     <label class="checkbox">
                                       <input
@@ -1793,7 +1793,7 @@ export const ProductDetail = () => {
                                   </div>
                                 </div>
 
-                                <p className="chngd-price mb-0 col-lg-4 col-md-3 col-sm-3 col-3">
+                                <p className="chngd-price mb-0">
                                   {/* <i class="bi bi-currency-rupee"></i> */}
                                   {formatPrice(
                                     productDetails?.data?.mojri_charges

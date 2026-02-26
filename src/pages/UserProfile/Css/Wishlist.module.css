@@ -184,7 +184,7 @@ form input:global(.form-control){
 
 .images img {
   width: 100%;
-  height: 380px;
+  /* height: 380px; */
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
@@ -209,6 +209,7 @@ form input:global(.form-control){
 
 .dfgjhbdfg {
   width: 100%;
+  position: relative;
 }
 
 .dbgdfhgv button {
@@ -257,9 +258,9 @@ form input:global(.form-control){
 
 
 .nwArrvl {
-    /* left: 3%; */
+    left: -1%;
     position: absolute;
-    /* top: 3%; */
+    top: 3%;
     background-image: url("/public/images/ni.png");
     background-repeat: no-repeat;
     color: #fff;
@@ -276,6 +277,10 @@ form input:global(.form-control){
 
 /*end  profile settings  css   */
 
+.doiewhrwerr > p{
+  font-size: 1.2rem !important;
+}
+
 
 @media only screen and (max-width: 991px){
   .images img {
@@ -284,5 +289,35 @@ form input:global(.form-control){
 
   .fbghdfg{
     width: 100%;
+  }
+
+  .doiewhrwerr{
+    position: absolute;
+    top: -3rem;
+  }
+
+  .dfjhdsbfsdf{
+    position: relative;
+    margin-top: 3rem;
+  }
+}
+
+
+
+@media only screen and (max-width: 425px){
+  .nwArrvl {
+    background-size: 55px;
+    font-size: 10px;
+    line-height: 2.5;
+    width: 55px !important;
+  }
+
+  :global(.fdbdfgdfgdf) h5,
+  :global(.gdfg55) {
+    font-size: 1rem !important;
+  }
+
+  :global(.fghfgg114) {
+    font-size: 0.9rem !important;
   }
 }
