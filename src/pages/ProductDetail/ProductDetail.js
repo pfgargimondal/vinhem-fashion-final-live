@@ -475,12 +475,15 @@ export const ProductDetail = () => {
 
   useEffect(() => {
     if (
-      productDetails?.data?.stitching_option === "Ready To Wear" &&
+      ( productDetails?.data?.stitching_option === "Ready To Wear" || 
+      productDetails?.data?.stitching_option === "Ready to Wear") &&
       productDetails?.data?.product_allSize?.length > 0 &&
       !selectedSize
     ) {
+      // eslint-disable-next-line
       const firstSize = productDetails.data.product_allSize[0].filter_size;
-      const normalized = normalizeSize(firstSize);
+      // const normalized = normalizeSize(firstSize);
+      const normalized = normalizeSize();
 
       setSelectedSize(normalized);
       updateQtyAndPriceBySize(normalized);
@@ -552,7 +555,7 @@ export const ProductDetail = () => {
   };
 
   useEffect(() => {
-    if (productDetails?.data?.stitching_option !== "Ready To Wear") {
+    if (productDetails?.data?.stitching_option !== "Ready To Wear" || productDetails?.data?.stitching_option !== "Ready to Wear") {
       setSelectedStitchOption("stitch");
     } else {
       setSelectedStitchOption("stitch"); // or "readyToWear"
@@ -563,7 +566,7 @@ export const ProductDetail = () => {
 
     try{
 
-      if (productDetails?.data?.stitching_option === "Ready To Wear") {
+      if (productDetails?.data?.stitching_option === "Ready To Wear" || productDetails?.data?.stitching_option === "Ready to Wear") {
         const hasSizes = productDetails?.data?.product_allSize?.length > 0;
         // ✅ 1. Validate main size
         if (hasSizes && !selectedSize) {
@@ -1286,8 +1289,8 @@ export const ProductDetail = () => {
                       </div>
 
                       <div className="jdfbdfgdf">
-                        {productDetails?.data?.stitching_option !==
-                          "Ready To Wear" && (
+                        {(productDetails?.data?.stitching_option !==
+                          "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
                           <div class="diwenjrbwebrwehgrwer">
                             <div className="d-flex align-items-center justify-content-between">
                               <h4 class="pb-2">Stitching Options</h4>
@@ -1328,8 +1331,8 @@ export const ProductDetail = () => {
                         )}
 
                         <div className="saoijhdekjwirwer row align-items-center mb-3">
-                          {productDetails?.data?.stitching_option !==
-                            "Ready To Wear" && (
+                          {(productDetails?.data?.stitching_option !==
+                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
                             <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
                               <input
                                 type="radio"
@@ -1355,8 +1358,8 @@ export const ProductDetail = () => {
                             </div>
                           )}
 
-                          {productDetails?.data?.stitching_option !==
-                            "Ready To Wear" &&
+                          {(productDetails?.data?.stitching_option !==
+                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
                             productDetails?.data?.custom_fit?.toLowerCase() ===
                               "yes" && (
                               <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
@@ -1388,8 +1391,8 @@ export const ProductDetail = () => {
                             )}
                         </div>
                         {selectedStitchOption === "customFit" &&
-                          productDetails?.data?.stitching_option !==
-                            "Ready To Wear" &&
+                          (productDetails?.data?.stitching_option !==
+                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
                           productDetails?.data?.custom_fit?.toLowerCase() ===
                             "yes" && (
                             <div className="ikasdnjiknswjirhwer mb-4">
@@ -1434,8 +1437,8 @@ export const ProductDetail = () => {
                           )}
 
                         {/* id="custmze-otft-btn"> */}
-                        {productDetails?.data?.stitching_option ===
-                          "Ready To Wear" && (
+                        {(productDetails?.data?.stitching_option ===
+                          "Ready To Wear" || productDetails?.data?.stitching_option === "Ready to Wear") && (
                           <div className="jlksdeflksdfk">
                             <div className="d-flex align-items-center justify-content-between mb-2">
                               <label className="form-label asdadadwdwdadad mb-0">
@@ -2246,7 +2249,7 @@ export const ProductDetail = () => {
                                           <p>
                                             Weight Details <br />
                                             <span>
-                                              Approximate Product Weight:{" "}
+                                              {/* Approximate Product Weight:{" "} */}
                                               {productDetails?.data?.weight}
                                             </span>
                                           </p>
@@ -2277,7 +2280,7 @@ export const ProductDetail = () => {
                                           <p>
                                             Occasions <br />{" "}
                                             <span>
-                                              Suitable for{" "}
+                                              {/* Suitable for{" "} */}
                                               {productDetails?.data?.occasion}
                                             </span>
                                           </p>
