@@ -371,6 +371,10 @@ form input:global(.form-control){
     position: relative;
     margin-top: 3rem;
   }
+
+  .fbghdfg{
+    box-shadow: none;
+  }
 }
 
 
