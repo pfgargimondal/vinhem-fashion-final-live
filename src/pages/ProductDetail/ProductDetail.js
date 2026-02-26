@@ -351,6 +351,8 @@ export const ProductDetail = () => {
 
   const isOutOfStock = availableQty < 1 || selectedQuantity < 1;
 
+  console.log(isOutOfStock, 'isOutOfStockasefsdef');
+
   // useEffect(() => {
   //   if (productDetails?.data?.mto_quantity) {
   //     setAvailableQty(productDetails.data.mto_quantity);
@@ -571,6 +573,11 @@ export const ProductDetail = () => {
         // ✅ 1. Validate main size
         if (hasSizes && !selectedSize) {
           alert("Please select a size before adding to cart.");
+          return;
+        }
+        
+        if (isOutOfStock) {
+          toast.error("Product is out of stock.");
           return;
         }
       }
@@ -1610,7 +1617,8 @@ export const ProductDetail = () => {
                                 </option>
                               ))
                             ) : (
-                              <option value="">Out of Stock</option>
+                              // <option value="">Out of Stock</option>
+                              <option value="">0</option>
                             )}
                         </select>
                       </div>
@@ -1899,18 +1907,20 @@ export const ProductDetail = () => {
                               <button
                                 className="btn btn-main px-3 me-4"
                                 onClick={handleAddToCart}
-                                disabled={cartLoading || isOutOfStock}
+                                // disabled={cartLoading || isOutOfStock}
                               >
                                 <i className="bi bi-bag me-1"></i>
-                                {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+                                {/* {isOutOfStock ? "Out of Stock" : "Add to Cart"} */}
+                                {"Add to Cart"}
                               </button>
                               <button
                                 className="btn btn-main btn-transparent px-3"
                                 onClick={handleBuyNow}
-                                disabled={isOutOfStock}
+                                // disabled={isOutOfStock}
                               >
                                 <i className="bi bi-bag me-1"></i>
-                                {isOutOfStock ? "Out of Stock" : "Buy Now"}
+                                {/* {isOutOfStock ? "Out of Stock" : "Buy Now"} */}
+                                {"Buy Now"}
                               </button>
                             </>
                           ) : (
