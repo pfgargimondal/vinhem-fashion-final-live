@@ -1,11 +1,36 @@
-import React from "react";
-
+import { useEffect, useState } from "react";
+import http from "../../http";
+import Loader from "../Loader/Loader";
 export const FooterTopComponent = () => {
+
+  const [footerContent, SetfooterContent] = useState({});
+  const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchFooterContent = async () => {
+          setLoading(true);
+            try {
+                const getresponse = await http.get("/fetch-home-page");
+                SetfooterContent(getresponse.data); 
+            } catch (error) {
+                console.error("Error fetching footer content data:", error);
+            } finally {
+              setLoading(false);
+            }
+        };
+  
+        fetchFooterContent();
+    }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div>
       <div class="yudfdfgdfbgdfgdffgfg">
         <div class="container-fluid">
-          <div class="dfgjhfdg2455f">
+          {/* <div class="dfgjhfdg2455f">
             <div class="fgnjhdf">
               <h6>
                 There are many variations of passages of Lorem Ipsum available
@@ -312,7 +337,13 @@ export const FooterTopComponent = () => {
                 <a href="/">Aariyana Couture</a>
               </div>
             </div>
-          </div>
+          </div> */}
+          <div
+            className="pt-4"
+            dangerouslySetInnerHTML={{
+              __html: footerContent?.data?.description
+            }}
+          />
         </div>
       </div>
     </div>

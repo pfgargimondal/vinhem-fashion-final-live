@@ -2,7 +2,7 @@ import http from "../../http";
 import { useEffect, useState } from "react";
 import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
 import Loader from "../../components/Loader/Loader";
-import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
+import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 
 export const PaymentOptions = () => {
 
@@ -33,7 +33,7 @@ export const PaymentOptions = () => {
     <div>
         <PolicyComponent PolicyDetails={paymentOptionDetails}/>
         <hr />
-       <FooterTopComponentPolicy PolicyDetails={paymentOptionDetails}/>
+       <FooterTopComponent/>
     </div>
   );
 };

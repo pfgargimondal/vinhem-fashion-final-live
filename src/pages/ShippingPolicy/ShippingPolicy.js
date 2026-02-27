@@ -4,7 +4,7 @@ import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
 import { useLocation } from "react-router-dom";
-import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
+import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 
 export const ShippingPolicy = () =>{
     const [loading, setLoading] = useState(false);
@@ -55,8 +55,7 @@ export const ShippingPolicy = () =>{
         <PolicyComponent PolicyDetails={ShippingPolicyDetails}/>
             <hr />
       
-        {/* <FooterTopComponent /> */}
-        <FooterTopComponentPolicy PolicyDetails={ShippingPolicyDetails}/>
+        <FooterTopComponent />
     </div>
   )
 }

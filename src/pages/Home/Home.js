@@ -8,9 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "./Css/Home.css";
 import "./Css/HomeResponsive.css";
-// import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
+import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 
 export const Home = () => {
   const [homepage, Sethomepage] = useState({});
@@ -537,7 +537,7 @@ export const Home = () => {
       />
 
       <hr className="doewjirhweiewrer" />
-      <div class="yudfdfgdfbgdfgdffgfg">
+      {/* <div class="yudfdfgdfbgdfgdffgfg">
         <div class="container-fluid">
           <div
             className="pt-4"
@@ -546,8 +546,8 @@ export const Home = () => {
             }}
           />
         </div>
-      </div>
-      {/* <FooterTopComponent /> */}
+      </div> */}
+      <FooterTopComponent />
     </div>
   )
 }

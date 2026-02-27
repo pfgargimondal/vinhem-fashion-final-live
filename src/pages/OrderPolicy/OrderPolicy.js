@@ -2,7 +2,7 @@ import http from "../../http";
 import { useEffect, useState } from "react";
 import { PolicyComponent } from "../PolicyComponent/PolicyComponent";
 import Loader from "../../components/Loader/Loader";
-import { FooterTopComponentPolicy } from "../PolicyComponent/FooterTopComponentPolicy";
+import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 
 export const OrderPolicy = () => {
 
@@ -34,7 +34,7 @@ export const OrderPolicy = () => {
         <PolicyComponent PolicyDetails={OrderPolicyDetails}/>
       <hr />
 
-      <FooterTopComponentPolicy PolicyDetails={OrderPolicyDetails}/>
+      <FooterTopComponent/>
     </div>
   )
 }
