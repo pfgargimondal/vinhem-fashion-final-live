@@ -361,7 +361,7 @@ export const AboutUs = () => {
           <div
             className="pt-4"
             dangerouslySetInnerHTML={{
-              __html: AboutUsDetails.data.last_description
+              __html: AboutUsDetails.data?.last_description
             }}
           />
         </div>
