@@ -352,8 +352,8 @@ export const AboutUs = () => {
             </div>
           </div>
         </div>
-        <hr />
       </div>
+      <hr />
 
       <FooterTopComponent />
     </div>

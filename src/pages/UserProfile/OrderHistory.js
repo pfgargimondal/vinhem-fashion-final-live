@@ -19,7 +19,7 @@ import Loader from "../../components/Loader/Loader";
 
 export const OrderHistory = () => {
 
-    const { token } = useAuth();
+    const { token, user } = useAuth();
     const [OrderHistory, setOrderHistory] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
@@ -27,17 +27,42 @@ export const OrderHistory = () => {
  
     const currentYear = new Date().getFullYear();
 
-    const years = [
-    `${currentYear - 2} - ${currentYear}`, 
-    ...Array.from(
-        { length: currentYear - 2016 },
-        (_, i) => (currentYear - 1 - i).toString()
-    ),
-    ];
+    // const years = [
+    // `${currentYear - 2} - ${currentYear}`, 
+    // ...Array.from(
+    //     { length: currentYear - 2016 },
+    //     (_, i) => (currentYear - 1 - i).toString()
+    // ),
+    // ];
 
-    const [selected, setSelected] = useState(years[0]);
+    const years = useMemo(() => {
+        if (!user?.created_at) return [];
+
+        const createdYear = new Date(user.created_at).getFullYear();
+
+        // ✅ If only one year exists
+        if (createdYear === currentYear) {
+            return [currentYear.toString()];
+        }
+
+        // ✅ If multiple years
+        return [
+            `${createdYear} - ${currentYear}`,
+            ...Array.from(
+                { length: currentYear - createdYear + 1 },
+                (_, i) => (currentYear - i).toString()
+            )
+        ];
+    }, [user, currentYear]);
+
+    const [selected, setSelected] = useState("");
+    useEffect(() => {
+        if (years.length > 0) {
+            setSelected(years[0]);
+        }
+    }, [years]);
     // eslint-disable-next-line
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
     // eslint-disable-next-line
     const [userOrderProduct , setuserOrderProduct] = useState(null);
 

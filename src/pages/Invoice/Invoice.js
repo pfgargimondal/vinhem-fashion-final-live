@@ -22,6 +22,7 @@ const Invoice = () => {
     const [getProductDetails, setGetProductDetails] = useState([]);
     // eslint-disable-next-line
     const [getGSTDetails, setGetGSTDetails] = useState(null);
+    const [getCurrenyCode, setGetCurrenyCode] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const fetchInvoiceData = useCallback(async () => {
@@ -40,6 +41,7 @@ const Invoice = () => {
         setUserOrderProduct(data.user_order_product_details);
         setGetProductDetails(data.get_product_details);
         setGetGSTDetails(data.get_gst_value);
+        setGetCurrenyCode(data.get_currency_code);
         setLoading(false);
 
         // setTimeout(() => {
@@ -163,9 +165,9 @@ const Invoice = () => {
                   })
                 }<br />
                 <strong>Payment Terms :</strong> {order?.payment_method === 'cash_on_delivery' ? 'COD' : 'Prepaid'}<br />
-                <strong>Currency :</strong> USD / INR<br />
+                <strong>Currency :</strong> {getCurrenyCode?.currency_code ? getCurrenyCode.currency_code : "INR"}<br />
                 <strong>Place of Supply :</strong> {order?.shippingCountry ? order.shippingCountry : "-"}<br />
-                <strong>Country Code :</strong> 29
+                <strong>Country Code :</strong> {getCurrenyCode?.cuntry_code ? getCurrenyCode.cuntry_code : "-"}
               </td>
 
               <td className="col-right" style={{ width: "25%",borderRight: 0, borderTop: 0, paddingTop: 0, transform: "translateY(-5px)" }}>
@@ -173,7 +175,7 @@ const Invoice = () => {
                 <strong>Order No :</strong> {order?.order_id}<br />
                 <strong style={{ textDecoration: "underline" }}>Shipment Details :</strong><br />
                 <strong>Country :</strong> {order?.shippingCountry}<br />
-                <strong>Shipped By :</strong> {order?.shipping_method}<br />
+                <strong>Shipped By :</strong> {order?.shipping_method ? order?.shipping_method : "-"}<br />
                 <strong>AWB Number :</strong> {order?.awb_no}
               </td>
             </tr>
