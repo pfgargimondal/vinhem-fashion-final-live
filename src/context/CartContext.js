@@ -84,8 +84,7 @@ export function CartProvider({ children }) {
         toast.info(res.data.message || "Product already exists in cart");
       }
     } catch (err) {
-      console.error(err);
-      toast.error("Something went wrong while adding to cart");
+      toast.error("Something went wrong while adding to cart, Please Login Again!!");
     } finally{
       setLoading(false);
     }
