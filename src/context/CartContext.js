@@ -75,8 +75,6 @@ export function CartProvider({ children }) {
         }
       );
 
-      console.log(res.data, 'segzdhSRgbdfghdrgdtfg');
-
       if (res.data.success) {
         toast.success(res.data.message || "Product added to cart");
         fetchCartCount(); // refresh count

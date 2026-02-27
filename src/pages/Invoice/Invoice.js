@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -52,6 +52,8 @@ const Invoice = () => {
         console.error("Invoice fetch failed:", error);
       }
     }, [orderId, token]); // ✅ dependencies added here
+
+    console.log(userOrderProduct, 'userOrderProduct');
 
     useEffect(() => {
       if (!token) return;
@@ -237,24 +239,53 @@ const Invoice = () => {
               <th style={{borderTop: 0, borderRight: 0}}></th>
             </tr>
 
-            <tr>
-              <td style={{ borderLeft: 0 }}>1</td>
-              <td style={{ textAlign: "left" }}>
-                RANAK Purple Resham Embroidery Art Silk Kurta Pajama
-              </td>
-              <td>60052378</td>
-              <td>XXS - 32</td>
-              <td>1</td>
-              <td>950</td>
-              <td>2.5%</td>
-              <td>25</td>
-              <td>2.5%</td>
-              <td>25</td>
-              <td>5%</td>
-              <td>50</td>
-              <td style={{ borderRight: 0 }}>1000</td>
-            </tr>
+            {userOrderProduct?.map((item, index) => (
+              <React.Fragment key={index}>
+                <tr>
+                  <td style={{ borderLeft: 0 }}>{index + 1}</td>
+                  <td style={{ textAlign: "left" }}>
+                    {item.product_name}
+                  </td>
+                  <td>60052378</td>
+                  <td>{item.product_size ? item.product_size : '-'}</td>
+                  <td>{item.quantity ? item.quantity : '-'}</td>
+                  <td>950</td>
+                  <td>2.5%</td>
+                  <td>25</td>
+                  <td>2.5%</td>
+                  <td>25</td>
+                  <td>5%</td>
+                  <td>50</td>
+                  <td style={{ borderRight: 0 }}>{item.total_price ? item.total_price : '-'}</td>
+                </tr>
 
+                {item.turban_selected === 1 && (
+                  <>
+                  <tr>
+                    <td style={{ borderLeft: 0 }}>{index + 1}</td>
+                    <td style={{ textAlign: "left" }}>
+                      Matching Turban
+                    </td>
+                    <td>60052378</td>
+                    <td>{item.turban_size ? item.turban_size : '-'}</td>
+                    <td>1</td>
+                    <td>950</td>
+                    <td>2.5%</td>
+                    <td>25</td>
+                    <td>2.5%</td>
+                    <td>25</td>
+                    <td>5%</td>
+                    <td>50</td>
+                    <td style={{ borderRight: 0 }}>{item.turban_charge ? item.turban_charge : '-'}</td>
+                  </tr>
+                  </>
+                  
+                )}
+              </React.Fragment>
+            ))}
+
+            
+{/* 
             <tr>
               <td style={{ borderLeft: 0 }}>2</td>
               <td style={{ textAlign: "left" }}>
@@ -289,7 +320,9 @@ const Invoice = () => {
               <td style={{ borderBottom: 0 }}>5%</td>
               <td style={{ borderBottom: 0 }}>50</td>
               <td style={{ borderRight: 0, borderBottom: 0 }}>1000</td>
-            </tr>
+            </tr> */}
+
+
 
             <tr>
               <td colspan="4" className="right" style={{ borderLeft: 0 }}><strong>Total Qty</strong></td>

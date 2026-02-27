@@ -24,6 +24,18 @@ export const OrderHistory = () => {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        const body = document.querySelector("body");
+
+        const flterClose = () => {
+            setOpen(prev => !prev);
+        };
+
+        body.addEventListener("click", flterClose);
+
+        return () => body.removeEventListener("click", flterClose);
+    }, []);
  
     const currentYear = new Date().getFullYear();
 
@@ -244,13 +256,13 @@ export const OrderHistory = () => {
                                 <div className={styles.filterWrapper}>
                                     <button
                                     className={styles.filterBtn}
-                                    onClick={() => setOpen(!open)}
+                                    onClick={(e) => {e.stopPropagation(); setOpen(!open);}}
                                     >
                                     <i className="bi bi-sliders" /> Filter
                                     </button>
 
                                     {open && (
-                                    <div className={styles.dropdown}>
+                                    <div className={styles.dropdown} onClick={(e) => e.stopPropagation()}>
                                         <div
                                         className={`${styles.option} ${styles.active}`}
                                         style={{ pointerEvents: "none" }}

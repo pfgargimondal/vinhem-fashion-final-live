@@ -555,11 +555,24 @@
     }
 
     .deiwhirhwejpekr{
-        margin-bottom: 2rem;
+        margin-bottom: 0.5rem;
     }    
 
     .doienkwjrewewr.p-5{
         padding: 1.2rem !important;
+    }
+
+    hr,
+    .jlksdeflksdfk > div{
+        width: 100% !important;
+    }
+
+    .select-form-drpdwn {
+        width: 36%;
+    }
+
+    .weqwthyuytredfgw.cbgdrfsfewerrr{
+        padding-left: 10px;
     }
 
     .doienkwjrewewr img.mb-3{
@@ -739,11 +752,16 @@
 
     .large-image-tab.col-9{
         width: 100%;
+        padding-inline: 0;
     }
 
     .doijijewjuewr .flex-column {
         flex-direction: row !important;
         flex-wrap: nowrap;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        border-radius: 50px;
+        padding: 0.5rem;
     }
 
     .doijijewjuewr {
@@ -802,13 +820,6 @@
         max-height: initial;
     }
 
-    .small-image-tabs-res .nav-item img,
-    .small-image-tabs-res .nav-item video {
-        max-height: 35px;
-        background: rgba(255, 255, 255, 1);
-        backdrop-filter: blur(1rem);
-    }
-    
     .small-image-tabs-res .doijijewjuewr{
         justify-content: center;
     }
@@ -818,25 +829,25 @@
     }
 
     .small-image-tabs-res .nav-item{
-        margin: 10px 0.2rem auto !important;
+        margin: 0 4px !important;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        min-height: initial !important;
+        max-height: initial !important;
+    }
+
+    .small-image-tabs-res .nav-item img{
+        display: none;
     }
 
     .small-image-tabs-res .nav-item .nav-link.active{
-        background: none;
-        border-color: #fff !important;
-    }
-
-    .small-image-tabs-res .nav-item .nav-link.active:before{
-        position: absolute;
-        content: "";
-        width: 10px;
-        height: 10px;
-        background: #fff;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 999;
+        border: none;
+        background: var(--pink-main-color);
+        width: 100%;
+        height: 100%;
+        display: block;
     }
 
     .dfghjdfgdfgf > div.d-none{

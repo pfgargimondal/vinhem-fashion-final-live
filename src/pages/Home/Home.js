@@ -8,9 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "./Css/Home.css";
 import "./Css/HomeResponsive.css";
+import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 import Loader from "../../components/Loader/Loader";
 import { useMetaData } from "../../hooks/useMetaData";
-import { FooterTopComponent } from "../../components/Others/FooterTopComponent";
 
 export const Home = () => {
   const [homepage, Sethomepage] = useState({});
@@ -66,7 +66,7 @@ export const Home = () => {
     pagination: { clickable: true },
     breakpoints: {
       0: { slidesPerView: 1.2 },
-      320: { slidesPerView: 2.2 },
+      420: { slidesPerView: 2.2 },
       576: { slidesPerView: 2.2 },
       768: { slidesPerView: 3.2 },
       992: { slidesPerView: 4.2 },

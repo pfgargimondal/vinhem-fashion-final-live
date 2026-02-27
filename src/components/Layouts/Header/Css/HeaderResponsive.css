@@ -349,7 +349,7 @@
 
     .res-ctgy-menu-modal{
         width: 70%;
-        top: 0;
+        overflow-y: auto;
         left: 0;
         bottom: 0;
         z-index: 9999999;
@@ -368,7 +368,7 @@
         right: 0;
         bottom: 0;
         background: rgba(0, 0, 0, 0.6);
-        z-index: 999999;
+        z-index: 99999;
         opacity: 1;
         visibility: visible;
     }

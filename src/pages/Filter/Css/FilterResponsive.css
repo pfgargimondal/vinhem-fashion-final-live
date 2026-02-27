@@ -142,6 +142,10 @@
         padding-right: 0.2rem !important;
     }
 
+    .fdbdfgdfgdf > div.d-flex{
+        flex-wrap: wrap;
+    }
+
     .dweihruiwehrjnwer .tab-content{
         height: 94vh;
         overflow-y: auto;
@@ -262,12 +266,18 @@
 
 
 @media only screen and (max-width: 575px){
-    .fdbdfgdfgdf h6 {
-        font-size: 1.4vw !important;
-    }
-
     .doiewjkrniuwewer {
         height: auto !important;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 420px){
+    .fdbdfgdfgdf h6 {
+        font-size: 3.5vw !important;
     }
 }
 
@@ -282,7 +292,6 @@
         width: 100%;
     }
 }
-
 
 
 

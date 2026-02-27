@@ -33,10 +33,30 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   const searchRefRes = useRef(null);
   const [resCtgyDrpdwn, setResCtgyDrpdwn] = useState(false);
   const [resSearchToggle, setResSearchToggle] = useState(false);
+  const [headerFixed, setHeaderFixed] = useState(false);
+
   // const [loginModal, setLoginModal] = useState(false);
   // const [loginModalBackdrop, setLoginModalBackdrop] = useState(false);
   // const [otpModal, setOtpModal] = useState(false);
   // const [completeLoginModal, setCompleteLoginModal] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const headerStickyWrapper = document.querySelector(".header-sticky-wrapper");
+
+      if (headerStickyWrapper?.classList.contains("is-fixed-top")) {
+        setHeaderFixed(true);
+      } else {
+        setHeaderFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setResSearchToggle(false);
@@ -930,7 +950,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
       <div className={`${resMenu ? "res-ctgy-menu-backdrop d-none" : "res-ctgy-menu-backdrop d-none res-ctgy-menu-backdrop-hide"} position-fixed w-100 h-100`} onClick={() => setResMenu(false)}></div>
 
-      <div className={`${resMenu ? "res-ctgy-menu-modal d-none" : "res-ctgy-menu-modal d-none res-ctgy-menu-modal-hide"} bg-white position-fixed h-100 p-3`}>
+      <div className={`${resMenu ? "res-ctgy-menu-modal d-none" : "res-ctgy-menu-modal d-none res-ctgy-menu-modal-hide"} bg-white position-fixed h-100 p-3`} style={headerFixed ? {top: "110px"} : {top: "138px"}}>
         <div className={`${!user ? "d-flex" : "d-block"} align-items-center justify-content-between`}>
             {user ? (
               <>
