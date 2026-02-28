@@ -298,16 +298,17 @@ form input:global(.form-control){
 }
 
 .filterBtn {
-  display: flex;
+    display: flex;
     align-items: center;
     gap: 9px;
     padding: 7px 19px;
-    background: #fff;
+    background: var(--pink-main-color);
     border: 1px solid #e5e5e5;
+    color: #fff;
     border-radius: 4px;
     font-size: 14px;
-  cursor: pointer;
-  margin-top: 4px;
+    cursor: pointer;
+    margin-top: 4px;
 }
 
 .filterBtn i {
@@ -342,7 +343,7 @@ form input:global(.form-control){
 }
 
 .active {
-  color: #ff4d2d; /* orange-red like image */
+  color: var(--pink-main-color); /* orange-red like image */
   font-weight: 500;
   background: #fff3ef;
 }

@@ -29,7 +29,7 @@ export const OrderHistory = () => {
         const body = document.querySelector("body");
 
         const flterClose = () => {
-            setOpen(prev => !prev);
+            setOpen(false);
         };
 
         body.addEventListener("click", flterClose);

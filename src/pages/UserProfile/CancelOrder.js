@@ -19,6 +19,18 @@ export const CancelOrder = () => {
 
   const searchRef = useRef(null);
 
+  useEffect(() => {
+      const body = document.querySelector("body");
+
+      const flterClose = () => {
+          setOpen(false);
+      };
+
+      body.addEventListener("click", flterClose);
+
+      return () => body.removeEventListener("click", flterClose);
+  }, []);
+
   /* =======================
       YEAR FILTER OPTIONS
   ======================= */
@@ -33,26 +45,26 @@ export const CancelOrder = () => {
   // ];
 
   const years = useMemo(() => {
-      if (!user?.created_at) return [];
+        if (!user?.created_at) return [];
 
-      const createdYear = new Date(user.created_at).getFullYear();
+        const createdYear = new Date(user.created_at).getFullYear();
 
-      // ✅ If only one year exists
-      if (createdYear === currentYear) {
-          return [currentYear.toString()];
-      }
+        // ✅ If only one year exists
+        if (createdYear === currentYear) {
+            return [currentYear.toString()];
+        }
 
-      // ✅ If multiple years
-      return [
-          `${createdYear} - ${currentYear}`,
-          ...Array.from(
-              { length: currentYear - createdYear + 1 },
-              (_, i) => (currentYear - i).toString()
-          )
-      ];
-  }, [user, currentYear]);
+        // ✅ If multiple years
+        return [
+            `${createdYear} - ${currentYear}`,
+            ...Array.from(
+                { length: currentYear - createdYear + 1 },
+                (_, i) => (currentYear - i).toString()
+            )
+        ];
+    }, [user, currentYear]);
 
-  const [selected, setSelected] = useState("");
+    const [selected, setSelected] = useState("");
     useEffect(() => {
         if (years.length > 0) {
             setSelected(years[0]);
@@ -162,38 +174,39 @@ export const CancelOrder = () => {
                   {/* FILTER */}
                   <div className={styles.filterWrapper}>
                     <button
-                      className={styles.filterBtn}
-                      onClick={() => setOpen(!open)}
+                    className={styles.filterBtn}
+                    onClick={(e) => {e.stopPropagation(); setOpen(!open);}}
                     >
-                      <i className="bi bi-sliders" /> Filter
+                    <i className="bi bi-sliders" /> Filter
                     </button>
 
                     {open && (
-                      <div className={styles.dropdown}>
+                    <div className={styles.dropdown} onClick={(e) => e.stopPropagation()}>
                         <div
-                          className={`${styles.option} ${styles.active}`}
-                          style={{ pointerEvents: "none" }}
+                        className={`${styles.option} ${styles.active}`}
+                        style={{ pointerEvents: "none" }}
                         >
-                          {selected}
+                        {selected}
                         </div>
 
                         {years
-                          .filter(year => year !== selected)
-                          .map((year, index) => (
+                        .filter(year => year !== selected)
+                        .map((year, index) => (
                             <div
-                              key={index}
-                              className={styles.option}
-                              onClick={() => {
+                            key={index}
+                            className={styles.option}
+                            onClick={() => {
                                 setSelected(year);
                                 setOpen(false);
-                              }}
+                            }}
                             >
-                              {year}
+                            {year}
                             </div>
-                          ))}
-                      </div>
+                        ))}
+                    </div>
                     )}
-                  </div>
+                </div>
+
 
                   <p className="ndiwhermweoewrr mb-0 d-none">
                     <Link to="/">

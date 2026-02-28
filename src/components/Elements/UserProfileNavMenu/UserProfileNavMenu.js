@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Css/UserProfileNavMenu.css";
 import "./Css/UserProfileNavMenuResponsive.css";
@@ -24,7 +24,7 @@ export const UserProfileNavMenu = () => {
         bodyScrollFixed();
     }, [resUsernavToggle]);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { dispatch } = useAuth(); 
 
     const handleLogout = () => {
@@ -33,7 +33,7 @@ export const UserProfileNavMenu = () => {
         localStorage.removeItem("user");
 
         dispatch({ type: "LOGOUT" });
-        navigate("/login");
+        // navigate("/login");
     };
 
     return (

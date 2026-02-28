@@ -5,7 +5,9 @@ import html2canvas from "html2canvas";
 import "./Css/Invoice-new.css";
 import "./Css/InvoiceResponsive.css";
 import http from "../../http";
+import Loader from "../../components/Loader/Loader";
 import { useAuth } from "../../context/AuthContext";
+import { ToWords } from 'to-words';
 
 const Invoice = () => {
     const { orderId } = useParams();
@@ -33,8 +35,6 @@ const Invoice = () => {
         });
 
         const data = res.data.data;
-
-        console.log(data, 'datainvoice')
 
         setOrder(data.orders);
         setUser(data.user);
@@ -106,8 +106,129 @@ const Invoice = () => {
       }, 100);
     }, [navigate, order]);
 
-    if (loading) return <div>Loading invoice...</div>;
+    if (loading) {
+        return <Loader />;
+    }
 
+// Gst Calculation function here
+
+    const gstCalc = (amount, state) => {
+    const net = amount / 1.18;              // taxable value
+    const totalGst = amount - net;          // total 18% GST
+
+    let cgst = 0, sgst = 0, igst = 0;
+    let cgstRate = 0, sgstRate = 0, igstRate = 0;
+
+    if (state?.toLowerCase().trim() === "west bengal") {
+      cgstRate = 9;
+      sgstRate = 9;
+      cgst = totalGst / 2;
+      sgst = totalGst / 2;
+    } else {
+      igstRate = 18;
+      igst = totalGst;
+    }
+
+    return {
+      net,
+      cgst,
+      sgst,
+      igst,
+      cgstRate,
+      sgstRate,
+      igstRate
+    };
+  };
+
+
+  let totalQty = 0;
+  userOrderProduct?.forEach((item) => {
+    totalQty += Number(item.quantity || 0);
+
+    if (Number(item.turban_selected) === 1) totalQty += 1;
+    if (Number(item.mojri_selected) === 1) totalQty += 1;
+    if (Number(item.stole_selected) === 1) totalQty += 1;
+  });
+  const state = order?.shippingState || "";
+
+  const shippingAmount = Number(order?.shipping_charge || 0);
+  const shippingGst = gstCalc(shippingAmount, state);
+
+  let totalTaxable = 0;
+  let totalCgst = 0;
+  let totalSgst = 0;
+  let totalIgst = 0;
+  let totalAmount = 0;
+
+  userOrderProduct?.forEach((item) => {
+
+    // ----- MAIN PRODUCT -----
+    const gross =
+    Number(item.total_price || 0) +
+    Number(item.custom_fit_charge || 0);
+    const gst = gstCalc(gross, state);
+
+    totalTaxable += gst.net;
+    totalCgst += gst.cgst;
+    totalSgst += gst.sgst;
+    totalIgst += gst.igst;
+    totalAmount += gross;
+
+    // ----- TURBAN -----
+    if (Number(item.turban_selected) === 1) {
+      const grossAddon = Number(item.turban_charge || 0);
+      const gstAddon = gstCalc(grossAddon, state);
+
+      totalTaxable += gstAddon.net;
+      totalCgst += gstAddon.cgst;
+      totalSgst += gstAddon.sgst;
+      totalIgst += gstAddon.igst;
+      totalAmount += grossAddon;
+    }
+
+    // ----- MOJRI -----
+    if (Number(item.mojri_selected) === 1) {
+      const grossAddon = Number(item.mojri_charge || 0);
+      const gstAddon = gstCalc(grossAddon, state);
+
+      totalTaxable += gstAddon.net;
+      totalCgst += gstAddon.cgst;
+      totalSgst += gstAddon.sgst;
+      totalIgst += gstAddon.igst;
+      totalAmount += grossAddon;
+    }
+
+    // ----- STOLE -----
+    if (Number(item.stole_selected) === 1) {
+      const grossAddon = Number(item.stole_charge || 0);
+      const gstAddon = gstCalc(grossAddon, state);
+
+      totalTaxable += gstAddon.net;
+      totalCgst += gstAddon.cgst;
+      totalSgst += gstAddon.sgst;
+      totalIgst += gstAddon.igst;
+      totalAmount += grossAddon;
+    }
+  });
+
+  totalTaxable += shippingGst.net;
+  totalCgst += shippingGst.cgst;
+  totalSgst += shippingGst.sgst;
+  totalIgst += shippingGst.igst;
+  totalAmount += shippingAmount;
+
+
+  const toWords = new ToWords({
+  localeCode: 'en-IN',
+  converterOptions: {
+    currency: false,
+    ignoreDecimal: true,
+    ignoreZeroCurrency: true,
+    }
+  });
+
+ const amountInWords = toWords.convert(Math.round(totalAmount));
+  
 
   return (
     <>
@@ -239,94 +360,121 @@ const Invoice = () => {
               <th style={{borderTop: 0, borderRight: 0}}></th>
             </tr>
 
-            {userOrderProduct?.map((item, index) => (
-              <React.Fragment key={index}>
-                <tr>
-                  <td style={{ borderLeft: 0 }}>{index + 1}</td>
-                  <td style={{ textAlign: "left" }}>
-                    {item.product_name}
-                  </td>
-                  <td>60052378</td>
-                  <td>{item.product_size ? item.product_size : '-'}</td>
-                  <td>{item.quantity ? item.quantity : '-'}</td>
-                  <td>950</td>
-                  <td>2.5%</td>
-                  <td>25</td>
-                  <td>2.5%</td>
-                  <td>25</td>
-                  <td>5%</td>
-                  <td>50</td>
-                  <td style={{ borderRight: 0 }}>{item.total_price ? item.total_price : '-'}</td>
-                </tr>
-
-                {item.turban_selected === 1 && (
-                  <>
-                  <tr>
-                    <td style={{ borderLeft: 0 }}>{index + 1}</td>
-                    <td style={{ textAlign: "left" }}>
-                      Matching Turban
-                    </td>
-                    <td>60052378</td>
-                    <td>{item.turban_size ? item.turban_size : '-'}</td>
-                    <td>1</td>
-                    <td>950</td>
-                    <td>2.5%</td>
-                    <td>25</td>
-                    <td>2.5%</td>
-                    <td>25</td>
-                    <td>5%</td>
-                    <td>50</td>
-                    <td style={{ borderRight: 0 }}>{item.turban_charge ? item.turban_charge : '-'}</td>
-                  </tr>
-                  </>
                   
-                )}
-              </React.Fragment>
-            ))}
+            {userOrderProduct?.map((item, index) => {
+             const gross =
+                          parseFloat(item.total_price || 0) +
+                          parseFloat(item.custom_fit_charge || 0);
+
+                        const gst = gstCalc(gross, state);
+              let serial = 0;
+              return (
+                <React.Fragment key={index}>
+
+                  {/* MAIN PRODUCT ROW */}
+                  <tr>
+                    <td>{++serial}</td>
+                    <td style={{ textAlign: "left" }}>{item.product_name}</td>
+                    <td>60052378</td>
+                    <td>{item.product_size || '-'}</td>
+                    <td>{item.quantity || '-'}</td>
+                    <td>{gst.net.toFixed(2)}</td>
+                    <td>{gst.cgstRate}%</td>
+                    <td>{gst.cgst.toFixed(2)}</td>
+                    <td>{gst.sgstRate}%</td>
+                    <td>{gst.sgst.toFixed(2)}</td>
+                    <td>{gst.igstRate}%</td>
+                    <td>{gst.igst.toFixed(2)}</td>
+                    <td>{gross.toFixed(2)}</td>
+                  </tr>
+
+
+                  {/* TURBAN */}
+                  {item.turban_selected === '1' && (() => {
+
+                    const grossAddon = parseFloat(item.turban_charge || 0);
+                    const gstAddon = gstCalc(grossAddon, state);
+
+                    return (
+                      <tr>
+                        <td>{++serial}</td>
+                        <td style={{ textAlign: "left" }}>Matching Turban</td>
+                        <td>60052378</td>
+                        <td>{item.turban_size || '-'}</td>
+                        <td>1</td>
+                        <td>{gstAddon.net.toFixed(2)}</td>
+                        <td>{gstAddon.cgstRate}%</td>
+                        <td>{gstAddon.cgst.toFixed(2)}</td>
+                        <td>{gstAddon.sgstRate}%</td>
+                        <td>{gstAddon.sgst.toFixed(2)}</td>
+                        <td>{gstAddon.igstRate}%</td>
+                        <td>{gstAddon.igst.toFixed(2)}</td>
+                        <td>{grossAddon.toFixed(2)}</td>
+                      </tr>
+                    );
+                  })()}
+
+
+                  {/* MOJRI */}
+                  {item.mojri_selected === '1' && (() => {
+
+                    const grossAddon = parseFloat(item.mojri_charge || 0);
+                    const gstAddon = gstCalc(grossAddon, state);
+
+                    return (
+                      <tr>
+                        <td>{++serial}</td>
+                        <td style={{ textAlign: "left" }}>Matching Mojri</td>
+                        <td>60052378</td>
+                        <td>{item.mojri_size || '-'}</td>
+                        <td>1</td>
+                        <td>{gstAddon.net.toFixed(2)}</td>
+                        <td>{gstAddon.cgstRate}%</td>
+                        <td>{gstAddon.cgst.toFixed(2)}</td>
+                        <td>{gstAddon.sgstRate}%</td>
+                        <td>{gstAddon.sgst.toFixed(2)}</td>
+                        <td>{gstAddon.igstRate}%</td>
+                        <td>{gstAddon.igst.toFixed(2)}</td>
+                        <td>{grossAddon.toFixed(2)}</td>
+                      </tr>
+                    );
+                  })()}
+
+
+                  {/* STOLE */}
+                  {item.stole_selected === '1' && (() => {
+
+                    const grossAddon = parseFloat(item.stole_charge || 0);
+                    const gstAddon = gstCalc(grossAddon, state);
+
+                    return (
+                      <tr>
+                        <td>{++serial}</td>
+                        <td style={{ textAlign: "left" }}>Matching Stole</td>
+                        <td>60052378</td>
+                        <td>{item.stole_size || '-'}</td>
+                        <td>1</td>
+                        <td>{gstAddon.net.toFixed(2)}</td>
+                        <td>{gstAddon.cgstRate}%</td>
+                        <td>{gstAddon.cgst.toFixed(2)}</td>
+                        <td>{gstAddon.sgstRate}%</td>
+                        <td>{gstAddon.sgst.toFixed(2)}</td>
+                        <td>{gstAddon.igstRate}%</td>
+                        <td>{gstAddon.igst.toFixed(2)}</td>
+                        <td>{grossAddon.toFixed(2)}</td>
+                      </tr>
+                    );
+                  })()}
+
+                </React.Fragment>
+              );
+            })}
 
             
-{/* 
-            <tr>
-              <td style={{ borderLeft: 0 }}>2</td>
-              <td style={{ textAlign: "left" }}>
-                RANAK Purple Resham Embroidery Art Silk Kurta Pajama
-              </td>
-              <td>60052378</td>
-              <td>XXS - 32</td>
-              <td>1</td>
-              <td>950</td>
-              <td>2.5%</td>
-              <td>25</td>
-              <td>2.5%</td>
-              <td>25</td>
-              <td>5%</td>
-              <td>50</td>
-              <td style={{ borderRight: 0 }}>1000</td>
-            </tr>
-
-            <tr>
-              <td style={{ borderLeft: 0 }}>3</td>
-              <td style={{ textAlign: "left" }}>
-                RANAK Purple Resham Embroidery Art Silk Kurta Pajama
-              </td>
-              <td>60052378</td>
-              <td>XXS - 32</td>
-              <td>1</td>
-              <td style={{ borderBottom: 0 }}>950</td>
-              <td style={{ borderBottom: 0 }}>2.5%</td>
-              <td style={{ borderBottom: 0 }}>25</td>
-              <td style={{ borderBottom: 0 }}>2.5%</td>
-              <td style={{ borderBottom: 0 }}>25</td>
-              <td style={{ borderBottom: 0 }}>5%</td>
-              <td style={{ borderBottom: 0 }}>50</td>
-              <td style={{ borderRight: 0, borderBottom: 0 }}>1000</td>
-            </tr> */}
-
-
 
             <tr>
               <td colspan="4" className="right" style={{ borderLeft: 0 }}><strong>Total Qty</strong></td>
-              <td>2</td>
+              <td>{totalQty}</td>
               <td style={{ borderBottom: 0, borderTop: 0 }}></td>
               <td style={{ borderBottom: 0, borderTop: 0 }}></td>
               <td style={{ borderBottom: 0, borderTop: 0 }}></td>
@@ -339,25 +487,25 @@ const Invoice = () => {
 
             <tr>
               <td colspan="5" style={{ borderLeft: 0 }}><strong>Shipping &amp; Duties</strong></td>
-              <td>1639</td>
-              <td>9%</td>
-              <td>179.91</td>
-              <td>9%</td>
-              <td>179.91</td>
-              <td>18%</td>
-              <td>359.82</td>
-              <td style={{ borderRight: 0 }}>1999</td>
+              <td>{totalTaxable.toFixed(2)}</td>
+              <td>{shippingGst.cgstRate}%</td>
+              <td>{totalCgst.toFixed(2)}</td>
+              <td>{shippingGst.sgstRate}%</td>
+              <td>{totalSgst.toFixed(2)}</td>
+              <td>{shippingGst.igstRate}%</td>
+              <td>{totalIgst.toFixed(2)}</td>
+              <td style={{ borderRight: 0 }}>{totalAmount.toFixed(2)}</td>
             </tr>
 
             <tr>
               <td colspan="8" className="words gdfgdf" style={{ borderLeft: 0, borderBottom: 0 }}>
                 <strong>Amount In Words :</strong>
-                &nbsp; Five Thousand Two Hundred Fourty Nine Only.
+                &nbsp; {amountInWords} Only.
               </td>
               <td colspan="4" style={{ borderBottom: 0 }} className="invoice-total-label invoice-total-label-color">
                 <strong style={{ fontSize: "1rem" }}>Invoice Total</strong>
               </td>
-              <td class="invoice-total" style={{ borderRight: 0, fontSize: "1rem", borderBottom: 0 }}>5249</td>
+              <td class="invoice-total" style={{ borderRight: 0, fontSize: "1rem", borderBottom: 0 }}>{totalAmount.toFixed(2)}</td>
             </tr>
           </tbody>
         </table>
@@ -373,7 +521,7 @@ const Invoice = () => {
               </td>
 
               <td style={{ borderRight: 0, fontSize: "1rem", width: "20%" }} className="company-name">
-                VinHem Fashion Pvt Ltd
+                VinHem Fashion
               </td>
             </tr>
 

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Css/Login.css";
 import { useState } from "react";
 import { loginAPI } from "../../api/auth";
@@ -11,7 +11,7 @@ export const Login = () => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
   const [captchaToken, setCaptchaToken] = useState("");
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { dispatch } = useAuth(); // ✅ use reducer dispatch
 
@@ -69,7 +69,7 @@ export const Login = () => {
             user: response.data.data,
           },
         });
-        navigate("/");
+        // navigate("/");
         setInputs({ email: "", password: "" });
       } else {
         toast.error(response.data.message);
