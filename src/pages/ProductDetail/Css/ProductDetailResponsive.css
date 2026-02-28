@@ -1160,6 +1160,22 @@
 
 
 
+@media only screen and (max-width: 428px){
+    .zoom-gallery-modal .small-image-tabs .nav-item {
+        min-height: 100px;
+        max-height: 100px;
+    }
+
+    .zoom-gallery-modal .small-image-tabs .nav-item img,
+    .zoom-gallery-modal .small-image-tabs .nav-item video {
+        max-height: 85px;
+    }
+}
+
+
+
+
+
 
 @media only screen and (max-width: 420px){
     .skdncfjsdbcfksdnf .btn-main img {
@@ -1225,7 +1241,7 @@
 
     .zoom-gallery-modal .small-image-tabs .nav-item img,
     .zoom-gallery-modal .small-image-tabs .nav-item video {
-        max-height: 77px;
+        max-height: 75px;
     }
 }
 
