@@ -58,7 +58,7 @@ export const UserProfileNavMenu = () => {
 
             <div onClick={() => setResUsernavToggle(false)} className={resUsernavToggle ? "user-dashboard-nav-backdrop d-none position-fixed w-100 h-100" : "user-dashboard-nav-backdrop d-none user-dashboard-nav-backdrop-hide position-fixed w-100 h-100"}></div>
 
-            <div className={resUsernavToggle ? "hdkgdfg sticky-top" : "hdkgdfg user-dashboard-nav-hide sticky-top"} id="user-dashboard-nav">
+            <div className={resUsernavToggle ? "hdkgdfg h-100 sticky-top" : "hdkgdfg h-100 user-dashboard-nav-hide sticky-top"} id="user-dashboard-nav">
                 <div className="dfbdf position-relative mb-2 p-3">
                     <h4 className="mb-0">Hi, {user.name}</h4>
 

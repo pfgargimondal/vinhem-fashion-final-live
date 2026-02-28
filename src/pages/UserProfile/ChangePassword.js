@@ -88,58 +88,62 @@ export const ChangePassword = () => {
                   <h4 className="mb-0">My Vouchers & Credits</h4>
                 </div> 
                 
-                <div className="row col-lg-10 mb-5 justify-content-between align-items-center">
-                  <div className="col-7">
-                    <div className={styles.diewhkewrwer}>
-                      <div className={`${styles.dfjhdsbfsdf} mb-3`}>
-                        <h4 className="mb-0">My Credit</h4>
+                <div className={`${styles.dihefrewrr} py-4 px-5 mt-5`}>
+                  <div className="row col-lg-12 justify-content-between align-items-center">
+                    <div className="col-7">
+                      <div className={styles.diewhkewrwer}>
+                        <div className={`${styles.dfjhdsbfsdf} mb-3`}>
+                          <h4 className="mb-2">My Credit</h4>
 
-                        <p className="ndiwhermweoewrr mb-0 d-none">
-                          <Link to="/">
-                            <i className="fa-solid me-1 fa-arrow-left"></i> Back To Home{" "}
-                            <i className="fa-solid ms-1 fa-house"></i>
-                          </Link>
-                        </p>
+                          <p className="ndiwhermweoewrr mb-0 d-none">
+                            <Link to="/">
+                              <i className="fa-solid me-1 fa-arrow-left"></i> Back To Home{" "}
+                              <i className="fa-solid ms-1 fa-house"></i>
+                            </Link>
+                          </p>
+                        </div>
+
+                        <h5 className="mb-3">Balance</h5>
+
+                        <p className="mb-0">Your current balance is: <span><i class="fa-solid fa-indian-rupee-sign"></i> <b>0.00</b></span></p>
                       </div>
-
-                      <h5>Balance</h5>
-
-                      <p className="mb-0">Your current balance is: <span><i class="fa-solid fa-indian-rupee-sign"></i> <b>0.00</b></span></p>
                     </div>
-                  </div>
 
-                  <div className="col-5">
-                    <div className={`${styles.doiwehijrwerwer} text-center`}>
-                      <img src="./images/swrwww.jpg" className="w-100" alt="" />
+                    <div className="col-5">
+                      <div className={`${styles.doiwehijrwerwer} text-center`}>
+                        <img src="./images/swrwww.jpg" style={{ width: "60%" }} alt="" />
 
-                      <p className="mb-0">You have no credits</p>
+                        <p className="mb-0">You have no credits</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="row col-lg-10 justify-content-between align-items-center">
-                  <div className="col-7">
-                    <div className={styles.diewhkewrwer}>
-                      <div className={`${styles.dfjhdsbfsdf} d-block ${styles.oidjiejkoiijrr} mb-3`}>
-                        <h4>My Vouchers</h4>
+                <div className={`${styles.dihefrewrr} py-4 px-5 mt-5`}>
+                  <div className="row col-lg-12 justify-content-between align-items-center">
+                    <div className="col-7">
+                      <div className={styles.diewhkewrwer}>
+                        <div className={`${styles.dfjhdsbfsdf} d-block ${styles.oidjiejkoiijrr} mb-3`}>
+                          <h4 className="mb-4">My Vouchers</h4>
 
-                        <p className="mb-0">No. of Active Vouchers: <span>1</span></p>
+                          <div className={`${styles.doejwijwe_list} mb-4`}>
+                            <div><h5 className={`${styles.deikwnhwenriwejr}`}><span>1)</span> Coupon Code: VFXFT2508 - [Valid Till 28/02/2026]</h5></div>
+                          </div>
+                        </div>
+
+                        <p className="mb-0">No. of Active Vouchers: <span>1</span></p>                        
                       </div>
-
-                      <ol className={styles.doejwijwe_list}>
-                        <li><h5 className={`${styles.deikwnhwenriwejr} text-center py-2 px-3 mb-2 rounded-2`}>Coupon Code: VFXFT2508 - [Valid Till 28/02/2026]</h5></li>
-                      </ol>
                     </div>
-                  </div>
 
-                  <div className="col-5">
-                    <div className={`${styles.doiwehijrwerwer} text-center`}>
-                      <img src="./images/zadawda.jpg" className="w-100" alt="" />
+                    <div className="col-5">
+                      <div className={`${styles.doiwehijrwerwer} text-center`}>
+                        <img src="./images/zadawda.jpg" style={{ width: "60%" }} alt="" />
 
-                      <p className="mb-0">You have no vouchers</p>
+                        <p className="mb-0">You have no vouchers</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </div>  
+                </div>                
 
                 {/* <form onSubmit={handleSubmit}>
                   <div className={styles.fxnjhdfsdfds}>

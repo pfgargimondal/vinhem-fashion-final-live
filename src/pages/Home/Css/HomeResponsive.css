@@ -519,7 +519,7 @@
     }
 
     .xfdjgdfgdfg {
-        height: 35vw;
+        height: auto;
     }
 
     .lknaknjdoijweewpr.py-4{
@@ -606,6 +606,16 @@
 
     footer .footer-bottom ul.d-flex{
         flex-wrap: wrap;
+    }
+
+    .dkhweinjkwehijkr.row{
+        display: block !important;
+    }
+
+    .sdvfsdsefredraede .col-lg-4{
+        margin-bottom: 2rem;
+        width: 100%;
+        border-right: 0;
     }
 }
 

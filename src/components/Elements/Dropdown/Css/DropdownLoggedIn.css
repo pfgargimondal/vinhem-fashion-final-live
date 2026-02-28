@@ -42,6 +42,7 @@
 .diewirjwejrwer{
   border: none;
   cursor: default;
+  transform: translateX(-9px);
 }
 
 .diewirjwejrwer img{
@@ -105,12 +106,10 @@ header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li{
 header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover,
 header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover a{
   color: #fff !important;
-  background: var(--pink-main-color);
   transition: all 0.3s ease;
 }
-header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li:hover span.prfl-optns-divider{
+header .header-top .doewhruiwerwer_right ul li .dropdown-loggedin ul li span.prfl-optns-divider{
   background: transparent !important;
-  color: #fff !important;
 }
 
 

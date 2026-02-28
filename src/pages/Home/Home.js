@@ -236,7 +236,7 @@ export const Home = () => {
             <h2 className="mb-3">Top Categories</h2>
           </div>
 
-          <ul className="fgjdfgf3298 ps-0 mb-0 d-inline-flex align-items-center justify-content-center flex-wrap">
+          <ul className="fgjdfgf3298 ps-0 mb-0 d-inline-flex align-items-center justify-content-between flex-wrap">
             {homepage?.data?.home_category.map((topCategorie) => (
               <li className="dfhdfg" key={topCategorie.id}>
                 <div className="dbfggfhfh">

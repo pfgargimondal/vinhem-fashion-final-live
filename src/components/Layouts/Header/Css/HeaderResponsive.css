@@ -441,6 +441,10 @@
         border-top: 1px solid var(--light-background-color);
         border-bottom: 1px solid var(--light-background-color);
     }
+    
+    .mnctgy a{
+        font-size: 1.1rem;
+    }
 
     .wlojdfiwejrower .currency-menu{
         right: 0;

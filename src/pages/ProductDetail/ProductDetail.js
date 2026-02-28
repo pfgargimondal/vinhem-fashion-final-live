@@ -1200,11 +1200,8 @@ export const ProductDetail = () => {
                         </Row>
                       </Tab.Container>
                     </div>
-                    </div>
 
-                    <div className="col-lg-6">
-                    <div className="dfghjdfgdfgf sgbffwerrewrwr ps-2 pt-2">
-                      <div className={`d-none align-items-center ${(productDetails?.data?.rts_quantity > '0' && (productDetails?.data?.best_seller === '1' || productDetails?.data?.best_seller === true) ? "justify-content-between" : "")}`}>
+                    <div className={`vfeghrfgfferrer d-none align-items-center ${(productDetails?.data?.rts_quantity > '0' && (productDetails?.data?.best_seller === '1' || productDetails?.data?.best_seller === true) ? "justify-content-between" : "")}`}>
                         <h6><i class="bi me-1 bi-truck"></i> Ships in {productDetails?.data?.shipping_time}</h6>
 
                         {/* {product.product_category === "READY TO SHIP" && (
@@ -1218,91 +1215,244 @@ export const ProductDetail = () => {
                           <h6><i class="bi bi-lightning-charge"></i> Best Seller</h6>
                         )}
                       </div>
+                    </div>
 
-                      <div className="dsfbsdghfjs mb-1">
-                        <div className="fgnjdfgfd">
-                          <h2>
-                            {productDetails?.data?.product_name}
-                            {/* <i className="fa-solid fa-greater-than" /> */}
-                          </h2>
+                    <div className="col-lg-6">
+                      <div className="dfghjdfgdfgf sgbffwerrewrwr ps-2 pt-2">
+                        <div className="dsfbsdghfjs mb-1">
+                          <div className="fgnjdfgfd">
+                            <h2>
+                              {productDetails?.data?.product_name}
+                              {/* <i className="fa-solid fa-greater-than" /> */}
+                            </h2>
+                          </div>
+
+                          <div className="dfhdfhd">
+                            {/* <p className="mb-0 d-flex align-items-center">
+                            <span className="me-2">Share:</span>
+
+                            <img src="/images/whatsapp.png" alt="" />
+
+                            <img src="/images/facebook.png" alt="" />
+
+                            <img src="/images/twitter.png" alt="" />
+
+                            <img src="/images/pinterest.png" alt="" />
+                          </p> */}
+
+                            {/* <i className="fa-regular fa-heart" /> */}
+
+                            {user ? (
+                              <>
+                                <i
+                                  onClick={() =>
+                                    toggleWishlist(productDetails?.data?.id)
+                                  }
+                                  className={
+                                    wishlistIds.includes(productDetails?.data?.id)
+                                      ? "fa-solid fa-heart"
+                                      : "fa-regular fa-heart"
+                                  }
+                                ></i>
+                              </>
+                            ) : (
+                              <>
+                                <i class="fa-regular fa-heart" onClick={handleLoginModal}></i>
+                                <i class="fa-solid d-none fa-heart"></i>
+                              </>
+                            )}
+                          </div>
                         </div>
 
-                        <div className="dfhdfhd">
-                          {/* <p className="mb-0 d-flex align-items-center">
-                          <span className="me-2">Share:</span>
+                        <div className="fhdfgh">
+                          <p className="d-flex align-items-center flex-wrap">
+                            Item ID: {productDetails?.data?.item_id} |{" "}
+                            {productDetails?.data?.views} Views{" "}
+                            <i class="bi ms-2 bi-eye"></i>
+                          </p>
+                        </div>
 
-                          <img src="/images/whatsapp.png" alt="" />
+                        <div className="dfjghdfgdff58 mb-4">
+                          <h4 className="d-flex mb-1">
+                            <span className="discounted-price d-flex align-items-center">
+                              MRP :{" "}
+                              {/* {formatPrice(productDetails?.data?.selling_price)} */}
+                              {sizeAccordingPrice === 0 ? (formatPrice(productDetails?.data?.selling_price))
+                              :(formatPrice(sizeAccordingPrice))
+                              }
+                            </span> 
 
-                          <img src="/images/facebook.png" alt="" />
+                            <span className="gdfg55 d-flex align-items-center ms-2">
+                              {/* <i class="bi bi-currency-rupee"></i> */}
+                              {formatPrice(productDetails?.data?.mrp_price)}
+                            </span>
 
-                          <img src="/images/twitter.png" alt="" />
+                            <span className="fghfgg114 d-flex align-items-center ms-2">
+                              {productDetails?.data?.discount}%OFF
+                            </span>
+                          </h4>
 
-                          <img src="/images/pinterest.png" alt="" />
-                        </p> */}
+                          <p className="mb-0">(Inclusive of all taxes)</p>
+                        </div>
 
-                          {/* <i className="fa-regular fa-heart" /> */}
+                        <div className="jdfbdfgdf">
+                          {(productDetails?.data?.stitching_option !==
+                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
+                            <div class="diwenjrbwebrwehgrwer">
+                              <div className="d-flex align-items-center justify-content-between">
+                                <h4 class="pb-2">Stitching Options</h4>
 
-                          {user ? (
-                            <>
-                              <i
-                                onClick={() =>
-                                  toggleWishlist(productDetails?.data?.id)
-                                }
-                                className={
-                                  wishlistIds.includes(productDetails?.data?.id)
-                                    ? "fa-solid fa-heart"
-                                    : "fa-regular fa-heart"
-                                }
-                              ></i>
-                            </>
-                          ) : (
-                            <>
-                              <i class="fa-regular fa-heart" onClick={handleLoginModal}></i>
-                              <i class="fa-solid d-none fa-heart"></i>
-                            </>
+                                <div className="dfhdfhd pe-0">
+                                    <p className="d-flex align-items-center mb-0">
+                                      <span className="me-2">SHARE:</span>
+
+                                      <img
+                                        src="/images/whatsapp.png"
+                                        alt="Share on Whatsapp"
+                                        onClick={handleWhatsAppShare}
+                                      />
+
+                                      <img
+                                        src="/images/facebook.png"
+                                        alt="Share on Facebook"
+                                        onClick={handleFacebookShare}
+                                      />
+
+                                      <img
+                                        src="/images/twitter.png"
+                                        alt="Share on Twitter"
+                                        onClick={handleTwitterShare}
+                                      />
+
+                                      <img
+                                        src="/images/pinterest.png"
+                                        alt="Share on Pinterest"
+                                        onClick={handlePinterestShare}
+                                      />
+                                    </p>
+                                  </div>
+                              </div>
+
+                              <hr class="mt-0" style={{ width: "86%" }} />                              
+                            </div>
                           )}
-                        </div>
-                      </div>
 
-                      <div className="fhdfgh">
-                        <p className="d-flex align-items-center flex-wrap">
-                          Item ID: {productDetails?.data?.item_id} |{" "}
-                          {productDetails?.data?.views} Views{" "}
-                          <i class="bi ms-2 bi-eye"></i>
-                        </p>
-                      </div>
+                          <div className="saoijhdekjwirwer row align-items-center mb-3">
+                            {(productDetails?.data?.stitching_option !==
+                              "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
+                              <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
+                                <input
+                                  type="radio"
+                                  name="so"
+                                  id="unstdf"
+                                  className="d-none position-absolute"
+                                  checked={selectedStitchOption === "stitch"}
+                                  onChange={() =>
+                                    handleStitchOptionChange("stitch")
+                                  }
+                                />
+                                <label htmlFor="unstdf" className="p-3">
+                                  {productDetails?.data?.stitching_option?.replace(/-/g, " ")}
+                                  <br />
+                                  <span>
+                                    +{/* <i class="bi bi-currency-rupee"></i>  */}
+                                    {formatPrice(
+                                      productDetails?.data?.stiching_charges
+                                        ?.price ?? 0.0
+                                    )}
+                                  </span>
+                                </label>
+                              </div>
+                            )}
 
-                      <div className="dfjghdfgdff58 mb-4">
-                        <h4 className="d-flex mb-1">
-                          <span className="discounted-price d-flex align-items-center">
-                            MRP :{" "}
-                            {/* {formatPrice(productDetails?.data?.selling_price)} */}
-                            {sizeAccordingPrice === 0 ? (formatPrice(productDetails?.data?.selling_price))
-                            :(formatPrice(sizeAccordingPrice))
-                            }
-                          </span> 
+                            {(productDetails?.data?.stitching_option !==
+                              "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
+                              productDetails?.data?.custom_fit?.toLowerCase() ===
+                                "yes" && (
+                                <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
+                                  <input
+                                    type="radio"
+                                    name="so"
+                                    id="cf"
+                                    className="d-none position-absolute"
+                                    checked={selectedStitchOption === "customFit"}
+                                    onChange={() =>
+                                      handleStitchOptionChange("customFit")
+                                    }
+                                  />
+                                  <label
+                                    htmlFor="cf"
+                                    className="p-3"
+                                    id="cstm-fit-btn"
+                                  >
+                                    Custom Fit <br />
+                                    <span>
+                                      +
+                                      {/* <i class="bi bi-currency-rupee"></i> */}
+                                      {formatPrice(
+                                        productDetails?.data?.extra_charges?.price
+                                      )}
+                                    </span>
+                                  </label>
+                                </div>
+                              )}
+                          </div>
+                          {selectedStitchOption === "customFit" &&
+                            (productDetails?.data?.stitching_option !==
+                              "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
+                            productDetails?.data?.custom_fit?.toLowerCase() ===
+                              "yes" && (
+                              <div className="ikasdnjiknswjirhwer mb-4">
+                                <p className="mb-1">
+                                  Submit Measurement:{" "}
+                                  <span>
+                                    {measurementDetails?.data ? (
+                                      <Link
+                                        to=""
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          toast.warning(
+                                            "Measurement details already added!"
+                                          );
+                                        }}
+                                      >
+                                        CLICK HERE
+                                      </Link>
+                                    ) : (
+                                      <Link
+                                        to=""
+                                        onClick={(e) => {
+                                          e.preventDefault();
+                                          handleShowModal(e);
+                                        }}
+                                      >
+                                        CLICK HERE
+                                      </Link>
+                                    )}
+                                  </span>{" "}
+                                  or{" "}
+                                  <span>
+                                    <Link onClick={handleLaterToggle} to="">
+                                      Later
+                                    </Link>
+                                  </span>
+                                </p>
+                                <p className="mb-0">
+                                  +7 days, for your chosen stitching options.
+                                </p>
+                              </div>
+                            )}
 
-                          <span className="gdfg55 d-flex align-items-center ms-2">
-                            {/* <i class="bi bi-currency-rupee"></i> */}
-                            {formatPrice(productDetails?.data?.mrp_price)}
-                          </span>
+                          {/* id="custmze-otft-btn"> */}
+                          {(productDetails?.data?.stitching_option ===
+                            "Ready To Wear" || productDetails?.data?.stitching_option === "Ready to Wear") && (
+                            <div className="jlksdeflksdfk">
+                              <div className="d-flex align-items-center justify-content-between mb-2">
+                                <label className="form-label asdadadwdwdadad mb-0">
+                                  <h4>Select Your Size</h4>
+                                </label>
 
-                          <span className="fghfgg114 d-flex align-items-center ms-2">
-                            {productDetails?.data?.discount}%OFF
-                          </span>
-                        </h4>
-
-                        <p className="mb-0">(Inclusive of all taxes)</p>
-                      </div>
-
-                      <div className="jdfbdfgdf">
-                        {(productDetails?.data?.stitching_option !==
-                          "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
-                          <div class="diwenjrbwebrwehgrwer">
-                            <div className="d-flex align-items-center justify-content-between">
-                              <h4 class="pb-2">Stitching Options</h4>
-
-                              <div className="dfhdfhd pe-0">
+                                <div className="dfhdfhd pe-0">
                                   <p className="d-flex align-items-center mb-0">
                                     <span className="me-2">SHARE:</span>
 
@@ -1331,788 +1481,638 @@ export const ProductDetail = () => {
                                     />
                                   </p>
                                 </div>
-                            </div>
+                              </div>
 
-                            <hr class="mt-0" style={{ width: "86%" }} />                              
-                          </div>
-                        )}
+                              <hr class="mt-0" style={{ width: "86%" }} />
 
-                        <div className="saoijhdekjwirwer row align-items-center mb-3">
-                          {(productDetails?.data?.stitching_option !==
-                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear") && (
-                            <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
-                              <input
-                                type="radio"
-                                name="so"
-                                id="unstdf"
-                                className="d-none position-absolute"
-                                checked={selectedStitchOption === "stitch"}
-                                onChange={() =>
-                                  handleStitchOptionChange("stitch")
-                                }
-                              />
-                              <label htmlFor="unstdf" className="p-3">
-                                {productDetails?.data?.stitching_option?.replace(/-/g, " ")}
-                                <br />
-                                <span>
-                                  +{/* <i class="bi bi-currency-rupee"></i>  */}
-                                  {formatPrice(
-                                    productDetails?.data?.stiching_charges
-                                      ?.price ?? 0.0
-                                  )}
-                                </span>
-                              </label>
+                              <div className="d-flex align-items-center justify-content-between sdfasdctgerrrrwe mb-2">
+                                <div className="select-form-drpdwn weqwthyuytredfgw me-3">
+                                  <div className="dgndfjgdf">
+                                    <select
+                                        name="product_size"
+                                        id="product_size"
+                                        className="form-select"
+                                        onChange={handleSizeChange}
+                                        value={selectedSize}
+                                      >
+                                        <option value="">Select Size</option>
+
+                                        {(() => {
+                                          const sizeOrder = [
+                                            "XXS",
+                                            "XS",
+                                            "S",
+                                            "M",
+                                            "L",
+                                            "XL",
+                                            "2XL",
+                                            "3XL",
+                                            "4XL",
+                                            "5XL",
+                                            "6XL",
+                                            "7XL",
+                                            "8XL",
+                                            "9XL",
+                                            "10XL",
+                                          ];
+
+                                          const flatSizes =
+                                            productDetails?.data?.product_allSize?.flatMap((item) => {
+                                              const arr = [];
+                                              if (item.filter_size) arr.push(item.filter_size);
+                                              if (item.plus_sizes && item.plus_sizes !== "0") {
+                                                arr.push(item.plus_sizes);
+                                              }
+                                              return arr;
+                                            }) || [];
+
+                                          const uniqueSizes = [...new Set(flatSizes)];
+
+                                          const sortedSizes = uniqueSizes.sort((a, b) => {
+                                            const prefixA = a.split("-")[0];
+                                            const prefixB = b.split("-")[0];
+                                            return sizeOrder.indexOf(prefixA) - sizeOrder.indexOf(prefixB);
+                                          });
+
+                                          return sortedSizes.map((size, index) => {
+                                            const [prefix, value] = size.split("-");
+
+                                            return (
+                                              <option key={index} value={size}>
+                                                {`${prefix} - ${value}`}
+                                              </option>
+                                            );
+                                          });
+                                        })()}
+                                      </select>
+
+                                      
+                                  </div>
+                                </div>
+
+                                <div className="select-form-side">
+                                  <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
+                                    <button
+                                      className="btn btn-main px-0"
+                                      onClick={() =>
+                                        setShowSizeGuide(!showSizeGuide)
+                                      }
+                                    >
+                                      <img src="/images/ruler.png" alt="" /> Size
+                                      Guide
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="vfsdvg">
+                                {(() => {
+                                        const data = productDetails?.data || {};
+
+                                        const plusQty = Number(data.plus_size_quantity || 0);
+                                        const rtsQty  = Number(data.rts_quantity || 0);
+                                        const mtoQty  = Number(data.mto_quantity || 0);
+
+                                        let availablesdgsfdQty = 0;
+
+                                        if (isPlusSize(selectedSize)) {
+                                          // ✅ PLUS SIZE → only plus stock matters
+                                          availablesdgsfdQty = plusQty;
+                                        } else {
+                                          // ✅ Normal size → RTS first, then MTO
+                                          availablesdgsfdQty = rtsQty > 0 ? rtsQty : mtoQty;
+                                        }
+
+                                        return availablesdgsfdQty > 0 && availablesdgsfdQty <= 5 ? (
+                                          <p style={{color: "var(--pink-main-color)"}} className="mt-0" >Only few left</p>
+                                        ) : null;
+                                      })()}
+                              </div>
                             </div>
                           )}
+                        </div>
 
-                          {(productDetails?.data?.stitching_option !==
-                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
-                            productDetails?.data?.custom_fit?.toLowerCase() ===
-                              "yes" && (
-                              <div className="col-lg-4 col-md-6 col-sm-6 col-6 dowekrwerwer">
-                                <input
-                                  type="radio"
-                                  name="so"
-                                  id="cf"
-                                  className="d-none position-absolute"
-                                  checked={selectedStitchOption === "customFit"}
-                                  onChange={() =>
-                                    handleStitchOptionChange("customFit")
-                                  }
-                                />
-                                <label
-                                  htmlFor="cf"
-                                  className="p-3"
-                                  id="cstm-fit-btn"
-                                >
-                                  Custom Fit <br />
-                                  <span>
-                                    +
+                        <div className="fvgndfjgf">
+                          <label htmlFor="" className="form-label me-1 mb-2">
+                            Qty:
+                          </label>
+
+                          <select
+                            name="product_quantity"
+                            id="product_quantity"
+                            value={selectedQuantity}
+                            onChange={(e) =>
+                              handleQuantitySelect(Number(e.target.value))
+                            }
+                            disabled={!availableQty}
+                            className="form-select weqwthyuytredfgw cbgdrfsfewerrr select-form-drpdwn"
+                          > 
+                            {availableQty > 0 ? (
+                                Array.from(
+                                  { length: Math.min(availableQty, 5) },
+                                  (_, i) => i + 1
+                                ).map((qty) => (
+                                  <option key={qty} value={qty}>
+                                    {qty}
+                                  </option>
+                                ))
+                              ) : (
+                                // <option value="">Out of Stock</option>
+                                <option value="">0</option>
+                              )}
+                          </select>
+                        </div>
+
+                        {(productDetails?.data?.matching_turban === "1" ||
+                          productDetails?.data?.matching_turban === true) && (
+                          <div className="sadfvfghbrsd mt-4">
+                            <div className="col-lg-12">
+                              <div className="kcwenjkkwenkrhwer">
+                                <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                  <div className="doweriwejrwer">
+                                    <div class="checkbox-wrapper-33">
+                                      <label class="checkbox">
+                                        <input
+                                          class="checkbox__trigger visuallyhidden"
+                                          type="checkbox"
+                                          checked={isTurbanChecked}
+                                          onChange={(e) =>
+                                            setIsTurbanChecked(e.target.checked)
+                                          }
+                                        />
+
+                                        <span class="checkbox__symbol">
+                                          <svg
+                                            aria-hidden="true"
+                                            class="icon-checkbox"
+                                            width="28px"
+                                            height="28px"
+                                            viewBox="0 0 28 28"
+                                            version="1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path d="M4 14l8 7L24 7"></path>
+                                          </svg>
+                                        </span>
+
+                                        <p class="checkbox__textwrapper">
+                                          Matching Turban
+                                        </p>
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <p className="chngd-price mb-0">
                                     {/* <i class="bi bi-currency-rupee"></i> */}
                                     {formatPrice(
-                                      productDetails?.data?.extra_charges?.price
+                                      productDetails?.data?.turban_charges
+                                        ? productDetails?.data?.turban_charges
+                                            ?.price
+                                        : "0.00"
                                     )}
-                                  </span>
-                                </label>
-                              </div>
-                            )}
-                        </div>
-                        {selectedStitchOption === "customFit" &&
-                          (productDetails?.data?.stitching_option !==
-                            "Ready To Wear" && productDetails?.data?.stitching_option !== "Ready to Wear")&&
-                          productDetails?.data?.custom_fit?.toLowerCase() ===
-                            "yes" && (
-                            <div className="ikasdnjiknswjirhwer mb-4">
-                              <p className="mb-1">
-                                Submit Measurement:{" "}
-                                <span>
-                                  {measurementDetails?.data ? (
-                                    <Link
-                                      to=""
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        toast.warning(
-                                          "Measurement details already added!"
-                                        );
-                                      }}
-                                    >
-                                      CLICK HERE
-                                    </Link>
-                                  ) : (
-                                    <Link
-                                      to=""
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        handleShowModal(e);
-                                      }}
-                                    >
-                                      CLICK HERE
-                                    </Link>
-                                  )}
-                                </span>{" "}
-                                or{" "}
-                                <span>
-                                  <Link onClick={handleLaterToggle} to="">
-                                    Later
-                                  </Link>
-                                </span>
-                              </p>
-                              <p className="mb-0">
-                                +7 days, for your chosen stitching options.
-                              </p>
-                            </div>
-                          )}
+                                  </p>
+                                </div>
 
-                        {/* id="custmze-otft-btn"> */}
-                        {(productDetails?.data?.stitching_option ===
-                          "Ready To Wear" || productDetails?.data?.stitching_option === "Ready to Wear") && (
-                          <div className="jlksdeflksdfk">
-                            <div className="d-flex align-items-center justify-content-between mb-2">
-                              <label className="form-label asdadadwdwdadad mb-0">
-                                <h4>Select Your Size</h4>
-                              </label>
-
-                              <div className="dfhdfhd pe-0">
-                                <p className="d-flex align-items-center mb-0">
-                                  <span className="me-2">SHARE:</span>
-
-                                  <img
-                                    src="/images/whatsapp.png"
-                                    alt="Share on Whatsapp"
-                                    onClick={handleWhatsAppShare}
-                                  />
-
-                                  <img
-                                    src="/images/facebook.png"
-                                    alt="Share on Facebook"
-                                    onClick={handleFacebookShare}
-                                  />
-
-                                  <img
-                                    src="/images/twitter.png"
-                                    alt="Share on Twitter"
-                                    onClick={handleTwitterShare}
-                                  />
-
-                                  <img
-                                    src="/images/pinterest.png"
-                                    alt="Share on Pinterest"
-                                    onClick={handlePinterestShare}
-                                  />
-                                </p>
-                              </div>
-                            </div>
-
-                            <hr class="mt-0" style={{ width: "86%" }} />
-
-                            <div className="d-flex align-items-center justify-content-between sdfasdctgerrrrwe mb-2">
-                              <div className="select-form-drpdwn weqwthyuytredfgw me-3">
-                                <div className="dgndfjgdf">
-                                  <select
-                                      name="product_size"
-                                      id="product_size"
+                                <div className="slkdnfkmslkmr d-flex justify-content-between align-items-center">
+                                  <div className="select-form-drpdwn dfgsfsfggfrfreerr me-3">
+                                    <select
+                                      name="product_turbanSize"
                                       className="form-select"
-                                      onChange={handleSizeChange}
-                                      value={selectedSize}
+                                      id="product_turbanSize"
+                                      disabled={!isTurbanChecked}
                                     >
-                                      <option value="">Select Size</option>
-
-                                      {(() => {
-                                        const sizeOrder = [
-                                          "XXS",
-                                          "XS",
-                                          "S",
-                                          "M",
-                                          "L",
-                                          "XL",
-                                          "2XL",
-                                          "3XL",
-                                          "4XL",
-                                          "5XL",
-                                          "6XL",
-                                          "7XL",
-                                          "8XL",
-                                          "9XL",
-                                          "10XL",
-                                        ];
-
-                                        const flatSizes =
-                                          productDetails?.data?.product_allSize?.flatMap((item) => {
-                                            const arr = [];
-                                            if (item.filter_size) arr.push(item.filter_size);
-                                            if (item.plus_sizes && item.plus_sizes !== "0") {
-                                              arr.push(item.plus_sizes);
-                                            }
-                                            return arr;
-                                          }) || [];
-
-                                        const uniqueSizes = [...new Set(flatSizes)];
-
-                                        const sortedSizes = uniqueSizes.sort((a, b) => {
-                                          const prefixA = a.split("-")[0];
-                                          const prefixB = b.split("-")[0];
-                                          return sizeOrder.indexOf(prefixA) - sizeOrder.indexOf(prefixB);
-                                        });
-
-                                        return sortedSizes.map((size, index) => {
-                                          const [prefix, value] = size.split("-");
-
-                                          return (
-                                            <option key={index} value={size}>
-                                              {`${prefix} - ${value}`}
-                                            </option>
-                                          );
-                                        });
-                                      })()}
+                                      <option selected value="">
+                                        Select size
+                                      </option>
+                                      <option value="20">20</option>
+                                      <option value="20.5">20.5</option>
+                                      <option value="21">21</option>
+                                      <option value="21.5">21.5</option>
+                                      <option value="22">22</option>
+                                      <option value="22.5">22.5</option>
+                                      <option value="23">23</option>
+                                      <option value="23.5">23.5</option>
+                                      <option value="24">24</option>
+                                      <option value="24">24.5</option>
+                                      <option value="25">25</option>
+                                      <option value="25.5">25.5</option>
+                                      <option value="26">26</option>
                                     </select>
+                                  </div>
 
-                                    
+                                  <div className="select-form-side">
+                                    <p
+                                      className="chrt-sze mb-0"
+                                      onClick={() => setTurbanModal(!turbanModal)}
+                                    >
+                                      <i class="fa-solid fa-maximize"></i> Size
+                                      Chart
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
-
-                              <div className="select-form-side">
-                                <div className="dokewhkjrhuiwerwer skdncfjsdbcfksdnf">
-                                  <button
-                                    className="btn btn-main px-0"
-                                    onClick={() =>
-                                      setShowSizeGuide(!showSizeGuide)
-                                    }
-                                  >
-                                    <img src="/images/ruler.png" alt="" /> Size
-                                    Guide
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="vfsdvg">
-                              {(() => {
-                                      const data = productDetails?.data || {};
-
-                                      const plusQty = Number(data.plus_size_quantity || 0);
-                                      const rtsQty  = Number(data.rts_quantity || 0);
-                                      const mtoQty  = Number(data.mto_quantity || 0);
-
-                                      let availablesdgsfdQty = 0;
-
-                                      if (isPlusSize(selectedSize)) {
-                                        // ✅ PLUS SIZE → only plus stock matters
-                                        availablesdgsfdQty = plusQty;
-                                      } else {
-                                        // ✅ Normal size → RTS first, then MTO
-                                        availablesdgsfdQty = rtsQty > 0 ? rtsQty : mtoQty;
-                                      }
-
-                                      return availablesdgsfdQty > 0 && availablesdgsfdQty <= 5 ? (
-                                        <p style={{color: "var(--pink-main-color)"}} className="mt-0" >Only few left</p>
-                                      ) : null;
-                                    })()}
                             </div>
                           </div>
                         )}
-                      </div>
 
-                      <div className="fvgndfjgf">
-                        <label htmlFor="" className="form-label me-1 mb-2">
-                          Qty:
-                        </label>
+                        {(productDetails?.data?.matching_stole === "1" ||
+                          productDetails?.data?.matching_stole === true) && (
+                          <div className="sadfvfghbrsd mt-4">
+                            <div className="col-lg-12">
+                              <div className="kcwenjkkwenkrhwer">
+                                <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                  <div className="doweriwejrwer">
+                                    <div class="checkbox-wrapper-33">
+                                      <label class="checkbox">
+                                        <input
+                                          class="checkbox__trigger visuallyhidden"
+                                          type="checkbox"
+                                          checked={isStoleChecked}
+                                          onChange={(e) =>
+                                            setIsStoleChecked(e.target.checked)
+                                          }
+                                        />
 
-                        <select
-                          name="product_quantity"
-                          id="product_quantity"
-                          value={selectedQuantity}
-                          onChange={(e) =>
-                            handleQuantitySelect(Number(e.target.value))
-                          }
-                          disabled={!availableQty}
-                          className="form-select weqwthyuytredfgw cbgdrfsfewerrr select-form-drpdwn"
-                        > 
-                          {availableQty > 0 ? (
-                              Array.from(
-                                { length: Math.min(availableQty, 5) },
-                                (_, i) => i + 1
-                              ).map((qty) => (
-                                <option key={qty} value={qty}>
-                                  {qty}
-                                </option>
-                              ))
-                            ) : (
-                              // <option value="">Out of Stock</option>
-                              <option value="">0</option>
-                            )}
-                        </select>
-                      </div>
+                                        <span class="checkbox__symbol">
+                                          <svg
+                                            aria-hidden="true"
+                                            class="icon-checkbox"
+                                            width="28px"
+                                            height="28px"
+                                            viewBox="0 0 28 28"
+                                            version="1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path d="M4 14l8 7L24 7"></path>
+                                          </svg>
+                                        </span>
 
-                      {(productDetails?.data?.matching_turban === "1" ||
-                        productDetails?.data?.matching_turban === true) && (
-                        <div className="sadfvfghbrsd mt-4">
-                          <div className="col-lg-12">
-                            <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
-                                <div className="doweriwejrwer">
-                                  <div class="checkbox-wrapper-33">
-                                    <label class="checkbox">
-                                      <input
-                                        class="checkbox__trigger visuallyhidden"
-                                        type="checkbox"
-                                        checked={isTurbanChecked}
-                                        onChange={(e) =>
-                                          setIsTurbanChecked(e.target.checked)
-                                        }
-                                      />
-
-                                      <span class="checkbox__symbol">
-                                        <svg
-                                          aria-hidden="true"
-                                          class="icon-checkbox"
-                                          width="28px"
-                                          height="28px"
-                                          viewBox="0 0 28 28"
-                                          version="1"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path d="M4 14l8 7L24 7"></path>
-                                        </svg>
-                                      </span>
-
-                                      <p class="checkbox__textwrapper">
-                                        Matching Turban
-                                      </p>
-                                    </label>
-                                  </div>
-                                </div>
-
-                                <p className="chngd-price mb-0">
-                                  {/* <i class="bi bi-currency-rupee"></i> */}
-                                  {formatPrice(
-                                    productDetails?.data?.turban_charges
-                                      ? productDetails?.data?.turban_charges
-                                          ?.price
-                                      : "0.00"
-                                  )}
-                                </p>
-                              </div>
-
-                              <div className="slkdnfkmslkmr d-flex justify-content-between align-items-center">
-                                <div className="select-form-drpdwn dfgsfsfggfrfreerr me-3">
-                                  <select
-                                    name="product_turbanSize"
-                                    className="form-select"
-                                    id="product_turbanSize"
-                                    disabled={!isTurbanChecked}
-                                  >
-                                    <option selected value="">
-                                      Select size
-                                    </option>
-                                    <option value="20">20</option>
-                                    <option value="20.5">20.5</option>
-                                    <option value="21">21</option>
-                                    <option value="21.5">21.5</option>
-                                    <option value="22">22</option>
-                                    <option value="22.5">22.5</option>
-                                    <option value="23">23</option>
-                                    <option value="23.5">23.5</option>
-                                    <option value="24">24</option>
-                                    <option value="24">24.5</option>
-                                    <option value="25">25</option>
-                                    <option value="25.5">25.5</option>
-                                    <option value="26">26</option>
-                                  </select>
-                                </div>
-
-                                <div className="select-form-side">
-                                  <p
-                                    className="chrt-sze mb-0"
-                                    onClick={() => setTurbanModal(!turbanModal)}
-                                  >
-                                    <i class="fa-solid fa-maximize"></i> Size
-                                    Chart
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {(productDetails?.data?.matching_stole === "1" ||
-                        productDetails?.data?.matching_stole === true) && (
-                        <div className="sadfvfghbrsd mt-4">
-                          <div className="col-lg-12">
-                            <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
-                                <div className="doweriwejrwer">
-                                  <div class="checkbox-wrapper-33">
-                                    <label class="checkbox">
-                                      <input
-                                        class="checkbox__trigger visuallyhidden"
-                                        type="checkbox"
-                                        checked={isStoleChecked}
-                                        onChange={(e) =>
-                                          setIsStoleChecked(e.target.checked)
-                                        }
-                                      />
-
-                                      <span class="checkbox__symbol">
-                                        <svg
-                                          aria-hidden="true"
-                                          class="icon-checkbox"
-                                          width="28px"
-                                          height="28px"
-                                          viewBox="0 0 28 28"
-                                          version="1"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path d="M4 14l8 7L24 7"></path>
-                                        </svg>
-                                      </span>
-
-                                      <p class="checkbox__textwrapper">
-                                        Matching Stole
-                                      </p>
-                                    </label>
-                                  </div>
-                                </div>
-
-                                <p className="chngd-price mb-0">
-                                  {/* <i class="bi bi-currency-rupee"></i> */}
-                                  {formatPrice(
-                                    productDetails?.data?.stole_charges
-                                      ? productDetails?.data?.stole_charges
-                                          ?.price
-                                      : "0.00"
-                                  )}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {(productDetails?.data?.matching_mojari === "1" ||
-                        productDetails?.data?.matching_mojari === true) && (
-                        <div className="sadfvfghbrsd mt-4">
-                          <div className="col-lg-12">
-                            <div className="kcwenjkkwenkrhwer">
-                              <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
-                                <div className="doweriwejrwer">
-                                  <div class="checkbox-wrapper-33">
-                                    <label class="checkbox">
-                                      <input
-                                        class="checkbox__trigger visuallyhidden"
-                                        type="checkbox"
-                                        checked={isMojriChecked}
-                                        onChange={() =>
-                                          setIsMojriChecked(!isMojriChecked)
-                                        }
-                                      />
-
-                                      <span class="checkbox__symbol">
-                                        <svg
-                                          aria-hidden="true"
-                                          class="icon-checkbox"
-                                          width="28px"
-                                          height="28px"
-                                          viewBox="0 0 28 28"
-                                          version="1"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path d="M4 14l8 7L24 7"></path>
-                                        </svg>
-                                      </span>
-
-                                      <p class="checkbox__textwrapper">
-                                        Matching Mojri
-                                      </p>
-                                    </label>
-                                  </div>
-                                </div>
-
-                                <p className="chngd-price mb-0">
-                                  {/* <i class="bi bi-currency-rupee"></i> */}
-                                  {formatPrice(
-                                    productDetails?.data?.mojri_charges
-                                      ? productDetails?.data?.mojri_charges
-                                          ?.price
-                                      : "0.00"
-                                  )}
-                                </p>
-                              </div>
-
-                              <div className="slkdnfkmslkmr d-flex justify-content-between align-items-center">
-                                <div className="select-form-drpdwn dfgsfsfggfrfreerr me-3">
-                                  <select
-                                    name="product_mojriSize"
-                                    className="form-select"
-                                    id="product_mojriSize"
-                                    disabled={!isMojriChecked}
-                                  >
-                                    <option value="" selected>
-                                      Select Size
-                                    </option>
-
-                                    {/* INDIA / UK */}
-                                    <option disabled className="disableDdlItems">
-                                      -- INDIA / UK --
-                                    </option>
-                                    {[4,5,6,7,8,9,10,11,12,13].map(size => (
-                                      <option key={`IN/UK-${size}`} value={`IN/UK ${size}`}>
-                                        IN / UK Size {size}
-                                      </option>
-                                    ))}
-
-                                    {/* US & CANADA */}
-                                    <option disabled className="disableDdlItems">
-                                      -- US & Canada --
-                                    </option>
-                                    {[5,6,7,8,9,10,11,12,13,14].map(size => (
-                                      <option key={`US-canada-${size}`} value={`US-Canada ${size}`}>
-                                        US & Canada Size {size}
-                                      </option>
-                                    ))}
-
-                                    {/* EURO */}
-                                    <option disabled className="disableDdlItems">
-                                      -- EURO --
-                                    </option>
-                                    {[38,39,40,41,42,43,44,45,46,47].map(size => (
-                                      <option key={`EU-${size}`} value={`EU ${size}`}>
-                                        EURO Size {size}
-                                      </option>
-                                    ))}
-
-                                    {/* AUSTRALIA */}
-                                    <option disabled className="disableDdlItems">
-                                      -- AUSTRALIA --
-                                    </option>
-                                    {[4,5,6,7,8,9,10,11,12,13].map(size => (
-                                      <option key={`AUS-${size}`} value={`AUS ${size}`}>
-                                        AUS Size {size}
-                                      </option>
-                                    ))}
-                                  </select>
-                                </div>
-
-                                <div className="select-form-side">
-                                  <p
-                                    className="chrt-sze mb-0"
-                                    onClick={() => setMojriModal(!mojriModal)}
-                                  >
-                                    <i class="fa-solid fa-maximize"></i> Size
-                                    Chart
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="dowejkrnwerwer justify-content-between d-flex align-items-center mt-4">
-                        <div className="doenwkjriwerwer">
-                          <h4 className="mb-2 me-2">
-                            You Pay :&nbsp;
-                            <span>
-                              {/* <i class="fa-solid fa-indian-rupee-sign"></i> */}
-                              {formatPrice(finalPrice.toFixed(2))}
-                            </span>
-                          </h4>
-
-                          <p class="mb-0">(Inclusive of all services)</p>
-                        </div>
-
-                        <div className="dfgndfjhgdf sdfgsefgderrqewertwr">
-                          {user ? (
-                            <>
-                              <button
-                                className="btn btn-main px-3 me-4"
-                                onClick={handleAddToCart}
-                                // disabled={cartLoading || isOutOfStock}
-                              >
-                                <i className="bi bi-bag me-1"></i>
-                                {/* {isOutOfStock ? "Out of Stock" : "Add to Cart"} */}
-                                {"Add to Cart"}
-                              </button>
-                              <button
-                                className="btn btn-main btn-transparent px-3"
-                                onClick={handleBuyNow}
-                                // disabled={isOutOfStock}
-                              >
-                                <i className="bi bi-bag me-1"></i>
-                                {/* {isOutOfStock ? "Out of Stock" : "Buy Now"} */}
-                                {"Buy Now"}
-                              </button>
-                            </>
-                          ) : (
-                            <>
-                              <button
-                                className="btn btn-main px-3 me-4"
-                                onClick={handleLoginModal}
-                              >
-                                <i class="bi bi-bag me-1"></i>Add to Cart
-                              </button>
-
-                              <button
-                                className="btn btn-main btn-transparent px-3"
-                                onClick={handleLoginModal}
-                              >
-                                <i class="bi bi-bag me-1"></i> Buy Now
-                              </button>
-                            </>
-                          )}
-                          
-                        </div>
-                      </div>
-
-                      <div className="kjidbwejgrwerwer position-relative mt-5">
-                        <i class="bi bi-geo-alt position-absolute"></i>
-
-                        <form onSubmit={handleChangePincode}>
-                          <input
-                            type="number"
-                            name="pincode"
-                            className="form-control"
-                            placeholder="ex. 700001"
-                            value={pincode}
-                            onChange={(e) => setPincode(e.target.value)}
-                            style={{ paddingRight: "125px" }}
-                          />
-
-                          <button
-                            type="submit"
-                            className="btn btn-main position-absolute"
-                          >
-                            Check
-                          </button>
-                        </form>
-                      </div>
-
-                      {deliveryMsg && (
-                        <div className="doiejnwkhrwer mt-4">
-                          <p className="mb-1">
-                            {/* Delivering to GURDASPUR by 18th July 2025. Order within
-                          11h 49m */}
-                            {deliveryMsg}
-                          </p>
-                        </div>
-                      )}
-
-                      <div className="diwenjrbwebrwehgrwer mt-5">
-                        <h4 className="pb-2">Customer Info</h4>
-
-                        <hr className="mt-0" style={{ width: "86%" }} />
-
-                        <div className="row">
-                          <div className="col-6">
-                            <ul className="mb-0 ps-0">
-                              <li>
-                                {productDetails?.data?.non_returnable !==
-                                  "" && (
-                                  <>
-                                    <i className="bi me-1 bi-check2-circle"></i>
-                                    {productDetails?.data?.non_returnable}
-                                  </>
-                                )}
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="col-6">
-                            <ul className="mb-0 ps-0">
-                              <li>
-                                {productDetails?.data?.premium_quality !==
-                                  "" && (
-                                  <>
-                                    <i className="bi me-1 bi-check2-circle"></i>
-                                    {productDetails?.data?.premium_quality}
-                                  </>
-                                )}
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="col-6">
-                            <ul className="mb-0 ps-0">
-                              <li>
-                                {productDetails?.data?.free_shipping !== "" && (
-                                  <>
-                                    <i className="bi me-1 bi-check2-circle"></i>
-                                    {productDetails?.data?.free_shipping}
-                                  </>
-                                )}
-                              </li>
-                            </ul>
-                          </div>
-
-                          <div className="col-6">
-                            <ul className="mb-0 ps-0">
-                              <li>
-                                {productDetails?.data?.personalized_styling !==
-                                  "" && (
-                                  <>
-                                    <i className="bi me-1 bi-check2-circle"></i>
-                                    {productDetails?.data?.personalized_styling}
-                                  </>
-                                )}
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="diwenjrbwebrwehgrwer mt-5">
-                        <p className="sidifsdiyhr pb-2 me-2 mb-0">
-                          <span>Offers - </span> Coupon
-                          are visible on checkout page do not forget "Tap To
-                          Apply"
-                        </p>
-
-                        <hr className="mt-0" style={{ width: "86%" }} />
-
-                        <div className="injdewrwer">
-                          {/* <h4 className="mb-0 me-2">Coupon Code -</h4> */}
-
-                          <div className="oijdmkmeiwrew d-flex align-items-center">
-                            {productDetails?.data?.coupon_code &&
-                              productDetails.data.coupon_code
-                                .split(" , ") // Split by comma to get each coupon
-                                .map((coupon, index) => {
-                                  return (
-                                    <div
-                                      key={index}
-                                      className="copn-cde text-center p-2 mb-2 me-5 rounded-2"
-                                    >
-                                      <h5 className="mb-0">{coupon.trim()}</h5>
+                                        <p class="checkbox__textwrapper">
+                                          Matching Stole
+                                        </p>
+                                      </label>
                                     </div>
-                                  );
-                                })}
+                                  </div>
+
+                                  <p className="chngd-price mb-0">
+                                    {/* <i class="bi bi-currency-rupee"></i> */}
+                                    {formatPrice(
+                                      productDetails?.data?.stole_charges
+                                        ? productDetails?.data?.stole_charges
+                                            ?.price
+                                        : "0.00"
+                                    )}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {(productDetails?.data?.matching_mojari === "1" ||
+                          productDetails?.data?.matching_mojari === true) && (
+                          <div className="sadfvfghbrsd mt-4">
+                            <div className="col-lg-12">
+                              <div className="kcwenjkkwenkrhwer">
+                                <div className="opjdjwerwer mb-3 d-flex align-items-center justify-content-between">
+                                  <div className="doweriwejrwer">
+                                    <div class="checkbox-wrapper-33">
+                                      <label class="checkbox">
+                                        <input
+                                          class="checkbox__trigger visuallyhidden"
+                                          type="checkbox"
+                                          checked={isMojriChecked}
+                                          onChange={() =>
+                                            setIsMojriChecked(!isMojriChecked)
+                                          }
+                                        />
+
+                                        <span class="checkbox__symbol">
+                                          <svg
+                                            aria-hidden="true"
+                                            class="icon-checkbox"
+                                            width="28px"
+                                            height="28px"
+                                            viewBox="0 0 28 28"
+                                            version="1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path d="M4 14l8 7L24 7"></path>
+                                          </svg>
+                                        </span>
+
+                                        <p class="checkbox__textwrapper">
+                                          Matching Mojri
+                                        </p>
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <p className="chngd-price mb-0">
+                                    {/* <i class="bi bi-currency-rupee"></i> */}
+                                    {formatPrice(
+                                      productDetails?.data?.mojri_charges
+                                        ? productDetails?.data?.mojri_charges
+                                            ?.price
+                                        : "0.00"
+                                    )}
+                                  </p>
+                                </div>
+
+                                <div className="slkdnfkmslkmr d-flex justify-content-between align-items-center">
+                                  <div className="select-form-drpdwn dfgsfsfggfrfreerr me-3">
+                                    <select
+                                      name="product_mojriSize"
+                                      className="form-select"
+                                      id="product_mojriSize"
+                                      disabled={!isMojriChecked}
+                                    >
+                                      <option value="" selected>
+                                        Select Size
+                                      </option>
+
+                                      {/* INDIA / UK */}
+                                      <option disabled className="disableDdlItems">
+                                        -- INDIA / UK --
+                                      </option>
+                                      {[4,5,6,7,8,9,10,11,12,13].map(size => (
+                                        <option key={`IN/UK-${size}`} value={`IN/UK ${size}`}>
+                                          IN / UK Size {size}
+                                        </option>
+                                      ))}
+
+                                      {/* US & CANADA */}
+                                      <option disabled className="disableDdlItems">
+                                        -- US & Canada --
+                                      </option>
+                                      {[5,6,7,8,9,10,11,12,13,14].map(size => (
+                                        <option key={`US-canada-${size}`} value={`US-Canada ${size}`}>
+                                          US & Canada Size {size}
+                                        </option>
+                                      ))}
+
+                                      {/* EURO */}
+                                      <option disabled className="disableDdlItems">
+                                        -- EURO --
+                                      </option>
+                                      {[38,39,40,41,42,43,44,45,46,47].map(size => (
+                                        <option key={`EU-${size}`} value={`EU ${size}`}>
+                                          EURO Size {size}
+                                        </option>
+                                      ))}
+
+                                      {/* AUSTRALIA */}
+                                      <option disabled className="disableDdlItems">
+                                        -- AUSTRALIA --
+                                      </option>
+                                      {[4,5,6,7,8,9,10,11,12,13].map(size => (
+                                        <option key={`AUS-${size}`} value={`AUS ${size}`}>
+                                          AUS Size {size}
+                                        </option>
+                                      ))}
+                                    </select>
+                                  </div>
+
+                                  <div className="select-form-side">
+                                    <p
+                                      className="chrt-sze mb-0"
+                                      onClick={() => setMojriModal(!mojriModal)}
+                                    >
+                                      <i class="fa-solid fa-maximize"></i> Size
+                                      Chart
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="dowejkrnwerwer justify-content-between d-flex align-items-center mt-4">
+                          <div className="doenwkjriwerwer">
+                            <h4 className="mb-2 me-2">
+                              You Pay :&nbsp;
+                              <span>
+                                {/* <i class="fa-solid fa-indian-rupee-sign"></i> */}
+                                {formatPrice(finalPrice.toFixed(2))}
+                              </span>
+                            </h4>
+
+                            <p class="mb-0">(Inclusive of all services)</p>
+                          </div>
+
+                          <div className="dfgndfjhgdf sdfgsefgderrqewertwr">
+                            {user ? (
+                              <>
+                                <button
+                                  className="btn btn-main px-3 me-4"
+                                  onClick={handleAddToCart}
+                                  // disabled={cartLoading || isOutOfStock}
+                                >
+                                  <i className="bi bi-bag me-1"></i>
+                                  {/* {isOutOfStock ? "Out of Stock" : "Add to Cart"} */}
+                                  {"Add to Cart"}
+                                </button>
+                                <button
+                                  className="btn btn-main btn-transparent px-3"
+                                  onClick={handleBuyNow}
+                                  // disabled={isOutOfStock}
+                                >
+                                  <i className="bi bi-bag me-1"></i>
+                                  {/* {isOutOfStock ? "Out of Stock" : "Buy Now"} */}
+                                  {"Buy Now"}
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                <button
+                                  className="btn btn-main px-3 me-4"
+                                  onClick={handleLoginModal}
+                                >
+                                  <i class="bi bi-bag me-1"></i>Add to Cart
+                                </button>
+
+                                <button
+                                  className="btn btn-main btn-transparent px-3"
+                                  onClick={handleLoginModal}
+                                >
+                                  <i class="bi bi-bag me-1"></i> Buy Now
+                                </button>
+                              </>
+                            )}
+                            
                           </div>
                         </div>
-                      </div>
 
-                      <div className="diwenjrbwebrwehgrwer mt-5">
-                        <div className="d-flex align-items-center mb-2">
-                          <h4 className="pb-2 me-2 mb-0">Speak To Us</h4>
+                        <div className="kjidbwejgrwerwer position-relative mt-5">
+                          <i class="bi bi-geo-alt position-absolute"></i>
 
-                          <div className="doiejnwkhrwer">
-                            <p className="mb-0">
-                              If need it by a specific date?
+                          <form onSubmit={handleChangePincode}>
+                            <input
+                              type="number"
+                              name="pincode"
+                              className="form-control"
+                              placeholder="ex. 700001"
+                              value={pincode}
+                              onChange={(e) => setPincode(e.target.value)}
+                              style={{ paddingRight: "125px" }}
+                            />
+
+                            <button
+                              type="submit"
+                              className="btn btn-main position-absolute"
+                            >
+                              Check
+                            </button>
+                          </form>
+                        </div>
+
+                        {deliveryMsg && (
+                          <div className="doiejnwkhrwer mt-4">
+                            <p className="mb-1">
+                              {/* Delivering to GURDASPUR by 18th July 2025. Order within
+                            11h 49m */}
+                              {deliveryMsg}
                             </p>
                           </div>
+                        )}
+
+                        <div className="diwenjrbwebrwehgrwer mt-5">
+                          <h4 className="pb-2">Customer Info</h4>
+
+                          <hr className="mt-0" style={{ width: "86%" }} />
+
+                          <div className="row">
+                            <div className="col-6">
+                              <ul className="mb-0 ps-0">
+                                <li>
+                                  {productDetails?.data?.non_returnable !==
+                                    "" && (
+                                    <>
+                                      <i className="bi me-1 bi-check2-circle"></i>
+                                      {productDetails?.data?.non_returnable}
+                                    </>
+                                  )}
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div className="col-6">
+                              <ul className="mb-0 ps-0">
+                                <li>
+                                  {productDetails?.data?.premium_quality !==
+                                    "" && (
+                                    <>
+                                      <i className="bi me-1 bi-check2-circle"></i>
+                                      {productDetails?.data?.premium_quality}
+                                    </>
+                                  )}
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div className="col-6">
+                              <ul className="mb-0 ps-0">
+                                <li>
+                                  {productDetails?.data?.free_shipping !== "" && (
+                                    <>
+                                      <i className="bi me-1 bi-check2-circle"></i>
+                                      {productDetails?.data?.free_shipping}
+                                    </>
+                                  )}
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div className="col-6">
+                              <ul className="mb-0 ps-0">
+                                <li>
+                                  {productDetails?.data?.personalized_styling !==
+                                    "" && (
+                                    <>
+                                      <i className="bi me-1 bi-check2-circle"></i>
+                                      {productDetails?.data?.personalized_styling}
+                                    </>
+                                  )}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
 
-                        <hr className="mt-0" style={{ width: "86%" }} />
+                        <div className="diwenjrbwebrwehgrwer mt-5">
+                          <p className="sidifsdiyhr pb-2 me-2 mb-0">
+                            <span>Offers - </span> Coupon
+                            are visible on checkout page do not forget "Tap To
+                            Apply"
+                          </p>
 
-                        <div className="dopwejoirjhwer row">
-                          <div className="col-lg-4">
-                            <button
-                              className="btn w-100 btn-transparent"
-                              onClick={() => setChatProfileDetailsShow(true)}
-                            >
-                              <i class="bi me-1 bi-chat-left-text"></i> Chat Now
-                            </button>
+                          <hr className="mt-0" style={{ width: "86%" }} />
+
+                          <div className="injdewrwer">
+                            {/* <h4 className="mb-0 me-2">Coupon Code -</h4> */}
+
+                            <div className="oijdmkmeiwrew d-flex align-items-center">
+                              {productDetails?.data?.coupon_code &&
+                                productDetails.data.coupon_code
+                                  .split(" , ") // Split by comma to get each coupon
+                                  .map((coupon, index) => {
+                                    return (
+                                      <div
+                                        key={index}
+                                        className="copn-cde text-center p-2 mb-2 me-5 rounded-2"
+                                      >
+                                        <h5 className="mb-0">{coupon.trim()}</h5>
+                                      </div>
+                                    );
+                                  })}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="diwenjrbwebrwehgrwer mt-5">
+                          <div className="d-flex align-items-center mb-2">
+                            <h4 className="pb-2 me-2 mb-0">Speak To Us</h4>
+
+                            <div className="doiejnwkhrwer">
+                              <p className="mb-0">
+                                If need it by a specific date?
+                              </p>
+                            </div>
                           </div>
 
-                          <div className="col-lg-4">
-                            <button
-                              className="btn w-100 btn-main"
-                              onClick={() =>
-                                (window.location.href = "tel:7003672926")
-                              }
-                            >
-                              <i class="bi me-1 bi-telephone-forward"></i> Call
-                              Us
-                            </button>
-                          </div>
+                          <hr className="mt-0" style={{ width: "86%" }} />
 
-                          <div className="col-lg-4">
-                            <button className="btn w-100 btn-transparent">
-                              <i class="bi me-1 bi-envelope"></i> Mail Us
-                            </button>
+                          <div className="dopwejoirjhwer row">
+                            <div className="col-lg-4">
+                              <button
+                                className="btn w-100 btn-transparent"
+                                onClick={() => setChatProfileDetailsShow(true)}
+                              >
+                                <i class="bi me-1 bi-chat-left-text"></i> Chat Now
+                              </button>
+                            </div>
+
+                            <div className="col-lg-4">
+                              <button
+                                className="btn w-100 btn-main"
+                                onClick={() =>
+                                  (window.location.href = "tel:7003672926")
+                                }
+                              >
+                                <i class="bi me-1 bi-telephone-forward"></i> Call
+                                Us
+                              </button>
+                            </div>
+
+                            <div className="col-lg-4">
+                              <button className="btn w-100 btn-transparent">
+                                <i class="bi me-1 bi-envelope"></i> Mail Us
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </div>
