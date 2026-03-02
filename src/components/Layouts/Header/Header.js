@@ -490,7 +490,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                               >
                                 <span className="me-2">
                                   <img
-                                    src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                                    // src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                                    src={selectedCurrency?.flag_icon}
                                     alt={selectedCurrency?.currency_code || "INR"}
                                     width="24"
                                     height="18"
@@ -587,7 +588,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                               >
                                 <span className="me-2">
                                   <img
-                                    src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                                    // src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                                    src={selectedCurrency?.flag_icon}
                                     alt={selectedCurrency?.currency_code || "INR"}
                                     width="24"
                                     height="18"
@@ -964,7 +966,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
             >
               <span className="me-2">
                 <img
-                  src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                  // src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                  src={selectedCurrency?.flag_icon}
                   alt={selectedCurrency?.currency_code || "INR"}
                   width="24"
                   height="18"
@@ -1032,7 +1035,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
               <>
                 {/* <Link to="/profile"><i class="bi me-1 bi-person"></i> {user.name}</Link> */}
 
-                <h4 className="mb-4">Hi, User</h4>
+                <h4 className="mb-4">Hi, {user.name}</h4>
 
                 <div className="dwoejoidwemjr col-lg-4">
                   <ol className="steps">
@@ -1065,9 +1068,9 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
             ) : (
               <>
                 <ul className="d-flex align-items-center mb-0 ps-0">
-                  <li onClick={() => {setResSignBottom(!resSignBottom); setResMenu(false)}}><span to="/register">SIGN IN / SIGN UP</span></li>
+                  <li onClick={() => {setResSignBottom(!resSignBottom); setResMenu(false)}}><span >SIGN IN / SIGN UP</span></li>
                 </ul>
-                <Link to="/login"><i class="bi me-1 bi-person"></i> My Account</Link>
+                <Link onClick={() => {setResSignBottom(!resSignBottom); setResMenu(false)}}><i class="bi me-1 bi-person"></i> My Account</Link>
               </>
             )}
         </div>

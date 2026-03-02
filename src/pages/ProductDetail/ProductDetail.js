@@ -15,7 +15,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import RecentlyViewed from "../../hooks/RecentlyViewed";
 import {
-  ChatProfileDetails,
+  // ChatProfileDetails,
   FeaturedProducts,
   MeasurementForm,
 } from "../../components";
@@ -35,6 +35,9 @@ import { useCurrency } from "../../context/CurrencyContext";
 import Loader from "../../components/Loader/Loader";
 import { useAuthModal } from "../../context/AuthModalContext";
 import { useMetaData } from "../../hooks/useMetaData";
+// eslint-disable-next-line
+import GlobalChat from "../../components/Elements/ChatProfileDetails/GlobalChat";
+import { useChat } from "../../context/ChatContext";
 
 export const ProductDetail = () => {
   const { token, user } = useAuth();
@@ -56,9 +59,11 @@ export const ProductDetail = () => {
   const [showLaterModal, setShowLaterModal] = useState(false);
   // const [activeKey, setActiveKey] = useState("first");
   const [activeKey, setActiveKey] = useState("img-1");
-  const [chatProfileDetailsShow, setChatProfileDetailsShow] = useState(false);
+   // eslint-disable-next-line
+  // const [chatProfileDetailsShow, setChatProfileDetailsShow] = useState(false);
   const [videoMute, setVideoMute] = useState(true);
   const { handleLoginModal } = useAuthModal();
+  const { setChatProfileDetailsShow } = useChat();
 
   const scrollRef = useRef(null);
   const scrollLargeRef = useRef(null);
@@ -352,7 +357,6 @@ export const ProductDetail = () => {
 
   const isOutOfStock = availableQty < 1 || selectedQuantity < 1;
 
-  console.log(isOutOfStock, 'isOutOfStockasefsdef');
 
   // useEffect(() => {
   //   if (productDetails?.data?.mto_quantity) {
@@ -2674,7 +2678,7 @@ export const ProductDetail = () => {
 
       {/*chat now modal*/}
 
-      {!chatProfileDetailsShow && (
+      {/* {!chatProfileDetailsShow && (
         <div
           className="dkwejkrhiwenrower position-fixed"
           onClick={() => setChatProfileDetailsShow(!chatProfileDetailsShow)}
@@ -2687,7 +2691,9 @@ export const ProductDetail = () => {
         <ChatProfileDetails
           setChatProfileDetailsShow={setChatProfileDetailsShow}
         />
-      )}
+      )} */}
+
+      {/* <GlobalChat /> */}
 
       {/* size guide size */}
 

@@ -11,6 +11,8 @@ import { FilterProvider } from './context/FilterContext';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthModalProvider } from './context/AuthModalContext';
+import { ChatProvider } from './context/ChatContext';
+import GlobalChat from './components/Elements/ChatProfileDetails/GlobalChat';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,7 +27,10 @@ root.render(
                 <PayPalScriptProvider options={{ "client-id": "Ac3LBYSEf-1c0Y37LZOTUEZgOdN_k05H_tU50qLlU2lfrHGK0w4VV6FuJYY5jBb3faC3O5FwZsgExAVp" }}>
                   <GoogleOAuthProvider clientId="979908862202-qcs1ft90v0fkbigt3ec44atq3alt1m38.apps.googleusercontent.com">
                     <AuthModalProvider>
-                      <App />
+                      <ChatProvider>
+                        <App />
+                        <GlobalChat />
+                      </ChatProvider>
                     </AuthModalProvider>
                   </GoogleOAuthProvider>
                 </PayPalScriptProvider>
