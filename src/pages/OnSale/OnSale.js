@@ -636,6 +636,233 @@ const pathName = useLocation().pathname;
         </div>
       </div>  */}
 
+      <div className="fgnhdfjhugdfgsd pt-5">
+        <div className="container-fluid">
+          <div className="dfgbdfjhgdf">
+            <h2>{OnSaleDetails?.data?.section8_title}</h2>
+          </div>
+          <div className="fhfgdfgfdg">
+            <div className="row">
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image1}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text1}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url1}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image2}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text2}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url2}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image3}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text3}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url3}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image4}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text4}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url4}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image5}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text5}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url5}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image6}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text6}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url6}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image7}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text7}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url7}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-md-6 col-sm-6 col-6">
+                <div className="dfbhhfgdf55 position-relative overflow-hidden">
+                  <img src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section8_image8}`} alt="" />
+
+                  <div className="overlay-black3 position-absolute w-100 h-100">
+                    <div className="dfbghf3">
+                      <h4>
+                        {OnSaleDetails?.data?.section8_text8}
+                      </h4>
+                      <Link to={OnSaleDetails?.data?.section8_url8}>
+                      <button>SHOP NOW</button>
+                    </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <div className="fgjhfbgdfjh565">
+              <div className="container-fluid">
+                <div className="dfgbdfjhgdf">
+                  <h2>{OnSaleDetails?.data?.section9_title}</h2>
+                </div>
+                <div className="dbgjkdffd52" style={{
+                        backgroundImage: `url(${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section9_background_image})`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat"
+                      }}>
+                  <div className="row">
+                    <div className="col-lg-4 col-md-12 col-sm-12 col-12">
+                      <div className="fbghjdfgfd">
+                        <div className="row">
+                          <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <Link to={OnSaleDetails?.data?.section9_url1}>
+                            <div className="ffdgf548">
+                              <img
+                                src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section9_image1}`}
+                                alt=""
+                              />
+                            </div>
+                            </Link>
+                          </div>
+                          <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <Link to={OnSaleDetails?.data?.section9_url2}>
+                            <div className="ffdgf548">
+                              <img
+                                src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section9_image2}`}
+                                alt=""
+                              />
+                            </div>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      
+                    <div className="col-lg-4 col-md-12 col-sm-12 col-12">
+                      <div className="fghbjkfgfg145 h-100">
+                        <h2>
+                          {OnSaleDetails?.data?.section9_main_title}
+                        </h2>
+                        <p>{OnSaleDetails?.data?.section9_sub_title}</p>
+                      </div>
+                    </div>
+      
+                    <div className="col-lg-4 col-md-12 col-sm-12 col-12">
+                      <div className="fbghjdfgfd">
+                        <div className="row">
+                          <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <Link to={OnSaleDetails?.data?.section9_url3}>
+                            <div className="ffdgf548">
+                              <img
+                                src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section9_image3}`}
+                                alt=""
+                              />
+                            </div>
+                            </Link>
+                          </div>
+                          <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                            <Link to={OnSaleDetails?.data?.section9_url4}>
+                            <div className="ffdgf548">
+                              <img
+                                src={`${OnSaleDetails?.image_url}/${OnSaleDetails?.data?.section9_image4}`}
+                                alt=""
+                              />
+                            </div>
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
       <div className="fbgvdsdfd6568 sgbdfedrqwr py-5">
         <div className="container-fluid">
           <div className="ghbgfgdf sdfwedweeerr">

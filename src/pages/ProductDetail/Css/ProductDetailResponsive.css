@@ -581,7 +581,7 @@
 
     .vfeghrfgfferrer.d-none{
         display: flex !important;
-        transform: translateY(2.5rem);
+        transform: translateY(4rem);
         padding-right: calc(var(--bs-gutter-x) * 0.25);
         padding-left: calc(var(--bs-gutter-x) * 0.25);
     }
@@ -742,11 +742,11 @@
 
     .dfghjdfgdfgf {
         margin-left: 0;
-        margin-top: 2.5rem;
+        margin-top: 5rem;
     }
 
     .sdfvdscsddfgdfg .fdbdfgdfgdf {
-        padding-left: 1rem;
+        padding-left: 0;
     }   
     
     .dpmeljkemkewr.d-flex{
@@ -757,6 +757,7 @@
         display: flex;
         align-items: center;
         font-size: 1rem !important;
+        flex-wrap: wrap;
     }
 
     .dweojfwejfhu span{
@@ -924,6 +925,29 @@
     .zoom-gallery-modal .modal-body{
         overflow-x: hidden;
     }
+
+    .opmkojwojoiwere.d-flex{
+        flex-direction: column;
+    }
+
+    .oidahijeoijer{
+        justify-content: end;
+        margin-top: 1.5rem;
+    }
+
+    .dkewhrwerwer.px-4{
+        padding-inline: 1rem !important;
+    }
+
+    .oijdkejwjewr.p-4{
+        padding-inline: 0 !important;
+    }
+
+    .turbon-chart-modal,
+    .mojri-chart-modal {
+        width: 90%;
+        overflow: hidden;
+    }
 }
 
 
@@ -1031,6 +1055,14 @@
 
     .zoom-gallery-modal .modal-dialog {
         max-width: 90%;
+    }
+
+    .vfeghrfgfferrer.d-none {
+        transform: translateY(3rem);
+    }
+
+    .dfghjdfgdfgf {
+        margin-top: 3rem;
     }
 }
 
@@ -1321,6 +1353,36 @@
 @media only screen and (max-width: 366px){
     .saoijhdekjwirwer .dowekrwerwer label.p-3{
         padding: 0.3rem !important;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width: 356px){
+    .vfeghrfgfferrer.d-none{
+        flex-wrap: wrap;
+    }
+
+    .vfeghrfgfferrer.d-none {
+        transform: translateY(5rem);
+    }
+
+    .dfghjdfgdfgf {
+        margin-top: 5rem;
+    }
+
+    .vfeghrfgfferrer.justify-content-between{
+        justify-content: start !important;
+    }
+
+    .vfeghrfgfferrer h6{
+        margin-right: 1rem;
+    }
+
+    .vfeghrfgfferrer h6:last-child{
+        margin-right: 0;
     }
 }
 

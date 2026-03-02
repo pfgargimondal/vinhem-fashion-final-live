@@ -160,7 +160,7 @@ export const ProductDetail = () => {
   const swiperMatchingConfig = {
     modules: [Autoplay, Pagination, Navigation, Mousewheel],
     direction: "horizontal",
-    spaceBetween: 30,
+    spaceBetween: 10,
     loop: true,
     autoplay: {
       delay: 3000,
@@ -171,11 +171,12 @@ export const ProductDetail = () => {
     pagination: { clickable: true },
     breakpoints: {
       0: { slidesPerView: 1.2 },
-      320: { slidesPerView: 2.2 },
+      320: { slidesPerView: 1.2 },
+      393: { slidesPerView: 1.2 },
       576: { slidesPerView: 2.2 },
       768: { slidesPerView: 3.2 },
       992: { slidesPerView: 4.2 },
-      1200: { slidesPerView: 4 },
+      1200: { slidesPerView: 4 }
     },
   };
 
@@ -2478,7 +2479,7 @@ export const ProductDetail = () => {
                             pagination={{ clickable: true }}
                             navigation={true}
                             autoplay={{
-                              delay: 3000,
+                              delay: 1000,
                               disableOnInteraction: false,
                             }}
                             className="mySwiper"

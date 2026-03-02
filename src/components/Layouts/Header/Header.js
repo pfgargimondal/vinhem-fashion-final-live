@@ -33,30 +33,30 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   const searchRefRes = useRef(null);
   const [resCtgyDrpdwn, setResCtgyDrpdwn] = useState(false);
   const [resSearchToggle, setResSearchToggle] = useState(false);
-  const [headerFixed, setHeaderFixed] = useState(false);
+  // const [headerFixed, setHeaderFixed] = useState(false);
 
   // const [loginModal, setLoginModal] = useState(false);
   // const [loginModalBackdrop, setLoginModalBackdrop] = useState(false);
   // const [otpModal, setOtpModal] = useState(false);
   // const [completeLoginModal, setCompleteLoginModal] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const headerStickyWrapper = document.querySelector(".header-sticky-wrapper");
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const headerStickyWrapper = document.querySelector(".header-sticky-wrapper");
 
-      if (headerStickyWrapper?.classList.contains("is-fixed-top")) {
-        setHeaderFixed(true);
-      } else {
-        setHeaderFixed(false);
-      }
-    };
+  //     if (headerStickyWrapper?.classList.contains("is-fixed-top")) {
+  //       setHeaderFixed(true);
+  //     } else {
+  //       setHeaderFixed(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
     setResSearchToggle(false);
@@ -82,8 +82,9 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
   const [isNewUser, setIsNewUser] = useState(false);
   const [fullname, setFullname] = useState("");
   const [referral, setReferral] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  
   const { dispatch } = useAuth();
+  const [resSignBottom, setResSignBottom] = useState(false);
 
   // remember verified contact
   const [verifiedContact, setVerifiedContact] = useState({
@@ -950,7 +951,82 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
       <div className={`${resMenu ? "res-ctgy-menu-backdrop d-none" : "res-ctgy-menu-backdrop d-none res-ctgy-menu-backdrop-hide"} position-fixed w-100 h-100`} onClick={() => setResMenu(false)}></div>
 
-      <div className={`${resMenu ? "res-ctgy-menu-modal d-none" : "res-ctgy-menu-modal d-none res-ctgy-menu-modal-hide"} bg-white position-fixed h-100 p-3`} style={headerFixed ? {top: "110px"} : {top: "138px"}}>
+      <div className={`${resMenu ? "res-ctgy-menu-modal d-none" : "res-ctgy-menu-modal d-none res-ctgy-menu-modal-hide"} bg-white position-fixed h-100 p-3`}>
+        <div className="dwehjrw mb-4">
+          <div className="custom-currency-dropdown wlojdfiwejrower col-4 d-none position-relative">
+            <button
+              className="currency-toggle-btn d-flex align-items-center"
+
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowCurrencyDropdown(prev => !prev);
+              }}
+            >
+              <span className="me-2">
+                <img
+                  src={selectedCurrency?.flag_icon || "https://flagcdn.com/24x18/in.png"}
+                  alt={selectedCurrency?.currency_code || "INR"}
+                  width="24"
+                  height="18"
+                />
+              </span>
+
+              <span>{selectedCurrency?.currency_code || "INR"}</span>
+
+              <i
+                className={`fa-solid ms-2 ${showCurrencyDropdown ? "fa-chevron-up" : "fa-chevron-down"
+                  }`}
+              ></i>
+            </button>
+
+            {showCurrencyDropdown && (
+              <div onClick={(e) => e.stopPropagation()} className="osjoidhwjiwer dwelorjwemr-res position-absolute bg-white shadow rounded-3 mt-2 p-2">
+                <div className="dmndfkswndfiofrsmk position-relative">
+                  <input type="text" placeholder="Search for a region" value={searchCurrency}
+                    onChange={(e) => setSearchCurrency(e.target.value)} className="form-control py-1" />
+                  <i
+                    className={`bi position-absolute ${searchCurrency.length > 0 ? "bi-x" : "bi-search"}`}
+                    style={{ right: "10px", top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
+                    onClick={() => {
+                      if (searchCurrency.length > 0) {
+                        setSearchCurrency("");   // Clear search when clicking cross
+                      }
+                    }}
+                  ></i>
+                </div>
+
+                <ul className="currency-menu mb-0 px-0">
+                  {filteredCurrency.map((cur) => (
+                    <li
+                      key={cur.id}
+                      className="currency-item d-flex align-items-center p-2"
+                      onClick={() => {
+                        setSelectedCurrency(cur);
+                        localStorage.setItem("selectedCurrency", JSON.stringify(cur));
+                        setShowCurrencyDropdown(false);
+                      }}
+                    >
+                      <span className={`res-currncy-radio ${(selectedCurrency.id === cur.id) ? "res-currncy-radio-checked" : ""}`}></span>
+
+                      <span className="me-2">
+                        <img
+                          src={cur.flag_icon}
+                          alt={cur.currency_code}
+                          width="24"
+                          height="18"
+                        />
+                      </span>
+                      <span>
+                        {cur.currency_type} ({cur.currency_code})
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+
         <div className={`${!user ? "d-flex" : "d-block"} align-items-center justify-content-between`}>
             {user ? (
               <>
@@ -989,9 +1065,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
             ) : (
               <>
                 <ul className="d-flex align-items-center mb-0 ps-0">
-                  <li><Link to="/register">SIGN UP</Link></li>
-                  <li className="mx-2">|</li>
-                  <li><Link to="/login">LOG IN</Link></li>
+                  <li onClick={() => {setResSignBottom(!resSignBottom); setResMenu(false)}}><span to="/register">SIGN IN / SIGN UP</span></li>
                 </ul>
                 <Link to="/login"><i class="bi me-1 bi-person"></i> My Account</Link>
               </>
@@ -1334,7 +1408,27 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
       {/*res navbar bottom footer*/}
       
-      <ResponsiveNavbarBottom resSearchToggle={resSearchToggle} setResSearchToggle={setResSearchToggle} />
+      <ResponsiveNavbarBottom resSearchToggle={resSearchToggle} setResSearchToggle={setResSearchToggle} setResSignBottom={setResSignBottom} />
+
+      {/*res accnt drpdwn*/}
+
+      <div className={`doewjrlkmwelrwer-backdrop ${resSignBottom ? "" : "doewjrlkmwelrwer-backdrop-hide"} d-none w-100 h-100 position-fixed`} onClick={() => setResSignBottom(false)}></div>
+
+      <div className="dweikdnfjikwnffr">
+        <div className={`accnt-drpdwn bg-white p-4 position-absolute d-none mt-2 ${resSignBottom ? "" : "accnt-drpdwn-hide"}`}>
+          <div className="text-center">
+            <h4>Log In or Sign Up</h4>
+
+            <p>to personalize your experience</p>
+          </div>
+
+          <div className="diwejikrwer">
+            <button className="btn mb-3 btn-main w-100" onClick={() => {handleLoginModal(); setResSignBottom(false)}}>Sign in with Mobile/Email</button>
+
+            <button className="btn btn-main bg-white text-dark w-100"><img src="./images/search.png" className="me-2" alt="" /> Sign in with Google</button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
