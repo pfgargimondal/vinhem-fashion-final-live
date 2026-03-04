@@ -37,8 +37,8 @@ export const ThankYou = () => {
         </p>
 
         <div className="button-group">
-          <Link to={"/your-orders"}><button className="btn-outline">VIEW ORDER</button></Link>
-          <Link to={"/"}><button className="btn-primary">CONTINUE SHOPPING</button></Link>
+          <button className="btn-outline"><i className="fa-solid me-1 fa-clock-rotate-left"></i> VIEW ORDER</button>
+          <button className="btn-primary"><i className="bi me-1 bi-house-door"></i> CONTINUE SHOPPING</button>
         </div>
       </div>
     </div>
