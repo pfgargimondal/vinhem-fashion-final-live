@@ -15,6 +15,7 @@ export { FestiveShop } from "./FestiveShop/FestiveShop"
 
 export { Register } from "./Register/Register";
 export { Login } from "./Login/Login";
+export { PhoneCallBack } from "./PhoneCallBack/PhoneCallBack";
 
 export { TermsCondition } from "./TermsCondition/TermsCondition";
 export { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";

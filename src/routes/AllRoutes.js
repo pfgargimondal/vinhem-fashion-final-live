@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { AboutUs, ContactUs, Filter, Home, OnSale, PageNotFound, ProductDetail, Wedding, TermsCondition, PrivacyPolicy, ReturnPolicy, OrderPolicy, ShippingPolicy, Testimonial, Career, Profile, CancelOrder, OrderHistory, ChangePassword, Wishlist, Cart, Blog, BlogDetails, Invoice, BecomeVendor, Checkout, Chat, TrackOrder, FAQ, PaymentOptions, ThankYou, OrderDetails, PaypalPaymentSuccess, RazorpayPaymentSuccess} from "../pages";
+import { AboutUs, ContactUs, Filter, Home, OnSale, PageNotFound, ProductDetail, Wedding, TermsCondition, PrivacyPolicy, ReturnPolicy, OrderPolicy, ShippingPolicy, Testimonial, Career, Profile, CancelOrder, OrderHistory, ChangePassword, Wishlist, Cart, Blog, BlogDetails, Invoice, BecomeVendor, Checkout, Chat, TrackOrder, FAQ, PaymentOptions, ThankYou, OrderDetails, PaypalPaymentSuccess, RazorpayPaymentSuccess, PhoneCallBack} from "../pages";
 import ProtectedRoute from "../components/ProtectedRoute ";
 
 export const AllRoutes = () => {
@@ -41,6 +41,8 @@ export const AllRoutes = () => {
       <Route path="blog/:slug" element={ <BlogDetails /> } />
       <Route path="blog/category/:blog_category" element={ <Blog /> } />
       <Route path="blog/tag/:blog_tag" element={ <Blog /> } />
+
+      <Route path="/phone-callback" element={<PhoneCallBack />} />
 
       <Route element={<ProtectedRoute />}>
           <Route path="profile" element={ <Profile /> } />

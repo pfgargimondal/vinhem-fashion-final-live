@@ -694,7 +694,7 @@ export const Wedding = () => {
         </div>
       </div>
 
-      <div className="fgnhdfjhugdfgsd">
+      {/* <div className="fgnhdfjhugdfgsd">
         <div className="container-fluid">
           <div className="dfgbdfjhgdf">
             <h2>{WeddingDetails?.data?.section5to9?.section8_title}</h2>
@@ -918,7 +918,7 @@ export const Wedding = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="fbgvdsdfd6568 py-5">
         <div className="container-fluid">
           <div className="ghbgfgdf sdfwedweeerr fsdweftherwrer">
@@ -930,7 +930,7 @@ export const Wedding = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer mt-3">
-                    <h4>{WeddingDetails?.data?.section5to9?.section10_number1}</h4>
+                    {/* <h4>{WeddingDetails?.data?.section5to9?.section10_number1}</h4> */}
                   </div>
 
                   <div className="cfgncfgb">
@@ -946,7 +946,7 @@ export const Wedding = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer mt-3">
-                    <h4>{WeddingDetails?.data?.section5to9?.section10_number2}</h4>
+                    {/* <h4>{WeddingDetails?.data?.section5to9?.section10_number2}</h4> */}
                   </div>
 
                   <div className="cfgncfgb fsrweerrr">
@@ -962,7 +962,7 @@ export const Wedding = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer mt-3">
-                    <h4>{WeddingDetails?.data?.section5to9?.section10_number3}</h4>
+                    {/* <h4>{WeddingDetails?.data?.section5to9?.section10_number3}</h4> */}
                   </div>
 
                   <div className="cfgncfgb">
@@ -978,7 +978,7 @@ export const Wedding = () => {
                   </div>
 
                   <div className="cfgncfgb dfgsfeeer mt-3">
-                    <h4>{WeddingDetails?.data?.section5to9?.section10_number4}</h4>
+                    {/* <h4>{WeddingDetails?.data?.section5to9?.section10_number4}</h4> */}
                   </div>
 
                   <div className="cfgncfgb">

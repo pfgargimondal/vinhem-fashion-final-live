@@ -372,7 +372,7 @@ const Invoice = () => {
                 <React.Fragment key={index}>
 
                   {/* MAIN PRODUCT ROW */}
-                  <tr>
+                  <tr style={{border: "none"}}>
                     <td>{++serial}</td>
                     <td style={{ textAlign: "left" }}>{item.product_name}</td>
                     <td>60052378</td>

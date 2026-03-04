@@ -4,33 +4,43 @@ import "./Css/ThankYouResponsive.css";
 
 export const ThankYou = () => {
   return (
-    <div className="dfjuytrgtrrt">
-        <div className="row">
-            <div className="col-lg-6">
-                <div className="pic">
-                    <img src="images/shopping-cart.jpg" className="img-fluid" alt="" />
-                </div>                
-            </div>
+    <div className="success-wrapper">
+      <div className="success-card">
+        <div className="icon-container">
+          <div className="circle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="check-icon"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
 
-            <div className="col-lg-6">
-                <div className="write pt-5 text-center">
-                    <h1 className="display-2 fw-bold">Thank You</h1>
-                
-                    <h2>For Joining Our Shop</h2>
-                    
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
-                        obcaecati quis eaque distinctio, aliquam voluptatem? Voluptatum dolorum
-                        beatae veniam sint recusandae quam debitis maiores, voluptate
-                        voluptates? Magni ipsum quae et?
-                    </p>
-
-                    <Link to="/">
-                        <button className="btn btn-main">Back to Home</button>
-                    </Link>
-                </div>                
+          {/* Decorative dots */}
+            <div className="particles">
+                {Array.from({ length: 22 }).map((_, i) => (
+                    <span key={i} className={`dot dot-${i}`}></span>
+                ))}
             </div>
         </div>
+
+        <h2>Thank you for ordering!</h2>
+        <p>
+          Your order has been placed and being processed. You will receive an order confirmation email
+          with details shortly.
+        </p>
+
+        <div className="button-group">
+          <Link to={"/your-orders"}><button className="btn-outline">VIEW ORDER</button></Link>
+          <Link to={"/"}><button className="btn-primary">CONTINUE SHOPPING</button></Link>
+        </div>
+      </div>
     </div>
   )
 }

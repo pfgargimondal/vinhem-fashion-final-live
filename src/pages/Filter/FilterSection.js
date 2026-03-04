@@ -186,7 +186,9 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
   };
 
   const applyPriceFilter = (min, max) => {
-    setLoading(true);
+    if (window.innerWidth > 991) {
+      setLoading(true);
+    }
     setPrice(min, max);
 
     // stop loader after filter completes
@@ -672,45 +674,175 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
 
         <div className="dweihruiwehrjnwer d-none">
           <div className="idjweihewr">
-            <Tab.Container id="left-tabs-example" defaultActiveKey="resfilter-categories">
+            <Tab.Container id="left-tabs-example" defaultActiveKey="resfilter-price-range">
+              <div className="hgbdfbgbeedcfbrr d-flex align-items-center justify-content-between p-3">
+                <h4 className="mb-0">Refine</h4>
+
+                <i class="fa-solid fa-xmark" onClick={() => setResFltrMenu(false)}></i>
+              </div>
+
               <Row className="h-100">
                 <Col xs={4}>
                   <Nav variant="pills" className="dfgefsertttt sticky-top flex-column h-100">
                     <Nav.Item>
+                      <Nav.Link eventKey="resfilter-price-range">
+                        <div className="disenihrenjr">
+                          <p className="mb-0">Price</p>
+                        </div>                        
+                      </Nav.Link>
+                    </Nav.Item>
+                    
+                    <Nav.Item>
                       <Nav.Link eventKey="resfilter-categories">
                         <div className="disenihrenjr">
-                          <p className="mb-0">Categories</p>
+                          <p className="mb-0">
+                            {/* {category === "all-products"
+                              ? "Main Categories"
+                              : category && subcategory
+                              ? `${category.replace(/-/g, " ")} - ${subcategory.replace(/-/g, " ")}`
+                              : category} */}
+
+                            {
+                              category === "all-products"
+                                ? "Main Categories"
+                                : subcategory
+                                  ? "Sub Categories"
+                                  : category
+                                    ? "Main Categories"
+                                    : ""
+                            }
+                          </p>
                         </div>
                       </Nav.Link>
                     </Nav.Item>
 
-                    {allFilterMappingdata?.map((FilterMappingdata) => (
-                      <Nav.Item key={FilterMappingdata.id}>
-                        <Nav.Link eventKey={`resfilter-${FilterMappingdata.filter_option}`}>
-                          <div className="disenihrenjr">
-                            <p className="mb-0">{toTitleCase(FilterMappingdata.filter_option)}</p>
-                          </div>
-                        </Nav.Link>
-                      </Nav.Item>
-                    ))}
+                    {allFilterMappingdata?.filter(item => item.filter_option !== 'filter_category_name').map((FilterMappingdata) => {
+                      
+                      return (
+                        <Nav.Item key={FilterMappingdata.id}>
+                          <Nav.Link eventKey={`resfilter-${FilterMappingdata.filter_option}`}>
+                            <div className="disenihrenjr">
+                              <p className="mb-0">
+                                {
+                                  FilterMappingdata?.filter_option === 'filter_category_name'
+                                    ? 'Categories (F)'
+                                    : FilterMappingdata?.filter_option === 'celebrity'
+                                      ? 'Styles'
+                                      : toTitleCase(FilterMappingdata?.filter_option || '')
+                                }
+                              </p>
+                            </div>
+                          </Nav.Link>
+                        </Nav.Item>
+                      );   
+                    })}
                   </Nav>
                 </Col>
 
                 <Col xs={8}>
                   <Tab.Content className="pt-4">
+                    <Tab.Pane className="h-100" eventKey="resfilter-price-range">
+                      <div className="dohwekrjiwejr">
+                        <div className="wrapper">
+                          <div className="price-input justify-content-between">
+                            <div className="field">
+                              <span>{currencySymbol}</span>
+
+                              <div className="dioeuhiewrwer">
+                                <span>Minimum</span>
+
+                                <input
+                                  type="number"
+                                  value={minDisplay}
+                                  onChange={handleMinInput}
+                                  onBlur={handleMinBlur}
+                                  onKeyDown={handleMinEnter}
+                                />
+                              </div>
+                            </div>
+
+                            <div className="field">
+                              <span>{currencySymbol}</span>
+
+                              <div className="dioeuhiewrwer">
+                                <span>Maximum</span>
+
+                                {/* <input
+                        type="number"
+                        value={maxPrice}
+                        min={minPrice + priceGap}
+                        max={maxRange}
+                        onChange={handleMaxInput}
+                        onBlur={handleMaxBlur}
+                        onKeyDown={handleMaxEnter}
+                      /> */}
+                                <input
+                                  type="number"
+                                  value={maxDisplay}
+                                  min={minPrice + priceGap}
+                                  max={maxRange}
+                                  onChange={handleMaxInput}
+                                  onBlur={handleMaxBlur}
+                                  onKeyDown={handleMaxEnter}
+                                  onWheel={(e) => e.target.blur()} />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="slider">
+                            <div className="progress" style={{ left: `${(minPrice / maxRange) * 100}%`, right: `${100 - (maxPrice / maxRange) * 100}%` }}></div>
+                          </div>
+
+                          <div className="range-input">
+                            <input
+                              type="range"
+                              min={0}
+                              max={maxRange}
+                              value={minPrice}
+                              onChange={handleMinRange}
+                              onMouseUp={() => applyPriceFilter(minPrice, maxPrice)}
+                              onTouchEnd={() => applyPriceFilter(minPrice, maxPrice)}
+                            />
+                            <input
+                              type="range"
+                              min={0}
+                              max={maxRange}
+                              value={maxPrice}
+                              onChange={handleMaxRange}
+                              onMouseUp={() => applyPriceFilter(minPrice, maxPrice)}
+                              onTouchEnd={() => applyPriceFilter(minPrice, maxPrice)}
+                            />
+                          </div>
+
+                          <div className="diwenjriwejrjhwer d-flex align-items-center justify-content-between mt-3">
+                            <span>{currencySymbol}{minDisplay}</span>
+
+                            <span>{currencySymbol}{maxDisplay}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </Tab.Pane>
+                    
                     <Tab.Pane className="h-100" eventKey="resfilter-categories">
                       <div className="deowjnkrwere bdfgsdfseewewrr">
                         {filterCategories.map(filterCategory => {
-                          const currentPath = window.location.pathname.toLowerCase().replace("/", ""); // e.g., "kids-wear"
+                          const currentPath = window.location.pathname.toLowerCase().replace("/", "");
                           const mainCategorySlug = (filterCategory.mainCategory_slug || "").toLowerCase();
-                          const isAllProducts = currentPath.includes("all-products");
-                          const showMainCategory = isAllProducts || mainCategorySlug === currentPath;
+                          const urlParts = currentPath.split("/");
+                          const urlMain = urlParts[0];
+                          const urlSub = urlParts[1] || null;
 
+                          const isAllProducts = currentPath.includes("all-products");
+
+                          const showMainCategory = isAllProducts || mainCategorySlug === urlMain;
                           if (!showMainCategory) return null;
 
+                          const isSubCategoryURL = !!urlSub;
+
+                          // Auto-expand correct category
                           const expandedCategoryId = isAllProducts
                             ? sbctgry
-                            : filterCategories.find(fc => fc.mainCategory_slug.toLowerCase() === currentPath)?.id;
+                            : filterCategories.find(fc => fc.mainCategory_slug.toLowerCase() === urlMain)?.id;
 
                           return (
                             <div key={filterCategory.id} className="doewjkrnhweiurwer mb-2">
@@ -720,17 +852,19 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                     <div className="radio-wrapper-5">
                                       <div className="oijdmeiojewrer d-flex justify-content-between w-100 align-items-center">
 
-                                        {/* Hide main category input/label/plus-minus if URL matches */}
-                                        {mainCategorySlug !== currentPath && (
+                                        {/* HIDE MAIN CATEGORY LABEL & PLUS/MINUS WHEN URL HAS SUBCATEGORY */}
+                                        {!isSubCategoryURL && mainCategorySlug !== currentPath && (
                                           <>
                                             <div className="doiwejirwer d-flex align-items-center">
                                               <div className="cdwehjirnweijrowejrowejr">
                                                 <div className="checkbox-wrapper-33">
-                                                  <label htmlFor={`maincat-${filterCategory.id}`} className="checkbox">
+                                                  <label htmlFor={`mnctgry-${filterCategory.id}`} className="checkbox">
                                                     <input
-                                                      id={`maincat-${filterCategory.id}`}
-                                                      onChange={() => setMainCategory(mainCategorySlug)} // use slug
-                                                      value={mainCategorySlug}
+                                                      id={`mnctgry-${filterCategory.id}`}
+                                                      onChange={() => setMainCategory(filterCategory.mainCategory_name.toLowerCase())}
+                                                      // checked={mainCategory.includes(filterCategory.mainCategory_name.toLowerCase())}
+                                                      checked={mainCategory === filterCategory.mainCategory_name.toLowerCase()}
+                                                      value={filterCategory.mainCategory_name.toLowerCase()}
                                                       className="checkbox__trigger visuallyhidden"
                                                       type="checkbox"
                                                     />
@@ -756,86 +890,126 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                                       </div>
                                     </div>
 
-                                    {/* Subcategories */}
+                                    {/* SUBCATEGORY LIST */}
                                     {(sbctgry === filterCategory.id || expandedCategoryId === filterCategory.id) && (
                                       <div className="sub-catgry-filter indiewjrwerewr">
-                                        {filterCategory.sub_categories.map(sub_category => (
-                                          <div className="doewjroijwerwer mb-3" key={sub_category.id}>
-                                            <div className="radio-wrapper-5 ps-3 justify-content-between align-items-center">
-                                              <div className="doiwejirwer d-flex align-items-center">
-                                                <div className="cdwehjirnweijrowejrowejr">
-                                                  <div className="checkbox-wrapper-33">
-                                                    <label htmlFor={`subcat-${filterCategory.id}-${sub_category.id}`} className="checkbox">
-                                                      <input
-                                                        id={`subcat-${filterCategory.id}-${sub_category.id}`}
-                                                        onChange={() =>
-                                                          setSubCategory(mainCategorySlug, sub_category.subCategories_name.toLowerCase())
-                                                        }
-                                                        value={sub_category.subCategories_name.toLowerCase()}
-                                                        className="checkbox__trigger visuallyhidden"
-                                                        type="checkbox"
-                                                      />
-                                                      <span className="checkbox__symbol">
-                                                        <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28">
-                                                          <path d="M4 14l8 7L24 7"></path>
-                                                        </svg>
-                                                      </span>
-                                                      <p className="checkbox__textwrapper">
-                                                        {sub_category.subCategories_name.replace(/\s*\(Boys\)|\s*\(Girls\)/gi, "")}
-                                                      </p>
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                              </div>
+                                        {filterCategory.sub_categories
+                                          .filter(sub => !isSubCategoryURL || sub?.subCategories_slug?.toLowerCase() === urlSub)
+                                          .map((sub_category, index) => {
+                                            const mainSlug = filterCategory.mainCategory_name
+                                                  .toLowerCase()
+                                                  .replace(/\s+/g, "-");
 
-                                              {sub_category.filter_categories.length > 0 && (
-                                                <div className="oijdmeiojewrer">
-                                                  <i
-                                                    onClick={() => handleInSbctgry(sub_category.id)}
-                                                    className={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}
-                                                  ></i>
-                                                </div>
-                                              )}
-                                            </div>
+                                            const subSlug = sub_category.subCategories_name
+                                              .toLowerCase()
+                                              .replace(/\s+/g, "-");
 
-                                            {/* Inner filters */}
-                                            {insdSbctgry === sub_category.id && (
-                                              <div className="inside-sub-catgry-filter ps-3">
-                                                {sub_category.filter_categories.map(filter_category => (
-                                                  <div key={filter_category.id} className="radio-wrapper-5 ps-3 mb-3 justify-content-between align-items-center">
+                                            // const exactPath = `${mainSlug}/${subSlug}`;
+                                            const exactPath = `${subSlug}`;
+
+                                            // const isChecked = subCategory?.includes(exactPath);
+                                            const isChecked = subCategory === exactPath;
+
+                                            return (
+                                              <div className="doewjroijwerwer mb-3" key={sub_category?.id || index}>
+                                                <div className={`radio-wrapper-5 ${!isSubCategoryURL && mainCategorySlug !== currentPath ? "ps-3" : ""} justify-content-between align-items-center ${(sub_category?.subCategories_slug === urlSub) ? "d-none" : ""}`}>
+
+                                                  {/* ✅ SUBCATEGORY CHECKBOX */}
+                                                  {sub_category?.subCategories_name && !isSubCategoryURL && (
                                                     <div className="doiwejirwer d-flex align-items-center">
                                                       <div className="cdwehjirnweijrowejrowejr">
                                                         <div className="checkbox-wrapper-33">
-                                                          <label htmlFor={`insubcat-${filterCategory.id}-${sub_category.id}-${filter_category.id}`} className="checkbox">
+                                                          <label htmlFor={`sbctgry-${sub_category.id}`} className="checkbox">
                                                             <input
-                                                              id={`insubcat-${filterCategory.id}-${sub_category.id}-${filter_category.id}`}
-                                                              onChange={() =>
-                                                                setFilterCategory(
-                                                                  mainCategorySlug,
-                                                                  sub_category.subCategories_name.toLowerCase(),
-                                                                  filter_category.filterCategories_name.toLowerCase()
-                                                                )
-                                                              }
-                                                              value={filter_category.filterCategories_name.toLowerCase()}
+                                                              id={`sbctgry-${sub_category.id}`}
+                                                              onChange={() => setSubCategory(mainSlug, subSlug)}
+                                                              checked={isChecked}
+                                                              value={subSlug}
                                                               className="checkbox__trigger visuallyhidden"
                                                               type="checkbox"
                                                             />
                                                             <span className="checkbox__symbol">
-                                                              <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28">
+                                                              <svg aria-hidden="true" className="icon-checkbox" width="28" height="28" viewBox="0 0 28 28">
                                                                 <path d="M4 14l8 7L24 7"></path>
                                                               </svg>
                                                             </span>
-                                                            <p className="checkbox__textwrapper">{filter_category.filterCategories_name}</p>
+                                                            <p className="checkbox__textwrapper">
+                                                              {sub_category.subCategories_name.replace(/\s*\(Boys\)|\s*\(Girls\)/gi, "")}
+                                                            </p>
                                                           </label>
                                                         </div>
                                                       </div>
                                                     </div>
+                                                  )}
+
+                                                  {/* ✅ PLUS/MINUS TOGGLE - ALWAYS SHOWS */}
+                                                  {!isSubCategoryURL && sub_category?.filter_categories?.length > 0 && (
+                                                    <div className="oijdmeiojewrer">
+                                                      <i
+                                                        onClick={() => handleInSbctgry(sub_category.id)}
+                                                        className={`fa-solid ${(insdSbctgry === sub_category.id) ? "fa-minus" : "fa-plus"}`}
+                                                      />
+                                                    </div>
+                                                  )}
+                                                </div>
+
+                                                {/* ✅ FILTER CATEGORIES - FIXED CONDITION */}
+                                                {(insdSbctgry === sub_category.id || sub_category?.subCategories_slug === urlSub) && (
+                                                  <div className={`inside-sub-catgry-filter ${!isSubCategoryURL && sub_category?.filter_categories?.length > 0 ? "ps-3" : ""}`}>
+                                                    {sub_category.filter_categories.map(filter_category => {
+                                                      // eslint-disable-next-line
+                                                      const mainSlug = filterCategory.mainCategory_name
+                                                          .toLowerCase()
+                                                          .replace(/\s+/g, "-");
+                                                      // eslint-disable-next-line
+                                                        const subSlug = sub_category.subCategories_name
+                                                          .toLowerCase()
+                                                          .replace(/\s+/g, "-");
+
+                                                        const filterSlug = filter_category.filterCategories_name
+                                                          .toLowerCase()
+                                                          .replace(/\s+/g, "-");
+
+                                                        // const filterPath = `${mainSlug}/${subSlug}/${filterSlug}`;
+                                                        const filterPath = `${filterSlug}`;
+
+                                                      return (
+                                                        <div key={filter_category.id} className={`radio-wrapper-5 ${!isSubCategoryURL && sub_category.filter_categories.length > 0 ? "ps-3" : ""} mb-3 justify-content-between align-items-center`}>
+                                                          <div className="doiwejirwer d-flex align-items-center">
+                                                            <div className="cdwehjirnweijrowejrowejr">
+                                                              <div className="checkbox-wrapper-33">
+                                                                <label htmlFor={`insd-sb-ctgry-${filter_category.id}`} className="checkbox">
+                                                                  <input
+                                                                    onChange={() => setFilterCategory(
+                                                                      filterCategory.mainCategory_name.toLowerCase(),
+                                                                      sub_category.subCategories_name.toLowerCase(),
+                                                                      filter_category.filterCategories_name.toLowerCase()
+                                                                    )}
+                                                                    // checked={filterCategoryCntxt?.includes(filterPath)}
+                                                                    checked={filterCategoryCntxt === filterPath}
+                                                                    value={filter_category.filterCategories_name.toLowerCase()}
+                                                                    id={`insd-sb-ctgry-${filter_category.id}`}
+                                                                    className="checkbox__trigger visuallyhidden"
+                                                                    type="checkbox"
+                                                                  />
+                                                                  <span className="checkbox__symbol">
+                                                                    <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28">
+                                                                      <path d="M4 14l8 7L24 7"></path>
+                                                                    </svg>
+                                                                  </span>
+                                                                  <p className="checkbox__textwrapper">{filter_category.filterCategories_name}</p>
+                                                                </label>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      );
+                                                    })}
                                                   </div>
-                                                ))}
+                                                )}
                                               </div>
-                                            )}
-                                          </div>
-                                        ))}
+                                            );
+                                          })}
                                       </div>
                                     )}
                                   </div>
@@ -856,25 +1030,26 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                               const colorCode = colorObj.color_code;
 
                               return (
-                                <div className="doewjkrnhweiurwer clor-fltr-optn">
-                                  <div key={index} className="cdwehjirnweijrowejrowejr">
+                                <div className="doewjkrnhweiurwer clor-fltr-optn" key={index}>
+                                  <div className="cdwehjirnweijrowejrowejr">
                                     <div className="checkbox-wrapper-33">
                                       <label htmlFor={colorValue} className={`checkbox ${(selectedTheme === colorCode) ? "clr-label" : ""} mb-2 px-2 py-1`}>
-                                        <input onChange={() => { setSelectedTheme(colorCode); handleSelect("color", colorValue) }}
+                                        <input
+                                          onChange={() => { setSelectedTheme(colorCode); handleSelect("color", colorValue.toLowerCase()) }}
                                           data-color={colorValue}
                                           id={colorValue}
+                                          // checked={color?.includes(colorValue.toLowerCase()) || false}
+                                          checked={color === colorValue.toLowerCase()}
                                           name={FilterMappingdata.filter_option}
                                           className="checkbox__trigger visuallyhidden"
-                                          type="checkbox" />
-
+                                          type="checkbox"
+                                        />
                                         <span className="checkbox__symbol">
                                           <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 14l8 7L24 7"></path>
                                           </svg>
                                         </span>
-
                                         <div className="dijwehirwer rounded-pill me-2" style={{ background: colorCode, border: "1px solid #b0bec5" }}></div>
-
                                         <p className="checkbox__textwrapper">{colorValue}</p>
                                       </label>
                                     </div>
@@ -883,37 +1058,88 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
                               );
                             })
                           ) : (
-                            FilterMappingdata.filter_values.split(",").map((item, indexdsvd) => {
-                              // eslint-disable-next-line
-                              const safeId = `${FilterMappingdata.filter_option}-${item
-                                .trim()
-                                .replace(/\s+/g, "-")
-                                .toLowerCase()}-${indexdsvd}`;
 
-                              return (
-                                <div key={`${dvbfbxdfbg}-${indexdsvd}`} className="radio-wrapper-5 px-2 mb-3">
-                                  <div className="cdwehjirnweijrowejrowejr">
-                                    <div className="checkbox-wrapper-33">
-                                      <label htmlFor={`${dvbfbxdfbg}-${indexdsvd}`} className="checkbox">
-                                        <input
-                                          id={`${dvbfbxdfbg}-${indexdsvd}`}
-                                          name={FilterMappingdata.filter_option}
-                                          onChange={() => handleSelect(FilterMappingdata.filter_option, item.trim())}
-                                          className="checkbox__trigger visuallyhidden" type="checkbox" />
+                            FilterMappingdata.filter_values
+                              .split(",")
+                              .map((item, indexdsvd) => {
+                                // const trimmedValue = (item || "").trim().toLowerCase();
+                                if (typeof item !== "string") return null;
 
-                                        <span className="checkbox__symbol">
-                                          <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4 14l8 7L24 7"></path>
-                                          </svg>
-                                        </span>
+                                const trimmedValue = item.trim().toLowerCase();
+                                const safeId = `${FilterMappingdata.filter_option}-${trimmedValue}-${indexdsvd}`;
 
-                                        <p className="checkbox__textwrapper">{item.trim()}</p>
-                                      </label>
+                                let isChecked = false;
+
+                                // Make filter_option lowercase for safety
+                                const filterKey = FilterMappingdata.filter_option.toLowerCase();
+
+                                if (filterKey === "material") {
+                                  // isChecked = material.includes(trimmedValue);
+                                  isChecked = material === trimmedValue.trim()
+                                    .toLowerCase()
+                                    .replace(/ /g, "-");
+                                } else if (filterKey === "designers") {
+                                  // isChecked = designer.includes(trimmedValue);
+                                  isChecked = designer === trimmedValue;
+                                } else if (filterKey === "plus_sizes") {
+                                  isChecked = plusSize === trimmedValue;
+                                  // isChecked = Array.isArray(plusSize) && plusSize.includes(trimmedValue);
+                                } else if (filterKey === "occasion") {
+                                  // isChecked = occasion.includes(trimmedValue);
+                                  isChecked = occasion === trimmedValue.trim()
+                                    .toLowerCase()
+                                    .replace(/ /g, "-");
+                                } else if (filterKey === "size" || filterKey === "sizes") {
+                                  // isChecked = size.includes(trimmedValue);
+                                  isChecked = size === trimmedValue;
+                                } else if (filterKey === "celebrity") {
+                                  // isChecked = celebrity.includes(trimmedValue);
+                                  isChecked = celebrity === trimmedValue.trim()
+                                    .toLowerCase()
+                                    .replace(/ /g, "-");
+                                } else if (filterKey === "discount") {
+                                  // isChecked = discount.includes(trimmedValue);
+                                  // isChecked = discount === trimmedValue;
+
+                                  const cleanValue = item
+                                    .replace(/%/g, "")
+                                    .replace(/\s+/g, "");
+
+                                  isChecked = discount === cleanValue;
+
+                                } else if (filterKey === "shipping_time") {
+                                  // isChecked = shippingTime.includes(trimmedValue);
+                                  isChecked = shippingTime === trimmedValue.trim()
+                                    .toLowerCase()
+                                    .replace(/ /g, "-");
+                                }
+
+                                return (
+                                  <div key={`${FilterMappingdata.id}-${indexdsvd}`} className="radio-wrapper-5 px-2 mb-2">
+                                    <div className="cdwehjirnweijrowejrowejr">
+                                      <div className="checkbox-wrapper-33">
+                                        <label htmlFor={safeId} className="checkbox">
+                                          <input
+                                            id={safeId}
+                                            name={FilterMappingdata.filter_option}
+                                            value={trimmedValue}
+                                            type="checkbox"
+                                            className="checkbox__trigger visuallyhidden"
+                                            checked={isChecked}
+                                            onChange={() => handleSelect(FilterMappingdata.filter_option, trimmedValue)}
+                                          />
+                                          <span className="checkbox__symbol">
+                                            <svg aria-hidden="true" className="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28">
+                                              <path d="M4 14l8 7L24 7"></path>
+                                            </svg>
+                                          </span>
+                                          <p className="checkbox__textwrapper">{item.trim()}</p>
+                                        </label>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )
-                            })
+                                );
+                              })
                           )}
                         </div>
                       </Tab.Pane>
@@ -924,8 +1150,10 @@ export default function FilterSection({ setResFltrMenu, allFilterMappingdata, fi
             </Tab.Container>
           </div>
 
-          <div className="doihweuijewrr">
-            <button onClick={handleResponsiveClearFilter} className="btn btn-main w-100 rounded-0">CLEAR ALL</button>
+          <div className="doihweuijewrr bg-white d-flex align-items-center">
+            <button onClick={handleResponsiveClearFilter} className="btn me-1 btn-main w-100 py-4 rounded-0">CLEAR ALL</button>
+
+            <button onClick={() => setResFltrMenu(false)} className="btn ms-1 btn-main w-100 py-4 rounded-0">APPLY</button>
           </div>
         </div>
       </div>

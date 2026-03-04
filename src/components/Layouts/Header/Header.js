@@ -1,5 +1,5 @@
   // eslint-disable-next-line
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { SwiperSlide } from 'swiper/react';
 import { useAuth } from "../../../context/AuthContext";
@@ -410,7 +410,81 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
     setUserDropdown(false);
   }, [pathName]);
 
+  const openPhoneEmailOtp = () => {
 
+    const containerId = emailToggle ? "emailLogin" : "phoneLogin";
+    const container = document.getElementById(containerId);
+
+    if (!container) {
+      console.log("Phone.Email container not found");
+      return;
+    }
+
+    const btn = container.querySelector("button");
+
+    if (!btn) {
+      console.log("Phone.Email button not ready");
+      return;
+    }
+
+    btn.click();
+  };
+
+
+  useEffect(() => {
+    if (!window.phoneEmailLoaded) {
+      const script = document.createElement("script");
+      script.src = "https://www.phone.email/sign_in_button_v1.js";
+      script.async = true;
+      script.onload = () => {
+        window.phoneEmailLoaded = true;
+      };
+      document.body.appendChild(script);
+
+      const emailScript = document.createElement("script");
+      emailScript.src = "https://www.phone.email/verify_email_v1.js";
+      emailScript.async = true;
+      document.body.appendChild(emailScript);
+    }
+  }, []);
+
+ 
+
+ const handleVerificationSuccess = useCallback(async (user_json_url) => {
+    try {
+      const res = await http.post(
+        "/user/phone-email-login",
+        { user_json_url }
+      );
+
+      if (res.data.action === "login") {
+        localStorage.setItem("token", res.data.token);
+        setOtpModal(false);
+        handleLoginClose();
+        window.location.reload();
+      }
+
+      if (res.data.action === "register") {
+        setOtpModal(false);
+        setVerifiedContact(res.data.data);
+        setCompleteLoginModal(true);
+      }
+
+    } catch (err) {
+      console.error(err);
+    }
+  }, [setOtpModal, setCompleteLoginModal, handleLoginClose]);
+
+  useEffect(() => {
+    window.phoneEmailListener = function (userObj) {
+      handleVerificationSuccess(userObj.user_json_url);
+    };
+
+    window.phoneEmailReceiver = function (userObj) {
+      handleVerificationSuccess(userObj.user_json_url);
+    };
+
+  }, [handleVerificationSuccess]);
 
   //login modal
 
@@ -579,8 +653,7 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
                           </Form.Select> */}
 
                           <div className="custom-currency-dropdown sfwedweweeqweqwe position-relative">
-                            <button
-                                className="currency-toggle-btn d-flex align-items-center"
+                            <button className="currency-toggle-btn d-flex align-items-center"
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   setShowCurrencyDropdown(!showCurrencyDropdown);
@@ -1256,7 +1329,8 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
             </div>
 
             <div className="diehhweirwer mt-3">
-              <button onClick={sendOtp} className="btn btn-main w-100">Get OTP</button>
+              <button onClick={openPhoneEmailOtp} className="btn btn-main w-100">Get OTP</button>
+              {/* <button onClick={sendOtp} className="btn btn-main w-100">Get OTP</button> */}
 
               <p className="my-2 text-center">or</p>
 
@@ -1267,6 +1341,24 @@ export const Header = ({ shouldHideHeader, shouldHideFullHeaderFooterRoutes, sho
 
             <div className="coiasehrewr text-center">Use <span onClick={() => setEmailToggle(!emailToggle)}>{emailToggle ? "Mobile Number" : "Email id"}</span></div>
           </div>
+        </div>
+      </div>
+
+      <div style={{ display: "none" }}>
+        <div
+          id="phoneLogin"
+          className="pe_signin_button"
+          data-client-id="18949345773941787569"
+        >
+          <script src="https://www.phone.email/sign_in_button_v1.js" async></script>
+        </div>
+
+        <div
+          id="emailLogin"
+          className="pe_verify_email"
+          data-client-id="18949345773941787569"
+        >
+          <script src="https://www.phone.email/verify_email_v1.js" async></script>
         </div>
       </div>
 
